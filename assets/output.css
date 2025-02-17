@@ -529,11 +529,6 @@
     box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
   }
 }
-@layer base {
-  ::-webkit-scrollbar {
-    display: none;
-  }
-}
 @keyframes spin {
   to {
     transform: rotate(360deg);
