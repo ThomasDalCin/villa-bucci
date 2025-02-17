@@ -584,7 +584,7 @@
     font-weight: var(--main-title-font-weight);
     --tw-tracking: var(--main-title-line-height);
     letter-spacing: var(--main-title-line-height);
-    color: var(--main-title-color);
+    color: var(--green-color);
     text-transform: uppercase;
   }
   .main-title .orange {
@@ -594,7 +594,7 @@
     font-weight: var(--main-title-font-weight);
     --tw-tracking: var(--main-title-line-height);
     letter-spacing: var(--main-title-line-height);
-    color: var(--main-title-color);
+    color: var(--orange-color);
     text-transform: uppercase;
   }
   .main-title .gold {
@@ -604,7 +604,17 @@
     font-weight: var(--main-title-font-weight);
     --tw-tracking: var(--main-title-line-height);
     letter-spacing: var(--main-title-line-height);
-    color: var(--main-title-color);
+    color: var(--peach-color);
+    text-transform: uppercase;
+  }
+  .main-title .gold {
+    --tw-leading: var(--main-title-letter-spacing);
+    line-height: var(--main-title-letter-spacing);
+    --tw-font-weight: var(--main-title-font-weight);
+    font-weight: var(--main-title-font-weight);
+    --tw-tracking: var(--main-title-line-height);
+    letter-spacing: var(--main-title-line-height);
+    color: var(--peach-color);
     text-transform: uppercase;
   }
   .main-title .light-blue {

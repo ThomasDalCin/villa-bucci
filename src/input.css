@@ -59,21 +59,25 @@
     @apply leading-(--main-title-letter-spacing) font-(--main-title-font-weight) tracking-(--main-title-line-height) uppercase text-(--main-title-color)
   }
 
-  /*main title orange*/
+  /*main title default*/
   .main-title .default {
-    @apply leading-(--main-title-letter-spacing) font-(--main-title-font-weight) tracking-(--main-title-line-height) uppercase text-(--main-title-color)
+    @apply leading-(--main-title-letter-spacing) font-(--main-title-font-weight) tracking-(--main-title-line-height) uppercase text-(--green-color)
   }
-
   /*main title orange*/
   .main-title .orange {
-    @apply leading-(--main-title-letter-spacing) font-(--main-title-font-weight) tracking-(--main-title-line-height) uppercase text-(--main-title-color)
+    @apply leading-(--main-title-letter-spacing) font-(--main-title-font-weight) tracking-(--main-title-line-height) uppercase text-(--orange-color)
   }
-  /*main title gold*/
+  /*main title peach*/
   .main-title .gold {
-    @apply leading-(--main-title-letter-spacing) font-(--main-title-font-weight) tracking-(--main-title-line-height) uppercase text-(--main-title-color)
+    @apply leading-(--main-title-letter-spacing) font-(--main-title-font-weight) tracking-(--main-title-line-height) uppercase text-(--peach-color)
   }
 
-  /*main title gold*/
+   /*main title golf*/
+   .main-title .gold {
+    @apply leading-(--main-title-letter-spacing) font-(--main-title-font-weight) tracking-(--main-title-line-height) uppercase text-(--peach-color)
+  }
+
+  /*main title light-blue*/
   .main-title .light-blue {
     @apply leading-(--main-title-letter-spacing) font-(--main-title-font-weight) tracking-(--main-title-line-height) uppercase text-(--main-title-color)
   }
