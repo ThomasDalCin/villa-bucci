@@ -634,6 +634,10 @@
     --tw-duration: 500ms;
     transition-duration: 500ms;
   }
+  .ease-\[cubic-bezier\(\.06\,\.86\,\.78\,\.22\)\] {
+    --tw-ease: cubic-bezier(.06,.86,.78,.22);
+    transition-timing-function: cubic-bezier(.06,.86,.78,.22);
+  }
   .ease-out {
     --tw-ease: var(--ease-out);
     transition-timing-function: var(--ease-out);
