@@ -105,7 +105,7 @@
   }
 
   .cta-orange {
-    @apply w-auto min-w-[191px] h-auto min-h-[48px] border border-transparent rounded-[18px] bg-(--orange-color) shadow-(--main-cta-shadow) backdrop-blur-xs flex flex-row items-center justify-between px-6 py-3;
+    @apply w-auto min-w-[191px] h-auto min-h-[48px] border border-transparent rounded-[18px] bg-(--orange-color) shadow-(--main-cta-shadow) backdrop-blur-xs flex flex-row items-center justify-between px-6 py-3 cursor-pointer;
   }
 
   .product-card-layout {
