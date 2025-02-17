@@ -9,7 +9,7 @@
     </div>
 
     <!--home step text layout -->
-    <div class="content w-full h-svh bg-(--bg-color) p-5 relative z-10">
+    <div class="content w-full h-auto bg-(--bg-color) p-5 relative z-10">
         <div class="w-full h-full flex flex-col items-center justify-center gap-y-10 relative">
             <div class="w-auto h-auto flex items-center justify-center text-center">
                 <h1 class="main-title-mobile lg:text-[96px] lg:max-w-[1034px]">
@@ -33,23 +33,24 @@
     </div>
 </div>
 
-
-
-<!--javascript code-->
 <script>
-document.addEventListener('DOMContentLoaded', () => {
+    document.addEventListener('DOMContentLoaded', () => {
     const loadingWrapper = document.querySelector('.loading-wrapper');
     const video = document.querySelector('.video');
 
-    document.body.classList.add('no-scroll'); 
+    document.body.classList.add('no-scroll'); // Disabilita lo scroll
 
+    // Quando il video finisce
     video.addEventListener('ended', () => {
         setTimeout(() => {
+            // Sposta il video verso l'alto (scomparendo)
             loadingWrapper.classList.add('-translate-y-full');
+            
+            // Quando la transizione è finita, abilita lo scroll
             loadingWrapper.addEventListener('transitionend', () => {
-                document.body.classList.remove('no-scroll'); 
+                document.body.classList.remove('no-scroll');
             });
-        }, 500);
+        }, 500); // Ritardo prima di far partire la transizione
     });
 });
 
