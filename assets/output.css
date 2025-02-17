@@ -374,15 +374,15 @@
     --default-mono-font-variation-settings: var(
       --font-mono--font-variation-settings
     );
-    --bg-color: #DACABB;
-    --green-color: #5C634F;
-    --orange-color: #E86A58;
-    --blue-color: #262A39;
-    --gold-color: #C8A758;
-    --peach-color: #D39278;
+    --bg-color: #dacabb;
+    --green-color: #5c634f;
+    --orange-color: #e86a58;
+    --blue-color: #262a39;
+    --gold-color: #c8a758;
+    --peach-color: #d39278;
     --white-color: #fff;
-    --black-color: #262A39;
-    --light-blue: #76B2BA;
+    --black-color: #262a39;
+    --light-blue: #76b2ba;
     --font-size-title: 96px;
     --font-size-cta: 12px;
     --font-size-subtitle: 16px;
@@ -400,7 +400,7 @@
     --main-title-line-height: 105%;
     --main-title-letter-spacing: 2.88px;
     --main-title-text-transform: uppercase;
-    --main-title-mobile-color: #5C634F;
+    --main-title-mobile-color: #5c634f;
     --main-title-mobile-font-size: 40px;
     --main-title-mobile-font-family: "FONTSPRING DEMO - The Seasons";
     --main-title-mobile-font-style: normal;

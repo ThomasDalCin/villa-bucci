@@ -2,32 +2,28 @@
 
 @theme {
   /* COLORS */
-  --bg-color: #DACABB;
-  --green-color: #5C634F;
-  --orange-color: #E86A58;
-  --blue-color: #262A39;
-  --gold-color: #C8A758;
-  --peach-color: #D39278;
+  --bg-color: #dacabb;
+  --green-color: #5c634f;
+  --orange-color: #e86a58;
+  --blue-color: #262a39;
+  --gold-color: #c8a758;
+  --peach-color: #d39278;
   --white-color: #fff;
-  --black-color: #262A39;
-  --light-blue: #76B2BA;
+  --black-color: #262a39;
+  --light-blue: #76b2ba;
 
-/* Font size  */
---font-size-title:96px;
---font-size-cta:12px;
---font-size-subtitle:16px;
---font-size-title-newsletter:24px;
---font-size-subtitle:16px;
---font-size-consent:10px;
---font-size-menu-footer:24px;
---font-size-scroll-up:12px;
---font-size-footer-cookies:12px;
---font-size-paragraph:20px;
---font-size-cantine:256px;
-
-
-
-
+  /* Font size  */
+  --font-size-title: 96px;
+  --font-size-cta: 12px;
+  --font-size-subtitle: 16px;
+  --font-size-title-newsletter: 24px;
+  --font-size-subtitle: 16px;
+  --font-size-consent: 10px;
+  --font-size-menu-footer: 24px;
+  --font-size-scroll-up: 12px;
+  --font-size-footer-cookies: 12px;
+  --font-size-paragraph: 20px;
+  --font-size-cantine: 256px;
 
   /* MAIN TITLE */
   --main-title-font-size: 96px;
@@ -39,7 +35,7 @@
   --main-title-text-transform: uppercase;
 
   /* MAIN TITLE - Mobile */
-  --main-title-mobile-color: #5C634F;
+  --main-title-mobile-color: #5c634f;
   --main-title-mobile-font-size: 40px;
   --main-title-mobile-font-family: "FONTSPRING DEMO - The Seasons"; /* font to import */
   --main-title-mobile-font-style: normal;
@@ -65,8 +61,6 @@
   /* Box shadow */
   --main-cta-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.15);
 }
-
-
 
 /* Component */
 @layer components {
@@ -121,7 +115,7 @@
   }
 
   /*product card layout*/
-  .product-card-layout{
-    @apply w-[540px] h-[790px] rounded-[14px] outline outline-offset-4 relative bg-[var(--)]
+  .product-card-layout {
+    @apply w-[540px] h-[790px] rounded-[14px] outline outline-offset-4 relative bg-[var(--)];
   }
 }
