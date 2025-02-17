@@ -15,7 +15,7 @@
         }
     },
     "order": [
-        "home-step",
-        "page-loading"
+        "page-loading",
+        "home-step"
     ]
 }
