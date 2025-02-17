@@ -84,6 +84,14 @@
         font-weight: normal;
         color: var(--blue-color);
     }
+
+    html {
+        scroll-behavior: smooth
+    }
+
+    ::-webkit-scrollbar{
+        display: none
+    }
 }
 
 /* Component */
