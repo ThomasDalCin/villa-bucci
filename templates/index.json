@@ -2,7 +2,7 @@
     "name": "index",
     "sections": {
         "home-step": {
-            "type": "home-step",
+            "type": "home-step-text",
             "settings": {
                 "": ""
             }
