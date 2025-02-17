@@ -551,6 +551,9 @@
   .m-9 {
     margin: calc(var(--spacing) * 9);
   }
+  .contents {
+    display: contents;
+  }
   .flex {
     display: flex;
   }
