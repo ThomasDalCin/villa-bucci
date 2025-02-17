@@ -1,14 +1,14 @@
 {
-    "name": "index",
+    "name": "product",
     "sections": {
-        "page-loading": {
-            "type": "page-loading",
+        "": {
+            "type": "",
             "settings": {
                 "": ""
             }
         }
     },
     "order": [
-        "page-loading"
+        ""
     ]
 }

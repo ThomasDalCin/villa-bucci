@@ -1,14 +1,14 @@
 {
-    "name": "index",
+    "name": "project",
     "sections": {
-        "page-loading": {
-            "type": "page-loading",
+        "": {
+            "type": "",
             "settings": {
                 "": ""
             }
         }
     },
     "order": [
-        "page-loading"
+        ""
     ]
 }
