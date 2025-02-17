@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-:root {
+@theme {
   /* COLORS */
   --bg-color: #DACABB;
   --green-color: #5C634F;
@@ -48,6 +48,8 @@
   /* Box shadow */
   --main-cta-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.15);
 }
+
+
 
 /* Component */
 @layer components {
