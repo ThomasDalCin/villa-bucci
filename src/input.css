@@ -1,18 +1,21 @@
 @import "tailwindcss";
 
-@theme {
+:root {
+
   /* COLORS */
   --bg-color: #dacabb;
   --green-color: #5c634f;
   --orange-color: #e86a58;
   --blue-color: #262a39;
   --gold-color: #c8a758;
+  --gold-color-w-opacity: rgba(200, 167, 88, 0.2);
   --peach-color: #d39278;
+  --peach-color-w-opacity: rgba(211, 146, 120, 0.2);
   --white-color: #fff;
   --black-color: #262a39;
   --light-blue: #76b2ba;
 
-  /* Font size  */
+  /* FONT SIZE */
   --font-size-title: 96px;
   --font-size-cta: 12px;
   --font-size-subtitle: 16px;
@@ -51,14 +54,14 @@
   --submain-title-font-weight: 400;
   --submain-title-line-height: normal;
 
-  /* SUBMAIN TITLE - Mobile */
+  /* SUBMAIN TITLE - MOBILE */
   --submain-mobile-title-font-size: 16px;
   --submain-mobile-title-font-family: "Area Normal"; /* font to import */
   --submain-mobile-title-font-style: normal;
   --submain-mobile-title-font-weight: 400;
   --submain-mobile-title-line-height: normal;
 
-  /* Box shadow */
+  /* COSTUM BOX SHADOW */
   --main-cta-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.15);
 }
 
@@ -66,56 +69,50 @@
 @layer components {
   /* Main title */
   .main-title {
-    font-size: var(--main-title-font-size);
-    font-family: var(--main-title-font-family);
-    font-style: var(--main-title-font-style);
-    font-weight: var(--main-title-font-weight);
-    line-height: var(--main-title-line-height);
-    letter-spacing: var(--main-title-letter-spacing);
-    text-transform: var(--main-title-text-transform);
+    @apply uppercase tracking-(--main-title-letter-spacing) leading-(--main-title-line-height) font-(--main-title-font-weight) text-(--main-title-font-size);
   }
 
   /* Main title default */
   .main-title .default {
-    @apply text-[var(--green-color)];
+    @apply text-(--green-color);
   }
 
   /* Main title orange */
   .main-title .orange {
-    @apply text-[var(--orange-color)];
+    @apply text-(--orange-color);
   }
 
   /* Main title peach */
   .main-title .peach {
-    @apply text-[var(--peach-color)];
+    @apply text-(--peach-color);
   }
 
   /* Main title gold */
   .main-title .gold {
-    @apply text-[var(--gold-color)];
+    @apply text-(--gold-color);
   }
 
   /* Main title light-blue */
   .main-title .light-blue {
-    @apply text-[var(--light-blue)];
+    @apply text-(--light-blue);
   }
 
   /* Submain title */
   .submain-title {
-    font-size: var(--submain-title-font-size);
-    font-family: var(--submain-title-font-family);
-    font-weight: var(--submain-title-font-weight);
-    line-height: var(--submain-title-line-height);
-    text-transform: var(--main-title-text-transform);
+    @apply leading-(--submain-title-line-height) font-(--submain-title-font-weight) text-(--submain-title-font-size);
   }
 
   /* Main orange CTA */
   .cta-orange {
-    @apply w-auto min-w-[191px] h-auto min-h-[48px] border border-transparent rounded-[18px] bg-[var(--orange-color)] shadow-[var(--main-cta-shadow)] backdrop-blur-xs flex flex-col justify-between px-6 py-3;
+    @apply w-auto min-w-[191px] h-auto min-h-[48px] border border-transparent rounded-[18px] bg-(--orange-color) shadow-(--main-cta-shadow) backdrop-blur-xs flex flex-col justify-between px-6 py-3;
   }
 
   /*product card layout*/
   .product-card-layout {
-    @apply w-[540px] h-[790px] rounded-[14px] outline outline-offset-4 relative bg-[var(--)];
+    @apply w-[540px] h-[790px] rounded-[14px] outline outline-offset-4 relative bg-(--gold-color-w-opacity);
+  }
+
+  .product-card-layout .active{
+    @apply bg-(--gold-color)
   }
 }
