@@ -618,9 +618,6 @@
     --tw-tracking: -3%;
     letter-spacing: -3%;
   }
-  .text-\(--green-color\) {
-    color: var(--green-color);
-  }
   .uppercase {
     text-transform: uppercase;
   }
