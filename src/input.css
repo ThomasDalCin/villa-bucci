@@ -10,7 +10,7 @@
     src: url();
 }
 
-@theme {
+:root {
 
   /* COLORS */
   --bg-color: #dacabb;
