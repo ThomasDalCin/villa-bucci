@@ -1,31 +1,66 @@
 <!--page loading section with video-->
-<div class="loading-wrapper w-full h-svh fixed inset-0 z-50 transform transition-all duration-500 ease-[cubic-bezier(.06,.86,.78,.22)]">
+<div
+    class="loading-wrapper w-full h-svh fixed inset-0 z-50 transform transition-all duration-500 ease-[cubic-bezier(.06,.86,.78,.22)]">
     <!--container video-->
     <div class="w-full h-full">
         <video class="video w-full h-full object-cover object-center" autoplay muted playsinline>
             <source src="{{ 'page-loading.mp4' | asset_url }}" />
         </video>
     </div>
+
+    <!--home step text layout -->
+    <div class="w-full h-svh bg-(--bg-color) p-5">
+        <div class="w-full h-full flex flex-col items-center justify-center gap-y-10 relative">
+            <div class="w-auto h-auto flex items-center justify-center text-center">
+                <!--main title first step-->
+                <h1 class="main-title-mobile lg:text-[96px] lg:max-w-[1034px]">
+                    {{ section.settings.first_step_title | default: "Scopri il mondo di Oniwines." }}
+                </h1>
+            </div>
+            <!--container cta -->
+            <div class="w-auto h-auto flex items-center justify-center">
+                <div class="cta-orange">
+                    <!--cta text-->
+                    <p class="uppercase text-[12px] leading-[16px] tracking-[-3%]">{{ section.settings.cta_text |
+                        default: "Entra" }}</p>
+                    <!--render icon -->
+                    {% render 'play-poligon' %}
+                </div>
+            </div>
+            <!--container absolute bottom text -->
+            <div class="w-full absolute h-auto left-0 bottom-0 right-0">
+                <div class="w-auto h-auto flex items-center justify-center">
+                    <p class="uppercase underline text-[12px] leading-[16px] tracking-[-3%] font-bold">{{
+                        section.settings.custom_settings_text | default: "Entra senza audio"}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>
 
 <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const loadingWrapper = document.querySelector('.loading-wrapper');
-        const video = document.querySelector('.video');
+document.addEventListener('DOMContentLoaded', () => {
+    const loadingWrapper = document.querySelector('.loading-wrapper');
+    const video = document.querySelector('.video');
 
-        document.body.classList.add('no-scroll');
+    document.body.classList.add('no-scroll');  // Disabilita lo scroll mentre il video è visibile
 
-        video.addEventListener('ended', () => {
-            setTimeout(() => {
-                loadingWrapper.classList.add('-translate-y-full');
+    video.addEventListener('ended', () => {
+        setTimeout(() => {
+            // Aggiungi la classe per muovere il contenitore del video verso l'alto
+            loadingWrapper.classList.add('-translate-y-full');
 
-                loadingWrapper.addEventListener('transitionend', () => {
-                    document.body.classList.remove('no-scroll');
-                });
-            }, 500);
-        });
-
-        video.addEventListener('canplaythrough', () => { });
+            // Al termine della transizione, rimuovi la classe no-scroll
+            loadingWrapper.addEventListener('transitionend', () => {
+                document.body.classList.remove('no-scroll');  // Riabilita lo scroll
+            });
+        }, 500);  // Ritardo prima di avviare la transizione (puoi modificarlo per perfezionare il timing)
     });
+
+    video.addEventListener('canplaythrough', () => {
+        // Eventuale azione quando il video è pronto per essere riprodotto
+    });
+});
 
 </script>
