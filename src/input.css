@@ -11,8 +11,6 @@
   --white-color: #fff;
   --black-color: #262A39;
   --light-blue: #76B2BA;
-  /* font size */
-test 
 
   /* MAIN TITLE */
   --main-title-font-size: 96px;
@@ -105,6 +103,6 @@ test
 
   /*product card layout*/
   .product-card-layout{
-    @apply w-[540px] h-[790px] rounded-[14px] bg-[#C8A75833] outline
+    @apply w-[540px] h-[790px] rounded-[14px] outline outline-offset-4 relative bg-[var(--)]
   }
 }
