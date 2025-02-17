@@ -532,6 +532,7 @@
 h1 {
   color: green;
   display: flex;
+  display: inline;
 }
 @keyframes spin {
   to {
