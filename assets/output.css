@@ -629,8 +629,8 @@
     font-weight: var(--main-title-font-weight);
     --tw-tracking: var(--main-title-letter-spacing);
     letter-spacing: var(--main-title-letter-spacing);
-    color: --main-title-font-size;
     text-transform: uppercase;
+    font-size: var(--main-title-font-size);
   }
   .main-title .default {
     color: var(--green-color);

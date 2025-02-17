@@ -69,7 +69,8 @@
 @layer components {
   /* Main title */
   .main-title {
-    @apply uppercase tracking-(--main-title-letter-spacing) leading-(--main-title-line-height) font-(--main-title-font-weight) text-[--main-title-font-size]
+    @apply uppercase tracking-(--main-title-letter-spacing) leading-(--main-title-line-height) font-(--main-title-font-weight);
+    font-size: var(--main-title-font-size);
   }
 
   /* Main title default */
