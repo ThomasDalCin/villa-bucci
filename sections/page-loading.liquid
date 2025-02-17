@@ -1,8 +1,9 @@
 <!--page loading section with video-->
 <div
-    class="loading-wrapper w-full h-svh fixed inset-0 z-50 transform transition-all duration-500 ease-[cubic-bezier(.06,.86,.78,.22)]">
+    class="loading-wrapper w-full h-auto fixed left-0 top-0 right-0 z-50 transform transition-all duration-500 ease-[cubic-bezier(.06,.86,.78,.22)]">
+
     <!--container video-->
-    <div class="w-full h-full">
+    <div class="w-full h-svh">
         <video class="video w-full h-full object-cover object-center" autoplay muted playsinline>
             <source src="{{ 'page-loading.mp4' | asset_url }}" />
         </video>
@@ -36,31 +37,25 @@
             </div>
         </div>
     </div>
-
 </div>
 
+
+<!--javascript code-->
 <script>
-document.addEventListener('DOMContentLoaded', () => {
-    const loadingWrapper = document.querySelector('.loading-wrapper');
-    const video = document.querySelector('.video');
+    document.addEventListener('DOMContentLoaded', () => {
+        const loadingWrapper = document.querySelector('.loading-wrapper');
+        const video = document.querySelector('.video');
 
-    document.body.classList.add('no-scroll');  // Disabilita lo scroll mentre il video è visibile
+        document.body.classList.add('no-scroll');
 
-    video.addEventListener('ended', () => {
-        setTimeout(() => {
-            // Aggiungi la classe per muovere il contenitore del video verso l'alto
-            loadingWrapper.classList.add('-translate-y-full');
+        video.addEventListener('ended', () => {
+            setTimeout(() => {
+                loadingWrapper.classList.add('-translate-y-full');
 
-            // Al termine della transizione, rimuovi la classe no-scroll
-            loadingWrapper.addEventListener('transitionend', () => {
-                document.body.classList.remove('no-scroll');  // Riabilita lo scroll
-            });
-        }, 500);  // Ritardo prima di avviare la transizione (puoi modificarlo per perfezionare il timing)
+                loadingWrapper.addEventListener('transitionend', () => {
+                    document.body.classList.remove('no-scroll');
+                });
+            }, 500);
+        });
     });
-
-    video.addEventListener('canplaythrough', () => {
-        // Eventuale azione quando il video è pronto per essere riprodotto
-    });
-});
-
 </script>
