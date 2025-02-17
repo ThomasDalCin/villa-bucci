@@ -530,7 +530,7 @@
   }
 }
 :root {
-  --main-title-color: #5C634F;
+  --main-title-color: #5c634f;
   --main-title-font-size: 96px;
   --main-title-font-family: "FONTSPRING DEMO - The Seasons";
   --main-title-font-style: normal;
@@ -547,6 +547,66 @@
   --main-cta-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.15);
 }
 @layer components {
+  .main-title {
+    --tw-leading: var(--main-title-letter-spacing);
+    line-height: var(--main-title-letter-spacing);
+    --tw-font-weight: var(--main-title-font-weight);
+    font-weight: var(--main-title-font-weight);
+    --tw-tracking: var(--main-title-line-height);
+    letter-spacing: var(--main-title-line-height);
+    color: var(--main-title-color);
+    text-transform: uppercase;
+  }
+  .main-title .default {
+    --tw-leading: var(--main-title-letter-spacing);
+    line-height: var(--main-title-letter-spacing);
+    --tw-font-weight: var(--main-title-font-weight);
+    font-weight: var(--main-title-font-weight);
+    --tw-tracking: var(--main-title-line-height);
+    letter-spacing: var(--main-title-line-height);
+    color: var(--main-title-color);
+    text-transform: uppercase;
+  }
+  .main-title .orange {
+    --tw-leading: var(--main-title-letter-spacing);
+    line-height: var(--main-title-letter-spacing);
+    --tw-font-weight: var(--main-title-font-weight);
+    font-weight: var(--main-title-font-weight);
+    --tw-tracking: var(--main-title-line-height);
+    letter-spacing: var(--main-title-line-height);
+    color: var(--main-title-color);
+    text-transform: uppercase;
+  }
+  .main-title .gold {
+    --tw-leading: var(--main-title-letter-spacing);
+    line-height: var(--main-title-letter-spacing);
+    --tw-font-weight: var(--main-title-font-weight);
+    font-weight: var(--main-title-font-weight);
+    --tw-tracking: var(--main-title-line-height);
+    letter-spacing: var(--main-title-line-height);
+    color: var(--main-title-color);
+    text-transform: uppercase;
+  }
+  .main-title .light-blue {
+    --tw-leading: var(--main-title-letter-spacing);
+    line-height: var(--main-title-letter-spacing);
+    --tw-font-weight: var(--main-title-font-weight);
+    font-weight: var(--main-title-font-weight);
+    --tw-tracking: var(--main-title-line-height);
+    letter-spacing: var(--main-title-line-height);
+    color: var(--main-title-color);
+    text-transform: uppercase;
+  }
+  .submain-title {
+    --tw-leading: var(--submain-title-line-height);
+    line-height: var(--submain-title-line-height);
+    --tw-font-weight: var(--submain-title-font-weight);
+    font-weight: var(--submain-title-font-weight);
+    --tw-tracking: var(--submain-title-line-height);
+    letter-spacing: var(--submain-title-line-height);
+    color: var(--main-title-color);
+    text-transform: uppercase;
+  }
   .cta-orange {
     display: flex;
     height: auto;
@@ -649,6 +709,18 @@
   syntax: "*";
   inherits: false;
   initial-value: 0 0 #0000;
+}
+@property --tw-leading {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-font-weight {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-tracking {
+  syntax: "*";
+  inherits: false;
 }
 @property --tw-border-style {
   syntax: "*";
