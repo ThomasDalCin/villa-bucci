@@ -630,7 +630,7 @@
     --tw-tracking: var(--main-title-letter-spacing);
     letter-spacing: var(--main-title-letter-spacing);
     text-transform: uppercase;
-    font-size: var(--main-title-font-size);
+    font-size: var(--main-title-mobile-font-size);
   }
   .main-title .default {
     color: var(--green-color);

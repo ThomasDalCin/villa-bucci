@@ -70,7 +70,7 @@
   /* Main title */
   .main-title {
     @apply uppercase tracking-(--main-title-letter-spacing) leading-(--main-title-line-height) font-(--main-title-font-weight);
-    font-size: var(--main-title-font-size);
+    font-size: var(--main-title-mobile-font-size);
   }
 
   /* Main title default */
