@@ -8,5 +8,6 @@ h1{
     font-size: large;
     cursor: pointer;
     background-color: blanchedalmond;
+    background-image: -moz-element();
 }
 
