@@ -100,4 +100,9 @@
   .cta-orange {
     @apply w-auto min-w-[191px] h-auto min-h-[48px] border border-transparent rounded-[18px] bg-[var(--orange-color)] shadow-[var(--main-cta-shadow)] backdrop-blur-xs flex flex-col justify-between px-6 py-3;
   }
+
+  /*product card layout*/
+  .product-card-layout{
+    @apply w-[540px] h-[790px] rounded-[14px] bg-[#C8A75833] outline
+  }
 }
