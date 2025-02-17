@@ -1,6 +1,19 @@
 @import "tailwindcss";
 
+@font-face {
+    font-family: 'Area normal';
+    src: url();
+}
+
+@font-face {
+    font-family: 'FontSpring-TheSeasons';
+    src: url();
+}
+
 :root {
+
+  /*FONT*
+
 
   /* COLORS */
   --bg-color: #dacabb;
@@ -71,31 +84,6 @@
   .main-title {
     @apply uppercase tracking-(--main-title-letter-spacing) leading-(--main-title-line-height) font-(--main-title-font-weight);
     font-size: var(--main-title-mobile-font-size);
-  }
-
-  /* Main title default */
-  .main-title .default {
-    @apply text-(--green-color);
-  }
-
-  /* Main title orange */
-  .main-title .orange {
-    @apply text-(--orange-color);
-  }
-
-  /* Main title peach */
-  .main-title .peach {
-    @apply text-(--peach-color);
-  }
-
-  /* Main title gold */
-  .main-title .gold {
-    @apply text-(--gold-color);
-  }
-
-  /* Main title light-blue */
-  .main-title .light-blue {
-    @apply text-(--light-blue);
   }
 
   /* Submain title */
