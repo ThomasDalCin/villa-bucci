@@ -563,6 +563,20 @@
   .text-center {
     text-align: center;
   }
+  .text-\[12px\] {
+    font-size: 12px;
+  }
+  .leading-\[16px\] {
+    --tw-leading: 16px;
+    line-height: 16px;
+  }
+  .tracking-\[-3\%\] {
+    --tw-tracking: -3%;
+    letter-spacing: -3%;
+  }
+  .uppercase {
+    text-transform: uppercase;
+  }
   .italic {
     font-style: italic;
   }
@@ -715,6 +729,14 @@
     animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
   }
 }
+@property --tw-leading {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-tracking {
+  syntax: "*";
+  inherits: false;
+}
 @property --tw-shadow {
   syntax: "*";
   inherits: false;
@@ -770,15 +792,7 @@
   inherits: false;
   initial-value: 0 0 #0000;
 }
-@property --tw-leading {
-  syntax: "*";
-  inherits: false;
-}
 @property --tw-font-weight {
-  syntax: "*";
-  inherits: false;
-}
-@property --tw-tracking {
   syntax: "*";
   inherits: false;
 }
