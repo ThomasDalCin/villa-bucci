@@ -529,6 +529,10 @@
     box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
   }
 }
+h1 {
+  color: green;
+  display: flex;
+}
 @keyframes spin {
   to {
     transform: rotate(360deg);
