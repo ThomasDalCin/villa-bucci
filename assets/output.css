@@ -578,54 +578,19 @@
     text-transform: uppercase;
   }
   .main-title .default {
-    --tw-leading: var(--main-title-letter-spacing);
-    line-height: var(--main-title-letter-spacing);
-    --tw-font-weight: var(--main-title-font-weight);
-    font-weight: var(--main-title-font-weight);
-    --tw-tracking: var(--main-title-line-height);
-    letter-spacing: var(--main-title-line-height);
     color: var(--green-color);
-    text-transform: uppercase;
   }
   .main-title .orange {
-    --tw-leading: var(--main-title-letter-spacing);
-    line-height: var(--main-title-letter-spacing);
-    --tw-font-weight: var(--main-title-font-weight);
-    font-weight: var(--main-title-font-weight);
-    --tw-tracking: var(--main-title-line-height);
-    letter-spacing: var(--main-title-line-height);
     color: var(--orange-color);
-    text-transform: uppercase;
+  }
+  .main-title .peach {
+    color: var(--peach-color);
   }
   .main-title .gold {
-    --tw-leading: var(--main-title-letter-spacing);
-    line-height: var(--main-title-letter-spacing);
-    --tw-font-weight: var(--main-title-font-weight);
-    font-weight: var(--main-title-font-weight);
-    --tw-tracking: var(--main-title-line-height);
-    letter-spacing: var(--main-title-line-height);
     color: var(--peach-color);
-    text-transform: uppercase;
-  }
-  .main-title .gold {
-    --tw-leading: var(--main-title-letter-spacing);
-    line-height: var(--main-title-letter-spacing);
-    --tw-font-weight: var(--main-title-font-weight);
-    font-weight: var(--main-title-font-weight);
-    --tw-tracking: var(--main-title-line-height);
-    letter-spacing: var(--main-title-line-height);
-    color: var(--peach-color);
-    text-transform: uppercase;
   }
   .main-title .light-blue {
-    --tw-leading: var(--main-title-letter-spacing);
-    line-height: var(--main-title-letter-spacing);
-    --tw-font-weight: var(--main-title-font-weight);
-    font-weight: var(--main-title-font-weight);
-    --tw-tracking: var(--main-title-line-height);
-    letter-spacing: var(--main-title-line-height);
-    color: var(--main-title-color);
-    text-transform: uppercase;
+    color: var(--light-blue);
   }
   .submain-title {
     --tw-leading: var(--submain-title-line-height);
