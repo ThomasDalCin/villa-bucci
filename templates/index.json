@@ -1,12 +1,6 @@
 {
     "name": "index",
     "sections": {
-        "home-step": {
-            "type": "home-step-text",
-            "settings": {
-                "": ""
-            }
-        },
         "page-loading": {
             "type": "page-loading",
             "settings": {
@@ -15,7 +9,6 @@
         }
     },
     "order": [
-        "page-loading",
-        "home-step"
+        "page-loading"
     ]
 }
