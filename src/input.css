@@ -12,6 +12,23 @@
   --black-color: #262A39;
   --light-blue: #76B2BA;
 
+/* Font size  */
+--font-size-title:96px;
+--font-size-cta:12px;
+--font-size-subtitle:16px;
+--font-size-title-newsletter:24px;
+--font-size-subtitle:16px;
+--font-size-consent:10px;
+--font-size-menu-footer:24px;
+--font-size-scroll-up:12px;
+--font-size-footer-cookies:12px;
+--font-size-paragraph:20px;
+--font-size-cantine:256px;
+
+
+
+
+
   /* MAIN TITLE */
   --main-title-font-size: 96px;
   --main-title-font-family: "FONTSPRING DEMO - The Seasons"; /* font to import */
