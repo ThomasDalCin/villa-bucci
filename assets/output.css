@@ -571,6 +571,9 @@
     --tw-tracking: -3%;
     letter-spacing: -3%;
   }
+  .text-\(--green-color\) {
+    color: var(--green-color);
+  }
   .uppercase {
     text-transform: uppercase;
   }
@@ -650,21 +653,6 @@
     letter-spacing: var(--main-title-letter-spacing);
     text-transform: uppercase;
     font-size: var(--main-title-mobile-font-size);
-  }
-  .main-title .default {
-    color: var(--green-color);
-  }
-  .main-title .orange {
-    color: var(--orange-color);
-  }
-  .main-title .peach {
-    color: var(--peach-color);
-  }
-  .main-title .gold {
-    color: var(--gold-color);
-  }
-  .main-title .light-blue {
-    color: var(--light-blue);
   }
   .submain-title {
     --tw-leading: var(--submain-title-line-height);
