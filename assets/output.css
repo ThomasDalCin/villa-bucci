@@ -551,7 +551,7 @@
   --main-title-mobile-font-family: "FONTSPRING DEMO - The Seasons";
   --main-title-mobile-font-style: normal;
   --main-title-mobile-font-weight: 400;
-  --main-title-mobile-ine-height: 105%;
+  --main-title-mobile-line-height: 105%;
   --main-title-mobile-letter-spacing: 1.2px;
   --main-title-mobile-text-transform: uppercase;
   --submain-title-font-size: 16px;
@@ -568,14 +568,13 @@
 }
 @layer components {
   .main-title {
-    --tw-leading: var(--main-title-letter-spacing);
-    line-height: var(--main-title-letter-spacing);
-    --tw-font-weight: var(--main-title-font-weight);
+    font-size: var(--main-title-font-size);
+    font-family: var(--main-title-font-family);
+    font-style: var(--main-title-font-style);
     font-weight: var(--main-title-font-weight);
-    --tw-tracking: var(--main-title-line-height);
-    letter-spacing: var(--main-title-line-height);
-    color: var(--main-title-color);
-    text-transform: uppercase;
+    line-height: var(--main-title-line-height);
+    letter-spacing: var(--main-title-letter-spacing);
+    text-transform: var(--main-title-text-transform);
   }
   .main-title .default {
     color: var(--green-color);
@@ -587,20 +586,17 @@
     color: var(--peach-color);
   }
   .main-title .gold {
-    color: var(--peach-color);
+    color: var(--gold-color);
   }
   .main-title .light-blue {
     color: var(--light-blue);
   }
   .submain-title {
-    --tw-leading: var(--submain-title-line-height);
-    line-height: var(--submain-title-line-height);
-    --tw-font-weight: var(--submain-title-font-weight);
+    font-size: var(--submain-title-font-size);
+    font-family: var(--submain-title-font-family);
     font-weight: var(--submain-title-font-weight);
-    --tw-tracking: var(--submain-title-line-height);
-    letter-spacing: var(--submain-title-line-height);
-    color: var(--main-title-color);
-    text-transform: uppercase;
+    line-height: var(--submain-title-line-height);
+    text-transform: var(--main-title-text-transform);
   }
   .cta-orange {
     display: flex;
@@ -614,7 +610,7 @@
     border-style: var(--tw-border-style);
     border-width: 1px;
     border-color: transparent;
-    background-color: #E86A58CC;
+    background-color: var(--orange-color);
     padding-inline: calc(var(--spacing) * 6);
     padding-block: calc(var(--spacing) * 3);
     --tw-shadow: var(--main-cta-shadow);
@@ -704,18 +700,6 @@
   syntax: "*";
   inherits: false;
   initial-value: 0 0 #0000;
-}
-@property --tw-leading {
-  syntax: "*";
-  inherits: false;
-}
-@property --tw-font-weight {
-  syntax: "*";
-  inherits: false;
-}
-@property --tw-tracking {
-  syntax: "*";
-  inherits: false;
 }
 @property --tw-border-style {
   syntax: "*";

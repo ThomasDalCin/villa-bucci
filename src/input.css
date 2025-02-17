@@ -1,92 +1,103 @@
 @import "tailwindcss";
-:root{
-/* COLORS  */
---bg-color:#DACABB;
---green-color:#5C634F;
---orange-color:#E86A58;
---blue-color:#262A39;
---gold-color:#C8A758;
---peach-color:#D39278;
---white-color:#fff;
---black-color:#262A39;
---light-blue:#76B2BA;
 
-/* MAIN TITLE  */
+:root {
+  /* COLORS */
+  --bg-color: #DACABB;
+  --green-color: #5C634F;
+  --orange-color: #E86A58;
+  --blue-color: #262A39;
+  --gold-color: #C8A758;
+  --peach-color: #D39278;
+  --white-color: #fff;
+  --black-color: #262A39;
+  --light-blue: #76B2BA;
 
---main-title-font-size:96px;
---main-title-font-family:"FONTSPRING DEMO - The Seasons";/* font to import  */
---main-title-font-style:normal;
---main-title-font-weight:400;
---main-title-line-height:105%;
---main-title-letter-spacing:2.88px;
---main-title-text-transform:uppercase;
+  /* MAIN TITLE */
+  --main-title-font-size: 96px;
+  --main-title-font-family: "FONTSPRING DEMO - The Seasons"; /* font to import */
+  --main-title-font-style: normal;
+  --main-title-font-weight: 400;
+  --main-title-line-height: 105%;
+  --main-title-letter-spacing: 2.88px;
+  --main-title-text-transform: uppercase;
 
-/* MAIN TITLE - Mobile */
---main-title-mobile-color:#5C634F;
---main-title-mobile-font-size:40px;
---main-title-mobile-font-family:"FONTSPRING DEMO - The Seasons";/* font to import  */
---main-title-mobile-font-style:normal;
---main-title-mobile-font-weight:400;
---main-title-mobile-ine-height:105%;
---main-title-mobile-letter-spacing:1.2px;
---main-title-mobile-text-transform:uppercase;
+  /* MAIN TITLE - Mobile */
+  --main-title-mobile-color: #5C634F;
+  --main-title-mobile-font-size: 40px;
+  --main-title-mobile-font-family: "FONTSPRING DEMO - The Seasons"; /* font to import */
+  --main-title-mobile-font-style: normal;
+  --main-title-mobile-font-weight: 400;
+  --main-title-mobile-line-height: 105%;
+  --main-title-mobile-letter-spacing: 1.2px;
+  --main-title-mobile-text-transform: uppercase;
 
-/* SUBMAIN TITLE  */
+  /* SUBMAIN TITLE */
+  --submain-title-font-size: 16px;
+  --submain-title-font-family: "Area Normal"; /* font to import */
+  --submain-title-font-style: normal;
+  --submain-title-font-weight: 400;
+  --submain-title-line-height: normal;
 
---submain-title-font-size:16px;
---submain-title-font-family:"Area Normal";/* font to import  */
---submain-title-font-style:normal;
---submain-title-font-weight:400;
---submain-title-line-height:normal;
+  /* SUBMAIN TITLE - Mobile */
+  --submain-mobile-title-font-size: 16px;
+  --submain-mobile-title-font-family: "Area Normal"; /* font to import */
+  --submain-mobile-title-font-style: normal;
+  --submain-mobile-title-font-weight: 400;
+  --submain-mobile-title-line-height: normal;
 
-/* SUBMAIN TITLE - Mobile  */
-
-/* --submain-mobile-title-color:#5C634F  */
---submain-mobile-title-font-size:16px;
---submain-mobile-title-font-family:"Area Normal";/* font to import  */
---submain-mobile-title-font-style:normal;
---submain-mobile-title-font-weight:400;
---submain-mobile-title-line-height:normal;
-
-/*box shadow*/
- --main-cta-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.15);
+  /* Box shadow */
+  --main-cta-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.15);
 }
 
-/* component */
+/* Component */
 @layer components {
-  /*main title*/
+  /* Main title */
   .main-title {
-    @apply leading-(--main-title-letter-spacing) font-(--main-title-font-weight) tracking-(--main-title-line-height) uppercase text-(--main-title-color)
+    font-size: var(--main-title-font-size);
+    font-family: var(--main-title-font-family);
+    font-style: var(--main-title-font-style);
+    font-weight: var(--main-title-font-weight);
+    line-height: var(--main-title-line-height);
+    letter-spacing: var(--main-title-letter-spacing);
+    text-transform: var(--main-title-text-transform);
   }
 
-  /*main title default*/
+  /* Main title default */
   .main-title .default {
-    @apply text-(--green-color)
+    @apply text-[var(--green-color)];
   }
-  /*main title orange*/
+
+  /* Main title orange */
   .main-title .orange {
-    @apply text-(--orange-color)
+    @apply text-[var(--orange-color)];
   }
-  /*main title peach*/
+
+  /* Main title peach */
   .main-title .peach {
-    @apply  text-(--peach-color)
+    @apply text-[var(--peach-color)];
   }
 
-   /*main title gold*/
-   .main-title .gold {
-    @apply text-(--peach-color)
+  /* Main title gold */
+  .main-title .gold {
+    @apply text-[var(--gold-color)];
   }
 
-  /*main title light-blue*/
+  /* Main title light-blue */
   .main-title .light-blue {
-    @apply text-(--light-blue)
+    @apply text-[var(--light-blue)];
   }
 
-  .submain-title{
-    @apply leading-(--submain-title-line-height) font-(--submain-title-font-weight) tracking-(--submain-title-line-height) uppercase text-(--main-title-color)
+  /* Submain title */
+  .submain-title {
+    font-size: var(--submain-title-font-size);
+    font-family: var(--submain-title-font-family);
+    font-weight: var(--submain-title-font-weight);
+    line-height: var(--submain-title-line-height);
+    text-transform: var(--main-title-text-transform);
   }
-  /*main organge cta*/
+
+  /* Main orange CTA */
   .cta-orange {
-    @apply w-auto min-w-[191px] h-auto min-h-[48px] border border-transparent rounded-[18px] bg-[#E86A58CC] shadow-(--main-cta-shadow) backdrop-blur-xs flex flex-col justify-between px-6 py-3;
+    @apply w-auto min-w-[191px] h-auto min-h-[48px] border border-transparent rounded-[18px] bg-[var(--orange-color)] shadow-[var(--main-cta-shadow)] backdrop-blur-xs flex flex-col justify-between px-6 py-3;
   }
 }
