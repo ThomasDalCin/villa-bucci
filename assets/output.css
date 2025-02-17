@@ -374,6 +374,53 @@
     --default-mono-font-variation-settings: var(
       --font-mono--font-variation-settings
     );
+    --bg-color: #dacabb;
+    --green-color: #5c634f;
+    --orange-color: #e86a58;
+    --blue-color: #262a39;
+    --gold-color: #c8a758;
+    --gold-color-w-opacity: rgba(200, 167, 88, 0.2);
+    --peach-color: #d39278;
+    --peach-color-w-opacity: rgba(211, 146, 120, 0.2);
+    --white-color: #fff;
+    --black-color: #262a39;
+    --light-blue: #76b2ba;
+    --font-size-title: 96px;
+    --font-size-cta: 12px;
+    --font-size-subtitle: 16px;
+    --font-size-title-newsletter: 24px;
+    --font-size-consent: 10px;
+    --font-size-menu-footer: 24px;
+    --font-size-scroll-up: 12px;
+    --font-size-footer-cookies: 12px;
+    --font-size-paragraph: 20px;
+    --font-size-cantine: 256px;
+    --main-title-font-size: 96px;
+    --main-title-font-family: "FONTSPRING DEMO - The Seasons";
+    --main-title-font-style: normal;
+    --main-title-font-weight: 400;
+    --main-title-line-height: 105%;
+    --main-title-letter-spacing: 2.88px;
+    --main-title-text-transform: uppercase;
+    --main-title-mobile-color: #5c634f;
+    --main-title-mobile-font-size: 40px;
+    --main-title-mobile-font-family: "FONTSPRING DEMO - The Seasons";
+    --main-title-mobile-font-style: normal;
+    --main-title-mobile-font-weight: 400;
+    --main-title-mobile-line-height: 105%;
+    --main-title-mobile-letter-spacing: 1.2px;
+    --main-title-mobile-text-transform: uppercase;
+    --submain-title-font-size: 16px;
+    --submain-title-font-family: "Area Normal";
+    --submain-title-font-style: normal;
+    --submain-title-font-weight: 400;
+    --submain-title-line-height: normal;
+    --submain-mobile-title-font-size: 16px;
+    --submain-mobile-title-font-family: "Area Normal";
+    --submain-mobile-title-font-style: normal;
+    --submain-mobile-title-font-weight: 400;
+    --submain-mobile-title-line-height: normal;
+    --main-cta-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.15);
   }
 }
 @layer base {
@@ -593,73 +640,44 @@
   font-family: 'FontSpring-TheSeasons';
   src: url();
 }
-:root {
-  --bg-color: #dacabb;
-  --green-color: #5c634f;
-  --orange-color: #e86a58;
-  --blue-color: #262a39;
-  --gold-color: #c8a758;
-  --gold-color-w-opacity: rgba(200, 167, 88, 0.2);
-  --peach-color: #d39278;
-  --peach-color-w-opacity: rgba(211, 146, 120, 0.2);
-  --white-color: #fff;
-  --black-color: #262a39;
-  --light-blue: #76b2ba;
-  --font-size-title: 96px;
-  --font-size-cta: 12px;
-  --font-size-subtitle: 16px;
-  --font-size-title-newsletter: 24px;
-  --font-size-subtitle: 16px;
-  --font-size-consent: 10px;
-  --font-size-menu-footer: 24px;
-  --font-size-scroll-up: 12px;
-  --font-size-footer-cookies: 12px;
-  --font-size-paragraph: 20px;
-  --font-size-cantine: 256px;
-  --main-title-font-size: 96px;
-  --main-title-font-family: "FONTSPRING DEMO - The Seasons";
-  --main-title-font-style: normal;
-  --main-title-font-weight: 400;
-  --main-title-line-height: 105%;
-  --main-title-letter-spacing: 2.88px;
-  --main-title-text-transform: uppercase;
-  --main-title-mobile-color: #5c634f;
-  --main-title-mobile-font-size: 40px;
-  --main-title-mobile-font-family: "FONTSPRING DEMO - The Seasons";
-  --main-title-mobile-font-style: normal;
-  --main-title-mobile-font-weight: 400;
-  --main-title-mobile-line-height: 105%;
-  --main-title-mobile-letter-spacing: 1.2px;
-  --main-title-mobile-text-transform: uppercase;
-  --submain-title-font-size: 16px;
-  --submain-title-font-family: "Area Normal";
-  --submain-title-font-style: normal;
-  --submain-title-font-weight: 400;
-  --submain-title-line-height: normal;
-  --submain-mobile-title-font-size: 16px;
-  --submain-mobile-title-font-family: "Area Normal";
-  --submain-mobile-title-font-style: normal;
-  --submain-mobile-title-font-weight: 400;
-  --submain-mobile-title-line-height: normal;
-  --main-cta-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.15);
+@layer base {
+  body {
+    font-size: 16px;
+    line-height: 21.38px;
+    font-weight: normal;
+    color: var(--blue-color);
+  }
 }
 @layer components {
-  .main-title {
+  .main-title-mobile {
+    --tw-leading: var(--main-title-mobile-line-height);
+    line-height: var(--main-title-mobile-line-height);
+    --tw-font-weight: var(--main-title-mobile-font-weight);
+    font-weight: var(--main-title-mobile-font-weight);
+    --tw-tracking: var(--main-title-mobile-letter-spacing);
+    letter-spacing: var(--main-title-mobile-letter-spacing);
+    color: var(--green-color);
+    text-transform: uppercase;
+    font-size: var(--main-title-mobile-font-size);
+  }
+  .main-title-laptop {
     --tw-leading: var(--main-title-line-height);
     line-height: var(--main-title-line-height);
     --tw-font-weight: var(--main-title-font-weight);
     font-weight: var(--main-title-font-weight);
     --tw-tracking: var(--main-title-letter-spacing);
     letter-spacing: var(--main-title-letter-spacing);
+    color: var(--green-color);
     text-transform: uppercase;
-    font-size: var(--main-title-mobile-font-size);
+    font-size: var(--main-title-font-size);
   }
-  .submain-title {
-    --tw-leading: var(--submain-title-line-height);
-    line-height: var(--submain-title-line-height);
-    --tw-font-weight: var(--submain-title-font-weight);
-    font-weight: var(--submain-title-font-weight);
-    color: var(--submain-title-font-size);
+  .submain-title-mobile {
+    --tw-leading: var(--submain-title-mobile-line-height);
+    line-height: var(--submain-title-mobile-line-height);
+    --tw-font-weight: var(--submain-title-mobile-font-weight);
+    font-weight: var(--submain-title-mobile-font-weight);
+    color: var(--green-color);
+    font-size: var(--main-title-mobile-font-size);
   }
   .cta-orange {
     display: flex;

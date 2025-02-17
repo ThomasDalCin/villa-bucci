@@ -10,10 +10,7 @@
     src: url();
 }
 
-:root {
-
-  /*FONT*
-
+@theme {
 
   /* COLORS */
   --bg-color: #dacabb;
@@ -78,25 +75,39 @@
   --main-cta-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.15);
 }
 
+
+/*base settings*/
+@layer base {
+    body{
+        font-size: 16px;
+        line-height: 21.38px;
+        font-weight: normal;
+        color: var(--blue-color);
+    }
+}
+
 /* Component */
 @layer components {
-  /* Main title */
-  .main-title {
-    @apply uppercase tracking-(--main-title-letter-spacing) leading-(--main-title-line-height) font-(--main-title-font-weight);
+
+  .main-title-mobile {
+    @apply uppercase tracking-(--main-title-mobile-letter-spacing) leading-(--main-title-mobile-line-height) font-(--main-title-mobile-font-weight) text-(--green-color);
     font-size: var(--main-title-mobile-font-size);
   }
 
-  /* Submain title */
-  .submain-title {
-    @apply leading-(--submain-title-line-height) font-(--submain-title-font-weight) text-(--submain-title-font-size);
+  .main-title-laptop {
+    @apply uppercase tracking-(--main-title-letter-spacing) leading-(--main-title-line-height) font-(--main-title-font-weight) text-(--green-color);
+    font-size: var(--main-title-font-size);
+  }
+  
+  .submain-title-mobile {
+    @apply leading-(--submain-title-mobile-line-height) font-(--submain-title-mobile-font-weight) text-(--green-color);
+    font-size: var(--main-title-mobile-font-size);
   }
 
-  /* Main orange CTA */
   .cta-orange {
     @apply w-auto min-w-[191px] h-auto min-h-[48px] border border-transparent rounded-[18px] bg-(--orange-color) shadow-(--main-cta-shadow) backdrop-blur-xs flex flex-row items-center justify-between px-6 py-3;
   }
 
-  /*product card layout*/
   .product-card-layout {
     @apply w-[540px] h-[790px] rounded-[14px] outline outline-offset-4 relative bg-(--gold-color-w-opacity);
   }
