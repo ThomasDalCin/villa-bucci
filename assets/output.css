@@ -530,7 +530,15 @@
   }
 }
 :root {
-  --main-title-color: #5c634f;
+  --bg-color: #DACABB;
+  --green-color: #5C634F;
+  --orange-color: #E86A58;
+  --blue-color: #262A39;
+  --gold-color: #C8A758;
+  --peach-color: #D39278;
+  --white-color: #fff;
+  --black-color: #262A39;
+  --light-blue: #76B2BA;
   --main-title-font-size: 96px;
   --main-title-font-family: "FONTSPRING DEMO - The Seasons";
   --main-title-font-style: normal;
@@ -538,12 +546,24 @@
   --main-title-line-height: 105%;
   --main-title-letter-spacing: 2.88px;
   --main-title-text-transform: uppercase;
-  --submain-title-color: var(--main-title-color);
+  --main-title-mobile-color: #5C634F;
+  --main-title-mobile-font-size: 40px;
+  --main-title-mobile-font-family: "FONTSPRING DEMO - The Seasons";
+  --main-title-mobile-font-style: normal;
+  --main-title-mobile-font-weight: 400;
+  --main-title-mobile-ine-height: 105%;
+  --main-title-mobile-letter-spacing: 1.2px;
+  --main-title-mobile-text-transform: uppercase;
   --submain-title-font-size: 16px;
   --submain-title-font-family: "Area Normal";
   --submain-title-font-style: normal;
   --submain-title-font-weight: 400;
   --submain-title-line-height: normal;
+  --submain-mobile-title-font-size: 16px;
+  --submain-mobile-title-font-family: "Area Normal";
+  --submain-mobile-title-font-style: normal;
+  --submain-mobile-title-font-weight: 400;
+  --submain-mobile-title-line-height: normal;
   --main-cta-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.15);
 }
 @layer components {

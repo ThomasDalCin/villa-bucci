@@ -1,26 +1,67 @@
 @import "tailwindcss";
+:root{
+/* COLORS  */
+--bg-color:#DACABB;
+--green-color:#5C634F;
+--orange-color:#E86A58;
+--blue-color:#262A39;
+--gold-color:#C8A758;
+--peach-color:#D39278;
+--white-color:#fff;
+--black-color:#262A39;
+--light-blue:#76B2BA;
 
-:root {
-  /* MAIN TITLE  */
-  --main-title-color: #5c634f;
-  --main-title-font-size: 96px;
-  --main-title-font-family: "FONTSPRING DEMO - The Seasons"; /* font to import  */
-  --main-title-font-style: normal;
-  --main-title-font-weight: 400;
-  --main-title-line-height: 105%;
-  --main-title-letter-spacing: 2.88px;
-  --main-title-text-transform: uppercase;
-  /* SUBMAIN TITLE  */
-  --submain-title-color: var(--main-title-color);
-  /* --submain-title-color:#5C634F  */
-  --submain-title-font-size: 16px;
-  --submain-title-font-family: "Area Normal"; /* font to import  */
-  --submain-title-font-style: normal;
-  --submain-title-font-weight: 400;
-  --submain-title-line-height: normal;
 
-  /*box shadow*/
-  --main-cta-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.15);
+
+
+
+
+
+
+
+
+
+
+
+/* MAIN TITLE  */
+
+--main-title-font-size:96px;
+--main-title-font-family:"FONTSPRING DEMO - The Seasons";/* font to import  */
+--main-title-font-style:normal;
+--main-title-font-weight:400;
+--main-title-line-height:105%;
+--main-title-letter-spacing:2.88px;
+--main-title-text-transform:uppercase;
+
+/* MAIN TITLE - Mobile */
+--main-title-mobile-color:#5C634F;
+--main-title-mobile-font-size:40px;
+--main-title-mobile-font-family:"FONTSPRING DEMO - The Seasons";/* font to import  */
+--main-title-mobile-font-style:normal;
+--main-title-mobile-font-weight:400;
+--main-title-mobile-ine-height:105%;
+--main-title-mobile-letter-spacing:1.2px;
+--main-title-mobile-text-transform:uppercase;
+
+/* SUBMAIN TITLE  */
+
+--submain-title-font-size:16px;
+--submain-title-font-family:"Area Normal";/* font to import  */
+--submain-title-font-style:normal;
+--submain-title-font-weight:400;
+--submain-title-line-height:normal;
+
+/* SUBMAIN TITLE - Mobile  */
+
+/* --submain-mobile-title-color:#5C634F  */
+--submain-mobile-title-font-size:16px;
+--submain-mobile-title-font-family:"Area Normal";/* font to import  */
+--submain-mobile-title-font-style:normal;
+--submain-mobile-title-font-weight:400;
+--submain-mobile-title-line-height:normal;
+
+/*box shadow*/
+ --main-cta-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.15);
 }
 
 /* component */
