@@ -3,7 +3,8 @@
     <div class="max-w-[400px] mx-auto space-y-6">
     <!-- Logo -->
     <div class="flex justify-center">
-        <img src="{{ settings.sections.logo_image | img_url: 'master' }}" alt="oniwines-logo" class="h-12">
+        <img src="{{ settings.logo_image | img_url: 'master' }}" alt="oniwines-logo" class="h-12">
+
     </div>
 </div>
 
@@ -54,17 +55,16 @@
 
 
 
-
 {% schema %}
-{
-  "name": "logo image",
-  "settings": [
     {
-      "type": "image_picker",
-      "id": "logo_image",
-      "label": "Select your logo image"
+      "name": "Footer",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "logo_image",
+          "label": "Select your logo image"
+        }
+      ]
     }
-  ]
-}
-{% endschema %}
-
+    {% endschema %}
+    
