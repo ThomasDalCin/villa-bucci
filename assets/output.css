@@ -809,6 +809,9 @@
   .text-\(--link-color\) {
     color: var(--link-color);
   }
+  .text-\(--link-disable-color\) {
+    color: var(--link-disable-color);
+  }
   .text-\[\#E3DBD2\] {
     color: #E3DBD2;
   }
@@ -849,9 +852,6 @@
   }
   .blur {
     --tw-blur: blur(8px);
-    filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
-  }
-  .filter {
     filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
   }
   .backdrop-filter {
@@ -954,6 +954,7 @@
   --light-blue: #76b2ba;
   --border-color: rgba(227, 219, 210, 0.2);
   --link-color: rgba(227, 219, 210, 1);
+  --link-disable-color: rgba(255, 255, 255, 0.3);
   --font-size-title: 96px;
   --font-size-cta: 12px;
   --font-size-subtitle: 16px;

@@ -80,16 +80,14 @@
                     <button class="language-button w-auto h-auto text-[#E3DBD2]" type="button" tabindex="0"
                         data-locale-code="{{ locale.iso_code }}">
                         {% case locale.endonym_name %}
-                        {% when "Italiano" %}
-                        IT
-                        {% when "English" %}
-                        EN
+                        {% when "Italiano" %} IT
+                        {% when "English" %} EN
                         {% else %}
                         {% endcase %}
                     </button>
-                    <input type="hidden" name="locale_code" value="{{ request.locale.iso_code }}" id="localeCode">
                     {% endfor %}
                 </div>
+                <input type="hidden" name="locale_code" value="{{ request.locale.iso_code }}" id="localeCode">
                 {% endform %}
             </div>
             <!--container navigation contact info -->
@@ -112,13 +110,25 @@
 <!--javascript code here-->
 <script>
     document.addEventListener('DOMContentLoaded', () => {
+
         //handle submission form language site
         const languageButtons = document.querySelectorAll('.language-button');
         const localizationForm = document.getElementById('localization_form_tag');
+        const localeCodeHidden = document.getElementById('localeCode');
         let localeCodeActive = null;
 
+        function showLocaleActive() {
+            languageButtons.forEach((button) => {
+                if (button.getAttribute('data-locale-code') != localeCodeHidden.value) {
+                    button.classList.remove('text-[#E3DBD2]');
+                    button.classList.add('text-(--link-disable-color)');
+                }
+            })
+        }
+
+        showLocaleActive();
+
         async function setLocaleCode(localeCode) {
-            const localeCodeHidden = document.getElementById('localeCode');
             if (localeCodeHidden) {
                 localeCodeHidden.value = localeCode;
             }
@@ -137,5 +147,6 @@
                 }
             });
         });
+
     })
 </script>

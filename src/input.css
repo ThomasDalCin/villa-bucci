@@ -16,6 +16,7 @@
   --light-blue: #76b2ba;
   --border-color: rgba(227, 219, 210, 0.2);
   --link-color: rgba(227, 219, 210, 1);
+  --link-disable-color: rgba(255, 255, 255, 0.3);
 
   /* FONT SIZE */
   --font-size-title: 96px;
