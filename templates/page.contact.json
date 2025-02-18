@@ -1,14 +1,11 @@
 {
-    "name": "contact",
     "sections": {
-        "": {
-            "type": "",
-            "settings": {
-                "": ""
-            }
+        "canteen-achievements-workwithus": {
+            "type": "canteen-achievements-workwithus",
+            "settings": {}
         }
     },
     "order": [
-        ""
+        "canteen-achievements-workwithus"
     ]
 }
