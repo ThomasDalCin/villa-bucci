@@ -1,12 +1,46 @@
 <!--footer div -->
-<div class="w-full h-screen bg-(--blue-color) p-5">
-            <div class="w-full h-full flex flex-col items-center justify-center absolute">
-                <div class="w-auto h-auto flex items-center justify-center text-center">
-                    <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi praesentium error reprehenderit sapiente dignissimos quia illo excepturi ab iste dolore, vitae veritatis necessitatibus repudiandae dicta animi facere quis amet quaerat.</p>
-                </div>
-               
-               
-               
-            </div>
-</div>
+<footer class="w-full  bg-(--blue-color) text-white p-5">
+    <div class="max-w-[400px] mx-auto text-center space-y-6">
+        <!-- Logo -->
+        <div class="flex justify-center">
+            <img src="" alt="oniwinws-logo" class="">
+        </div>
 
+        <!-- Newsletter -->
+        <div class="space-y-3">
+            <h2 class="text-lg font-serif">NEWSLETTER</h2>
+            <div class="flex border border-gray-500 rounded-full overflow-hidden">
+                <input type="email" placeholder="EMAIL" class="w-full bg-transparent px-4 py-2 text-white focus:outline-none">
+                <button class="bg-gray-600 px-6 py-2 text-white">INVIA</button>
+            </div>
+            <label class="flex items-center text-xs text-gray-400">
+                <input type="checkbox" class="mr-2">
+                Autorizzo il trattamento dei miei dati personali...
+            </label>
+        </div>
+
+        <!-- Navigation -->
+        <nav class="space-y-2">
+            <a href="#" class="block hover:underline">HOME</a>
+            <a href="#" class="block hover:underline">IL PROGETTO</a>
+            <a href="#" class="block underline text-blue-400">LE CANTINE</a>
+            <a href="#" class="block hover:underline">PRODOTTI</a>
+            <a href="#" class="block hover:underline">CONTATTI</a>
+        </nav>
+
+        <!-- Scroll to Top -->
+        <button onclick="scrollToTop()" class="flex items-center justify-center space-x-2 text-sm text-gray-300 hover:text-white">
+            <span>↑</span>
+            <span>TORNA SU</span>
+        </button>
+
+        <!-- External Link -->
+        <a href="#" class="text-red-400 hover:text-red-500">ONIVERSE ↗</a>
+
+        <!-- Footer Info -->
+        <p class="text-xs text-gray-400">
+            ONIWINES | P.IVA 000000000000 <br>
+            PREFERENZE COOKIE | PRIVACY | CREDITS
+        </p>
+    </div>
+</footer>
