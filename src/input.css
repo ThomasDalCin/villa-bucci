@@ -17,6 +17,7 @@
   --green-color: #5c634f;
   --orange-color: #e86a58;
   --blue-color: #262a39;
+  --blue-color-w-opacity: rgba(38, 42, 57, 0.8);
   --gold-color: #c8a758;
   --gold-color-w-opacity: rgba(200, 167, 88, 0.2);
   --peach-color: #d39278;
@@ -72,7 +73,7 @@
   --submain-mobile-title-line-height: normal;
 
   /* COSTUM BOX SHADOW */
-  --main-cta-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.15);
+  --main-box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.15);
 }
 
 
@@ -118,14 +119,14 @@
   }
 
   .cta-orange {
-    @apply w-auto min-w-[191px] h-auto min-h-[48px] border border-transparent rounded-[18px] bg-(--orange-color) shadow-(--main-cta-shadow) backdrop-blur-xs flex flex-row items-center justify-between px-6 py-3 cursor-pointer;
+    @apply w-auto min-w-[191px] h-auto min-h-[48px] border border-transparent rounded-[18px] bg-(--orange-color) shadow-(--main-box-shadow) backdrop-blur-xs flex flex-row items-center justify-between px-6 py-3 cursor-pointer;
   }
 
   .product-card-layout {
     @apply w-[540px] h-[790px] rounded-[14px] outline outline-offset-4 relative bg-(--gold-color-w-opacity);
   }
-
-  .product-card-layout .active{
-    @apply bg-(--gold-color)
+  
+  .menu-box{
+    @apply w-[48px] h-[48px] rounded-[18px] border border-transparent shadow-(--main-box-shadow) flex flex-col items-center justify-center bg-(--blue-color-w-opacity)
   }
 }
