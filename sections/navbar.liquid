@@ -33,7 +33,7 @@
                     <!--container link-->
                     <div class="w-auto h-auto">
                         <li>
-                            <a class="text-white" href="{{ linkItem.url }}">{{ linkItem.title | upcase }}</a>
+                            <a class="text-(--link-color)" href="{{ linkItem.url }}">{{ linkItem.title | upcase }}</a>
                         </li>
                     </div>
                 </div>
@@ -55,7 +55,8 @@
                     <!--container link-->
                     <div class="w-auto h-auto">
                         <li>
-                            <a class="text-stroke text-transparent" href="{{ linkItem.url }}">{{ linkItem.title | upcase }}</a>
+                            <a class="text-stroke text-transparent" href="{{ linkItem.url }}">{{ linkItem.title | upcase
+                                }}</a>
                         </li>
                     </div>
                     <!--container arrow right-->
@@ -68,10 +69,73 @@
             {% endfor %}
             {% endfor %}
         </div>
-        
-        <div class="w-full flex-1 flex flex-col items-start justify-between">
-            <div class="w-full flex-1"></div>
-            <div class="w-full flex-1"></div>
+
+        <div
+            class="w-full flex-1 flex flex-col items-start justify-between *:border *:border-b-(--border-color) first:border-t first:border-t-(--border-color)">
+            <!--container switch language form-->
+            <div class="w-full flex-1 px-3 flex items-center justify-center">
+                {% form 'localization', id: "localization_form_tag" %}
+                <div class="w-auto h-auto flex flex-row items-center justify-start gap-x-5">
+                    {% for locale in shop.published_locales %}
+                    <button class="language-button w-auto h-auto text-[#E3DBD2]" type="button" tabindex="0"
+                        data-locale-code="{{ locale.iso_code }}">
+                        {% case locale.endonym_name %}
+                        {% when "Italiano" %}
+                        IT
+                        {% when "English" %}
+                        EN
+                        {% else %}
+                        {% endcase %}
+                    </button>
+                    <input type="hidden" name="locale_code" value="{{ request.locale.iso_code }}" id="localeCode">
+                    {% endfor %}
+                </div>
+                {% endform %}
+            </div>
+            <!--container navigation contact info -->
+            <div class="w-full flex-1 px-3 flex flex-row items-center justify-between">
+                <div class="w-auto h-auto">
+                    <a class="flex flex-row items-center justify-start gap-x-1 text-(--link-color)"
+                        href="{{ section.settings.link_to_oniverse }}">{{ section.settings.link_to_oniverse_text |
+                        default: "ONIVERSE" | upcase }}<span class="text-white">{% render 'arrow-up' %}</span></a>
+                </div>
+                <div class="w-auto h-auto">
+                    <a class="text-(--link-color)" href="mailto:{{ section.settings.mail_to_email |  default: "
+                        mail@oniwines.it" }}">{{ section.settings.main_to | default: "mail@oniwines.it" }}</a>
+                </div>
+            </div>
         </div>
     </div>
 </div>
+
+
+<!--javascript code here-->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        //handle submission form language site
+        const languageButtons = document.querySelectorAll('.language-button');
+        const localizationForm = document.getElementById('localization_form_tag');
+        let localeCodeActive = null;
+
+        async function setLocaleCode(localeCode) {
+            const localeCodeHidden = document.getElementById('localeCode');
+            if (localeCodeHidden) {
+                localeCodeHidden.value = localeCode;
+            }
+        }
+
+        languageButtons.forEach((button) => {
+            button.addEventListener('click', async (event) => {
+                event.preventDefault();
+                localeCodeActive = button.getAttribute('data-locale-code');
+
+                try {
+                    await setLocaleCode(localeCodeActive);
+                    localizationForm.submit();
+                } catch (error) {
+                    console.error(error);
+                }
+            });
+        });
+    })
+</script>

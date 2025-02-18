@@ -15,6 +15,7 @@
   --black-color: #262a39;
   --light-blue: #76b2ba;
   --border-color: rgba(227, 219, 210, 0.2);
+  --link-color: rgba(227, 219, 210, 1);
 
   /* FONT SIZE */
   --font-size-title: 96px;
@@ -114,7 +115,7 @@
 
   .text-stroke {
     -webkit-text-stroke-width: 0.6px;
-    -webkit-text-stroke-color: white;
+    -webkit-text-stroke-color: #E3DBD2;
   }
 }
 
