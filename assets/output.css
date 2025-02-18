@@ -530,6 +530,9 @@
   .inset-0 {
     inset: calc(var(--spacing) * 0);
   }
+  .inset-1\.5 {
+    inset: calc(var(--spacing) * 1.5);
+  }
   .top-0 {
     top: calc(var(--spacing) * 0);
   }
@@ -547,6 +550,9 @@
   }
   .z-60 {
     z-index: 60;
+  }
+  .z-100 {
+    z-index: 100;
   }
   .container {
     width: 100%;
@@ -605,6 +611,9 @@
   .max-w-\[400px\] {
     max-width: 400px;
   }
+  .flex-1 {
+    flex: 1;
+  }
   .-translate-y-\[50\%\] {
     --tw-translate-y: calc(50% * -1);
     translate: var(--tw-translate-x) var(--tw-translate-y);
@@ -621,11 +630,17 @@
   .items-center {
     align-items: center;
   }
+  .items-start {
+    align-items: flex-start;
+  }
   .justify-between {
     justify-content: space-between;
   }
   .justify-center {
     justify-content: center;
+  }
+  .justify-start {
+    justify-content: flex-start;
   }
   .space-y-2 {
     :where(& > :not(:last-child)) {
@@ -664,6 +679,9 @@
   .overflow-y-hidden {
     overflow-y: hidden;
   }
+  .rounded-\[8px\] {
+    border-radius: 8px;
+  }
   .rounded-full {
     border-radius: calc(infinity * 1px);
   }
@@ -673,6 +691,9 @@
   }
   .border-gray-500 {
     border-color: var(--color-gray-500);
+  }
+  .border-b-\(--border-color\) {
+    border-bottom-color: var(--border-color);
   }
   .bg-\(--bg-color\) {
     background-color: var(--bg-color);
@@ -695,6 +716,9 @@
   .p-5 {
     padding: calc(var(--spacing) * 5);
   }
+  .px-3 {
+    padding-inline: calc(var(--spacing) * 3);
+  }
   .px-4 {
     padding-inline: calc(var(--spacing) * 4);
   }
@@ -706,6 +730,9 @@
   }
   .py-3\.5 {
     padding-block: calc(var(--spacing) * 3.5);
+  }
+  .pt-16 {
+    padding-top: calc(var(--spacing) * 16);
   }
   .text-center {
     text-align: center;
@@ -752,6 +779,9 @@
   .text-red-400 {
     color: var(--color-red-400);
   }
+  .text-transparent {
+    color: transparent;
+  }
   .text-white {
     color: var(--color-white);
   }
@@ -791,6 +821,17 @@
   .ease-in {
     --tw-ease: var(--ease-in);
     transition-timing-function: var(--ease-in);
+  }
+  .first\:border-t {
+    &:first-child {
+      border-top-style: var(--tw-border-style);
+      border-top-width: 1px;
+    }
+  }
+  .first\:border-t-\(--border-color\) {
+    &:first-child {
+      border-top-color: var(--border-color);
+    }
   }
   .hover\:text-red-500 {
     &:hover {
@@ -843,6 +884,7 @@
   --white-color: #fff;
   --black-color: #262a39;
   --light-blue: #76b2ba;
+  --border-color: rgba(227, 219, 210, 0.2);
   --font-size-title: 96px;
   --font-size-cta: 12px;
   --font-size-subtitle: 16px;
@@ -889,7 +931,7 @@
     font-weight: 400;
     font-style: normal;
   }
-  h1, h2, h3, h4 {
+  h1, h2, h3, h4, a {
     font-family: "the-seasons", sans-serif;
     font-weight: 400;
     font-style: normal;
@@ -913,6 +955,10 @@
     font-size: var(--main-title-font-size);
     line-height: var(--main-title-line-height);
     letter-spacing: var(--main-title-letter-spacing);
+  }
+  .text-stroke {
+    -webkit-text-stroke-width: 0.6px;
+    -webkit-text-stroke-color: white;
   }
 }
 @layer components {

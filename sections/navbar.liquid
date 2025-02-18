@@ -1,16 +1,77 @@
 <!--main navbar -->
-<div class="navigation fixed left-0 top-0 right-0 z-60 w-full h-auto px-4 py-3.5 opacity-0 transform transition-all duration-300 ease-in">
-   <div class="w-full h-auto flex flex-row justify-between">
-    <!--container logo-->
-    <div class="w-auto h-auto">
-        {% render 'oniwines-logo' %}
+<div
+    class="navigation fixed left-0 top-0 right-0 z-100 w-full h-auto px-4 py-3.5 opacity-0 transform transition-all duration-300 ease-in">
+    <div class="w-full h-auto flex flex-row justify-between">
+        <!--container logo-->
+        <div class="w-auto h-auto">
+            {% render 'oniwines-logo' %}
+        </div>
+        <!--container menu box -->
+        <div class="menu-box">
+            {% render 'menu-burger' %}
+        </div>
     </div>
-    <!--container menu box -->
-    <div class="menu-box">
-        {% render 'menu-burger' %}
-    </div>
-   </div>
+</div>
 
-   <!--container full screen navigation-->
-   <div class="fixed"></div>
+<!--container full screen navigation-->
+<div class="absolute inset-1.5 z-60 bg-(--blue-color) rounded-[8px] flex flex-col items-start justify-center">
+    <div class="w-full h-full flex flex-col items-start justify-center pt-16">
+
+        <div class="w-full flex-1 flex flex-col items-start justify-between">
+            <!--assign variable for each reference link into links menu-->
+            {% assign menuLinks = "Home,Il progetto,Magazine,Contatti" | split: "," %}
+            {% for menuLink in menuLinks %}
+            {% for linkItem in linklists.main-menu.links %}
+            {% if linkItem.title == menuLink %}
+            <div
+                class="w-full flex-1 flex flex-col items-start justify-center px-3 border border-b-(--border-color) first:border-t first:border-t-(--border-color)">
+                <div class="w-full h-auto flex flex-row items-center justify-start">
+                    <!--icon link-->
+                    <div class="w-auto h-auto">
+                        {% render 'arrow-up' %}
+                    </div>
+                    <!--container link-->
+                    <div class="w-auto h-auto">
+                        <li>
+                            <a class="text-white" href="{{ linkItem.url }}">{{ linkItem.title | upcase }}</a>
+                        </li>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+            {% endfor %}
+        </div>
+
+        <div class="w-full flex-1 flex flex-col items-start justify-between">
+            <!--assign variable for each reference link into links menu-->
+            {% assign menuLinks = "Le cantine,Prodotti" | split: "," %}
+            {% for menuLink in menuLinks %}
+            {% for linkItem in linklists.main-menu.links %}
+            {% if linkItem.title == menuLink %}
+            <div
+                class="w-full flex-1 flex flex-col items-start justify-center px-3 border border-b-(--border-color) first:border-t first:border-t-(--border-color)">
+                <div class="w-full h-auto flex flex-row items-center justify-between">
+                    <!--container link-->
+                    <div class="w-auto h-auto">
+                        <li>
+                            <a class="text-stroke text-transparent" href="{{ linkItem.url }}">{{ linkItem.title | upcase }}</a>
+                        </li>
+                    </div>
+                    <!--container arrow right-->
+                    <div class="w-auto h-auto">
+                        {% render 'arrow-right' %}
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+            {% endfor %}
+        </div>
+        
+        <div class="w-full flex-1 flex flex-col items-start justify-between">
+            <div class="w-full flex-1"></div>
+            <div class="w-full flex-1"></div>
+        </div>
+    </div>
 </div>
