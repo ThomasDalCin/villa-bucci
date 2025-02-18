@@ -624,6 +624,9 @@
   .bg-\(--bg-color\) {
     background-color: var(--bg-color);
   }
+  .bg-\(--blue-color\) {
+    background-color: var(--blue-color);
+  }
   .object-cover {
     object-fit: cover;
   }
