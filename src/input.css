@@ -131,6 +131,6 @@
   }
 
   .menu-box {
-    @apply w-[48px] h-[48px] rounded-[18px] border border-transparent shadow-(--main-box-shadow) flex flex-col items-center justify-center bg-(--blue-color-w-opacity);
+    @apply w-[48px] h-[48px] rounded-[18px] border border-transparent shadow-(--main-box-shadow) flex flex-col items-center justify-center bg-(--blue-color-w-opacity) cursor-pointer;
   }
 }
