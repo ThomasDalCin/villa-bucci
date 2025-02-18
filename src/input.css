@@ -35,7 +35,6 @@
   --main-title-font-weight: 400;
   --main-title-line-height: 105%;
   --main-title-letter-spacing: 2.88px;
-  --main-title-text-transform: uppercase;
 
   /* MAIN TITLE - Mobile */
   --main-title-mobile-color: #5c634f;
@@ -45,7 +44,6 @@
   --main-title-mobile-font-weight: 400;
   --main-title-mobile-line-height: 105%;
   --main-title-mobile-letter-spacing: 1.2px;
-  --main-title-mobile-text-transform: uppercase;
 
   /* SUBMAIN TITLE */
   --submain-title-font-size: 16px;
@@ -97,25 +95,23 @@
   .no-scroll {
     overflow: hidden;
   }
+
+  .main-title-mobile {
+    font-size: var(--main-title-mobile-font-size);
+    color: var(--main-title-mobile-color);
+    line-height: var(--main-title-mobile-line-height);
+    letter-spacing: var(--main-title-mobile-letter-spacing);
+  }
+
+  .main-title-laptop {
+    font-size: var(--main-title-font-size);
+    line-height: var(--main-title-line-height);
+    letter-spacing: var(--main-title-letter-spacing);
+  }
 }
 
 /* Component */
 @layer components {
-  .main-title-mobile {
-    @apply uppercase tracking-(--main-title-mobile-letter-spacing) leading-(--main-title-mobile-line-height) font-(--main-title-mobile-font-weight) text-(--green-color);
-    font-size: var(--main-title-mobile-font-size);
-  }
-
-  .main-title-laptop {
-    @apply uppercase tracking-(--main-title-letter-spacing) leading-(--main-title-line-height) font-(--main-title-font-weight) text-(--green-color);
-    font-size: var(--main-title-font-size);
-  }
-
-  .submain-title-mobile {
-    @apply leading-(--submain-title-mobile-line-height) font-(--submain-title-mobile-font-weight) text-(--green-color);
-    font-size: var(--main-title-mobile-font-size);
-  }
-
   .cta-orange {
     @apply w-auto min-w-[191px] h-auto min-h-[48px] border border-transparent rounded-[18px] bg-(--orange-color) shadow-(--main-box-shadow) backdrop-blur-xs flex flex-row items-center justify-between px-6 py-3 cursor-pointer;
   }
