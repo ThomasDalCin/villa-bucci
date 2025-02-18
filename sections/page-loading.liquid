@@ -42,6 +42,7 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', () => {
+        const navbar = document.querySelector('.navigation');
         const loadingWrapper = document.querySelector('.loading-wrapper');
         const video = document.querySelector('.video');
 
@@ -53,6 +54,7 @@
 
                 loadingWrapper.addEventListener('transitionend', () => {
                     document.body.classList.remove('no-scroll');
+                    navbar.classList.remove('opacity-0');
                 });
             }, 500);
         });
