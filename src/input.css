@@ -1,14 +1,12 @@
 @import "tailwindcss";
 
-@font-face {
-    font-family: 'Area normal';
-    src: url();
-}
+<style>
+  @import url("https://use.typekit.net/oig7qvz.css");
+  @import url("https://use.typekit.net/oig7qvz.css");
 
-@font-face {
-    font-family: 'FontSpring-TheSeasons';
-    src: url();
-}
+
+</style>
+
 
 :root {
 
