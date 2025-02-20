@@ -62,6 +62,7 @@
         const video = document.querySelector('.video');
         const sectionsContainer = document.querySelectorAll('.section-content');
         const enterButton = document.querySelector('.cta-orange');
+        let currenTranslateValue = 0;
 
         const getPercentValueToScroll = async () => {
             const valueToDivide = 100;
@@ -78,6 +79,7 @@
 
         video.addEventListener('ended', () => {
             setTimeout(() => {
+                currentTranslateValue += percentValue;
                 loadingWrapper.classList.add(`-translate-y-[${percentValue}%]`);
 
                 loadingWrapper.addEventListener('transitionend', () => {
@@ -88,8 +90,8 @@
         });
 
         enterButton.addEventListener('click', (e) => {
-            console.log(e.target)
-            loadingWrapper.classList.add(`-translate-y-[${percentValue}%]`);
+            currentTranslateValue += percentValue;
+            loadingWrapper.classList.add(`-translate-y-[${currentTranslateValue}%]`);
 
             loadingWrapper.addEventListener('transitionend', () => {
                 setTimeout(() => {

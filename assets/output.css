@@ -671,6 +671,10 @@
   .border-collapse {
     border-collapse: collapse;
   }
+  .-translate-y-\[\$\{currentTranslateValue\}\%\] {
+    --tw-translate-y: calc(${currentTranslateValue}% * -1);
+    translate: var(--tw-translate-x) var(--tw-translate-y);
+  }
   .-translate-y-\[\$\{percentValue\}\%\] {
     --tw-translate-y: calc(${percentValue}% * -1);
     translate: var(--tw-translate-x) var(--tw-translate-y);
