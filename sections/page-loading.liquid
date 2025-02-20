@@ -71,6 +71,7 @@
 
 
         const percentValue = await getPercentValueToScroll();
+        console.log(percentValue);
 
         document.body.classList.add('no-scroll');
         loadingWrapper.classList.add(`h-[${sectionsContainer.length * 100}vh]`);
