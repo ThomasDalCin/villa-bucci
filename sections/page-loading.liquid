@@ -71,18 +71,19 @@
                 });
             }, 500);
         });
-
+        
+        gsap.registerPlugIn(ScrollTrigger);
         gsap.to(".clip-path-container", {
             clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)"
             duration: 1,
-            ease: "power2.out",
+            ease: "linear",
             scrollTrigger: {
-                trigger: ".container-clip-path", // trigger per attivare l'animazione
-                start: "center center",  // inizia l'animazione quando il centro dell'elemento trigger incontra il centro dell'elemento target
-                end: "bottom top",       // termina l'animazione quando il fondo dell'elemento trigger raggiunge la parte superiore della finestra
-                scrub: true,             // l'animazione è sincronizzata con lo scroll
-                pin: false,              // non usiamo il pin, l'effetto sticky è già attivo
-            },
+                trigger: ".container-clip-path",
+                start: "center center",
+                end: "bottom top",
+                scrub: true,  
+                pin: false, 
+            }
         });
 
 
