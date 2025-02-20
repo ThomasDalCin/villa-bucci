@@ -62,7 +62,8 @@
         const video = document.querySelector('.video');
         const sectionsContainer = document.querySelectorAll('.section-content');
         const enterButton = document.querySelector('.cta-orange');
-        let currentTranslateValue = 0;
+
+        let currentTranslateValue = 0; // Variabile per tracciare il valore del translateY
 
         const getPercentValueToScroll = async () => {
             const valueToDivide = 100;
@@ -70,17 +71,20 @@
             return percentValue;
         }
 
-
         const percentValue = await getPercentValueToScroll();
         console.log(percentValue);
 
         document.body.classList.add('no-scroll');
         loadingWrapper.classList.add(`h-[${sectionsContainer.length * 100}vh]`);
 
+        // Gestisci l'evento "ended" del video
         video.addEventListener('ended', () => {
             setTimeout(() => {
-                currentTranslateValue += percentValue;
-                loadingWrapper.classList.add(`-translate-y-[${percentValue}%]`);
+                // Aggiungi il valore del translateY al termine del video
+                currentTranslateValue += percentValue; // Incrementa di un altro 33% (percentValue)
+
+                // Applica il nuovo valore del translateY
+                loadingWrapper.style.transform = `translateY(-${currentTranslateValue}%)`;
 
                 loadingWrapper.addEventListener('transitionend', () => {
                     document.body.classList.remove('no-scroll');
@@ -89,9 +93,13 @@
             }, 500);
         });
 
-        enterButton.addEventListener('click', (e) => {
-            currentTranslateValue += percentValue;
-            loadingWrapper.classList.add(`-translate-y-[${currentTranslateValue}%]`);
+        // Gestisci l'evento click del bottone
+        enterButton.addEventListener('click', () => {
+            // Aggiungi il valore del translateY al click
+            currentTranslateValue += percentValue; // Incrementa di un altro 33% (percentValue)
+
+            // Applica il nuovo valore del translateY
+            loadingWrapper.style.transform = `translateY(-${currentTranslateValue}%)`;
 
             loadingWrapper.addEventListener('transitionend', () => {
                 setTimeout(() => {
