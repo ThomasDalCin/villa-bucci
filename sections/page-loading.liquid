@@ -87,7 +87,8 @@
             }, 500);
         });
 
-        enterButton.addEventListener('click', () => {
+        enterButton.addEventListener('click', (e) => {
+            console.log(e.target)
             loadingWrapper.classList.add(`-translate-y-[${percentValue}%]`);
 
             loadingWrapper.addEventListener('transitionend', () => {
