@@ -63,7 +63,7 @@
         const sectionsContainer = document.querySelectorAll('.section-content');
         const enterButton = document.querySelector('.cta-orange');
 
-        let currentTranslateValue = 0; // Variabile per tracciare il valore del translateY
+        let currentTranslateValue = 0;
 
         const getPercentValueToScroll = async () => {
             const valueToDivide = 100;
@@ -77,13 +77,11 @@
         document.body.classList.add('no-scroll');
         loadingWrapper.classList.add(`h-[${sectionsContainer.length * 100}vh]`);
 
-        // Gestisci l'evento "ended" del video
+
         video.addEventListener('ended', () => {
             setTimeout(() => {
-                // Aggiungi il valore del translateY al termine del video
-                currentTranslateValue += percentValue; // Incrementa di un altro 33% (percentValue)
+                currentTranslateValue += percentValue;
 
-                // Applica il nuovo valore del translateY
                 loadingWrapper.style.transform = `translateY(-${currentTranslateValue}%)`;
 
                 loadingWrapper.addEventListener('transitionend', () => {
@@ -93,12 +91,9 @@
             }, 500);
         });
 
-        // Gestisci l'evento click del bottone
         enterButton.addEventListener('click', () => {
-            // Aggiungi il valore del translateY al click
-            currentTranslateValue += percentValue; // Incrementa di un altro 33% (percentValue)
+            currentTranslateValue += percentValue;
 
-            // Applica il nuovo valore del translateY
             loadingWrapper.style.transform = `translateY(-${currentTranslateValue}%)`;
 
             loadingWrapper.addEventListener('transitionend', () => {
