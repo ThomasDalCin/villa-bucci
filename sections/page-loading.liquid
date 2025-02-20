@@ -65,7 +65,7 @@
 
         const getPercentValueToScroll = async () => {
             const valueToDivide = 100;
-            const percentValue = `${valueToDivide / sectionsContainer.length}%`;
+            const percentValue = Math.round(valueToDivide / sectionsContainer.length);
             return percentValue;
         }
 
@@ -78,7 +78,7 @@
 
         video.addEventListener('ended', () => {
             setTimeout(() => {
-                loadingWrapper.classList.add('-translate-y-[33.33336%]');
+                loadingWrapper.classList.add(`-translate-y-[${percentValue}%]`);
 
                 loadingWrapper.addEventListener('transitionend', () => {
                     document.body.classList.remove('no-scroll');
@@ -88,7 +88,7 @@
         });
 
         enterButton.addEventListener('click', () => {
-            loadingWrapper.classList.add(`-translate-y-[${percentValue}]`);
+            loadingWrapper.classList.add(`-translate-y-[${percentValue}%]`);
 
             loadingWrapper.addEventListener('transitionend', () => {
                 setTimeout(() => {
