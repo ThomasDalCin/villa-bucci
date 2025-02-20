@@ -40,7 +40,7 @@
         <div
             class="section-content w-full h-screen bg-(--bg-color) overflow-hidden relative flex items-center justify-center">
             <!--clip path content-->
-            <div class="clip-path-container sticky top-0 w-dvw h-dvh overflow-hidden bg-(--bg-color)"
+            <div class="clip-path-container w-full h-full overflow-hidden bg-(--bg-color)"
                 style="clip-path: polygon(20% 20%, 80% 20%, 80% 80%, 20% 80%);">
                 <!-- Container video -->
                 <video class="video-hero w-full h-full object-cover object-center absolute" autoplay muted playsinline>
@@ -89,7 +89,7 @@
 
         enterButton.addEventListener('click', () => {
             loadingWrapper.classList.add(`-translate-y-[${percentValue}]`);
-            
+
             loadingWrapper.addEventListener('transitionend', () => {
                 setTimeout(() => {
                     gsap.to(".clip-path-container", {
