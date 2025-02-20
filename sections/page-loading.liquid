@@ -2,17 +2,17 @@
 <div class="w-full h-svh overflow-y-hidden absolute inset-0 z-50">
 
     <!--wrapper container elements-->
-    <div class="loading-wrapper w-full h-[200vh] transform transition-all duration-500 ease-[cubic-bezier(.06,.86,.78,.22)]">
+    <div class="loading-wrapper w-full transform transition-all duration-500 ease-[cubic-bezier(.06,.86,.78,.22)]">
 
         <!--container video-->
-        <div class="video-container w-full h-screen">
+        <div class="section-content video-container w-full h-screen">
             <video class="video w-full h-full object-cover object-center" autoplay muted playsinline>
                 <source src="{{ 'page-loading.mp4' | asset_url }}" />
             </video>
         </div>
 
         <!--home step text layout -->
-        <div class="w-full h-screen bg-(--bg-color) p-5">
+        <div class="section-content w-full h-screen bg-(--bg-color) p-5">
             <div class="w-full h-full flex flex-col items-center justify-center gap-y-10 relative">
                 <div class="w-auto h-auto flex items-center justify-center text-center">
                     <h1 class="main-title-mobile lg:main-title-laptop">
@@ -36,33 +36,48 @@
             </div>
         </div>
 
+        <!--container clip-path -->
+        <div
+            class="section-content w-full h-screen bg-(--bg-color) overflow-hidden relative flex items-center justify-center">
+            <!--clip path content-->
+            <div class="clip-path-container sticky top-0 w-dvw h-dvh overflow-hidden bg-(--bg-color)"
+                style="clip-path: polygon(20% 20%, 80% 20%, 80% 80%, 20% 80%);">
+                <!-- Container video -->
+                <video class="video-hero w-full h-full object-cover object-center absolute" autoplay muted playsinline>
+                    <source src="{{ 'page-loading.mp4' | asset_url }}" />
+                </video>
+            </div>
+        </div>
+
     </div>
 </div>
 
-<!--container clip-path -->
-<div class="container-clip-path w-full h-screen bg-(--bg-color) overflow-hidden relative flex items-center justify-center">
-    <!--clip path content-->
-    <div class="clip-path-container sticky top-0 w-dvw h-dvh overflow-hidden bg-(--bg-color)"
-        style="clip-path: polygon(20% 20%, 80% 20%, 80% 80%, 20% 80%);">
-        <!-- Container video -->
-        <video class="video-hero w-full h-full object-cover object-center absolute" autoplay muted playsinline>
-            <source src="{{ 'page-loading.mp4' | asset_url }}" />
-        </video>
-    </div>
-</div>
+
 
 
 <script>
-    document.addEventListener('DOMContentLoaded', () => {
+    document.addEventListener('DOMContentLoaded', async () => {
         const navbar = document.querySelector('.navigation');
         const loadingWrapper = document.querySelector('.loading-wrapper');
         const video = document.querySelector('.video');
+        const sectionsContainer = document.querySelectorAll('.section-container');
+        const enterButton = document.querySelector('.cta-orange');
+
+        const getPercentValueToScroll = async () => {
+            const valueToDivide = 100;
+            const percentValue = `${valueToDivide / sectionsContainer.length}%`;
+            return percentValue;
+        }
+
+
+        const percentValue = await getPercentValueToScroll();
 
         document.body.classList.add('no-scroll');
+        loadingWrapper.classList.add(`h-[${sectionsContainer.length * 100}vh]`);
 
         video.addEventListener('ended', () => {
             setTimeout(() => {
-                loadingWrapper.classList.add('-translate-y-[50%]');
+                loadingWrapper.classList.add(`-translate-y-[${percentValue}]`);
 
                 loadingWrapper.addEventListener('transitionend', () => {
                     document.body.classList.remove('no-scroll');
@@ -71,19 +86,17 @@
             }, 500);
         });
 
-        gsap.registerPlugin(ScrollTrigger);
-        gsap.to(".clip-path-container", {
-            clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-            duration: 1,
-            ease: "linear",
-            scrollTrigger: {
-                trigger: ".container-clip-path",
-                start: "center center",
-                end: "bottom top",
-                scrub: true,
-                pin: true,
-            }
-        });
+        enterButton.addEventListener('click', () => {
+            loadingWrapper.classList.add(`-translate-y-[${percentValue}]`);
+            loadingWrapper.addEventListener('transitionend', () => {
+                setTimeout(() => {
+                    gsap.to(".clip-path-container", {
+                        clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+                        duration: 1,
+                        ease: "Power2.easeOut",
+                    })
+                }, 200)
+            })
+        })
     });
-
 </script>
