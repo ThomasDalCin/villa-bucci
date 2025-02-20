@@ -2,8 +2,9 @@
 <div class="w-full h-svh overflow-y-hidden absolute inset-0 z-50">
 
     <!--wrapper container elements-->
-    <div class="loading-wrapper w-full h-[200vh] transform transition-all duration-500 ease-[cubic-bezier(.06,.86,.78,.22)]">
- 
+    <div
+        class="loading-wrapper w-full h-[300vh] transform transition-all duration-500 ease-[cubic-bezier(.06,.86,.78,.22)]">
+
         <!--container video-->
         <div class="video-container w-full h-screen">
             <video class="video w-full h-full object-cover object-center" autoplay muted playsinline>
@@ -36,6 +37,18 @@
             </div>
         </div>
 
+        <!--container clip-path -->
+        <div
+            class="container-clip-path w-full h-screen bg-(--bg-color) overflow-hidden relative flex items-center justify-center">
+            <!--clip path content-->
+            <div class="clip-path-container sticky top-0 w-dvw h-dvh overflow-hidden bg-(--bg-color)" style="clip-path: polygon(20% 20%, 80% 20%, 80% 80%, 20% 80%);">
+                <!-- Container video -->
+                <video class="video-hero w-full h-full object-cover object-center absolute" autoplay muted playsinline>
+                    <source src="{{ 'page-loading.mp4' | asset_url }}" />
+                </video>
+            </div>
+        </div>
+
     </div>
 
 </div>
@@ -50,7 +63,7 @@
 
         video.addEventListener('ended', () => {
             setTimeout(() => {
-                loadingWrapper.classList.add('-translate-y-[50%]');
+                loadingWrapper.classList.add('-translate-y-[33.3%]');
 
                 loadingWrapper.addEventListener('transitionend', () => {
                     document.body.classList.remove('no-scroll');
@@ -58,6 +71,21 @@
                 });
             }, 500);
         });
+
+        gsap.to(".clip-path-container", {
+            clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)"
+            duration: 1,
+            ease: "power2.out",
+            scrollTrigger: {
+                trigger: ".container-clip-path", // trigger per attivare l'animazione
+                start: "center center",  // inizia l'animazione quando il centro dell'elemento trigger incontra il centro dell'elemento target
+                end: "bottom top",       // termina l'animazione quando il fondo dell'elemento trigger raggiunge la parte superiore della finestra
+                scrub: true,             // l'animazione è sincronizzata con lo scroll
+                pin: false,              // non usiamo il pin, l'effetto sticky è già attivo
+            },
+        });
+
+
     });
 
 </script>

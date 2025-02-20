@@ -527,6 +527,9 @@
   .relative {
     position: relative;
   }
+  .sticky {
+    position: sticky;
+  }
   .inset-0 {
     inset: calc(var(--spacing) * 0);
   }
@@ -596,11 +599,14 @@
   .h-12 {
     height: calc(var(--spacing) * 12);
   }
-  .h-\[200vh\] {
-    height: 200vh;
+  .h-\[300vh\] {
+    height: 300vh;
   }
   .h-auto {
     height: auto;
+  }
+  .h-dvh {
+    height: 100dvh;
   }
   .h-full {
     height: 100%;
@@ -614,6 +620,9 @@
   .w-auto {
     width: auto;
   }
+  .w-dvw {
+    width: 100dvw;
+  }
   .w-full {
     width: 100%;
   }
@@ -623,8 +632,8 @@
   .flex-1 {
     flex: 1;
   }
-  .-translate-y-\[50\%\] {
-    --tw-translate-y: calc(50% * -1);
+  .-translate-y-\[33\.3\%\] {
+    --tw-translate-y: calc(33.3% * -1);
     translate: var(--tw-translate-x) var(--tw-translate-y);
   }
   .transform {

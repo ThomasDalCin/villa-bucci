@@ -1,70 +1,72 @@
 <!--footer div -->
 <footer class="w-full  bg-(--blue-color) text-white p-5">
     <div class="max-w-[400px] mx-auto space-y-6">
-    <!-- Logo -->
-    <div class="flex justify-center">
-        <img src="{{ settings.logo_image | img_url: 'master' }}" alt="oniwines-logo" class="h-12">
+        <!-- Logo -->
+        <div class="flex justify-center">
+            <img src="{{ settings.logo_image | img_url: 'master' }}" alt="oniwines-logo" class="h-12">
 
+        </div>
     </div>
-</div>
 
 
-        <!-- Newsletter -->
-        <div class="space-y-3 text-left">
-            <h2 class="text-lg ">NEWSLETTER</h2>
-            <div class="flex border border-gray-500 rounded-full overflow-hidden">
-                <input type="email" placeholder="EMAIL" class="w-full bg-transparent px-4 py-2 text-white focus:outline-none">
-                <button class="bg-gray-600 px-6 py-2 text-white">INVIA</button>
-            </div>
-            <label class="flex items-center text-xs text-gray-400 ml-4">
-                <input type="radio" class="mr-2">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nobis nisi eveniet accusamus voluptas quasi ea quae repellat placeat fugiat, quas ratione magni, non ad! Beatae sapiente alias totam explicabo temporibus.
-            </label>
+    <!-- Newsletter -->
+    <div class="space-y-3 text-left">
+        <h2 class="text-lg ">NEWSLETTER</h2>
+        <div class="flex border border-gray-500 rounded-full overflow-hidden">
+            <input type="email" placeholder="EMAIL"
+                class="w-full bg-transparent px-4 py-2 text-white focus:outline-none">
+            <button class="bg-gray-600 px-6 py-2 text-white">INVIA</button>
         </div>
+        <label class="flex items-center text-xs text-gray-400 ml-4">
+            <input type="radio" class="mr-2">
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nobis nisi eveniet accusamus voluptas quasi ea
+            quae repellat placeat fugiat, quas ratione magni, non ad! Beatae sapiente alias totam explicabo temporibus.
+        </label>
+    </div>
 
-        <!-- Navigation -->
-        <nav class="space-y-2 ">
-            <a href="#" class="block hover:underline">HOME</a>
-            <a href="#" class="block hover:underline">IL PROGETTO</a>
-            <a href="#" class="block underline text-blue-400">LE CANTINE</a>
-            <a href="#" class="block hover:underline">PRODOTTI</a>
-            <a href="#" class="block hover:underline">CONTATTI</a>
-        </nav>
+    <!-- Navigation -->
+    <nav class="space-y-2 ">
+        <a href="#" class="block hover:underline">HOME</a>
+        <a href="#" class="block hover:underline">IL PROGETTO</a>
+        <a href="#" class="block underline text-blue-400">LE CANTINE</a>
+        <a href="#" class="block hover:underline">PRODOTTI</a>
+        <a href="#" class="block hover:underline">CONTATTI</a>
+    </nav>
 
-        <!-- Scroll to Top -->
-        <div class="flex justify-center">
-            <button onclick="scrollToTop()" class="flex items-center justify-center space-x-2 text-sm text-white hover:opacity-80">
-                <span>↑</span>
-                <span>TORNA SU</span>
-            </button>
-        </div>
+    <!-- Scroll to Top -->
+    <div class="flex justify-center">
+        <button onclick="scrollToTop()"
+            class="flex items-center justify-center space-x-2 text-sm text-white hover:opacity-80">
+            <span>↑</span>
+            <span>TORNA SU</span>
+        </button>
+    </div>
 
-        <!-- External Link -->
-        <div class="flex justify-center">
+    <!-- External Link -->
+    <div class="flex justify-center">
         <a href="#" class="text-red-400 hover:text-red-500">ONIVERSE ↗</a>
-        </div>
-        <!-- Footer Info -->
-        <div class="flex justify-center">
+    </div>
+    <!-- Footer Info -->
+    <div class="flex justify-center">
         <p class="text-xs text-gray-400 text-center">
             ONIWINES | P.IVA 000000000000 <br>
             PREFERENZE COOKIE | PRIVACY | CREDITS
         </p>
-        </div>
+    </div>
     </div>
 </footer>
 
 
 
 {% schema %}
-    {
-      "name": "Footer",
-      "settings": [
-        {
-          "type": "image_picker",
-          "id": "logo_image",
-          "label": "Select your logo image"
-        }
-      ]
-    }
-    {% endschema %}
-    
+{
+"name": "Footer",
+"settings": [
+{
+"type": "image_picker",
+"id": "logo_image",
+"label": "Select your logo image"
+}
+]
+}
+{% endschema %}
