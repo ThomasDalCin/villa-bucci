@@ -62,7 +62,7 @@
 
         video.addEventListener('ended', () => {
             setTimeout(() => {
-                loadingWrapper.classList.add('-translate-y-[-50%]');
+                loadingWrapper.classList.add('-translate-y-[50%]');
 
                 loadingWrapper.addEventListener('transitionend', () => {
                     document.body.classList.remove('no-scroll');
@@ -85,8 +85,6 @@
                 pin: true,
             }
         });
-
-
     });
 
 </script>
