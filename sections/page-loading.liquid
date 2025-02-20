@@ -37,23 +37,22 @@
             </div>
         </div>
     </div>
-
-    <!--container clip-path -->
-    <div
-        class="container-clip-path w-full h-screen bg-(--bg-color) overflow-hidden relative flex items-center justify-center">
-        <!--clip path content-->
-        <div class="clip-path-container sticky top-0 w-dvw h-dvh overflow-hidden bg-(--bg-color)"
-            style="clip-path: polygon(20% 20%, 80% 20%, 80% 80%, 20% 80%);">
-            <!-- Container video -->
-            <video class="video-hero w-full h-full object-cover object-center absolute" autoplay muted playsinline>
-                <source src="{{ 'page-loading.mp4' | asset_url }}" />
-            </video>
-        </div>
-    </div>
-
-    <div class="w-full h-auto"></div>
-
 </div>
+
+<!--container clip-path -->
+<div
+    class="container-clip-path w-full h-screen bg-(--bg-color) overflow-hidden relative flex items-center justify-center">
+    <!--clip path content-->
+    <div class="clip-path-container sticky top-0 w-dvw h-dvh overflow-hidden bg-(--bg-color)"
+        style="clip-path: polygon(20% 20%, 80% 20%, 80% 80%, 20% 80%);">
+        <!-- Container video -->
+        <video class="video-hero w-full h-full object-cover object-center absolute" autoplay muted playsinline>
+            <source src="{{ 'page-loading.mp4' | asset_url }}" />
+        </video>
+    </div>
+</div>
+
+<div class="w-full h-auto"></div>
 
 <script>
     document.addEventListener('DOMContentLoaded', () => {
