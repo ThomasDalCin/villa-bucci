@@ -78,7 +78,7 @@
 
         video.addEventListener('ended', () => {
             setTimeout(() => {
-                loadingWrapper.style.transform = `translateY(${-percentValue})`;
+                loadingWrapper.classList.add(`-translate-y-[${percentValue}]`);
 
                 loadingWrapper.addEventListener('transitionend', () => {
                     document.body.classList.remove('no-scroll');
@@ -88,7 +88,8 @@
         });
 
         enterButton.addEventListener('click', () => {
-            loadingWrapper.style.transform = `translateY(${-percentValue})`;
+            loadingWrapper.classList.add(`-translate-y-[${percentValue}]`);
+            
             loadingWrapper.addEventListener('transitionend', () => {
                 setTimeout(() => {
                     gsap.to(".clip-path-container", {
