@@ -61,9 +61,22 @@
                     <!--three js here-->
                 </canvas>
             </div>
-            <!--overlay div text & cta-->
+            <!--overlay just text -->
             <div
                 class="w-full h-[500vh] absolute left-0 top-0 right-0 z-10 transform transition-all duration-500 ease-[cubic-bezier(.06,.86,.78,.22)]">
+            </div>
+            <!--overlay cta -->
+            <div class="w-full h-full absolute inset-0 z-20 flex items-end justify-center">
+                <!--container cta-->
+                <div class="w-auto h-auto mb-[155px]">
+                    <div class="cta-orange">
+                        <p class="uppercase text-[12px] leading-[16px] tracking-[-3%]">{{ section.settings.cta_step |
+                            default: "Vai al sito" }}</p>
+                        <div class="w-auto h-auto text-(--blue-color)">
+                            {% render 'arrow-up' %}
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
