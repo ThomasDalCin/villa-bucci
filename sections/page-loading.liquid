@@ -39,7 +39,8 @@
         <!--container clip-path -->
         <div class="section-content w-full h-screen overflow-hidden relative flex items-center justify-center">
             <!--clip path content-->
-            <div class="clip-path-container w-full h-full overflow-hidde relative" style="clip-path: polygon(20% 20%, 80% 20%, 80% 80%, 20% 80%);">
+            <div class="clip-path-container w-full h-full overflow-hidde relative"
+                style="clip-path: polygon(20% 20%, 80% 20%, 80% 80%, 20% 80%);">
                 <!-- Container video -->
                 <video class="video-hero w-full h-full object-cover object-center relative" autoplay muted playsinline
                     loop>
@@ -52,13 +53,27 @@
             </div>
         </div>
 
+        <!--container canvas for three js map-->
+        <div class="section-content w-full h-screen overflow-hidden relative">
+            <!--container canvas absolute to container-->
+            <div class="w-full h-full absolute inset-0">
+                <canvas id="canvas" class="w-full h-full">
+                    <!--three js here-->
+                </canvas>
+            </div>
+            <!--overlay div text & cta-->
+            <div
+                class="w-full h-[500vh] absolute left-0 top-0 right-0 z-10 transform transition-all duration-500 ease-[cubic-bezier(.06,.86,.78,.22)]">
+            </div>
+        </div>
     </div>
 </div>
 
 
 
 
-<script>
+
+<script type="module">
     document.addEventListener('DOMContentLoaded', async () => {
         const navbar = document.querySelector('.navigation');
         const loadingWrapper = document.querySelector('.loading-wrapper');
@@ -111,5 +126,39 @@
                 }, 200)
             })
         })
+    });
+</script>
+
+<script type="module">
+    import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.173.0/build/three.module.js';
+ 
+    document.addEventListener('DOMContentLoaded', async () => {
+        // Imposta il canvas e la scena
+        const canvas = document.getElementById('canvas');
+        const scene = new THREE.Scene();
+        scene.background = new THREE.Color(0xDACABB);
+ 
+        const texture = new THREE.TextureLoader().load('{{ "map.png" | asset_url }}');
+        console.log(texture);
+ 
+        const geometry = new THREE.PlaneGeometry(20, 20);
+        const material = new THREE.MeshStandardMaterial({ map: texture , transparent: true });
+        const plane = new THREE.Mesh(geometry, material);
+        plane.position.set(0,0,0);
+        scene.add(plane);
+ 
+        const axesHelper = new THREE.AxesHelper(5);
+        scene.add(axesHelper);
+ 
+        const canvasSizes = { width: window.innerWidth, height: window.innerHeight };
+        const aspectRatio = canvasSizes.width / canvasSizes.height;
+        const camera = new THREE.OrthographicCamera(-aspectRatio * 1, aspectRatio * 1, 1, -1, 0.1, 100);
+        camera.position.set(0, 0, 5);
+        camera.lookAt(0, 0, 0);
+ 
+        const renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true  });
+        renderer.setSize(canvasSizes.width, canvasSizes.height);
+ 
+        renderer.render(scene, camera);
     });
 </script>
