@@ -1,7 +1,7 @@
 <!--page loading section with video-->
-<div class="w-full h-svh overflow-y-hidden relative z-50">
+<div class="w-full h-svh relative z-50">
 
-    <!--wrapper container elements-->
+    <!--wrapper container main elements-->
     <div class="loading-wrapper w-full transform transition-all duration-500 ease-[cubic-bezier(.06,.86,.78,.22)]">
 
         <!--container video-->
@@ -52,62 +52,61 @@
                 </div>
             </div>
         </div>
+    </div>
+</div>
 
-        <div class="section-content content-overlay w-full h-screen overflow-hidden relative">
+<!--wrapper container steps-->
+<div class="section-content-overlay content-overlay w-full h-screen overflow-hidden relative">
 
-            <!-- Contenitore del canvas che resta fisso -->
-            <div class="w-full h-full absolute inset-0 z-0">
-                <canvas id="canvas" class="w-full h-full">
-                    <!-- Three.js content -->
-                </canvas>
+    <!-- Contenitore del canvas che resta fisso -->
+    <div class="w-full h-full absolute inset-0 z-0">
+        <canvas id="canvas" class="w-full h-full">
+            <!-- Three.js content -->
+        </canvas>
+    </div>
+
+    <!-- Calcola il numero di pagine "Cantina" o "Canteen" -->
+    {% assign counter = 0 %}
+    {% for page in pages %}
+    {% if page.title contains "Cantina" or page.title contains "Canteen" %}
+    {% assign counter = counter | plus: 1 %}
+    {% endif %}
+    {% endfor %}
+
+    <!-- Calcola l'altezza totale basata sul numero di pagine -->
+    {% assign counter_vh = counter | times: 100 %}
+
+    <!-- Contenitore che contiene solo le sezioni da scorrere -->
+    <div class="overlays-container w-full absolute left-0 top-0 right-0 z-10 overflow-y-scroll"
+        style="height:{{ counter_vh }}vh">
+        <!-- Loop contenuti delle pagine -->
+        {% for page in pages %}
+        {% if page.title contains "Cantina" or page.title contains "Canteen" %}
+        {% assign pageCustomTitle = page.title | split: " " %}
+        {% assign pageCustomTitle = pageCustomTitle | slice: 1, pageCustomTitle.size %}
+        {% assign pageCustomTitle = pageCustomTitle | join: " " %}
+
+        <!-- Sezione di overlay -->
+        <div class="overlay-section w-full h-screen flex items-center justify-center flex-col gap-y-5">
+            <div class="w-auto h-auto flex items-start justify-center">
+                <h2 class="main-title-mobile lg:main-title-laptop">{{ pageCustomTitle | upcase }}</h2>
             </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
 
-            <!-- Calcola il numero di pagine "Cantina" o "Canteen" -->
-            {% assign counter = 0 %}
-            {% for page in pages %}
-            {% if page.title contains "Cantina" or page.title contains "Canteen" %}
-            {% assign counter = counter | plus: 1 %}
-            {% endif %}
-            {% endfor %}
-
-            <!-- Calcola l'altezza totale basata sul numero di pagine -->
-            {% assign counter_vh = counter | times: 100 %}
-
-            <!-- Contenitore che contiene solo le sezioni da scorrere -->
-            <div class="overlays-container w-full absolute left-0 top-0 right-0 z-10 overflow-y-scroll"
-                style="height:{{ counter_vh }}vh">
-                <!-- Loop contenuti delle pagine -->
-                {% for page in pages %}
-                {% if page.title contains "Cantina" or page.title contains "Canteen" %}
-                {% assign pageCustomTitle = page.title | split: " " %}
-                {% assign pageCustomTitle = pageCustomTitle | slice: 1, pageCustomTitle.size %}
-                {% assign pageCustomTitle = pageCustomTitle | join: " " %}
-
-                <!-- Sezione di overlay -->
-                <div class="overlay-section w-full h-screen flex items-center justify-center flex-col gap-y-5">
-                    <div class="w-auto h-auto flex items-start justify-center">
-                        <h2 class="main-title-mobile lg:main-title-laptop">{{ pageCustomTitle | upcase }}</h2>
-                    </div>
-                </div>
-                {% endif %}
-                {% endfor %}
-            </div>
-
-            <!-- CTA Fissa -->
-            <div class="w-full h-full absolute inset-0 z-20 flex items-end justify-center">
-                <div class="w-auto h-auto mb-[155px]">
-                    <div class="cta-orange">
-                        <p class="uppercase text-[12px] leading-[16px] tracking-[-3%]">{{ section.settings.cta_step |
-                            default: "Vai al sito" }}</p>
-                        <div class="w-auto h-auto text-(--blue-color)">
-                            {% render 'arrow-up' %}
-                        </div>
-                    </div>
+    <!-- CTA Fissa -->
+    <div class="w-full h-full absolute inset-0 z-20 flex items-end justify-center">
+        <div class="w-auto h-auto mb-[155px]">
+            <div class="cta-orange">
+                <p class="uppercase text-[12px] leading-[16px] tracking-[-3%]">{{ section.settings.cta_step |
+                    default: "Vai al sito" }}</p>
+                <div class="w-auto h-auto text-(--blue-color)">
+                    {% render 'arrow-up' %}
                 </div>
             </div>
         </div>
-
-
     </div>
 </div>
 
@@ -144,6 +143,7 @@
 
 
         loadingWrapper.classList.add(`h-[${sectionsContainer.length * 100}vh]`);
+        document.body.classList.add('no-scroll');
 
 
         video.addEventListener('ended', () => {
@@ -178,6 +178,7 @@
         audioButton.addEventListener('click', () => {
             currentTranslateValue += percentValue;
             loadingWrapper.style.transform = `translateY(-${currentTranslateValue}%)`;
+            document.body.classList.remove('no-scroll');
         });
 
         // const updateScroll = (event) => {

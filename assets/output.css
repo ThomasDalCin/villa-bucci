@@ -626,6 +626,9 @@
   .table {
     display: table;
   }
+  .h-0 {
+    height: calc(var(--spacing) * 0);
+  }
   .h-12 {
     height: calc(var(--spacing) * 12);
   }
