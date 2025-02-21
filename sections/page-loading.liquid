@@ -52,69 +52,57 @@
                 </div>
             </div>
         </div>
-    </div>
-</div>
 
-<!--wrapper container steps-->
-<div class="section-content-overlay content-overlay w-full h-screen overflow-hidden relative">
-
-    <!-- Contenitore del canvas che resta fisso -->
-    <div class="w-full h-full absolute inset-0 z-0">
-        <canvas id="canvas" class="w-full h-full">
-            <!-- Three.js content -->
-        </canvas>
-    </div>
-
-    <!-- Calcola il numero di pagine "Cantina" o "Canteen" -->
-    {% assign counter = 0 %}
-    {% for page in pages %}
-    {% if page.title contains "Cantina" or page.title contains "Canteen" %}
-    {% assign counter = counter | plus: 1 %}
-    {% endif %}
-    {% endfor %}
-
-    <!-- Calcola l'altezza totale basata sul numero di pagine -->
-    {% assign counter_vh = counter | times: 100 %}
-
-    <!-- Contenitore che contiene solo le sezioni da scorrere -->
-    <div class="overlays-container w-full absolute left-0 top-0 right-0 z-10 overflow-y-scroll"
-        style="height:{{ counter_vh }}vh">
-        <!-- Loop contenuti delle pagine -->
+        <!--liquid code -->
+        {% assign counter = 0 %}
         {% for page in pages %}
         {% if page.title contains "Cantina" or page.title contains "Canteen" %}
-        {% assign pageCustomTitle = page.title | split: " " %}
-        {% assign pageCustomTitle = pageCustomTitle | slice: 1, pageCustomTitle.size %}
-        {% assign pageCustomTitle = pageCustomTitle | join: " " %}
-
-        <!-- Sezione di overlay -->
-        <div class="overlay-section w-full h-screen flex items-center justify-center flex-col gap-y-5">
-            <div class="w-auto h-auto flex items-start justify-center">
-                <h2 class="main-title-mobile lg:main-title-laptop">{{ pageCustomTitle | upcase }}</h2>
-            </div>
-        </div>
+        {% assign counter = counter | plus: 1 %}
         {% endif %}
         {% endfor %}
-    </div>
 
-    <!-- CTA Fissa -->
-    <div class="w-full h-full absolute inset-0 z-20 flex items-end justify-center">
-        <div class="w-auto h-auto mb-[155px]">
-            <div class="cta-orange">
-                <p class="uppercase text-[12px] leading-[16px] tracking-[-3%]">{{ section.settings.cta_step |
-                    default: "Vai al sito" }}</p>
-                <div class="w-auto h-auto text-(--blue-color)">
-                    {% render 'arrow-up' %}
+        {% assign counter_vh = counter | times: 100 %}
+
+        <div class="section-content w-full h-screen">
+            <div class="section-content-overlay content-overlay w-full h-auto relative">
+
+
+                <div class="w-full h-screen sticky top-0 z-20 overflow-y-scroll"
+                    style="clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)">
+
+                    <!-- container canvas -->
+                    <div class="w-full h-screen sticky top-0 z-5">
+                        <canvas id="canvas" class="w-full h-full">
+                            <!-- Three.js content -->
+                        </canvas>
+                    </div>
+
+                    <div class="w-full h-auto absolute top-0 left-0 right-0 z-10">
+                        {% for page in pages %}
+                            {% if page.title contains "Cantina" or page.title contains "Canteen" %}
+                            {% assign pageCustomTitle = page.title | split: " " %}
+                            {% assign pageCustomTitle = pageCustomTitle | slice: 1, pageCustomTitle.size %}
+                            {% assign pageCustomTitle = pageCustomTitle | join: " " %}
+                            <div
+                                class="overlay-section w-full h-screen flex items-center justify-center flex-col gap-y-5 snap-start">
+                                <div class="w-auto h-auto flex items-start justify-center">
+                                    <h2 class="main-title-mobile lg:main-title-laptop">{{ pageCustomTitle | upcase }}</h2>
+                                </div>
+                            </div>
+                            {% endif %}
+                            {% endfor %}
+                    </div>
                 </div>
             </div>
         </div>
+
     </div>
 </div>
 
 
 
 
-
-<script type="module">
+<script>
     document.addEventListener('DOMContentLoaded', async () => {
         const navbar = document.querySelector('.navigation');
         const loadingWrapper = document.querySelector('.loading-wrapper');
@@ -127,7 +115,6 @@
         const audioButton = document.querySelector('.audio-button');
 
         let currentTranslateValue = 0;
-        let currentTranslateOverlayValue = 0;
 
         const getPercentValueToScroll = async (value) => {
             const valueToDivide = 100;
@@ -136,10 +123,7 @@
         }
 
         const percentValue = await getPercentValueToScroll(sectionsContainer);
-        const percentValueOverlay = await getPercentValueToScroll(overlaySection);
-
         console.log(percentValue);
-        console.log(percentValueOverlay);
 
 
         loadingWrapper.classList.add(`h-[${sectionsContainer.length * 100}vh]`);
@@ -181,22 +165,9 @@
             document.body.classList.remove('no-scroll');
         });
 
-        // const updateScroll = (event) => {
-        //     const scrollTop = overlayTextContainer.scrollTop;
-        //     const maxScroll = (overlayTextContainer.scrollHeight - overlayTextContainer.clientHeight);
-        //     const scrollPercentage = (scrollTop / maxScroll) * 100;
-        //     console.log(scrollPercentage)
-        //     currentTranslateOverlayValue = Math.round(scrollPercentage / percentValueOverlay) * percentValueOverlay;
-        //     overlayTextContainer.style.transform = `translateY(-${currentTranslateOverlayValue}%)`;
-        //     console.log(currentTranslateOverlayValue)
-        // };
-
-
-        sectionOverlays.addEventListener('scroll', () => {
-            console.log('stai scrollando')
-        });
     });
 </script>
+
 
 <script type="module">
     import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.173.0/build/three.module.js';

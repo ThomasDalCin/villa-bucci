@@ -530,6 +530,9 @@
   .relative {
     position: relative;
   }
+  .sticky {
+    position: sticky;
+  }
   .inset-0 {
     inset: calc(var(--spacing) * 0);
   }
@@ -626,14 +629,8 @@
   .table {
     display: table;
   }
-  .h-0 {
-    height: calc(var(--spacing) * 0);
-  }
   .h-12 {
     height: calc(var(--spacing) * 12);
-  }
-  .h-\[500vh\] {
-    height: 500vh;
   }
   .h-auto {
     height: auto;
@@ -746,9 +743,6 @@
   }
   .overflow-hidden {
     overflow: hidden;
-  }
-  .overflow-y-auto {
-    overflow-y: auto;
   }
   .overflow-y-hidden {
     overflow-y: hidden;
