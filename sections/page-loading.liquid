@@ -53,21 +53,48 @@
             </div>
         </div>
 
-        <!--container canvas for three js map-->
-        <div class="section-content w-full h-screen overflow-hidden relative">
-            <!--container canvas absolute to container-->
-            <div class="w-full h-full absolute inset-0">
+        <div class="section-content content-overlay w-full h-screen overflow-hidden relative">
+
+            <!-- Contenitore del canvas che resta fisso -->
+            <div class="w-full h-full absolute inset-0 z-0">
                 <canvas id="canvas" class="w-full h-full">
-                    <!--three js here-->
+                    <!-- Three.js content -->
                 </canvas>
             </div>
-            <!--overlay just text -->
-            <div
-                class="w-full h-[500vh] absolute left-0 top-0 right-0 z-10 transform transition-all duration-500 ease-[cubic-bezier(.06,.86,.78,.22)]">
+
+            <!-- Calcola il numero di pagine "Cantina" o "Canteen" -->
+            {% assign counter = 0 %}
+            {% for page in pages %}
+            {% if page.title contains "Cantina" or page.title contains "Canteen" %}
+            {% assign counter = counter | plus: 1 %}
+            {% endif %}
+            {% endfor %}
+
+            <!-- Calcola l'altezza totale basata sul numero di pagine -->
+            {% assign counter_vh = counter | times: 100 %}
+
+            <!-- Contenitore che contiene solo le sezioni da scorrere -->
+            <div class="overlays-container w-full absolute left-0 top-0 right-0 z-10 overflow-y-scroll"
+                style="height:{{ counter_vh }}vh">
+                <!-- Loop contenuti delle pagine -->
+                {% for page in pages %}
+                {% if page.title contains "Cantina" or page.title contains "Canteen" %}
+                {% assign pageCustomTitle = page.title | split: " " %}
+                {% assign pageCustomTitle = pageCustomTitle | slice: 1, pageCustomTitle.size %}
+                {% assign pageCustomTitle = pageCustomTitle | join: " " %}
+
+                <!-- Sezione di overlay -->
+                <div class="overlay-section w-full h-screen flex items-center justify-center flex-col gap-y-5">
+                    <div class="w-auto h-auto flex items-start justify-center">
+                        <h2 class="main-title-mobile lg:main-title-laptop">{{ pageCustomTitle | upcase }}</h2>
+                    </div>
+                </div>
+                {% endif %}
+                {% endfor %}
             </div>
-            <!--overlay cta -->
+
+            <!-- CTA Fissa -->
             <div class="w-full h-full absolute inset-0 z-20 flex items-end justify-center">
-                <!--container cta-->
                 <div class="w-auto h-auto mb-[155px]">
                     <div class="cta-orange">
                         <p class="uppercase text-[12px] leading-[16px] tracking-[-3%]">{{ section.settings.cta_step |
@@ -79,6 +106,8 @@
                 </div>
             </div>
         </div>
+
+
     </div>
 </div>
 
@@ -90,23 +119,30 @@
     document.addEventListener('DOMContentLoaded', async () => {
         const navbar = document.querySelector('.navigation');
         const loadingWrapper = document.querySelector('.loading-wrapper');
+        const sectionOverlays = document.querySelector('.content-overlay');
+        const overlayTextContainer = document.querySelector('.overlays-container');
+        const overlaySection = document.querySelectorAll('.overlay-section');
         const video = document.querySelector('.video');
         const sectionsContainer = document.querySelectorAll('.section-content');
         const enterButton = document.querySelector('.cta-orange');
         const audioButton = document.querySelector('.audio-button');
 
         let currentTranslateValue = 0;
+        let currentTranslateOverlayValue = 0;
 
-        const getPercentValueToScroll = async () => {
+        const getPercentValueToScroll = async (value) => {
             const valueToDivide = 100;
-            const percentValue = valueToDivide / sectionsContainer.length;
+            const percentValue = valueToDivide / value.length;
             return percentValue;
         }
 
-        const percentValue = await getPercentValueToScroll();
-        console.log(percentValue);
+        const percentValue = await getPercentValueToScroll(sectionsContainer);
+        const percentValueOverlay = await getPercentValueToScroll(overlaySection);
 
-        document.body.classList.add('no-scroll');
+        console.log(percentValue);
+        console.log(percentValueOverlay);
+
+
         loadingWrapper.classList.add(`h-[${sectionsContainer.length * 100}vh]`);
 
 
@@ -142,9 +178,22 @@
         audioButton.addEventListener('click', () => {
             currentTranslateValue += percentValue;
             loadingWrapper.style.transform = `translateY(-${currentTranslateValue}%)`;
-        })
+        });
+
+        // const updateScroll = (event) => {
+        //     const scrollTop = overlayTextContainer.scrollTop;
+        //     const maxScroll = (overlayTextContainer.scrollHeight - overlayTextContainer.clientHeight);
+        //     const scrollPercentage = (scrollTop / maxScroll) * 100;
+        //     console.log(scrollPercentage)
+        //     currentTranslateOverlayValue = Math.round(scrollPercentage / percentValueOverlay) * percentValueOverlay;
+        //     overlayTextContainer.style.transform = `translateY(-${currentTranslateOverlayValue}%)`;
+        //     console.log(currentTranslateOverlayValue)
+        // };
 
 
+        sectionOverlays.addEventListener('scroll', () => {
+            console.log('stai scrollando')
+        });
     });
 </script>
 
@@ -161,7 +210,7 @@
         console.log(texture);
 
         const geometry = new THREE.PlaneGeometry(20, 20);
-        const material = new THREE.MeshPhongMaterial({map: texture});
+        const material = new THREE.MeshPhongMaterial({map: texture, transparent: true});
         const plane = new THREE.Mesh(geometry, material);
         plane.position.set(0, 0, 0);
         scene.add(plane);
