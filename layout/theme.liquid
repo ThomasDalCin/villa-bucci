@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="{% if request.locale.iso_code == 'it' %}it{% else %}en{% endif %}">
+
 <head>
   <title>{{ page_title }}</title>
   <meta charset="utf-8">
@@ -9,6 +10,15 @@
   <!--favicon-->
   <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
   {{ content_for_header }}
+  <!--three js script-->
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.173.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.173.0/examples/jsm/"
+    }
+  }
+</script>
   <!--swiper cdn & scripts-->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
@@ -20,12 +30,14 @@
   {{ 'output.css' | asset_url | stylesheet_tag }}
   <!--font links-->
   <link rel="stylesheet" href="https://use.typekit.net/oig7qvz.css">
- 
+
 </head>
-  <body>
-    <main role="main">
-      {% section 'navbar' %}
-      {{ content_for_layout }}
-    </main>
-  </body>
+
+<body>
+  <main role="main">
+    {% section 'navbar' %}
+    {{ content_for_layout }}
+  </main>
+</body>
+
 </html>

@@ -1,5 +1,5 @@
 <!--page loading section with video-->
-<div class="w-full h-svh overflow-y-hidden absolute inset-0 z-50">
+<div class="w-full h-svh overflow-y-hidden relative z-50">
 
     <!--wrapper container elements-->
     <div class="loading-wrapper w-full transform transition-all duration-500 ease-[cubic-bezier(.06,.86,.78,.22)]">
@@ -12,7 +12,7 @@
         </div>
 
         <!--home step text layout -->
-        <div class="section-content w-full h-screen p-5">
+        <div class="section-content w-full h-screen">
             <div class="w-full h-full flex flex-col items-center justify-center gap-y-10 relative">
                 <div class="w-auto h-auto flex items-center justify-center text-center">
                     <h1 class="main-title-mobile lg:main-title-laptop">
@@ -26,7 +26,7 @@
                         {% render 'play-poligon' %}
                     </div>
                 </div>
-                <div class="bottom-text-container w-full absolute h-auto left-0 bottom-0 right-0">
+                <div class="bottom-text-container w-full absolute h-auto left-0 bottom-7 right-0">
                     <div class="w-auto h-auto flex items-center justify-center">
                         <p class="uppercase underline text-[12px] leading-[16px] tracking-[-3%] font-bold">
                             {{ section.settings.custom_settings_text | default: "Entra senza audio" }}
@@ -37,15 +37,18 @@
         </div>
 
         <!--container clip-path -->
-        <div
-            class="section-content w-full h-screen overflow-hidden relative flex items-center justify-center">
+        <div class="section-content w-full h-screen overflow-hidden relative flex items-center justify-center">
             <!--clip path content-->
-            <div class="clip-path-container w-full h-full overflow-hidden"
-                style="clip-path: polygon(20% 20%, 80% 20%, 80% 80%, 20% 80%);">
+            <div class="clip-path-container w-full h-full overflow-hidde relative" style="clip-path: polygon(20% 20%, 80% 20%, 80% 80%, 20% 80%);">
                 <!-- Container video -->
-                <video class="video-hero w-full h-full object-cover object-center absolute" autoplay muted playsinline loop>
+                <video class="video-hero w-full h-full object-cover object-center relative" autoplay muted playsinline
+                    loop>
                     <source src="https://cdn.shopify.com/videos/c/o/v/a700a6e9af1e4acd9fbeb045fc59915b.mp4" />
                 </video>
+                <!--container video icon -->
+                <div class="w-auto h-auto absolute bottom-7 right-7 cursor-pointer">
+                    {% render 'audio-icon' %}
+                </div>
             </div>
         </div>
 
@@ -67,7 +70,7 @@
 
         const getPercentValueToScroll = async () => {
             const valueToDivide = 100;
-            const percentValue = Math.round(valueToDivide / sectionsContainer.length);
+            const percentValue = valueToDivide / sectionsContainer.length;
             return percentValue;
         }
 
@@ -85,7 +88,6 @@
                 loadingWrapper.style.transform = `translateY(-${currentTranslateValue}%)`;
 
                 loadingWrapper.addEventListener('transitionend', () => {
-                    document.body.classList.remove('no-scroll');
                     navbar.classList.remove('opacity-0');
                 });
             }, 500);
