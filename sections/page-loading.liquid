@@ -47,7 +47,7 @@
                     <source src="https://cdn.shopify.com/videos/c/o/v/a700a6e9af1e4acd9fbeb045fc59915b.mp4" />
                 </video>
                 <!--container video icon -->
-                <div class="w-auto h-auto absolute bottom-7 right-7 cursor-pointer">
+                <div class="audio-button w-auto h-auto absolute bottom-7 right-7 cursor-pointer">
                     {% render 'audio-icon' %}
                 </div>
             </div>
@@ -80,6 +80,7 @@
         const video = document.querySelector('.video');
         const sectionsContainer = document.querySelectorAll('.section-content');
         const enterButton = document.querySelector('.cta-orange');
+        const audioButton = document.querySelector('.audio-button');
 
         let currentTranslateValue = 0;
 
@@ -119,46 +120,51 @@
                         clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
                         duration: 1,
                         ease: "Power2.easeOut",
-                        onComplete: () => {
-
-                        }
+                        onComplete: () => { }
                     })
                 }, 200)
             })
         })
+
+        audioButton.addEventListener('click', () => {
+            currentTranslateValue += percentValue;
+            loadingWrapper.style.transform = `translateY(-${currentTranslateValue}%)`;
+        })
+
+
     });
 </script>
 
 <script type="module">
     import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.173.0/build/three.module.js';
- 
+
     document.addEventListener('DOMContentLoaded', async () => {
         // Imposta il canvas e la scena
         const canvas = document.getElementById('canvas');
         const scene = new THREE.Scene();
         scene.background = new THREE.Color(0xDACABB);
- 
-        const texture = new THREE.TextureLoader().load('{{ "map.png" | asset_url }}');
+
+        const texture = new THREE.TextureLoader().load('{{ "000.jpg" | asset_url }}');
         console.log(texture);
- 
+
         const geometry = new THREE.PlaneGeometry(20, 20);
-        const material = new THREE.MeshStandardMaterial({ map: texture , transparent: true });
+        const material = new THREE.MeshPhongMaterial({map: texture});
         const plane = new THREE.Mesh(geometry, material);
-        plane.position.set(0,0,0);
+        plane.position.set(0, 0, 0);
         scene.add(plane);
- 
+
         const axesHelper = new THREE.AxesHelper(5);
         scene.add(axesHelper);
- 
-        const canvasSizes = { width: window.innerWidth, height: window.innerHeight };
+
+        const canvasSizes = {width: window.innerWidth, height: window.innerHeight};
         const aspectRatio = canvasSizes.width / canvasSizes.height;
-        const camera = new THREE.OrthographicCamera(-aspectRatio * 1, aspectRatio * 1, 1, -1, 0.1, 100);
-        camera.position.set(0, 0, 5);
+        const camera = new THREE.OrthographicCamera(-aspectRatio * 20, aspectRatio * 20, 20, -20, 0.1, 100);
+        camera.position.set(0, 0, 10);
         camera.lookAt(0, 0, 0);
- 
-        const renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true  });
+
+        const renderer = new THREE.WebGLRenderer({canvas: canvas, antialias: true});
         renderer.setSize(canvasSizes.width, canvasSizes.height);
- 
+
         renderer.render(scene, camera);
     });
 </script>
