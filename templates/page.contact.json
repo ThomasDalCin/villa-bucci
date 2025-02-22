@@ -8,13 +8,13 @@
  * ------------------------------------------------------------
  */
 {
-    "sections": {
-        "canteen-achievements-workwithus": {
-            "type": "canteen-achievements-workwithus",
-            "settings": {}
-        }
-    },
-    "order": [
-        "canteen-achievements-workwithus"
-    ]
+  "sections": {
+    "canteen-achievements-workwithus": {
+      "type": "canteen-achievements-workwithus",
+      "settings": {}
+    }
+  },
+  "order": [
+    "canteen-achievements-workwithus"
+  ]
 }
