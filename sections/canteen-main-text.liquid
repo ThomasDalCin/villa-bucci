@@ -3,7 +3,7 @@
   {% for block in section.blocks %}
     {% if block.type == "canteen_text" %}
       <!-- container text -->
-      <div class="w-full h-auto flex flex-row justify-center items-{{ block.settings.canteen_text_direction }}">
+      <div class="w-full h-auto flex flex-row justify-{{ block.settings.canteen_text_direction }} items-center">
         <h2 class="font-(family-name:--main-title-mobile-font-family) text-[128px] font-light leading-[90%] lg:text-[256px] text-[{{ block.settings.canteen_text_color }}] {% if block.settings.is_stroke %} canteen-text-stroke {% endif %}">
           {{ block.settings.canteen_text | upcase }}
         </h2>
@@ -44,22 +44,23 @@
             "label": "Canteen text color"
           }, {
             "type": "select",
-            "default": "left",
+            "default": "center",
             "id": "canteen_text_direction",
             "label": "Text Direction",
             "options": [
               {
-                "value": "left",
-                "label": "Left"
+                "value": "start",
+                "label": "Start"
               }, {
                 "value": "center",
                 "label": "Center"
               }, {
-                "value": "right",
-                "label": "Right"
+                "value": "end",
+                "label": "End"
               }
             ]
           }
+
         ]
       }
     ]
