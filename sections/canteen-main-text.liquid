@@ -3,8 +3,16 @@
   {% for block in section.blocks %}
     {% if block.type == "canteen_text" %}
       <!-- container text -->
-      <div class="w-full h-auto flex flex-row justify-{{ block.settings.canteen_text_direction }} items-center">
-        <h2 class="font-(family-name:--main-title-mobile-font-family) text-[128px] font-light leading-[90%] lg:text-[256px] text-[{{ block.settings.canteen_text_color }}] {% if block.settings.is_stroke %} canteen-text-stroke {% endif %}">
+      <div class="w-full h-auto flex flex-row {{ block.settings.canteen_text_direction }} items-center">
+        <h2 class="font-(family-name:--main-title-mobile-font-family) text-[128px] font-light leading-[90%] lg:text-[256px]" style="
+            {% if block.settings.is_stroke %}
+              color: transparent; 
+              -webkit-text-stroke-width: 1.5px;
+              -webkit-text-stroke-color: {{ block.settings.canteen_text_color }};
+            {% else %}
+              color: {{ block.settings.canteen_text_color }};
+            {% endif %}
+          ">
           {{ block.settings.canteen_text | upcase }}
         </h2>
       </div>
@@ -12,13 +20,6 @@
   {% endfor %}
 </div>
 
-
-<style>
-  .canteen-text-stroke {
-    -webkit-text-stroke-width: 0.6px;
-    -webkit-text-stroke-color: {{ block.settings.canteen_text_color }};
-  }
-</style>
 
 {% schema %}
   {
@@ -44,18 +45,18 @@
             "label": "Canteen text color"
           }, {
             "type": "select",
-            "default": "center",
+            "default": "justify-center",
             "id": "canteen_text_direction",
             "label": "Text Direction",
             "options": [
               {
-                "value": "start",
+                "value": "justify-start",
                 "label": "Start"
               }, {
-                "value": "center",
+                "value": "justify-center",
                 "label": "Center"
               }, {
-                "value": "end",
+                "value": "justify-end",
                 "label": "End"
               }
             ]
