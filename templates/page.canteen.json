@@ -1,14 +1,12 @@
 {
-    "name": "canteen",
     "sections": {
-        "": {
-            "type": "",
-            "settings": {
-                "": ""
-            }
-        }
+      "canteen-main-text": {
+        "type": "canteen-main-text",
+        "settings": {}
+      }
     },
     "order": [
-        ""
+      "canteen-main-text"
     ]
-}
+  }
+  

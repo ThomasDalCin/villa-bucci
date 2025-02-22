@@ -533,9 +533,6 @@
   .sticky {
     position: sticky;
   }
-  .inset-0 {
-    inset: calc(var(--spacing) * 0);
-  }
   .inset-1 {
     inset: calc(var(--spacing) * 1);
   }
@@ -560,8 +557,8 @@
   .left-0 {
     left: calc(var(--spacing) * 0);
   }
-  .z-0 {
-    z-index: 0;
+  .z-5 {
+    z-index: 5;
   }
   .z-10 {
     z-index: 10;
@@ -601,9 +598,6 @@
   }
   .mr-2 {
     margin-right: calc(var(--spacing) * 2);
-  }
-  .mb-\[155px\] {
-    margin-bottom: 155px;
   }
   .ml-4 {
     margin-left: calc(var(--spacing) * 4);
@@ -667,12 +661,6 @@
   }
   .resize {
     resize: both;
-  }
-  .snap-y {
-    scroll-snap-type: y var(--tw-scroll-snap-strictness);
-  }
-  .snap-mandatory {
-    --tw-scroll-snap-strictness: mandatory;
   }
   .snap-start {
     scroll-snap-align: start;
@@ -744,9 +732,6 @@
   .overflow-hidden {
     overflow: hidden;
   }
-  .overflow-y-hidden {
-    overflow-y: hidden;
-  }
   .overflow-y-scroll {
     overflow-y: scroll;
   }
@@ -814,6 +799,9 @@
   .text-left {
     text-align: left;
   }
+  .font-\(family-name\:--main-title-mobile-font-family\) {
+    font-family: var(--main-title-mobile-font-family);
+  }
   .text-lg {
     font-size: var(--text-lg);
     line-height: var(--tw-leading, var(--text-lg--line-height));
@@ -826,6 +814,9 @@
     font-size: var(--text-xs);
     line-height: var(--tw-leading, var(--text-xs--line-height));
   }
+  .text-\[128px\] {
+    font-size: 128px;
+  }
   .text-\[12px\] {
     font-size: 12px;
   }
@@ -833,16 +824,21 @@
     --tw-leading: 16px;
     line-height: 16px;
   }
+  .leading-\[90\%\] {
+    --tw-leading: 90%;
+    line-height: 90%;
+  }
   .font-bold {
     --tw-font-weight: var(--font-weight-bold);
     font-weight: var(--font-weight-bold);
   }
+  .font-light {
+    --tw-font-weight: var(--font-weight-light);
+    font-weight: var(--font-weight-light);
+  }
   .tracking-\[-3\%\] {
     --tw-tracking: -3%;
     letter-spacing: -3%;
-  }
-  .text-\(--blue-color\) {
-    color: var(--blue-color);
   }
   .text-\(--link-color\) {
     color: var(--link-color);
@@ -977,6 +973,11 @@
   .lg\:text-\[96px\] {
     @media (width >= 64rem) {
       font-size: 96px;
+    }
+  }
+  .lg\:text-\[256px\] {
+    @media (width >= 64rem) {
+      font-size: 256px;
     }
   }
 }
@@ -1174,11 +1175,6 @@
   syntax: "*";
   inherits: false;
   initial-value: skewY(0);
-}
-@property --tw-scroll-snap-strictness {
-  syntax: "*";
-  inherits: false;
-  initial-value: proximity;
 }
 @property --tw-space-y-reverse {
   syntax: "*";
