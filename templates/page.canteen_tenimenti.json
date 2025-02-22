@@ -1,9 +1,41 @@
-
 {
   "sections": {
     "canteen-main-text": {
       "type": "canteen-main-text",
-      "blocks": {},
+      "blocks": {
+        "canteen_text_ArXj4W": {
+          "type": "canteen_text",
+          "settings": {
+            "canteen_text": "lazio",
+            "is_stroke": false,
+            "canteen_text_color": "#d39278",
+            "canteen_text_direction": "justify-start"
+          }
+        },
+        "canteen_text_RNKVfd": {
+          "type": "canteen_text",
+          "settings": {
+            "canteen_text": "colli",
+            "is_stroke": true,
+            "canteen_text_color": "#d39278",
+            "canteen_text_direction": "justify-end"
+          }
+        },
+        "canteen_text_BNVVKU": {
+          "type": "canteen_text",
+          "settings": {
+            "canteen_text": "albani",
+            "is_stroke": true,
+            "canteen_text_color": "#d39278",
+            "canteen_text_direction": "justify-center"
+          }
+        }
+      },
+      "block_order": [
+        "canteen_text_ArXj4W",
+        "canteen_text_RNKVfd",
+        "canteen_text_BNVVKU"
+      ],
       "settings": {}
     }
   },

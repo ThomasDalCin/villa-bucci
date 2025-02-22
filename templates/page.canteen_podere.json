@@ -1,9 +1,7 @@
-
 {
   "sections": {
     "canteen-main-text": {
       "type": "canteen-main-text",
-      "blocks": {},
       "settings": {}
     }
   },
