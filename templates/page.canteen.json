@@ -1,12 +1,45 @@
 {
-    "sections": {
-      "canteen-main-text": {
-        "type": "canteen-main-text",
-        "settings": {}
-      }
-    },
-    "order": [
-      "canteen-main-text"
-    ]
-  }
-  
+  "sections": {
+    "canteen-main-text": {
+      "type": "canteen-main-text",
+      "blocks": {
+        "canteen_text_8xdeRz": {
+          "type": "canteen_text",
+          "settings": {
+            "canteen_text": "Marche",
+            "is_stroke": false,
+            "canteen_text_color": "#c8a758",
+            "canteen_text_direction": "justify-center"
+          }
+        },
+        "canteen_text_Rdwg4h": {
+          "type": "canteen_text",
+          "settings": {
+            "canteen_text": "Castelli",
+            "is_stroke": true,
+            "canteen_text_color": "#c8a758",
+            "canteen_text_direction": "justify-end"
+          }
+        },
+        "canteen_text_EYxKyK": {
+          "type": "canteen_text",
+          "settings": {
+            "canteen_text": "Di jesi",
+            "is_stroke": true,
+            "canteen_text_color": "#c8a758",
+            "canteen_text_direction": "justify-center"
+          }
+        }
+      },
+      "block_order": [
+        "canteen_text_8xdeRz",
+        "canteen_text_Rdwg4h",
+        "canteen_text_EYxKyK"
+      ],
+      "settings": {}
+    }
+  },
+  "order": [
+    "canteen-main-text"
+  ]
+}

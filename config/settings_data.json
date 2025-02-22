@@ -119,7 +119,7 @@
       "footer": {
         "type": "footer",
         "settings": {
-          "logo_image": "shopify://shop_images/oniwines-logo.png"
+          "logo_image": "shopify:\/\/shop_images\/oniwines-logo.png"
         }
       }
     },
@@ -351,21 +351,7 @@
       "cart_type": "notification",
       "show_vendor": false,
       "show_cart_note": false,
-      "cart_drawer_collection": "",
-      "sections": {
-        "main-password-header": {
-          "type": "main-password-header",
-          "settings": {
-            "color_scheme": "scheme-1"
-          }
-        },
-        "main-password-footer": {
-          "type": "main-password-footer",
-          "settings": {
-            "color_scheme": "scheme-1"
-          }
-        }
-      }
+      "cart_drawer_collection": ""
     }
   }
 }
