@@ -1,0 +1,13 @@
+
+{
+  "sections": {
+    "canteen-main-text": {
+      "type": "canteen-main-text",
+      "blocks": {},
+      "settings": {}
+    }
+  },
+  "order": [
+    "canteen-main-text"
+  ]
+}
