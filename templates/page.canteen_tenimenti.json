@@ -103,12 +103,19 @@
         "canteen_slider_GihFHE"
       ],
       "settings": {}
+    },
+    "canteen_slider_id": {
+      "type": "canteen-slideer-ID",
+      "settings": {
+
+      }
     }
   },
   "order": [
     "canteen-main-text",
     "video-content",
     "canteen-story-text",
-    "canteen_slider"
+    "canteen_slider",
+    "canteen_slider_id"
   ]
 }

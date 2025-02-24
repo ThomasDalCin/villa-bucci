@@ -103,12 +103,17 @@
         "canteen_slider_eHpkHW"
       ],
       "settings": {}
+    },
+    "canteen_slider_id": {
+      "type": "canteen-slideer-ID",
+      "settings": {}
     }
   },
   "order": [
     "canteen-main-text",
     "video_content",
     "canteen-story-text",
-    "canteen_slider"
+    "canteen_slider",
+     "canteen_slider_id"
   ]
 }
