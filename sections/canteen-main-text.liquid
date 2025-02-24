@@ -1,4 +1,13 @@
-<div class="w-full h-auto">
+<div class="w-full h-auto relative">
+  <!-- canteen main logo -->
+  {% if section.settings.canteen_main_logo %}
+    <div class="w-auto h-auto absolute left-1/2 top-[40%] -translate-x-1/2 -translate-y-1/2 z-0">
+      <img
+        class="w-auto h-auto object-cover object-center"
+        src="{{ section.settings.canteen_main_logo |  img_url: 'master' }}"
+        alt="{{ section.settings.canteen_main_logo.alt }}">
+    </div>
+  {% endif %}
   <!-- loop through blocks -->
   {% for block in section.blocks %}
     {% if block.type == "canteen_text" %}
@@ -24,7 +33,13 @@
 {% schema %}
   {
     "name": "canteen_main_text",
-    "settings": [],
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "canteen_main_logo",
+        "label": "Canteen logo"
+      }
+    ],
     "blocks": [
       {
         "type": "canteen_text",
