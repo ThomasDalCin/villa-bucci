@@ -1,0 +1,108 @@
+<!-- canteen story section -->
+<div class="canteen-storuy-section w-full h-auto px-5 flex flex-col items-start justify-center gap-y-[150px]">
+  <!-- canteen story text main title container -->
+  <div class="w-full h-auto flex flex-row justify-start items-center">
+    <h2 class="font-(family-name:--main-title-mobile-font-family) text-[40px] leading-[105%] tracking-[1.02px] lg:text-[96px] lg:tracking-[2.88px]" style="color:{{ section.settings.main_story_text_color }}">{{ section.settings.main_story_text | default:
+ "La cantina simbolo della rinascita del Verdicchio." | upcase }}</h2>
+  </div>
+  <!-- canteen story numbers box -->
+  <div class="w-full h-auto flex flex-row justify-end items-start">
+    {% for block in section.blocks %}
+      {% if block.type == "numbers_story_box" %}
+        <div class="w-auto h-auto flex flex-col gap-y-2.5">
+          <!-- container number -->
+          <div class="w-auto h-auto">
+            <p
+              class="number-text  text-[40px] leading-[105%] tracking-[1.02px] lg:text-[96px] lg:tracking-[2.88px]"
+              data-increment="{{ block.settings.number_increment_text }}"
+              style="
+            {% if block.settings.is_stroke_number %}
+              color: transparent; 
+      -webkit-text-stroke-width: 1.5px;
+      -webkit-text-stroke-color: {{ section.settings.main_story_text_color }};
+       {% else %}
+       color: {{ section.settings.main_story_text_color }}
+            {% endif %}
+            ">
+</p>
+          </div>
+          <!-- container text -->
+          <div class="w-auto h-auto ml-[124px]">
+            <p>{{ block.settings.story_text }}</p>
+          </div>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>
+
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+  gsap.registerPlugin(ScrollTrigger);
+
+  const triggerSection = document.querySelector('.canteen-story-section');
+  const numbersText = document.querySelectorAll('.number-text');
+
+  numbersText.forEach((numberText) => {
+    const numberTextValue = numberText.getAttribute('data-increment');
+
+    gsap.fromTo(numberText, {
+      textContent: 0,
+    }, {
+      textContent: numberTextValue,
+      roundProps: 'textContent',
+      duration: 2,
+      ease: "Expo.easeOut",
+      scrollTrigger: {
+        trigger: triggerSection,
+        start: "top 80%",
+        end: "bottom top",
+        once: true,
+        markers: false,
+      }
+    });
+  });
+});
+
+</script>
+
+{% schema %}
+  {
+    "name": "canteen_story_text",
+    "settings": [
+      {
+        "type": "text",
+        "id": "main_story_text",
+        "label": "Main story title"
+      }, {
+        "type": "color",
+        "id": "main_story_text_color",
+        "label": "Main story title color"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "numbers_story_box",
+        "name": "numbers_story_box",
+        "settings": [
+          {
+            "type": "text",
+            "id": "number_increment_text",
+            "label": "Number value"
+          }, {
+            "type": "text",
+            "id": "story_text",
+            "label": "Story text"
+          }, {
+            "type": "checkbox",
+            "id": "is_stroke_number",
+            "label": "Stroke text number",
+            "default": false
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

@@ -37,9 +37,16 @@
         "canteen_text_EYxKyK"
       ],
       "settings": {}
+    },
+    "canteen-story-text": {
+      "type": "canteen-story-text",
+      "settings": {
+
+      }
     }
   },
   "order": [
-    "canteen-main-text"
+    "canteen-main-text",
+    "canteen-story-text"
   ]
 }
