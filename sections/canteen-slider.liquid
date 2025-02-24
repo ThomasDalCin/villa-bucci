@@ -1,0 +1,69 @@
+<!-- canteen drag slider section -->
+<div class="w-full h-[500px] lg:h-[800px] overflow-x-hidden px-5">
+  <div class="w-[calc(100%_+_2.5rem)] h-full overflow-x-auto px-5 -mx-5" id="slider-container">
+    <div class="w-auto h-full flex flex-row items-center justify-start gap-x-1.5">
+      {% for block in section.blocks %}
+        {% if block.type == "canteen_slider" %}
+          <div class="w-[500px] min-w-[500px] lg:min-w-[1472px] lg:w-[1472px] h-full">
+            <img
+              class="w-full h-full object-cover object-center rounded-[8px]"
+              src="{{ block.settings.canteen_slider_image |  img_url: 'master' }}"
+              alt="{{ block.settings.canteen_slider_image.alt }}">
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<script>
+
+    document.addEventListener('DOMContentLoaded', () => {
+
+      const sliderContainer = document.getElementById('slider-container');
+
+      const setInitialSliderValue = (value) => {
+        sliderContainer.scrollLeft = value;
+      }
+
+      const setScrollValueBasedOnScreenSize = () => {
+        const screenSize = window.innerWidth;
+        let initialScrollValue = null;
+        
+        if (screenSize >= 1024) {
+          initialScrollValue = 1200;
+        } else {
+          initialScrollValue = 200;
+        }
+        
+        setInitialSliderValue(initialScrollValue);
+      };
+
+
+      setScrollValueBasedOnScreenSize();
+
+      window.addEventListener('resize', setScrollValueBasedOnScreenSize);
+
+    });
+</script>
+
+
+{% schema %}
+  {
+    "name": "canteen_slider",
+    "settings": [],
+    "blocks": [
+      {
+        "type": "canteen_slider",
+        "name": "canteen_slider",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "canteen_slider_image",
+            "label": "Canteen slider image"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

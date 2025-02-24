@@ -38,15 +38,77 @@
       ],
       "settings": {}
     },
+    "video_content": {
+      "type": "video-container",
+      "settings": {
+        "video_source": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/a700a6e9af1e4acd9fbeb045fc59915b.mp4"
+      }
+    },
     "canteen-story-text": {
       "type": "canteen-story-text",
+      "blocks": {
+        "numbers_story_box_jVzKBX": {
+          "type": "numbers_story_box",
+          "settings": {
+            "number_increment_text": "1700",
+            "story_text": "Dal 1700 Villa Bucci si dedica all’ agricoltura e  alla produzione di vini.",
+            "is_stroke_number": true
+          }
+        },
+        "numbers_story_box_JVtJCL": {
+          "type": "numbers_story_box",
+          "settings": {
+            "number_increment_text": "350",
+            "story_text": "Dal 1700 Villa Bucci si dedica all’ agricoltura e  alla produzione di vini.",
+            "is_stroke_number": true
+          }
+        },
+        "numbers_story_box_MyLcp8": {
+          "type": "numbers_story_box",
+          "settings": {
+            "number_increment_text": "2021",
+            "story_text": "Dal 1700 Villa Bucci si dedica all’ agricoltura e  alla produzione di vini.",
+            "is_stroke_number": true
+          }
+        }
+      },
+      "block_order": [
+        "numbers_story_box_jVzKBX",
+        "numbers_story_box_JVtJCL",
+        "numbers_story_box_MyLcp8"
+      ],
       "settings": {
-
+        "main_story_text": "",
+        "main_story_text_color": "#c8a758"
       }
+    },
+    "canteen_slider": {
+      "type": "canteen-slider",
+      "blocks": {
+        "canteen_slider_EPRAj6": {
+          "type": "canteen_slider",
+          "settings": {
+            "canteen_slider_image": "shopify:\/\/shop_images\/0f966f3074da6c9e117c9586db7c4043.jpg"
+          }
+        },
+        "canteen_slider_eHpkHW": {
+          "type": "canteen_slider",
+          "settings": {
+            "canteen_slider_image": "shopify:\/\/shop_images\/bb7a7584399a9ae805b350ac1e69355b.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "canteen_slider_EPRAj6",
+        "canteen_slider_eHpkHW"
+      ],
+      "settings": {}
     }
   },
   "order": [
     "canteen-main-text",
-    "canteen-story-text"
+    "video_content",
+    "canteen-story-text",
+    "canteen_slider"
   ]
 }
