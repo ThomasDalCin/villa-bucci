@@ -104,13 +104,22 @@
       ],
       "settings": {}
     },
-    "canteen_slider_id": {
-      "type": "canteen-slideer-ID",
-      "settings": {}
-    },
     "canteen_showcase": {
       "type": "canteen-showcase-slider",
-      "settings": {}
+      "settings": {
+        "main_section_title": "",
+        "main_stroke_section_title": "",
+        "main_title_color": "#c8a758"
+      }
+    },
+    "canteen_slider_id": {
+      "type": "canteen-slideer-ID",
+      "settings": {
+        "main_title_left": "",
+        "main_title_right": "",
+        "is_stroke_left": false,
+        "is_stroke_right": true
+      }
     }
   },
   "order": [

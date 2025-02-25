@@ -88,13 +88,17 @@
         "canteen_slider_EnAEaD": {
           "type": "canteen_slider",
           "settings": {
-            "canteen_slider_image": "shopify:\/\/shop_images\/0f966f3074da6c9e117c9586db7c4043.jpg"
+            "canteen_slider_image": "shopify:\/\/shop_images\/0f966f3074da6c9e117c9586db7c4043.jpg",
+            "is_label": true,
+            "label_text": ""
           }
         },
         "canteen_slider_GihFHE": {
           "type": "canteen_slider",
           "settings": {
-            "canteen_slider_image": "shopify:\/\/shop_images\/bb7a7584399a9ae805b350ac1e69355b.jpg"
+            "canteen_slider_image": "shopify:\/\/shop_images\/bb7a7584399a9ae805b350ac1e69355b.jpg",
+            "is_label": true,
+            "label_text": ""
           }
         }
       },
@@ -104,15 +108,22 @@
       ],
       "settings": {}
     },
+    "canteen_showcase": {
+      "type": "canteen-showcase-slider",
+      "settings": {
+        "main_section_title": "",
+        "main_stroke_section_title": "",
+        "main_title_color": "#d39278"
+      }
+    },
     "canteen_slider_id": {
       "type": "canteen-slideer-ID",
       "settings": {
-
+        "main_title_left": "",
+        "main_title_right": "",
+        "is_stroke_left": false,
+        "is_stroke_right": true
       }
-    },
-    "canteen_showcase": {
-      "type": "canteen-showcase-slider",
-      "settings": {}
     }
   },
   "order": [
@@ -120,7 +131,7 @@
     "video-content",
     "canteen-story-text",
     "canteen_slider",
-     "canteen_showcase",
+    "canteen_showcase",
     "canteen_slider_id"
   ]
 }
