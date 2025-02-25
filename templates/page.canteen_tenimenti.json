@@ -109,6 +109,10 @@
       "settings": {
 
       }
+    },
+    "canteen_showcase": {
+      "type": "canteen-showcase-slider",
+      "settings": {}
     }
   },
   "order": [
@@ -116,6 +120,7 @@
     "video-content",
     "canteen-story-text",
     "canteen_slider",
+     "canteen_showcase",
     "canteen_slider_id"
   ]
 }
