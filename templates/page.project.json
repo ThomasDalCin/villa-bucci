@@ -2,8 +2,51 @@
   "sections": {
     "emotional_text": {
       "type": "emotional-text",
-      "settings": {
-      }
+      "blocks": {
+        "emotional_text_bcGc3Y": {
+          "type": "emotional_text",
+          "settings": {
+            "animation_scrolling_text": "CONOSCENZA",
+            "is_stroke_text": false
+          }
+        },
+        "emotional_text_rPC6ME": {
+          "type": "emotional_text",
+          "settings": {
+            "animation_scrolling_text": "IMPEGNO",
+            "is_stroke_text": true
+          }
+        },
+        "emotional_text_GeeHhH": {
+          "type": "emotional_text",
+          "settings": {
+            "animation_scrolling_text": "COLLABORAZIONE",
+            "is_stroke_text": false
+          }
+        },
+        "emotional_text_4PdtRT": {
+          "type": "emotional_text",
+          "settings": {
+            "animation_scrolling_text": "RISPETTO",
+            "is_stroke_text": true
+          }
+        },
+        "emotional_text_ip89wH": {
+          "type": "emotional_text",
+          "settings": {
+            "animation_scrolling_text": "ENTUSIASMO",
+            "is_stroke_text": false
+          }
+        }
+      },
+      "block_order": [
+        "emotional_text_bcGc3Y",
+        "emotional_text_rPC6ME",
+        "emotional_text_GeeHhH",
+        "emotional_text_4PdtRT",
+        "emotional_text_ip89wH"
+      ],
+      "settings": {}
     },
     "canteen_slider": {
       "type": "canteen-slider",
