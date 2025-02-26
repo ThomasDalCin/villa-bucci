@@ -1,0 +1,19 @@
+
+{
+    "sections": {
+      "product-main-title": {
+        "type": "canteen-main-text",
+        "settings": {}
+      },
+      "product-image":{
+        "type": "product-images",
+        "settings":{}
+      }
+    },
+    "order": [
+      "product-main-title",
+      "product-image"
+
+    ]
+  }
+  
