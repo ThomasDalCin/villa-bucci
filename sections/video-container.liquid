@@ -6,20 +6,65 @@
       class="w-full h-full object-cover object-center rounded-[8px]"
       autoplay
       muted
-      playsinline>
+      playsinline
+      style="{{ section.settings.show_media_video }}">
       <source src="{{ section.settings.video_source }}" />
     </video>
   </div>
+
+  <div class="w-full h-full">
+    <img
+      class="w-full h-full object-cover object-center "
+      src="{{section.settings.banner_image | img_url: " master"}}"
+      alt=""
+      style="{{ section.settings.show_media_image }}">
+  </div>
+
+
 </div>
 
 {% schema %}
   {
-    "name": "video-content",
+    "name": "media-content",
     "settings": [
       {
         "type": "url",
         "id": "video_source",
         "label": "Video source link"
+      }, {
+        "type": "image_picker",
+        "id": "banner_image",
+        "label": "Image"
+      }, {
+        "type": "select",
+        "default": "block",
+        "id": "show_media_video",
+        "label": "Show media video",
+        "options": [
+          {
+            "value": "hidden",
+            "label": "Hide"
+          }, {
+            "value": "block",
+            "label": "Show"
+          }
+
+        ]
+      }, {
+        "type": "select",
+        "default": "hidden",
+        "id": "show_media_image",
+        "label": "Show media image",
+        "options": [
+          {
+            "value": "hidden",
+            "label": "Hide"
+          }, {
+            "value": "block",
+            "label": "Show"
+
+          }
+        ]
       }
     ]
   }
