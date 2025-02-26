@@ -1,0 +1,49 @@
+{
+  "sections": {
+    "emotional_text": {
+      "type": "emotional-text",
+      "settings": {
+      }
+    },
+    "canteen_slider": {
+      "type": "canteen-slider",
+      "blocks": {
+        "canteen_slider_EnAEaD": {
+          "type": "canteen_slider",
+          "settings": {
+            "canteen_slider_image": "shopify:\/\/shop_images\/0f966f3074da6c9e117c9586db7c4043.jpg",
+            "is_label": true,
+            "label_text": ""
+          }
+        },
+        "canteen_slider_GihFHE": {
+          "type": "canteen_slider",
+          "settings": {
+            "canteen_slider_image": "shopify:\/\/shop_images\/bb7a7584399a9ae805b350ac1e69355b.jpg",
+            "is_label": true,
+            "label_text": ""
+          }
+        }
+      },
+      "block_order": [
+        "canteen_slider_EnAEaD",
+        "canteen_slider_GihFHE"
+      ],
+      "settings": {}
+    },
+    "canteen_slider_id": {
+      "type": "canteen-slideer-ID",
+      "settings": {
+        "main_title_left": "",
+        "main_title_right": "",
+        "is_stroke_left": false,
+        "is_stroke_right": true
+      }
+    }
+  },
+  "order": [
+    "emotional_text",
+    "canteen_slider",
+    "canteen_slider_id"
+  ]
+}
