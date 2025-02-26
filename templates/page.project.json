@@ -1,5 +1,45 @@
 {
   "sections": {
+    "project-showcase-slider": {
+      "type": "project-showcase-slider",
+      "blocks": {
+        "card_info_tiBd8U": {
+          "type": "card-info",
+          "settings": {
+            "canteen_location": "Lanuvio,Lazio",
+            "canteen_info_text": "Un progetto germogliato dalla passione per l'arte del vino, che affonda le sue radici anni fa, nelle terre fertili del Lazio, con Tenimenti Leone."
+          }
+        },
+        "card_info_GGjjb9": {
+          "type": "card-info",
+          "settings": {
+            "canteen_location": "Lanuvio,Lazio",
+            "canteen_info_text": "Un progetto germogliato dalla passione per l'arte del vino, che affonda le sue radici anni fa, nelle terre fertili del Lazio, con Tenimenti Leone."
+          }
+        },
+        "card_info_e6JdXX": {
+          "type": "card-info",
+          "settings": {
+            "canteen_location": "Lanuvio,Lazio",
+            "canteen_info_text": "Un progetto germogliato dalla passione per l'arte del vino, che affonda le sue radici anni fa, nelle terre fertili del Lazio, con Tenimenti Leone."
+          }
+        },
+        "card_info_yRdcb9": {
+          "type": "card-info",
+          "settings": {
+            "canteen_location": "Lanuvio,Lazio",
+            "canteen_info_text": "Un progetto germogliato dalla passione per l'arte del vino, che affonda le sue radici anni fa, nelle terre fertili del Lazio, con Tenimenti Leone."
+          }
+        }
+      },
+      "block_order": [
+        "card_info_tiBd8U",
+        "card_info_GGjjb9",
+        "card_info_e6JdXX",
+        "card_info_yRdcb9"
+      ],
+      "settings": {}
+    },
     "emotional_text": {
       "type": "emotional-text",
       "blocks": {
@@ -85,6 +125,7 @@
     }
   },
   "order": [
+    "project-showcase-slider",
     "emotional_text",
     "canteen_slider",
     "canteen_slider_id"

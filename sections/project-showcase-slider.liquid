@@ -1,0 +1,79 @@
+<div class="w-full h-auto flex flex-col items-start justify-center p-5 gap-y-2.5 overflow-x-auto">
+  <!-- container slider showcase -->
+  <div class="w-auto h-auto overflow-x-auto flex flex-row justify-start items-center gap-x-5 p-5">
+    {% for page in pages %}
+      {% if page.title contains "Cantina" or page.title contains "Canteen" %}
+
+        {% assign pageIndex = forloop.index %}
+        {% assign pageImage = page.metafields.custom.page_image.value %}
+        {% assign pageCanteenLogo = page.metafields.custom.page_canteen_logo.value %}
+
+          <div class="card-canteen w-[250px] h-[500px] lg:w-[540px] lg:h-[800px] rounded-[18px] bg-(--green-color-w-opacity) hover:bg-(--green-color) flex flex-col items-start justify-between outline outline-offset-4 outline-(--green-color) relative group transition-all duration-200 ease-in-out">
+
+          {% assign pageCustomTitle = page.title | split: " " %}
+          {% assign pageCustomTitle = pageCustomTitle | slice: 1, pageCustomTitle.size %}
+          {% assign pageCustomTitle = pageCustomTitle | join: " " %}
+
+          <!-- container info text -->
+          <div class="w-full h-auto flex flex-col items-start justify-center gap-y-16 p-5">
+
+            <div class="w-auto h-auto">
+              <img src="{{ pageCanteenLogo | img_url: 'master' }}" alt="{{ pageCanteenLogo.alt }}">
+            </div>
+
+            <div class="w-full h-auto">
+              <p class="font-(family-name:--main-title-mobile-font-family) text-[24px] text-white">{{ pageCustomTitle | upcase }}</p>
+            </div>
+
+            {% for block in section.blocks %}
+              {% assign blockIndex = forloop.index %}
+              {% if blockIndex == pageIndex %}
+                {% if block.type == "card-info" %}
+                  <div class="w-auto h-auto flex flex-col items-start justify-center">
+                    <p class="text-white mb-5">{{ block.settings.canteen_location }}</p>
+                    <p class="text-white">{{ block.settings.canteen_info_text }}</p>
+                  </div>
+                {% endif %}
+              {% endif %}
+            {% endfor %}
+          </div>
+
+          <!-- container image -->
+          <a class="w-full" href="{{ page.url }}">
+            <div class="w-full h-auto relative p-1">
+              <img
+                class="w-full h-[140px] lg:h-[377px] rounded-[14px]"
+                src="{{ pageImage | img_url: 'master' }}"
+                alt="{{ pageImage.alt }}">
+            </div>
+          </a>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>
+
+
+{% schema %}
+  {
+    "name": "project_showcase_slider",
+    "settings": [],
+    "blocks": [
+      {
+        "type": "card-info",
+        "name": "card-info",
+        "settings": [
+          {
+            "type": "text",
+            "id": "canteen_location",
+            "label": "Canteen location"
+          }, {
+            "type": "textarea",
+            "id": "canteen_info_text",
+            "label": "Canteen info text"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
