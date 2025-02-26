@@ -8,7 +8,7 @@
         {% assign pageImage = page.metafields.custom.page_image.value %}
         {% assign pageCanteenLogo = page.metafields.custom.page_canteen_logo.value %}
 
-          <div class="card-canteen w-[250px] h-[500px] lg:w-[540px] lg:h-[800px] rounded-[18px] bg-(--green-color-w-opacity) hover:bg-(--green-color) flex flex-col items-start justify-between outline outline-offset-4 outline-(--green-color) relative group transition-all duration-200 ease-in-out">
+          <div class="card-canteen w-[250px] h-[500px] lg:w-[540px] lg:h-[800px] rounded-[18px] bg-(--green-color-w-opacity) hover:bg-(--green-color) hover:outline-none flex flex-col items-start justify-between outline outline-offset-4 outline-(--green-color) relative group transition-all duration-200 ease-in-out">
 
           {% assign pageCustomTitle = page.title | split: " " %}
           {% assign pageCustomTitle = pageCustomTitle | slice: 1, pageCustomTitle.size %}
