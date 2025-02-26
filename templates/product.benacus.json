@@ -36,7 +36,9 @@
         "canteen_text_Ttgr4V",
         "canteen_text_YdejVx"
       ],
-      "settings": {}
+      "settings": {
+        "canteen_main_logo": "shopify:\/\/shop_images\/Benacus-logo.12eee59b_1-removebg-preview.png"
+      }
     }
   },
   "order": [
