@@ -1,0 +1,54 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "product-main-title": {
+      "type": "canteen-main-text",
+      "blocks": {
+        "canteen_text_PJbNyN": {
+          "type": "canteen_text",
+          "settings": {
+            "canteen_text": "VENETO",
+            "is_stroke": false,
+            "canteen_text_color": "#76b2ba",
+            "canteen_text_direction": "justify-start"
+          }
+        },
+        "canteen_text_Ttgr4V": {
+          "type": "canteen_text",
+          "settings": {
+            "canteen_text": "LAGO",
+            "is_stroke": true,
+            "canteen_text_color": "#76b2ba",
+            "canteen_text_direction": "justify-end"
+          }
+        },
+        "canteen_text_YdejVx": {
+          "type": "canteen_text",
+          "settings": {
+            "canteen_text": "di garda",
+            "is_stroke": true,
+            "canteen_text_color": "#76b2ba",
+            "canteen_text_direction": "justify-center"
+          }
+        }
+      },
+      "block_order": [
+        "canteen_text_PJbNyN",
+        "canteen_text_Ttgr4V",
+        "canteen_text_YdejVx"
+      ],
+      "settings": {}
+    }
+  },
+  "order": [
+    "product-main-title"
+  ]
+}
