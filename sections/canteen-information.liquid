@@ -43,13 +43,13 @@
             {% endif %}
           </div>
 
-          <div class="paragraph-container w-full h-auto" style="
+          <div class="w-full h-auto">
+            <p class="paragraph-container" style="
           {% if block.settings.is_padding_text %}
                                     margin-left: {{ block.settings.padding_left_paragraph | times: 5.17 }}px;
                                 {% else %}
                                     margin-left: 0px;
-                                {% endif %}">
-            <p class="lg:max-w-[726px]">{{ block.settings.paragraph_text }}</p>
+                                {% endif %}">{{ block.settings.paragraph_text }}</p>
           </div>
 
         </div>
