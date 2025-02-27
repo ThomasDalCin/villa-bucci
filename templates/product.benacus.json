@@ -48,10 +48,83 @@
         "show_media_video": "hidden",
         "show_media_image": "block"
       }
+    },
+    "canteen_information_6Hr3if": {
+      "type": "canteen-information",
+      "blocks": {
+        "block_text_XJ3AXk": {
+          "type": "block_text",
+          "settings": {
+            "main_text": "La promessa di un territoriofatto di natura, bellezza e incanto.",
+            "paragraph_text": "Una storia fatta di amicizia, viaggi e passione porta all’idea di realizzare un Gin che parli del lago di Garda e delle sue caratteristiche uniche. Un gin che si differenzi da quelli esistenti, un gin giovane e raffinato, un gin di tendenza ma mai scontato.",
+            "is_stroke_text": false,
+            "additional_text": "",
+            "color_text": "#76b2ba",
+            "padding_left_text_title": 0,
+            "padding_left_paragraph": 70,
+            "is_padding_text": true
+          }
+        }
+      },
+      "block_order": [
+        "block_text_XJ3AXk"
+      ],
+      "settings": {}
+    },
+    "canteen_slider_UrzhME": {
+      "type": "canteen-slider",
+      "blocks": {
+        "canteen_slider_7RUpTq": {
+          "type": "canteen_slider",
+          "settings": {
+            "canteen_slider_image": "shopify:\/\/shop_images\/1994a2ae5f6a90854c47603a9e8f941f.jpg",
+            "is_label": false,
+            "label_text": ""
+          }
+        },
+        "canteen_slider_fpxP4P": {
+          "type": "canteen_slider",
+          "settings": {
+            "canteen_slider_image": "shopify:\/\/shop_images\/1e854f624b54c50aba4c582a8b9eef82.jpg",
+            "is_label": false,
+            "label_text": ""
+          }
+        }
+      },
+      "block_order": [
+        "canteen_slider_7RUpTq",
+        "canteen_slider_fpxP4P"
+      ],
+      "settings": {}
+    },
+    "canteen_information_CX7dQw": {
+      "type": "canteen-information",
+      "blocks": {
+        "block_text_Qz3D4c": {
+          "type": "block_text",
+          "settings": {
+            "main_text": "l’azienda",
+            "paragraph_text": "Il Benacus Gin viene realizzato da una piccola distilleria artigianale di nome Zu Plun, situata tra le Alpi dell’altopiano di Siusi. Il mastro distillatore, Florian Rabanser, ha vinto numerosi premi internazionali nel mondo dei distillati. Il suo Gin “Dolgin” è stato premiato dal Gambero Rosso come miglior Gin italiano.",
+            "is_stroke_text": false,
+            "additional_text": "",
+            "color_text": "#76b2ba",
+            "padding_left_text_title": 30,
+            "padding_left_paragraph": 50,
+            "is_padding_text": true
+          }
+        }
+      },
+      "block_order": [
+        "block_text_Qz3D4c"
+      ],
+      "settings": {}
     }
   },
   "order": [
     "product-main-title",
-    "video-container"
+    "video-container",
+    "canteen_information_6Hr3if",
+    "canteen_slider_UrzhME",
+    "canteen_information_CX7dQw"
   ]
 }
