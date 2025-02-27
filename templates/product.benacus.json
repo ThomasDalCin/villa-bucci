@@ -118,13 +118,24 @@
         "block_text_Qz3D4c"
       ],
       "settings": {}
+    },
+    "product-slider": {
+      "type": "product-slider",
+      "settings": {
+        "main_title_left": "",
+        "main_title_right": "",
+        "is_stroke_left": false,
+        "is_stroke_right": true
+      }
     }
+   
   },
   "order": [
     "product-main-title",
     "video-container",
     "canteen_information_6Hr3if",
     "canteen_slider_UrzhME",
-    "canteen_information_CX7dQw"
+    "canteen_information_CX7dQw",
+    "product-slider"
   ]
 }
