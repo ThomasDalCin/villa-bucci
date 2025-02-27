@@ -1,9 +1,9 @@
 <!-- video section container -->
-<div class="w-full h-[500px] lg:h-[942px] px-5 py-[100px] lg:py-[120px]">
+<div class="w-full h-auto px-5">
   <!-- video wrapper container -->
-  <div class="w-full h-full {{ section.settings.show_media_video }}">
+  <div class="w-full h-auto {{ section.settings.show_media_video }}">
     <video
-      class="w-full h-full object-cover object-center rounded-[8px]"
+      class="w-full h-[500px] lg:h-[942px] object-cover object-center rounded-[8px]"
       autoplay
       muted
       playsinline>
@@ -11,9 +11,9 @@
     </video>
   </div>
 
-  <div class="w-full h-full {{ section.settings.show_media_image }}">
+  <div class="w-full h-auto {{ section.settings.show_media_image }}">
     <img
-      class="w-full h-full object-cover object-center rounded-[8px]"
+      class="w-full h-[500px] lg:h-[942px] object-cover object-center rounded-[8px]"
       src="{{ section.settings.banner_image |  img_url: 'master'}}"
       alt="">
   </div>

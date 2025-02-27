@@ -5,8 +5,8 @@
       {% if block.type == "block_text" %}
         <div class="w-full h-auto flex flex-col items-start justify-center gap-y-5 lg:gap-y-[50px]">
 
-          <div class="w-auto h-auto">
-            <h2 class="font-(family-name:--main-title-mobile-font-family) text-[40px] font-light leading-[90%] lg:text-[96px] text-nowrap max-w-[500px]" style="
+          <div class="w-full h-auto lg:w-auto">
+            <h2 class="main-title font-(family-name:--main-title-mobile-font-family) text-[40px] font-light leading-[90%] lg:text-[96px] lg:leading-[105%]" style="
                                 {% if block.settings.is_stroke_text %}
                                     color: transparent;
                                     -webkit-text-stroke-width: 1.5px;
@@ -24,7 +24,7 @@
               {{ block.settings.main_text | upcase }}
             </h2>
             {% if block.settings.additional_text %}
-                <h2 class="font-(family-name:--main-title-mobile-font-family) text-[40px] font-light leading-[90%] lg:text-[96px] text-nowrap max-w-[500px]" style="
+                <h2 class="main-title font-(family-name:--main-title-mobile-font-family) text-[40px] font-light leading-[90%] lg:text-[96px] lg:leading-[105%]" style="
                 {% if block.settings.is_stroke_text %}
                     color: transparent;
                     -webkit-text-stroke-width: 1.5px;
@@ -43,12 +43,13 @@
             {% endif %}
           </div>
 
-          <div class="w-auto h-auto" style="       {% if block.settings.is_padding_text %}
+          <div class="paragraph-container w-full h-auto" style="
+          {% if block.settings.is_padding_text %}
                                     margin-left: {{ block.settings.padding_left_paragraph | times: 5.17 }}px;
                                 {% else %}
                                     margin-left: 0px;
                                 {% endif %}">
-            <p class="w-[300px] lg:w-[726px]">{{ block.settings.paragraph_text }}</p>
+            <p class="lg:max-w-[726px]">{{ block.settings.paragraph_text }}</p>
           </div>
 
         </div>
@@ -56,6 +57,20 @@
     {% endfor %}
   </div>
 </div>
+
+{% style %}
+
+  @media (max-width: 480px) {
+     .main-title{
+      white-space: normal;
+      margin-left: 0px !important;
+     }
+     .paragraph-container{
+      margin-left: 0px !important;
+     }
+  }
+
+{% endstyle %}
 
 {% schema %}
   {
