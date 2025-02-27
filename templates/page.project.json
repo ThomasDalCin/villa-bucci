@@ -40,6 +40,28 @@
       ],
       "settings": {}
     },
+    "canteen_information_VFCAkN": {
+      "type": "canteen-information",
+      "blocks": {
+        "block_text_yWNRCB": {
+          "type": "block_text",
+          "settings": {
+            "main_text": "un viaggio",
+            "paragraph_text": "Oniwines è un invito a viaggiare attraverso i sensi. Un calice non è mai solo un calice. È una porta aperta verso l’essenza di una terra.",
+            "is_stroke_text": false,
+            "additional_text": "",
+            "color_text": "#5c634f",
+            "padding_left_text_title": 0,
+            "padding_left_paragraph": 40,
+            "is_padding_text": true
+          }
+        }
+      },
+      "block_order": [
+        "block_text_yWNRCB"
+      ],
+      "settings": {}
+    },
     "emotional_text": {
       "type": "emotional-text",
       "blocks": {
@@ -114,6 +136,28 @@
       ],
       "settings": {}
     },
+    "canteen_information_fem3HL": {
+      "type": "canteen-information",
+      "blocks": {
+        "block_text_fEMdKJ": {
+          "type": "block_text",
+          "settings": {
+            "main_text": "la famiglia",
+            "paragraph_text": "Questo progetto racconta anche la storia della nostra famiglia, da sempre appassionata di vino. Ogni luogo dove oggi coltiviamo le nostre vigne è un posto che rappresenta un pezzo della nostra vita. Oniwines nasce dal desiderio di restituire qualcosa a queste terre che ci hanno regalato tanto: sono parte della nostra storia e, attraverso il vino, vogliamo onorare il legame che ci unisce a loro.",
+            "is_stroke_text": true,
+            "additional_text": "",
+            "color_text": "#5c634f",
+            "padding_left_text_title": 0,
+            "padding_left_paragraph": 20,
+            "is_padding_text": true
+          }
+        }
+      },
+      "block_order": [
+        "block_text_fEMdKJ"
+      ],
+      "settings": {}
+    },
     "canteen_slider_id": {
       "type": "canteen-slideer-ID",
       "settings": {
@@ -126,8 +170,10 @@
   },
   "order": [
     "project-showcase-slider",
+    "canteen_information_VFCAkN",
     "emotional_text",
     "canteen_slider",
+    "canteen_information_fem3HL",
     "canteen_slider_id"
   ]
 }
