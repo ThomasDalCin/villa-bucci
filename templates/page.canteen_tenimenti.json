@@ -124,6 +124,10 @@
         "is_stroke_left": false,
         "is_stroke_right": true
       }
+    },
+    "canteen-information": {
+      "type": "canteen-information",
+      "settings": {}
     }
   },
   "order": [
@@ -131,6 +135,7 @@
     "video-content",
     "canteen-story-text",
     "canteen_slider",
+    "canteen-information",
     "canteen_showcase",
     "canteen_slider_id"
   ]

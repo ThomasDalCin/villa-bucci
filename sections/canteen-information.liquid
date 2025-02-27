@@ -1,0 +1,140 @@
+<!-- canteen information text -->
+<div class="w-full h-auto p-5">
+  <div class="w-full h-auto flex flex-col items-start justify-center gap-y-[100px] lg:gap-y-[120px]">
+    {% for block in section.blocks %}
+      {% if block.type == "block_text" %}
+        <div class="w-full h-auto flex flex-col items-start justify-center gap-y-5 lg:gap-y-[50px]">
+
+          <div class="w-auto h-auto">
+            <h2 class="font-(family-name:--main-title-mobile-font-family) text-[40px] font-light leading-[90%] lg:text-[96px] text-nowrap max-w-[500px]" style="
+                                {% if block.settings.is_stroke_text %}
+                                    color: transparent;
+                                    -webkit-text-stroke-width: 1.5px;
+                                    -webkit-text-stroke-color: {{ block.settings.color_text }};
+                                {% else %}
+                                    color: {{ block.settings.color_text }};
+                                {% endif %}
+                                
+                                {% if block.settings.is_padding_text %}
+                                    margin-left: {{ block.settings.padding_left_text_title | times: 5.17 }}px;
+                                {% else %}
+                                    margin-left: 0px;
+                                {% endif %}
+                            ">
+              {{ block.settings.main_text | upcase }}
+            </h2>
+            {% if block.settings.additional_text %}
+                <h2 class="font-(family-name:--main-title-mobile-font-family) text-[40px] font-light leading-[90%] lg:text-[96px] text-nowrap max-w-[500px]" style="
+                {% if block.settings.is_stroke_text %}
+                    color: transparent;
+                    -webkit-text-stroke-width: 1.5px;
+                    -webkit-text-stroke-color: {{ block.settings.color_text }};
+                {% else %}
+                    color: {{ block.settings.color_text }};
+                {% endif %}
+                
+                {% if block.settings.is_padding_text %}
+                    margin-left: {{ block.settings.padding_left_text_title | times: 5.17 }}px;
+                {% else %}
+                    margin-left: 0px;
+                {% endif %}
+            ">
+{{ block.settings.additional_text | upcase }}
+            {% endif %}
+          </div>
+
+          <div class="w-auto h-auto" style="       {% if block.settings.is_padding_text %}
+                                    margin-left: {{ block.settings.padding_left_paragraph | times: 5.17 }}px;
+                                {% else %}
+                                    margin-left: 0px;
+                                {% endif %}">
+            <p class="w-[300px] lg:w-[726px]">{{ block.settings.paragraph_text }}</p>
+          </div>
+
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "canteen_information",
+    "settings": [],
+    "blocks": [
+      {
+        "type": "block_text",
+        "name": "block_text",
+        "settings": [
+          {
+            "type": "text",
+            "id": "main_text",
+            "label": "Main section title"
+          },
+          {
+            "type": "textarea",
+            "id": "paragraph_text",
+            "label": "Paragraph text"
+          },
+          {
+            "type": "checkbox",
+            "id": "is_stroke_text",
+            "default": false,
+            "label": "Stroke text"
+          },
+          {
+            "type": "text",
+            "id": "additional_text",
+            "label": "Additional text"
+          }, {
+            "type": "color",
+            "id": "color_text",
+            "label": "Color text"
+          }, {
+            "type": "range",
+            "id": "padding_left_text_title",
+            "label": "Distance from left title",
+            "default": 0,
+            "min": 0,
+            "max": 100,
+            "step": 10
+          }, {
+            "type": "range",
+            "id": "padding_left_paragraph",
+            "label": "Distance from left paragraph",
+            "default": 0,
+            "min": 0,
+            "max": 100,
+            "step": 10
+          }, {
+            "type": "checkbox",
+            "id": "is_padding_text",
+            "default": false,
+            "label": "Distance from left text"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Canteen information section",
+        "settings": {},
+        "blocks": [
+          {
+            "type": "block_text",
+            "settings": {
+              "main_text": "Title",
+              "paragraph_text": "Here you can find all the information about our canteen services.",
+              "additional_text": "Additional text",
+              "is_stroke_text": false,
+              "color_text": "#333333",
+              "padding_left_text_title": 0,
+              "padding_left_paragraph": 0,
+              "is_padding_text": true
+            }
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

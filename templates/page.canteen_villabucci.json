@@ -41,7 +41,9 @@
     "video_content": {
       "type": "video-container",
       "settings": {
-        "video_source": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/a700a6e9af1e4acd9fbeb045fc59915b.mp4"
+        "video_source": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/a700a6e9af1e4acd9fbeb045fc59915b.mp4",
+        "show_media_video": "block",
+        "show_media_image": "hidden"
       }
     },
     "canteen-story-text": {
@@ -88,19 +90,81 @@
         "canteen_slider_EPRAj6": {
           "type": "canteen_slider",
           "settings": {
-            "canteen_slider_image": "shopify:\/\/shop_images\/0f966f3074da6c9e117c9586db7c4043.jpg"
+            "canteen_slider_image": "shopify:\/\/shop_images\/0f966f3074da6c9e117c9586db7c4043.jpg",
+            "is_label": false,
+            "label_text": ""
           }
         },
         "canteen_slider_eHpkHW": {
           "type": "canteen_slider",
           "settings": {
-            "canteen_slider_image": "shopify:\/\/shop_images\/bb7a7584399a9ae805b350ac1e69355b.jpg"
+            "canteen_slider_image": "shopify:\/\/shop_images\/bb7a7584399a9ae805b350ac1e69355b.jpg",
+            "is_label": false,
+            "label_text": ""
           }
         }
       },
       "block_order": [
         "canteen_slider_EPRAj6",
         "canteen_slider_eHpkHW"
+      ],
+      "settings": {}
+    },
+    "canteen-information": {
+      "type": "canteen-information",
+      "blocks": {
+        "block_text_pVxPiq": {
+          "type": "block_text",
+          "settings": {
+            "main_text": "l’azienda",
+            "paragraph_text": "L’azienda agricola Bucci, situata in territorio marchigiano, si dedica all’agricoltura e alla produzione di vini d’alta qualità dal 1700. Con una superficie totale di oltre 350 ettari dediti alla coltivazione, 25 ettari sono ricoperte da vigneti, tra cui uve rosse Montepulciano e Sangiovese.",
+            "is_stroke_text": false,
+            "additional_text": "",
+            "color_text": "#c8a758",
+            "padding_left_text_title": 30,
+            "padding_left_paragraph": 40,
+            "is_padding_text": true
+          }
+        },
+        "block_text_KUF6rp": {
+          "type": "block_text",
+          "settings": {
+            "main_text": "i prodotti",
+            "paragraph_text": "Da oltre 20 anni Villa Bucci si dedica ad una coltura naturale, con grande attenzione alla salvaguardia del territorio circostante sia nella produzione dei loro vini tradizionali, sia nella produzione dei 20\/25 quintali di olio d’oliva extravergine prodotti all’anno dagli oliveti di loro proprietà.",
+            "is_stroke_text": true,
+            "additional_text": "",
+            "color_text": "#c8a758",
+            "padding_left_text_title": 0,
+            "padding_left_paragraph": 20,
+            "is_padding_text": true
+          }
+        }
+      },
+      "block_order": [
+        "block_text_pVxPiq",
+        "block_text_KUF6rp"
+      ],
+      "settings": {}
+    },
+    "canteen_information_teyD3D": {
+      "type": "canteen-information",
+      "blocks": {
+        "block_text_FNNtQb": {
+          "type": "block_text",
+          "settings": {
+            "main_text": "Cosa rappresenta",
+            "paragraph_text": "Il Verdicchio di Villa Bucci è il capolavoro di Ampelio Bucci, un visionario che, con passione e dedizione, ha elevato questo vino all'eccellenza assoluta. Ogni calice racconta la sua instancabile ricerca della perfezione, incarnando la tradizione e l'anima delle Marche in una forma pura e raffinata. Per noi è un immenso onore poter raccogliere questa preziosa eredità.",
+            "is_stroke_text": false,
+            "additional_text": "Per noi",
+            "color_text": "#c8a758",
+            "padding_left_text_title": 0,
+            "padding_left_paragraph": 40,
+            "is_padding_text": true
+          }
+        }
+      },
+      "block_order": [
+        "block_text_FNNtQb"
       ],
       "settings": {}
     },
@@ -127,6 +191,8 @@
     "video_content",
     "canteen-story-text",
     "canteen_slider",
+    "canteen-information",
+    "canteen_information_teyD3D",
     "canteen_showcase",
     "canteen_slider_id"
   ]
