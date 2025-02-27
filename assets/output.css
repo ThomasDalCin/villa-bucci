@@ -942,6 +942,9 @@
   .py-3\.5 {
     padding-block: calc(var(--spacing) * 3.5);
   }
+  .py-\[100px\] {
+    padding-block: 100px;
+  }
   .pt-16 {
     padding-top: calc(var(--spacing) * 16);
   }
@@ -981,10 +984,6 @@
   .text-\[40px\] {
     font-size: 40px;
   }
-  .leading-\[90\%\] {
-    --tw-leading: 90%;
-    line-height: 90%;
-  }
   .leading-\[105\%\] {
     --tw-leading: 105%;
     line-height: 105%;
@@ -992,6 +991,10 @@
   .leading-\[16px\] {
     --tw-leading: 16px;
     line-height: 16px;
+  }
+  .leading-\[90\%\] {
+    --tw-leading: 90%;
+    line-height: 90%;
   }
   .font-bold {
     --tw-font-weight: var(--font-weight-bold);
@@ -1276,6 +1279,11 @@
   .lg\:gap-y-\[120px\] {
     @media (width >= 64rem) {
       row-gap: 120px;
+    }
+  }
+  .lg\:py-\[120px\] {
+    @media (width >= 64rem) {
+      padding-block: 120px;
     }
   }
   .lg\:text-\[96px\] {
