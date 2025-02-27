@@ -1,7 +1,8 @@
 <!-- canteen showcase slider collections products -->
-<div class="w-full h-auto flex flex-col items-start justify-center px-5 py-[100px] lg:py-[120px] gap-y-2.5">
+<div class="w-full h-auto flex flex-col items-start justify-center py-[100px] lg:py-[120px] gap-y-2.5">
+
   <!-- container main section title -->
-  <div class="w-full h-auto flex flex-col items-end justify-center">
+  <div class="w-full h-auto flex flex-col items-end justify-center px-5">
     <h2 class="font-(family-name:--main-title-mobile-font-family) text-[40px] leading-[105%] tracking-[1.02px] lg:text-[96px] lg:tracking-[2.88px]" style="color:{{ section.settings.main_title_color }}">
       {{ section.settings.main_section_title | default: "Le etichette" | upcase }}
     </h2>
@@ -11,30 +12,39 @@
       {{ section.settings.main_stroke_section_title | default: "più importanti" | upcase }}
     </h2>
   </div>
+
   <!-- container slider showcase -->
   {% for collection in collections %}
     <!-- showcase container -->
-    <div class="w-full h-auto overflow-x-scroll flex flex-row justify-start items-center gap-x-5 p-5" data-collection="{{ collection.title |  replace: " ", "-" |  downcase }}">
+    <div class="w-full h-auto overflow-x-scroll flex flex-row justify-start items-center gap-x-5 px-5 py-5" data-collection="{{ collection.title |  replace: " ", "-" |  downcase }}">
       {% for product in collection.products %}
-        <div class="card-product w-[250px] h-[500px] lg:w-[540px] lg:h-[790px] rounded-[18px] bg-(--gold-color-w-opacity) hover:bg-(--gold-color) flex flex-col items-center justify-center outline outline-offset-4 outline-(--gold-color) relative group transition-all duration-200 ease-in-out" data-product="{{ product.title |  downcase }}">
+
+        <div class="card-product w-[250px] min-w-[250px] min-h-[500px] h-[500px] p-2.5 lg:w-[540px] lg:h-[790px] rounded-[18px] bg-(--gold-color-w-opacity) hover:bg-(--gold-color) flex flex-col items-center justify-between lg:justify-center outline outline-offset-4 outline-(--gold-color) relative group transition-all duration-200 ease-in-out" data-product="{{ product.title |  downcase }}">
+
           <!-- container item number -->
-          <div class="w-auto h-auto absolute left-5 top-5">
-            <p class="font-(family-name:--main-title-mobile-font-family) text-[200px] tracking-[-20px] leading-[90%] lg:text-[256px] text-(--bg-color) group-hover:text-(--blue-color) transition-all duration-200 ease-in-out">
+          <div class="w-auto h-auto lg:absolute lg:left-5 lg:top-5">
+            <p class="font-(family-name:--main-title-mobile-font-family) text-nowrap text-[200px] tracking-[-20px] leading-[90%] lg:text-[256px] text-(--bg-color) group-hover:text-(--blue-color) transition-all duration-200 ease-in-out">
               {% if forloop.index < 10 %}0{% endif %}
               {{ forloop.index }}</p>
           </div>
+
           <!-- container image -->
-          <div class="w-auto h-auto relative z-10">
+          <div class="w-auto h-auto absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 lg:block z-10">
             <img
               class="w-[130px] h-[381px] lg:w-[192px] lg:h-[567px] transition-all duration-200 ease-in-out group-hover:scale-[1.4]"
               src="{{ product.featured_image |  img_url: 'master' }}"
               alt="{{ product.featured_image.alt }}">
           </div>
+
         </div>
+
       {% endfor %}
     </div>
   {% endfor %}
+
 </div>
+
+
 
 {% schema %}
   {

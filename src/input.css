@@ -36,7 +36,7 @@
 
   /* MAIN TITLE */
   --main-title-font-size: 96px;
-  --main-title-font-family: "FONTSPRING DEMO - The Seasons"; /* font to import */
+  --main-title-font-family: "the-seasons"; /* font to import */
   --main-title-font-style: normal;
   --main-title-font-weight: 400;
   --main-title-line-height: 105%;
@@ -45,7 +45,7 @@
   /* MAIN TITLE - Mobile */
   --main-title-mobile-color: #5c634f;
   --main-title-mobile-font-size: 40px;
-  --main-title-mobile-font-family: "FONTSPRING DEMO - The Seasons"; /* font to import */
+  --main-title-mobile-font-family: "the-seasons"; /* font to import */
   --main-title-mobile-font-style: normal;
   --main-title-mobile-font-weight: 400;
   --main-title-mobile-line-height: 105%;

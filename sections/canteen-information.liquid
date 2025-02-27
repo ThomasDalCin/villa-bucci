@@ -1,12 +1,12 @@
 <!-- canteen information text -->
-<div class="w-full h-auto px-5 py-[100px] lg:py-[120px]">
+<div class="w-full h-auto overflow-x-hidden py-[100px] lg:py-[120px] lg:px-5">
   <div class="w-full h-auto flex flex-col items-start justify-center gap-y-[100px] lg:gap-y-[120px]">
     {% for block in section.blocks %}
       {% if block.type == "block_text" %}
         <div class="w-full h-auto flex flex-col items-start justify-center gap-y-5 lg:gap-y-[50px]">
 
-          <div class="w-full h-auto lg:w-auto">
-            <h2 class="main-title font-(family-name:--main-title-mobile-font-family) text-[40px] font-light leading-[90%] lg:text-[96px] lg:leading-[105%]" style="
+          <div class="w-full h-auto overflow-x-auto py-1.5 lg:py-0 lg:w-auto">
+            <h2 class="main-title font-(family-name:--main-title-mobile-font-family) text-[128px] text-nowrap font-light leading-[90%] lg:text-[96px] lg:leading-[105%] lg:whitespace-normal" style="
                                 {% if block.settings.is_stroke_text %}
                                     color: transparent;
                                     -webkit-text-stroke-width: 1.5px;
@@ -24,7 +24,7 @@
               {{ block.settings.main_text | upcase }}
             </h2>
             {% if block.settings.additional_text %}
-                <h2 class="main-title font-(family-name:--main-title-mobile-font-family) text-[40px] font-light leading-[90%] lg:text-[96px] lg:leading-[105%]" style="
+                <h2 class="main-title font-(family-name:--main-title-mobile-font-family) text-nowrap text-[128px] font-light leading-[90%] lg:text-[96px] lg:leading-[105%] lg:whitespace-normal" style="
                 {% if block.settings.is_stroke_text %}
                     color: transparent;
                     -webkit-text-stroke-width: 1.5px;
@@ -43,7 +43,7 @@
             {% endif %}
           </div>
 
-          <div class="w-full h-auto">
+          <div class="w-full h-auto px-5">
             <p class="paragraph-container lg:max-w-[726px]" style="
           {% if block.settings.is_padding_text %}
                                     margin-left: {{ block.settings.padding_left_paragraph | times: 5.17 }}px;
@@ -62,7 +62,6 @@
 
   @media (max-width: 480px) {
      .main-title{
-      white-space: normal;
       margin-left: 0px !important;
      }
      .paragraph-container{
