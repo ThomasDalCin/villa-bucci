@@ -644,6 +644,9 @@
   .h-\[381px\] {
     height: 381px;
   }
+  .h-\[400px\] {
+    height: 400px;
+  }
   .h-\[500px\] {
     height: 500px;
   }
@@ -658,6 +661,9 @@
   }
   .h-svh {
     height: 100svh;
+  }
+  .min-h-\[400px\] {
+    min-height: 400px;
   }
   .min-h-\[500px\] {
     min-height: 500px;
@@ -870,6 +876,9 @@
   }
   .bg-transparent {
     background-color: transparent;
+  }
+  .object-contain {
+    object-fit: contain;
   }
   .object-cover {
     object-fit: cover;
@@ -1221,6 +1230,11 @@
   .lg\:h-\[942px\] {
     @media (width >= 64rem) {
       height: 942px;
+    }
+  }
+  .lg\:h-\[auto\] {
+    @media (width >= 64rem) {
+      height: auto;
     }
   }
   .lg\:w-\[192px\] {
