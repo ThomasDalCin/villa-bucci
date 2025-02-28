@@ -8,16 +8,16 @@
         {% assign pageImage = page.metafields.custom.page_image.value %}
         {% assign pageCanteenLogo = page.metafields.custom.page_canteen_logo.value %}
 
-          <div class="card-canteen w-[250px] h-[500px] lg:w-[540px] lg:h-[800px] rounded-[18px] bg-(--green-color-w-opacity) hover:bg-(--green-color) hover:outline-none flex flex-col items-start justify-between outline outline-offset-4 outline-(--green-color) relative group transition-all duration-200 ease-in-out">
+          <div class="card-canteen w-[250px] h-[600px] lg:w-[540px] lg:h-[800px] rounded-[18px] bg-(--green-color-w-opacity) hover:bg-(--green-color) hover:outline-none flex flex-col items-start justify-between outline outline-offset-4 outline-(--green-color) relative group transition-all duration-200 ease-in-out">
 
           {% assign pageCustomTitle = page.title | split: " " %}
           {% assign pageCustomTitle = pageCustomTitle | slice: 1, pageCustomTitle.size %}
           {% assign pageCustomTitle = pageCustomTitle | join: " " %}
 
           <!-- container info text -->
-          <div class="w-full h-auto flex flex-col items-start justify-center gap-y-16 p-5">
+          <div class="w-full h-auto flex flex-col items-start justify-center gap-y-16 p-3.5 lg:p-5">
 
-            <div class="w-auto h-auto">
+            <div class="w-[67px] h-[56px] flex items-center justify-center">
               <img src="{{ pageCanteenLogo | img_url: 'master' }}" alt="{{ pageCanteenLogo.alt }}">
             </div>
 
