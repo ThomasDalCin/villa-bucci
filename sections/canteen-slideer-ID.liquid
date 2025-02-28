@@ -1,5 +1,5 @@
 <!-- canteen slider id footer section -->
-<div class="w-full h-auto px-5">
+<div class="w-full h-auto px-2.5">
   <!-- main wrapper section -->
   <div class="w-full h-auto rounded-[8px] bg-(--beige-color) flex flex-col items-start justify-center gap-y-[30px] overflow-x-hidden lg:gap-y-[72px]">
 
@@ -25,9 +25,13 @@
         {{ section.settings.main_title_right | default: "Le cantine" | upcase }}</h2>
     </div>
 
+ 
+    {% assign titlePagesCanteen = pages | where: "title", "Canteen" %}
+    {% assign titlePagesCantina = pages | where: "title", "Cantina" %}
+
     <!-- container slider id canteen -->
     <div class="w-full h-auto overflow-x-scroll mb-[130px] flex justify-start items-center">
-      <div class="w-auto h-auto px-5 flex flex-row justify-start items-center gap-x-5">
+      <div class="w-auto h-auto px-5 flex flex-row justify-start items-center gap-x-5 {% if titlePagesCanteen.size <= 4 or titlePagesCantina.size <= 4  %} lg:w-full lg:max-w-full {% endif %}">
         {% for page in pages %}
           {% assign pageImage = page.metafields.custom.page_image.value %}
           {% assign pageCanteenLogo = page.metafields.custom.page_canteen_logo.value %}
@@ -36,18 +40,18 @@
             {% assign pageTitleCustom = page.title | split: " " %}
             {% assign pageTitleCustom = pageTitleCustom | slice: 1, pageTitleCustom.size %}
             {% assign pageTitleCustom = pageTitleCustom | join: " " %}
-            <a class="canteen-item-container" href="{{ page.url }}">
-              <div class="canteen-item w-auto h-auto flex flex-col items-start justify-center gap-y-2.5 cursor-pointer" data-canteen="{{ page.title }}">
+            <a class="canteen-item-container {% if titlePagesCanteen.size <= 4 or titlePagesCantina.size <= 4  %} flex-1 flex  {% else %} block {% endif %}" href="{{ page.url }}">
+              <div class="canteen-item w-auto h-auto flex flex-col items-start justify-center gap-y-2.5 cursor-pointer {% if titlePagesCanteen.size <= 4 or titlePagesCantina.size <= 4  %} lg:w-full {% endif %}" data-canteen="{{ page.title }}">
                 {% if pageImage %}
                   <!-- page image -->
-                  <div class="w-[355px] h-[121px] relative">
+                  <div class="w-[348px] h-[121px] relative {% if titlePagesCanteen.size <= 4 or titlePagesCantina.size <= 4  %} lg:w-full {% endif %}">
                     <img
                       class="page-image w-full h-full object-cover object-center rounded-[8px]"
                       src="{{ pageImage | img_url: 'master' }}"
                       alt="">
                       <!--container canteen logo -->
                       {% if pageCanteenLogo %}
-                        <div class="page-logo hidden w-auto h-auto mx-w-[81px] max-h-[69px] absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+                        <div class="page-logo hidden w-auto h-auto max-w-[81px] max-h-[69px] absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
                           <img class="w-full h-full object-center object-cover" src="{{ pageCanteenLogo |  img_url: 'master' }}" alt="{{ pageCanteenLogo.alt }}">
                         </div>
                       {% endif %}
@@ -97,6 +101,9 @@
                 pageLogo.classList.remove('hidden');
 
                 elementToMove = canteenItemContainer[index];
+            } else {
+              const pageImage = item.querySelector('.page-image');
+              pageImage.style.filter = "brightness(70%)"
             }
         });
 
