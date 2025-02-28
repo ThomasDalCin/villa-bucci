@@ -1,36 +1,140 @@
 {
-    "sections": {
-      "product-main-title": {
-        "type": "canteen-main-text",
-        "settings": {}
+  "sections": {
+    "product-main-title": {
+      "type": "canteen-main-text",
+      "blocks": {
+        "canteen_text_yxUEhH": {
+          "type": "canteen_text",
+          "settings": {
+            "canteen_text": "veneto",
+            "is_stroke": false,
+            "canteen_text_color": "#76b2ba",
+            "canteen_text_direction": "justify-start"
+          }
+        },
+        "canteen_text_xw3BVx": {
+          "type": "canteen_text",
+          "settings": {
+            "canteen_text": "lago",
+            "is_stroke": true,
+            "canteen_text_color": "#76b2ba",
+            "canteen_text_direction": "justify-end"
+          }
+        },
+        "canteen_text_F9nJ37": {
+          "type": "canteen_text",
+          "settings": {
+            "canteen_text": "di garda",
+            "is_stroke": false,
+            "canteen_text_color": "#76b2ba",
+            "canteen_text_direction": "justify-center"
+          }
+        }
       },
-      "video-container": {
-        "type": "video-container",
-        "settings": {}
-      },
-      "canteen_information_6Hr3if": {
-        "type": "canteen-information",
-        "settings": {}
-      },
-      "canteen_slider_UrzhME": {
-        "type": "canteen-slider",
-        "settings": {}
-      },
-      "canteen_information_CX7dQw": {
-        "type": "canteen-information",
-        "settings": {}
-      },
-      "product-slider": {
-        "type": "product-slider",
-        "settings": {}
+      "block_order": [
+        "canteen_text_yxUEhH",
+        "canteen_text_xw3BVx",
+        "canteen_text_F9nJ37"
+      ],
+      "settings": {
+        "canteen_main_logo": "shopify:\/\/shop_images\/Benacus-logo.12eee59b_1-removebg-preview.png"
       }
     },
-    "order": [
-      "product-main-title",
-      "video-container",
-      "canteen_information_6Hr3if",
-      "canteen_slider_UrzhME",
-      "canteen_information_CX7dQw",
-      "product-slider"
-    ]
-  }
+    "video-container": {
+      "type": "video-container",
+      "settings": {
+        "video_source": "",
+        "banner_image": "shopify:\/\/shop_images\/77cfeb30136bddb9b9050973d61d81d7.jpg",
+        "show_media_video": "hidden",
+        "show_media_image": "block"
+      }
+    },
+    "canteen_information_6Hr3if": {
+      "type": "canteen-information",
+      "blocks": {
+        "block_text_ydwy7X": {
+          "type": "block_text",
+          "settings": {
+            "main_text": "La promessa di un territoriofatto di natura, bellezza e incanto.",
+            "paragraph_text": "Una storia fatta di amicizia, viaggi e passione porta all’idea di realizzare un Gin che parli del lago di Garda e delle sue caratteristiche uniche. Un gin che si differenzi da quelli esistenti, un gin giovane e raffinato, un gin di tendenza ma mai scontato.",
+            "is_stroke_text": false,
+            "additional_text": "",
+            "color_text": "#76b2ba",
+            "padding_left_text_title": 0,
+            "padding_left_paragraph": 50,
+            "is_padding_text": true
+          }
+        }
+      },
+      "block_order": [
+        "block_text_ydwy7X"
+      ],
+      "settings": {}
+    },
+    "canteen_slider_UrzhME": {
+      "type": "canteen-slider",
+      "blocks": {
+        "canteen_slider_D7Ujmz": {
+          "type": "canteen_slider",
+          "settings": {
+            "canteen_slider_image": "shopify:\/\/shop_images\/0e6525da7643e990e28358ddeecb798c.jpg",
+            "is_label": false,
+            "label_text": ""
+          }
+        },
+        "canteen_slider_3gTeN8": {
+          "type": "canteen_slider",
+          "settings": {
+            "canteen_slider_image": "shopify:\/\/shop_images\/77cfeb30136bddb9b9050973d61d81d7.jpg",
+            "is_label": false,
+            "label_text": ""
+          }
+        }
+      },
+      "block_order": [
+        "canteen_slider_D7Ujmz",
+        "canteen_slider_3gTeN8"
+      ],
+      "settings": {}
+    },
+    "canteen_information_CX7dQw": {
+      "type": "canteen-information",
+      "blocks": {
+        "block_text_6bPxAE": {
+          "type": "block_text",
+          "settings": {
+            "main_text": "l’azienda",
+            "paragraph_text": "Il Benacus Gin viene realizzato da una piccola distilleria artigianale di nome Zu Plun, situata tra le Alpi dell’altopiano di Siusi. Il mastro distillatore, Florian Rabanser, ha vinto numerosi premi internazionali nel mondo dei distillati. Il suo Gin “Dolgin” è stato premiato dal Gambero Rosso come miglior Gin italiano.",
+            "is_stroke_text": false,
+            "additional_text": "",
+            "color_text": "#76b2ba",
+            "padding_left_text_title": 0,
+            "padding_left_paragraph": 30,
+            "is_padding_text": true
+          }
+        }
+      },
+      "block_order": [
+        "block_text_6bPxAE"
+      ],
+      "settings": {}
+    },
+    "product-slider": {
+      "type": "product-slider",
+      "settings": {
+        "main_title_left": "",
+        "main_title_right": "",
+        "is_stroke_left": false,
+        "is_stroke_right": true
+      }
+    }
+  },
+  "order": [
+    "product-main-title",
+    "video-container",
+    "canteen_information_6Hr3if",
+    "canteen_slider_UrzhME",
+    "canteen_information_CX7dQw",
+    "product-slider"
+  ]
+}
