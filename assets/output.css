@@ -939,6 +939,9 @@
   .object-cover {
     object-fit: cover;
   }
+  .object-fill {
+    object-fit: fill;
+  }
   .object-center {
     object-position: center;
   }
@@ -1023,18 +1026,14 @@
   .text-\[12px\] {
     font-size: 12px;
   }
-  .text-\[40px\] {
-    font-size: 40px;
-  }
   .text-\[200px\] {
     font-size: 200px;
   }
   .text-\[24px\] {
     font-size: 24px;
   }
-  .leading-\[90\%\] {
-    --tw-leading: 90%;
-    line-height: 90%;
+  .text-\[40px\] {
+    font-size: 40px;
   }
   .leading-\[105\%\] {
     --tw-leading: 105%;
@@ -1043,6 +1042,10 @@
   .leading-\[16px\] {
     --tw-leading: 16px;
     line-height: 16px;
+  }
+  .leading-\[90\%\] {
+    --tw-leading: 90%;
+    line-height: 90%;
   }
   .font-bold {
     --tw-font-weight: var(--font-weight-bold);
@@ -1301,6 +1304,11 @@
   .lg\:flex {
     @media (width >= 64rem) {
       display: flex;
+    }
+  }
+  .lg\:hidden {
+    @media (width >= 64rem) {
+      display: none;
     }
   }
   .lg\:h-\[377px\] {
