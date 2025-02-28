@@ -16,7 +16,7 @@
   <!-- container slider showcase -->
   {% for collection in collections %}
     <!-- showcase container -->
-    <div class="w-full h-auto overflow-x-scroll flex flex-row justify-start items-center gap-x-5 px-5 py-5" data-collection="{{ collection.title |  replace: " ", "-" |  downcase }}">
+    <div class="showcase-container-scroll w-full h-auto overflow-x-scroll flex flex-row justify-start items-center gap-x-5 px-5 py-5" data-collection="{{ collection.title |  replace: " ", "-" | downcase }}">
       {% for product in collection.products %}
 
         <div class="card-product w-[250px] min-w-[250px] min-h-[500px] h-[500px] p-2.5 lg:w-[540px] lg:h-[790px] rounded-[18px] bg-(--gold-color-w-opacity) hover:bg-(--gold-color) flex flex-col items-center justify-between lg:justify-center outline outline-offset-4 outline-(--gold-color) relative group transition-all duration-200 ease-in-out" data-product="{{ product.title |  downcase }}">
@@ -44,6 +44,50 @@
 
 </div>
 
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+  
+    //get showcase slider elements;
+    const showcaseContainer = document.querySelectorAll('.showcase-container-scroll');
+  
+    //set showcase container's start position on page loaded;
+    let scrollTimeout;
+  
+    const resetScroll = (element, value) => {
+      element.scrollTo({
+        left: value,
+        behavior: "smooth"
+      })
+    }
+  
+    showcaseContainer.forEach((container) => {
+  
+      const clientWidth = container.clientWidth;
+      const scrollWidth = container.scrollWidth;
+      const scrollValue = (scrollWidth - clientWidth) / 2;
+      container.scrollLeft = scrollValue;
+  
+      container.addEventListener('scroll', () => {
+        clearInterval(scrollTimeout);
+  
+        scrollTimeout = setTimeout(() => resetScroll(container, scrollValue), 2000);
+      })
+  
+    });
+  
+    // Display just the showcase slider collection based on the content of the page;
+    const url = new URL(window.location.href);
+    const pathName = url.pathname;
+    const pathSegments = pathName.split("/").filter((segment) => segment !== "");
+  
+    showcaseContainer.forEach((container) => {
+      const canteenType = container.getAttribute('data-collection').toLowerCase();
+      if (!pathSegments.some((i) => i.includes(canteenType))) {
+        container.classList.add('hidden');
+      }
+    });
+  })
+</script>
 
 
 {% schema %}
