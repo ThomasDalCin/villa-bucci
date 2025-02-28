@@ -1,13 +1,11 @@
 <div class="w-full h-auto relative py-[100px] lg:py-[120px] overflow-x-hidden">
   <!-- canteen main logo -->
-  {% if section.settings.canteen_main_logo %}
     <div class="w-auto h-auto absolute left-1/2 top-[40%] -translate-x-1/2 -translate-y-1/2 z-0">
       <img
-        class="w-auto h-auto object-cover object-center"
+        class="w-[275px] max-w-[375px] h-auto object-cover object-center"
         src="{{ section.settings.canteen_main_logo |  img_url: 'master' }}"
         alt="{{ section.settings.canteen_main_logo.alt }}">
     </div>
-  {% endif %}
   <!-- loop through blocks -->
   {% for block in section.blocks %}
     {% if block.type == "canteen_text" %}

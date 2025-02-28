@@ -36,7 +36,9 @@
         "canteen_text_RNKVfd",
         "canteen_text_BNVVKU"
       ],
-      "settings": {}
+      "settings": {
+        "canteen_main_logo": "shopify:\/\/shop_images\/TenimentiLeone-Logo.svg"
+      }
     },
     "video-content": {
       "type": "video-container",

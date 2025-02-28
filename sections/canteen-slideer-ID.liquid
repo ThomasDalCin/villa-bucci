@@ -1,10 +1,10 @@
 <!-- canteen slider id footer section -->
 <div class="w-full h-auto px-5">
   <!-- main wrapper section -->
-  <div class="w-full h-auto rounded-[8px] bg-(--beige-color) p-5 flex flex-col items-start justify-center gap-y-[72px]">
+  <div class="w-full h-auto rounded-[8px] bg-(--beige-color) flex flex-col items-start justify-center gap-y-[30px] overflow-x-hidden lg:gap-y-[72px]">
 
     <!-- container headings -->
-    <div class="w-full h-auto flex flex-row justify-between items-center">
+    <div class="w-full h-auto flex flex-col items-start justify-center p-5 lg:flex-row lg:justify-between lg:items-center">
       <h2 class="font-(family-name:--main-title-mobile-font-family) text-[40px] leading-[105%] tracking-[1.02px] lg:text-[96px] lg:tracking-[2.88px]" style="
             {% if section.settings.is_stroke_left %}
               color: transparent; 
@@ -26,23 +26,31 @@
     </div>
 
     <!-- container slider id canteen -->
-    <div class="w-[calc(100%_+_2.5rem)] h-auto overflow-x-scroll px-5 -mx-5 mb-[130px]">
-      <div class="w-auto h-auto flex flex-row justify-start items-center gap-x-5">
+    <div class="w-full h-auto overflow-x-scroll mb-[130px] flex justify-start items-center">
+      <div class="w-auto h-auto px-5 flex flex-row justify-start items-center gap-x-5">
         {% for page in pages %}
           {% assign pageImage = page.metafields.custom.page_image.value %}
+          {% assign pageCanteenLogo = page.metafields.custom.page_canteen_logo.value %}
+
           {% if page.title contains "Cantina" or page.title contains "Canteen" %}
             {% assign pageTitleCustom = page.title | split: " " %}
             {% assign pageTitleCustom = pageTitleCustom | slice: 1, pageTitleCustom.size %}
             {% assign pageTitleCustom = pageTitleCustom | join: " " %}
-            <a href="{{ page.url }}">
+            <a class="canteen-item-container" href="{{ page.url }}">
               <div class="canteen-item w-auto h-auto flex flex-col items-start justify-center gap-y-2.5 cursor-pointer" data-canteen="{{ page.title }}">
                 {% if pageImage %}
                   <!-- page image -->
-                  <div class="w-[355px] h-[121px]">
+                  <div class="w-[355px] h-[121px] relative">
                     <img
                       class="page-image w-full h-full object-cover object-center rounded-[8px]"
                       src="{{ pageImage | img_url: 'master' }}"
                       alt="">
+                      <!--container canteen logo -->
+                      {% if pageCanteenLogo %}
+                        <div class="page-logo hidden w-auto h-auto mx-w-[81px] max-h-[69px] absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+                          <img class="w-full h-full object-center object-cover" src="{{ pageCanteenLogo |  img_url: 'master' }}" alt="{{ pageCanteenLogo.alt }}">
+                        </div>
+                      {% endif %}
                   </div>
                   <!-- page title -->
                   <div class="w-full h-auto flex flex-row justify-between items-center">
@@ -64,30 +72,39 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', () => {
-        //handle canteen id slider active
         const url = new URL(window.location.href);
         const pathName = url.pathname;
         const pathSegments = pathName.split("/").filter((segment) => segment !== "");
   
-        //get elements;
         const canteenItem = document.querySelectorAll('.canteen-item');
+        const canteenItemContainer = document.querySelectorAll('.canteen-item-container');
   
-        canteenItem.forEach((item) => {
-          const canteenData = item.getAttribute('data-canteen').toLowerCase();
-          const canteenDataCustom = canteenData.replace(/ /g, "-");
-  
-          if(pathSegments.some((i) => canteenDataCustom == i)){
-             const classesToAdd = ["border", "border-(--beige-light)", "border-[11px]"]
-             const pageImage = item.querySelector('.page-image');
-             const arrowImage = item.querySelector('.arrow-canteen-box');
-             classesToAdd.forEach((classToAdd) => {
-                pageImage.classList.add(classToAdd);
-             }) 
-             arrowImage.classList.remove('hidden')
-          }
-  
-        });  
-    })
+        let elementToMove = null;
+
+        canteenItem.forEach((item, index) => {
+            const canteenData = item.getAttribute('data-canteen').toLowerCase();
+            const canteenDataCustom = canteenData.replace(/ /g, "-");
+
+            if(pathSegments.some((i) => canteenDataCustom == i)) {
+                const classesToAdd = ["border", "border-(--beige-light)", "border-[11px]"];
+                const pageImage = item.querySelector('.page-image');
+                const arrowImage = item.querySelector('.arrow-canteen-box');
+                const pageLogo = item.querySelector('.page-logo');
+                classesToAdd.forEach((classToAdd) => {
+                    pageImage.classList.add(classToAdd);
+                });
+                arrowImage.classList.remove('hidden');
+                pageLogo.classList.remove('hidden');
+
+                elementToMove = canteenItemContainer[index];
+            }
+        });
+
+        if (elementToMove) {
+            const parentContainer = elementToMove.parentNode;
+            parentContainer.prepend(elementToMove);
+        }
+    });
 </script>
 
 
