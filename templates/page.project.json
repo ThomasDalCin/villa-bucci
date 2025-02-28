@@ -1,5 +1,40 @@
 {
   "sections": {
+    "video-container": {
+      "type": "video-container",
+      "custom_css": [
+        "img {height: 355px !important;}",
+        "@media (min-width: 1024px) {img {height: 558px !important; }}"
+      ],
+      "settings": {
+        "video_source": "",
+        "banner_image": "shopify:\/\/shop_images\/1fdad5dff1d64399103d03a2f3f10ae0.jpg",
+        "show_media_video": "hidden",
+        "show_media_image": "block"
+      }
+    },
+    "canteen_information_EXPLw3": {
+      "type": "canteen-information",
+      "blocks": {
+        "block_text_RGLWVp": {
+          "type": "block_text",
+          "settings": {
+            "main_text": "Oniwines nasce da Oniverse ed è un progetto interamente dedicato al mondo del vino.",
+            "paragraph_text": "Il desiderio è quello di valorizzare le diverse regioni italiane, esaltandone l’unicità attraverso la produzione di vini autoctoni. Con un profondo rispetto per le tradizioni locali e un’attenzione costante alla qualità, Oniwines si propone di raccontare l’essenza dei territori, unendo la passione per il vino a una visione innovativa e contemporanea.",
+            "is_stroke_text": false,
+            "additional_text": "Additional text",
+            "color_text": "#5c634f",
+            "padding_left_text_title": 0,
+            "padding_left_paragraph": 70,
+            "is_padding_text": true
+          }
+        }
+      },
+      "block_order": [
+        "block_text_RGLWVp"
+      ],
+      "settings": {}
+    },
     "project-showcase-slider": {
       "type": "project-showcase-slider",
       "blocks": {
@@ -169,6 +204,8 @@
     }
   },
   "order": [
+    "video-container",
+    "canteen_information_EXPLw3",
     "project-showcase-slider",
     "canteen_information_VFCAkN",
     "emotional_text",
