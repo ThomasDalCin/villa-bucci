@@ -1,0 +1,36 @@
+{
+    "sections": {
+      "product-main-title": {
+        "type": "canteen-main-text",
+        "settings": {}
+      },
+      "video-container": {
+        "type": "video-container",
+        "settings": {}
+      },
+      "canteen_information_6Hr3if": {
+        "type": "canteen-information",
+        "settings": {}
+      },
+      "canteen_slider_UrzhME": {
+        "type": "canteen-slider",
+        "settings": {}
+      },
+      "canteen_information_CX7dQw": {
+        "type": "canteen-information",
+        "settings": {}
+      },
+      "product-slider": {
+        "type": "product-slider",
+        "settings": {}
+      }
+    },
+    "order": [
+      "product-main-title",
+      "video-container",
+      "canteen_information_6Hr3if",
+      "canteen_slider_UrzhME",
+      "canteen_information_CX7dQw",
+      "product-slider"
+    ]
+  }
