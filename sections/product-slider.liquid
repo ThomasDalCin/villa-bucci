@@ -35,21 +35,21 @@
     </div>
 
     <!-- Container Slider Showcase -->
-    <div class="w-[calc(100%_+_2.5rem)] h-auto overflow-x-scroll px-5 -mx-5 mb-[130px]">
+    <div class="w-[calc(100%_+_2.5rem)] h-auto overflow-x-scroll px-5 -mx-5 lg:mb-[130px]">
       <div class="w-auto h-auto flex flex-row justify-center items-center gap-x-5 flex-wrap">
         {% for collection in collections %}
         {% if collection.title == "Oniwines" %}
-        <div class="w-full h-auto overflow-x-scroll flex flex-col justify-center items-center gap-x-5 px-5 py-5 lg:flex-row"
+        <div class="w-full h-auto overflow-x-scroll flex flex-col gap-y-[30px] justify-center items-center gap-x-5 lg:px-5 lg:py-5 lg:flex-row"
           data-collection="{{ collection.title | replace: ' ', '-' | downcase }}">
 
           {% for product in collection.products %}
           <div
-            class="card-product lg:w-[250px] lg:min-w-[250px] lg:min-h-[400px] h-auto lg:h-[400px] p-2.5 lg:w-[540px] lg:h-[auto] rounded-[18px] flex flex-col items-center justify-between lg:justify-center relative group"
+            class="card-product lg:w-[250px] lg:min-w-[250px] lg:min-h-[400px] h-auto lg:h-[400px] lg:p-2.5 lg:w-[540px] lg:h-[auto] rounded-[18px] flex flex-col items-center justify-between lg:justify-center relative group"
             data-product="{{ product.title | downcase }}">
 
             <!-- Container Image -->
             <div class="canteen-item w-auto h-auto flex flex-col items-start justify-center gap-y-2.5 cursor-pointer">
-              <div class="w-[355px] h-[121px]">
+              <div class="lg:w-[355px] lg:h-[121px] w-full">
                 <img class="page-image w-full h-full object-fill object-center rounded-[8px]"
                   src="{{ product.featured_image | img_url: 'master' }}" alt="{{ product.featured_image.alt }}">
               </div>
