@@ -1,24 +1,58 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
     "media-content": {
       "type": "video-container",
+      "custom_css": [
+        "img {height: 355px !important;}",
+        "@media (min-width: 1024px) {img {height: 558px !important; }}"
+      ],
       "settings": {
-
+        "video_source": "",
+        "banner_image": "shopify:\/\/shop_images\/0e6525da7643e990e28358ddeecb798c.jpg",
+        "show_media_video": "hidden",
+        "show_media_image": "block"
       }
     },
     "contact-section": {
       "type": "contact-section",
+      "blocks": {
+        "contact_info_block_9MpV3j": {
+          "type": "contact_info_block",
+          "settings": {
+            "site_title": "Sede oniwines",
+            "site_info": "Via Lorem Ipsum, 00\nVerona (Italia)"
+          }
+        },
+        "contact_info_block_Lb9CGe": {
+          "type": "contact_info_block",
+          "settings": {
+            "site_title": "Sede oniwines",
+            "site_info": "Via Lorem Ipsum, 00\nVerona (Italia)"
+          }
+        },
+        "contact_info_block_drk4TD": {
+          "type": "contact_info_block",
+          "settings": {
+            "site_title": "sede oniwines",
+            "site_info": "Via Lorem Ipsum, 00\nVerona (Italia)"
+          }
+        },
+        "contact_info_block_dceQ4t": {
+          "type": "contact_info_block",
+          "settings": {
+            "site_title": "sede oniwines",
+            "site_info": "Via Lorem Ipsum, 00\nVerona (Italia)"
+          }
+        }
+      },
+      "block_order": [
+        "contact_info_block_9MpV3j",
+        "contact_info_block_Lb9CGe",
+        "contact_info_block_drk4TD",
+        "contact_info_block_dceQ4t"
+      ],
       "settings": {
-
+        "main_title": ""
       }
     }
   },
