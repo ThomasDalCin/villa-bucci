@@ -22,7 +22,7 @@
             "main_text": "Oniwines nasce da Oniverse ed è un progetto interamente dedicato al mondo del vino.",
             "paragraph_text": "Il desiderio è quello di valorizzare le diverse regioni italiane, esaltandone l’unicità attraverso la produzione di vini autoctoni. Con un profondo rispetto per le tradizioni locali e un’attenzione costante alla qualità, Oniwines si propone di raccontare l’essenza dei territori, unendo la passione per il vino a una visione innovativa e contemporanea.",
             "is_stroke_text": false,
-            "additional_text": "Additional text",
+            "additional_text": "",
             "color_text": "#5c634f",
             "padding_left_text_title": 0,
             "padding_left_paragraph": 70,
@@ -32,6 +32,10 @@
       },
       "block_order": [
         "block_text_RGLWVp"
+      ],
+      "custom_css": [
+        ".main-title {font-size: 40px !important; white-space: normal; padding-left: 20px; padding-right: 20px;}",
+        "@media (min-width: 1024px) {.main-title{font-size: 96px !important; }}"
       ],
       "settings": {}
     },
