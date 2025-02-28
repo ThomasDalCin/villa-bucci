@@ -1,4 +1,4 @@
-<!-- canteen slider id footer section -->
+<!-- product slider id footer section -->
 <div class="w-full h-auto px-5">
   <!-- main wrapper section -->
   <div class="w-full h-auto rounded-[8px] bg-(--beige-color) p-5 flex flex-col items-start justify-center gap-y-[72px]">
@@ -25,61 +25,63 @@
         {{ section.settings.main_title_right | default: "I PRODOTTI" | upcase }}</h2>
     </div>
 
-    <!-- container slider id canteen -->
-    <div class="w-[calc(100%_+_2.5rem)] h-auto overflow-x-scroll px-5 -mx-5 mb-[130px]">
-      <div class="w-auto h-auto flex flex-row justify-start items-center gap-x-5">
-        {% for page in pages %}
-          {% assign pageImage = page.metafields.custom.page_image.value %}
-          {% if page.title contains "Cantina" or page.title contains "Canteen" %}
-            {% assign pageTitleCustom = page.title | split: " " %}
-            {% assign pageTitleCustom = pageTitleCustom | slice: 1, pageTitleCustom.size %}
-            {% assign pageTitleCustom = pageTitleCustom | join: " " %}
-            <a href="{{ page.url }}">
-              <div class="canteen-item w-auto h-auto flex flex-col items-start justify-center gap-y-2.5 cursor-pointer" data-canteen="{{ page.title }}">
-                {% if pageImage %}
-                  <!-- page image -->
-                  <div class="w-[355px] h-[121px]">
-                    <img
-                      class="page-image w-full h-full object-cover object-center rounded-[8px]"
-                      src="{{ pageImage | img_url: 'master' }}"
-                      alt="">
-                  </div>
-                  <!-- page title -->
-                  <div class="w-full h-auto flex flex-row justify-between items-center">
-                    <p class="text-(--beige-light)">{{ pageTitleCustom | upcase }}</p>
-                    <div class="arrow-canteen-box w-auto h-auto text-(--beige-light) hidden">
-                      {% render 'arrow-up' %}
-                    </div>
-                  </div>
-                {% endif %}
-              </div>
-            </a>
-          {% endif %}
+     <!-- container slider showcase -->
+
+   
+{% for collection in collections %}
+    {% if collection.title == "Oniwines" %}
+      <!-- showcase container -->
+       
+      <div class="w-full h-auto overflow-x-scroll flex flex-row justify-start items-center gap-x-5 px-5 py-5" data-collection="{{ collection.title | replace: ' ', '-' | downcase }}">
+        
+        {% for product in collection.products %}
+          <div class="card-product w-[250px] min-w-[250px] min-h-[400px] h-[400px] p-2.5 lg:w-[540px] lg:h-[auto] rounded-[18px] flex flex-col items-center justify-between lg:justify-center  relative group " data-product="{{ product.title | downcase }}">
+  
+           
+  
+            <!-- container image -->
+           
+            <div class="w-[355px] h-[121px]">
+  <img class="page-image w-full h-full object-contain object-center rounded-[8px]" 
+       src="{{ product.featured_image | img_url: 'master' }}" 
+       alt="{{ product.featured_image.alt }}">
+</div>
+
         {% endfor %}
       </div>
-    </div>
+    {% endif %}
+  {% endfor %}
   </div>
+
+
+
+
 </div>
+
+
+
+
+
 
 
 <script>
     document.addEventListener('DOMContentLoaded', () => {
-        //handle canteen id slider active
+        //handle product id slider active
         const url = new URL(window.location.href);
         const pathName = url.pathname;
         const pathSegments = pathName.split("/").filter((segment) => segment !== "");
   
         //get elements;
-        const canteenItem = document.querySelectorAll('.canteen-item');
+        const productItem = document.querySelectorAll('.product-item');
   
-        canteenItem.forEach((item) => {
-          const canteenData = item.getAttribute('data-canteen').toLowerCase();
-          const canteenDataCustom = canteenData.replace(/ /g, "-");
+        productItem.forEach((item) => {
+          const productData = item.getAttribute('data-product').toLowerCase();
+          const productDataCustom = productData.replace(/ /g, "-");
   
-          if(pathSegments.some((i) => canteenDataCustom == i)){
+          if(pathSegments.some((i) => productDataCustom == i)){
              const classesToAdd = ["border", "border-(--beige-light)", "border-[11px]"]
              const pageImage = item.querySelector('.page-image');
-             const arrowImage = item.querySelector('.arrow-canteen-box');
+             const arrowImage = item.querySelector('.arrow-product-box');
              classesToAdd.forEach((classToAdd) => {
                 pageImage.classList.add(classToAdd);
              }) 
