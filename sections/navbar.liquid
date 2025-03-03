@@ -14,26 +14,28 @@
 </div>
 
 <!--container full screen navigation-->
-<div class="navigation-container fixed inset-1.5 z-60 bg-(--blue-color) rounded-[8px] flex flex-col items-start justify-center hidden">
+<div
+    class="navigation-container fixed inset-1.5 z-60 bg-(--blue-color) rounded-[8px] flex flex-col items-start justify-center hidden">
     <div class="w-full h-full flex flex-col items-start justify-center pt-16">
 
         <div class="w-full flex-1 flex flex-col items-start justify-between">
             <!--assign variable for each reference link into links menu-->
-            {% assign menuLinks = "Home,Il progetto,Magazine,Contatti" | split: "," %}
+            {% assign menuLinks = "Home,Il progetto,Contatti" | split: "," %}
             {% for menuLink in menuLinks %}
             {% for linkItem in linklists.main-menu.links %}
             {% if linkItem.title == menuLink %}
             <div
-                class="w-full flex-1 flex flex-col items-start justify-center px-3 border border-b-(--border-color) first:border-t first:border-t-(--border-color)">
+                class="w-full flex-1 flex flex-col items-start justify-center px-2.5 border border-b-(--border-color) first:border-t first:border-t-(--border-color)">
                 <div class="w-full h-auto flex flex-row items-center justify-start">
                     <!--icon link-->
-                    <div class="w-auto h-auto">
+                    <div class="w-auto h-auto hidden lg:text-(--orange-color)">
                         {% render 'arrow-up' %}
                     </div>
                     <!--container link-->
                     <div class="w-auto h-auto">
-                        <li>
-                            <a class="text-(--link-color)" href="{{ linkItem.url }}">{{ linkItem.title | upcase }}</a>
+                        <li class="list-none">
+                            <a class="text-(--link-color) text-[24px]" href="{{ linkItem.url }}">{{ linkItem.title |
+                                upcase }}</a>
                         </li>
                     </div>
                 </div>
@@ -44,65 +46,89 @@
         </div>
 
         <div class="w-full flex-1 flex flex-col items-start justify-between">
+
             <!--assign variable for each reference link into links menu-->
             {% assign menuLinks = "Le cantine,Prodotti" | split: "," %}
             {% for menuLink in menuLinks %}
             {% for linkItem in linklists.main-menu.links %}
             {% if linkItem.title == menuLink %}
             <div
-                class="w-full flex-1 flex flex-col items-start justify-center px-3 border border-b-(--border-color) first:border-t first:border-t-(--border-color)">
-                <div class="w-full h-auto flex flex-row items-center justify-between">
+                class="w-full flex-1 flex flex-col items-start justify-center p-2.5 border border-b-(--border-color) first:border-t first:border-t-(--border-color) transition-all duration-200 ease-linear">
+                <div class="w-full h-auto flex flex-row items-center justify-between"
+                    data-target="link-item-{{ forloop.index }}">
                     <!--container link-->
                     <div class="w-auto h-auto">
-                        <li>
-                            <a class="text-stroke text-transparent" href="{{ linkItem.url }}">{{ linkItem.title | upcase
-                                }}</a>
+                        <li class="list-none">
+                            <a class="text-link text-(--link-color) text-[24px] transition-all duration-200 ease-linear"
+                                href="{{ linkItem.url }}">{{ linkItem.title |
+                                upcase }}</a>
                         </li>
                     </div>
                     <!--container arrow right-->
-                    <div class="w-auto h-auto">
+                    <div class="w-auto h-auto container-arrow transition-all duration-200 ease-in-out">
                         {% render 'arrow-right' %}
                     </div>
                 </div>
+                {% if linkItem.links.size > 0 %}
+                <div class="container-childlinks overflow-hidden w-full flex flex-col items-start justify-center gap-y-1.5 h-0 transition-all duration-200 ease-linear"
+                    data-child-link="link-item-{{ forloop.index }}">
+                    {% for childlinks in linkItem.links %}
+                    <!--content childlinks-->
+                    <div class="w-auto h-auto">
+                        <li class="list-none">
+                            <a class="text-(--link-color) text-[24px]" href="{{ childlinks.url }}">{{ childlinks.title |
+                                upcase }}</a>
+                        </li>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% endif %}
             </div>
             {% endif %}
             {% endfor %}
             {% endfor %}
+
+            <div
+                class="w-full flex-1 flex flex-col items-start justify-between *:border *:border-b-(--border-color) first:border-t first:border-t-(--border-color)">
+                <!--container switch language form-->
+                <div class="w-full flex-1 px-2.5 flex items-center justify-center">
+                    {% form 'localization', id: "localization_form_tag" %}
+                    <div class="w-auto h-auto flex flex-row items-center justify-start gap-x-5">
+                        {% for locale in shop.published_locales %}
+                        <button class="language-button w-auto h-auto text-[#E3DBD2] text-[12px]" type="button"
+                            tabindex="0" data-locale-code="{{ locale.iso_code }}">
+                            {% case locale.endonym_name %}
+                            {% when "Italiano" %} IT
+                            {% when "English" %} EN
+                            {% else %}
+                            {% endcase %}
+                        </button>
+                        {% endfor %}
+                    </div>
+                    <input type="hidden" name="locale_code" value="{{ request.locale.iso_code }}" id="localeCode">
+                    {% endform %}
+                </div>
+                <!--container navigation contact info -->
+                <div class="w-full flex-1 px-3 flex flex-row items-center justify-between">
+                    <div class="w-auto h-auto">
+                        <a class="flex flex-row items-center justify-start gap-x-1 text-(--link-color) text-[12px]"
+                            href="{{ section.settings.link_to_oniverse }}">{{ section.settings.link_to_oniverse_text |
+                            default: "ONIVERSE" | upcase }}<span class="text-white">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-1.5 h-1.5" viewBox="0 0 19 20" fill="none" stroke="currentColor">
+                                <path d="M0 1H18V19" stroke="currentColor"/>
+                                <line x1="17.8635" y1="1.34331" x2="0.863507" y2="19.3433" stroke="currentColor"/>
+                                </svg>
+                            </span></a>
+                    </div>
+                    <div class="w-auto h-auto">
+                        <a class="text-(--link-color) text-[12px]"
+                            href="mailto:{{ section.settings.mail_to_email |  default: " mail@oniwines.it" }}">{{
+                            section.settings.main_to | default: "mail@oniwines.it" }}</a>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <div
-            class="w-full flex-1 flex flex-col items-start justify-between *:border *:border-b-(--border-color) first:border-t first:border-t-(--border-color)">
-            <!--container switch language form-->
-            <div class="w-full flex-1 px-3 flex items-center justify-center">
-                {% form 'localization', id: "localization_form_tag" %}
-                <div class="w-auto h-auto flex flex-row items-center justify-start gap-x-5">
-                    {% for locale in shop.published_locales %}
-                    <button class="language-button w-auto h-auto text-[#E3DBD2]" type="button" tabindex="0"
-                        data-locale-code="{{ locale.iso_code }}">
-                        {% case locale.endonym_name %}
-                        {% when "Italiano" %} IT
-                        {% when "English" %} EN
-                        {% else %}
-                        {% endcase %}
-                    </button>
-                    {% endfor %}
-                </div>
-                <input type="hidden" name="locale_code" value="{{ request.locale.iso_code }}" id="localeCode">
-                {% endform %}
-            </div>
-            <!--container navigation contact info -->
-            <div class="w-full flex-1 px-3 flex flex-row items-center justify-between">
-                <div class="w-auto h-auto">
-                    <a class="flex flex-row items-center justify-start gap-x-1 text-(--link-color)"
-                        href="{{ section.settings.link_to_oniverse }}">{{ section.settings.link_to_oniverse_text |
-                        default: "ONIVERSE" | upcase }}<span class="text-white">{% render 'arrow-up' %}</span></a>
-                </div>
-                <div class="w-auto h-auto">
-                    <a class="text-(--link-color)" href="mailto:{{ section.settings.mail_to_email |  default: "
-                        mail@oniwines.it" }}">{{ section.settings.main_to | default: "mail@oniwines.it" }}</a>
-                </div>
-            </div>
-        </div>
     </div>
 </div>
 
@@ -154,9 +180,52 @@
         const navigationContainer = document.querySelector('.navigation-container');
 
         menuButton.addEventListener('click', () => {
-           navigationContainer.classList.toggle('hidden');
-           document.body.classList.toggle('no-scroll');
-        })
+            menuButton.classList.toggle('bg-(--beige-menu)');
+            navigationContainer.classList.toggle('hidden');
+            document.body.classList.toggle('no-scroll');
+        });
+
+
+        const targetLinks = document.querySelectorAll('[data-target]');
+        const containersLinks = document.querySelectorAll('[data-child-link]');
+
+        let isActive = null;
+
+        targetLinks.forEach((target, index) => {
+            target.addEventListener('click', () => {
+
+                if (isActive !== null) {
+                    const previousTarget = targetLinks[isActive];
+                    const previouslinkText = previousTarget.querySelector('.text-link');
+                    const previousArrow = previousTarget.querySelector('.container-arrow');
+                    const previousContainerLink = containersLinks[isActive];
+                    const previousParenteElLink = previousContainerLink.parentElement;
+                    const previousMainParent = previousParenteElLink.parentElement;
+
+                    previousArrow.classList.remove('rotate-[90deg]');
+                    previouslinkText.classList.remove('opacity-[0.3]')
+                    previousContainerLink.style.height = '0px';
+                    previousParenteElLink.classList.remove('flex-auto');
+                    previousMainParent.classList.remove('flex-auto');
+                }
+
+                if (isActive !== index) {
+                    const linkText = target.querySelector('.text-link');
+                    const arrow = target.querySelector('.container-arrow');
+                    const containerLink = containersLinks[index];
+                    const parenteElLink = containerLink.parentElement;
+                    const mainParent = parenteElLink.parentElement;
+
+                    arrow.classList.add('rotate-[90deg]');
+                    linkText.classList.add('opacity-[0.3]');
+                    containerLink.style.height = `${containerLink.scrollHeight * 3}px`;
+                    parenteElLink.classList.add('flex-auto');
+                    mainParent.classList.add('flex-auto');
+                }
+
+                isActive = (isActive === index) ? null : index;
+            });
+        });
 
     })
 </script>
