@@ -121,9 +121,9 @@
                             </span></a>
                     </div>
                     <div class="w-auto h-auto">
-                        <a class="text-(--link-color) text-[12px]"
+                        <a class="text-(--link-color) text-[12px] font-(family-name:--submain-mobile-title-font-family) font-bold"
                             href="mailto:{{ section.settings.mail_to_email |  default: " mail@oniwines.it" }}">{{
-                            section.settings.main_to | default: "mail@oniwines.it" }}</a>
+                            section.settings.main_to | default: "mail@oniwines.it" |  upcase }}</a>
                     </div>
                 </div>
             </div>
