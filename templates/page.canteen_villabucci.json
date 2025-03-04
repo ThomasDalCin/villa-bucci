@@ -175,7 +175,9 @@
       "settings": {
         "main_section_title": "",
         "main_stroke_section_title": "",
-        "main_title_color": "#c8a758"
+        "main_title_color": "#c8a758",
+        "main_card_bg_color_hover": "#c8a758",
+        "main_card_bg_color_default": "#c8a758"
       }
     },
     "canteen_slider_id": {

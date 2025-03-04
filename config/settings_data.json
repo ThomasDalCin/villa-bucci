@@ -175,9 +175,7 @@
       },
       "footer": {
         "type": "footer",
-        "settings": {
-          "logo_image": "shopify:\/\/shop_images\/oniwines-logo.png"
-        }
+        "settings": {}
       }
     },
     "content_for_index": []
