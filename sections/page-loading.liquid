@@ -170,7 +170,7 @@
 
 <script type="module">
     import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.173.0/build/three.module.js';
-    import { SVGLoader } from 'https://cdn.skypack.dev/three@0.130.0/examples/jsm/loaders/SVGLoader.js';
+    import {SVGLoader} from 'https://cdn.skypack.dev/three@0.130.0/examples/jsm/loaders/SVGLoader.js';
 
     document.addEventListener('DOMContentLoaded', async () => {
 
@@ -180,6 +180,12 @@
 
         const ambientLight = new THREE.AmbientLight(0x404040);
         scene.add(ambientLight);
+
+        const spotLight = new THREE.SpotLight(0xffffff, 0.9, 0, Math.PI / 8, 1);
+        spotLight.position.set(-3, 3, 9);
+        spotLight.target.position.set(0, 0, 0);
+
+        scene.add(spotLight);
 
         const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
         directionalLight.position.set(5, 5, 5).normalize();
@@ -212,7 +218,7 @@
                     }
                 }
                 scene.add(group);
-                group.position.set(0, 0, 0);
+                group.position.set(0, 0, 20);
             },
             function (xhr) {
                 console.log((xhr.loaded / xhr.total) * 100 + '% loaded');
@@ -225,13 +231,13 @@
         const axesHelper = new THREE.AxesHelper(5);
         scene.add(axesHelper);
 
-        const canvasSizes = { width: window.innerWidth, height: window.innerHeight };
+        const canvasSizes = {width: window.innerWidth, height: window.innerHeight};
         const aspectRatio = canvasSizes.width / canvasSizes.height;
         const camera = new THREE.OrthographicCamera(-aspectRatio * 20, aspectRatio * 20, 20, -20, 0.1, 100);
         camera.position.set(0, 0, 10);
         camera.lookAt(0, 0, 0);
 
-        const renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true });
+        const renderer = new THREE.WebGLRenderer({canvas: canvas, antialias: true});
         renderer.setSize(canvasSizes.width, canvasSizes.height);
 
     });

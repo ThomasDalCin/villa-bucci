@@ -1,94 +1,99 @@
 <div class="px-5">
 
   <footer class="w-full bg-(--blue-color) rounded-[8px] text-white px-5 py-10">
-   <div class="flex justify-center">
-  <img class="w-[726px] max-w-[726px] h-auto object-cover object-center"
-    src="{{ section.settings.oniverse_main_logo | img_url: 'master' }}"
-    alt="{{ section.settings.oniverse_main_logo.alt }}">
-</div>
 
-
-<div class="w-full h-auto">
-  <!-- Responsive Footer Layout -->
-  <div class="flex flex-col lg:flex-row h-auto">
-    <!-- Column 1 -->
-    <div class="flex flex-col flex-1 text-center lg:text-left lg:items-start lg:h-[377px]">
-      <h3 class="font-semibold text-gray-400">ONIWINES</h3>
-      <ul class="mt-2 space-y-2 lg:justify-self-start ">
-        {% assign menuLinks = "Home,Il Gruppo,Magazine,Contatti" | split: "," %}
-        {% for menuLink in menuLinks %}
-          {% for linkItem in linklists.footer.links %}
-            {% if linkItem.title == menuLink %}
-              <li><a href="{{ linkItem.url }}" class="hover:underline">{{ linkItem.title | upcase }}</a></li>
-            {% endif %}
-          {% endfor %}
-        {% endfor %}
-      </ul>
+    <div class="flex justify-center mb-9">
+      <img class="w-[726px] max-w-[726px] h-auto object-cover object-center" src="{{ section.settings.oniverse_main_logo | img_url: 'master' }}" alt="{{ section.settings.oniverse_main_logo.alt }}">
     </div>
-      
-    
-    <!-- Column 2 -->
-    <div class="flex-1 items-center text-center lg:h-[377px]">
-      <h3 class="font-semibold text-lg text-gray-400">LE CANTINE</h3>
-      <ul class="mt-2 space-y-2">
-        {% assign menuLinks = "Podere Guardia Grande,La Giuva,Villa Bucci,Tenimenti Leone" | split: "," %}
+
+
+    <div class="w-full h-auto">
+      <!-- Responsive Footer Layout -->
+      <div class="flex flex-col lg:flex-row h-auto">
+        <!-- Column 1 -->
+        <div class="flex flex-col flex-1 text-center lg:text-left lg:items-start lg:h-[377px]">
+          <h3 class="font-semibold text-gray-400">ONIWINES</h3>
+          <ul class="mt-2 space-y-2 lg:justify-self-start ">
+            {% assign menuLinks = "Home,Il Gruppo,Magazine,Contatti" | split: "," %}
             {% for menuLink in menuLinks %}
               {% for linkItem in linklists.footer.links %}
                 {% if linkItem.title == menuLink %}
-                  <li><a href="{{ linkItem.url }}" class="hover:underline">{{ linkItem.title | upcase }}</a></li>
+                  <li>
+                    <a href="{{ linkItem.url }}" class="hover:underline">{{ linkItem.title | upcase }}</a>
+                  </li>
                 {% endif %}
               {% endfor %}
             {% endfor %}
-      </ul>
-    </div>
+          </ul>
+        </div>
 
-    <!-- Column 3 -->
-    <div class="flex-1 items-center text-center lg:items-end lg:text-right lg:h-[377px] relative">
-      <div>
-        <h3 class="font-semibold text-lg text-gray-400">PROGETTI SPECIALI</h3>
-        <ul class="mt-2 space-y-2">
-        {% assign menuLinks = "Benacus,Frederic Levin" | split: "," %}
+
+        <!-- Column 2 -->
+        <div class="flex-1 items-center text-center lg:h-[377px]">
+          <h3 class="font-semibold text-lg text-gray-400">LE CANTINE</h3>
+          <ul class="mt-2 space-y-2">
+            {% assign menuLinks = "Podere Guardia Grande,La Giuva,Villa Bucci,Tenimenti Leone" | split: "," %}
             {% for menuLink in menuLinks %}
               {% for linkItem in linklists.footer.links %}
                 {% if linkItem.title == menuLink %}
-                  <li><a href="{{ linkItem.url }}" class="hover:underline">{{ linkItem.title | upcase }}</a></li>
+                  <li>
+                    <a href="{{ linkItem.url }}" class="hover:underline">{{ linkItem.title | upcase }}</a>
+                  </li>
                 {% endif %}
               {% endfor %}
             {% endfor %}
-      </ul>
+          </ul>
+        </div>
+
+        <!-- Column 3 -->
+        <div class="flex-1 items-center text-center lg:items-end lg:text-right lg:h-[377px] relative">
+          <div>
+            <h3 class="font-semibold text-lg text-gray-400">PROGETTI SPECIALI</h3>
+            <ul class="mt-2 space-y-2">
+              {% assign menuLinks = "Benacus,Frederic Levin" | split: "," %}
+              {% for menuLink in menuLinks %}
+                {% for linkItem in linklists.footer.links %}
+                  {% if linkItem.title == menuLink %}
+                    <li>
+                      <a href="{{ linkItem.url }}" class="hover:underline">{{ linkItem.title | upcase }}</a>
+                    </li>
+                  {% endif %}
+                {% endfor %}
+              {% endfor %}
+            </ul>
+          </div>
+          <div class="absolute right-0 bottom-0">
+            <p>
+              torna su
+            </p>
+
+
+          </div>
+        </div>
       </div>
-      <div class="absolute right-0 bottom-0">
-        <p> torna su
-        </p>
+    </div>
 
+    <!-- Under Footer -->
+    <div class="w-full h-auto">
+      <div class="flex flex-col lg:flex-row lg:justify-start lg:items-center">
+        <!-- Column 1 -->
+        <div class="flex-1">
+          <p>oniwines | P.IVA 00000000000 | mail@oniwines.it</p>
+        </div>
 
+        <!-- Column 2 -->
+        <div class="flex-1">
+          <p>ONIVERSE</p>
+        </div>
 
+        <!-- Column 3 (Aligned Right) -->
+        <div class="flex-1">
+          <p>PREFERENZE COOKIE | PRIVACY | CREDITS</p>
+        </div>
       </div>
     </div>
-  </div>
-</div>
 
-<!-- Under Footer -->
-<div class="w-full h-auto">
-  <div class="flex flex-col lg:flex-row lg:justify-start lg:items-center">
-    <!-- Column 1 -->
-    <div class="flex-1">
-      <p>oniwines | P.IVA 00000000000 | mail@oniwines.it</p>
-    </div>
-
-    <!-- Column 2 -->
-    <div class="flex-1">
-      <p>ONIVERSE</p>
-    </div>
-
-    <!-- Column 3 (Aligned Right) -->
-    <div class="flex-1">
-      <p>PREFERENZE COOKIE | PRIVACY | CREDITS</p>
-    </div>
-  </div>
-</div>
-
-</footer>
+  </footer>
 </div>
 
 {% schema %}
@@ -100,8 +105,7 @@
         "type": "image_picker",
         "id": "oniverse_main_logo",
         "label": "Main Logo"
-      },
-      {
+      }, {
         "type": "color",
         "id": "footer_bg_color",
         "label": "Footer Background Color",
@@ -118,8 +122,7 @@
             "id": "menu_title",
             "label": "Menu Title",
             "default": "ONIWINES"
-          },
-          {
+          }, {
             "type": "link_list",
             "id": "footer_links",
             "label": "Menu Links"
@@ -138,15 +141,13 @@
               "menu_title": "ONIWINES",
               "footer_links": "footer"
             }
-          },
-          {
+          }, {
             "type": "menu",
             "settings": {
               "menu_title": "LE CANTINE",
               "footer_links": "footer_cantine"
             }
-          },
-          {
+          }, {
             "type": "menu",
             "settings": {
               "menu_title": "PROGETTI SPECIALI",
@@ -157,5 +158,4 @@
       }
     ]
   }
-  {% endschema %}
-   
+{% endschema %}
