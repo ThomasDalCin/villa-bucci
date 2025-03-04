@@ -94,6 +94,10 @@
     font-style: normal;
   }
 
+  a{
+    line-height: normal;
+  }
+
   html {
     scroll-behavior: smooth;
   }
