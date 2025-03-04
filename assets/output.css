@@ -1055,6 +1055,10 @@
   .text-\[24px\] {
     font-size: 24px;
   }
+  .leading-\[90\%\] {
+    --tw-leading: 90%;
+    line-height: 90%;
+  }
   .leading-\[105\%\] {
     --tw-leading: 105%;
     line-height: 105%;
@@ -1062,10 +1066,6 @@
   .leading-\[16px\] {
     --tw-leading: 16px;
     line-height: 16px;
-  }
-  .leading-\[90\%\] {
-    --tw-leading: 90%;
-    line-height: 90%;
   }
   .leading-normal {
     --tw-leading: var(--leading-normal);
@@ -1285,6 +1285,16 @@
       position: absolute;
     }
   }
+  .lg\:relative {
+    @media (width >= 64rem) {
+      position: relative;
+    }
+  }
+  .lg\:top-1\/2 {
+    @media (width >= 64rem) {
+      top: calc(1/2 * 100%);
+    }
+  }
   .lg\:top-5 {
     @media (width >= 64rem) {
       top: calc(var(--spacing) * 5);
@@ -1293,6 +1303,16 @@
   .lg\:top-\[772px\] {
     @media (width >= 64rem) {
       top: 772px;
+    }
+  }
+  .lg\:right-5 {
+    @media (width >= 64rem) {
+      right: calc(var(--spacing) * 5);
+    }
+  }
+  .lg\:left-1\/2 {
+    @media (width >= 64rem) {
+      left: calc(1/2 * 100%);
     }
   }
   .lg\:left-5 {
@@ -1460,9 +1480,26 @@
       flex: 1;
     }
   }
+  .lg\:-translate-x-1\/2 {
+    @media (width >= 64rem) {
+      --tw-translate-x: calc(calc(1/2 * 100%) * -1);
+      translate: var(--tw-translate-x) var(--tw-translate-y);
+    }
+  }
+  .lg\:-translate-y-1\/2 {
+    @media (width >= 64rem) {
+      --tw-translate-y: calc(calc(1/2 * 100%) * -1);
+      translate: var(--tw-translate-x) var(--tw-translate-y);
+    }
+  }
   .lg\:flex-row {
     @media (width >= 64rem) {
       flex-direction: row;
+    }
+  }
+  .lg\:flex-row-reverse {
+    @media (width >= 64rem) {
+      flex-direction: row-reverse;
     }
   }
   .lg\:flex-wrap {
@@ -1498,6 +1535,11 @@
   .lg\:justify-start {
     @media (width >= 64rem) {
       justify-content: flex-start;
+    }
+  }
+  .lg\:gap-x-10 {
+    @media (width >= 64rem) {
+      column-gap: calc(var(--spacing) * 10);
     }
   }
   .lg\:gap-x-\[124px\] {
@@ -1652,10 +1694,56 @@
       color: var(--orange-color);
     }
   }
+  .lg\:opacity-\[0\.3\] {
+    @media (width >= 64rem) {
+      opacity: 0.3;
+    }
+  }
   .lg\:not-first\:w-\[calc\(50\%_-_124px\)\] {
     @media (width >= 64rem) {
       &:not(*:first-child) {
         width: calc(50% - 124px);
+      }
+    }
+  }
+  .lg\:group-hover\:block {
+    @media (width >= 64rem) {
+      &:is(:where(.group):hover *) {
+        @media (hover: hover) {
+          display: block;
+        }
+      }
+    }
+  }
+  .lg\:group-hover\:text-\(--orange-color\) {
+    @media (width >= 64rem) {
+      &:is(:where(.group):hover *) {
+        @media (hover: hover) {
+          color: var(--orange-color);
+        }
+      }
+    }
+  }
+  .lg\:first\:border {
+    @media (width >= 64rem) {
+      &:first-child {
+        border-style: var(--tw-border-style);
+        border-width: 1px;
+      }
+    }
+  }
+  .lg\:first\:border-0 {
+    @media (width >= 64rem) {
+      &:first-child {
+        border-style: var(--tw-border-style);
+        border-width: 0px;
+      }
+    }
+  }
+  .lg\:first\:border-b-\(--border-color\) {
+    @media (width >= 64rem) {
+      &:first-child {
+        border-bottom-color: var(--border-color);
       }
     }
   }
@@ -1671,6 +1759,51 @@
     @media (width >= 64rem) {
       &:nth-child(odd) {
         border-color: var(--border-color);
+      }
+    }
+  }
+  .lg\:odd\:border-t-\(--border-color\) {
+    @media (width >= 64rem) {
+      &:nth-child(odd) {
+        border-top-color: var(--border-color);
+      }
+    }
+  }
+  .lg\:odd\:border-b-\(--border-color\) {
+    @media (width >= 64rem) {
+      &:nth-child(odd) {
+        border-bottom-color: var(--border-color);
+      }
+    }
+  }
+  .lg\:even\:border {
+    @media (width >= 64rem) {
+      &:nth-child(even) {
+        border-style: var(--tw-border-style);
+        border-width: 1px;
+      }
+    }
+  }
+  .lg\:even\:border-t-\(--border-color\) {
+    @media (width >= 64rem) {
+      &:nth-child(even) {
+        border-top-color: var(--border-color);
+      }
+    }
+  }
+  .lg\:even\:border-b-\(--border-color\) {
+    @media (width >= 64rem) {
+      &:nth-child(even) {
+        border-bottom-color: var(--border-color);
+      }
+    }
+  }
+  .lg\:hover\:text-\(--orange-color\) {
+    @media (width >= 64rem) {
+      &:hover {
+        @media (hover: hover) {
+          color: var(--orange-color);
+        }
       }
     }
   }

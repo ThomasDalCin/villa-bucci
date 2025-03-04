@@ -18,24 +18,26 @@
     class="navigation-container fixed inset-1.5 z-60 bg-(--blue-color) rounded-[8px] flex flex-col items-start justify-center hidden">
     <div class="w-full h-full flex flex-col items-start justify-between pt-16">
 
-        <div class="w-full flex flex-col items-start justify-center lg:flex-row lg:h-full lg:border lg:border-t-(--border-color)">
-            <div class="w-full flex flex-col items-start justify-between lg:h-full lg:border lg:border-r-(--border-color)">
+        <div
+            class="w-full flex flex-col items-start justify-center lg:flex-row lg:h-full lg:border lg:border-t-(--border-color)">
+            <div
+                class="w-full flex flex-col items-start justify-between lg:h-full lg:border lg:border-r-(--border-color)">
                 <!--assign variable for each reference link into links menu-->
                 {% assign menuLinks = "Home,Il progetto,Contatti" | split: "," %}
                 {% for menuLink in menuLinks %}
                 {% for linkItem in linklists.main-menu.links %}
                 {% if linkItem.title == menuLink %}
                 <div
-                    class="w-full flex flex-col items-start justify-center p-2.5 border border-b-(--border-color) first:border-t first:border-t-(--border-color) lg:flex-1 lg:border-0">
-                    <div class="w-full h-auto flex flex-row items-center justify-start">
+                    class="w-full flex flex-col items-start justify-center p-2.5 border border-b-(--border-color) first:border-t first:border-t-(--border-color) lg:flex-1 lg:border-0 lg:border-t-0 lg:first:border-0 lg:even:border lg:even:border-t-(--border-color) lg:even:border-b-(--border-color) group">
+                    <div class="w-full h-auto flex flex-row items-center justify-start lg:gap-x-10">
                         <!--icon link-->
-                        <div class="w-auto h-auto hidden lg:text-(--orange-color)">
+                        <div class="w-auto h-auto hidden lg:text-(--orange-color) lg:group-hover:block transition-all duration-200 ease-in">
                             {% render 'arrow-up' %}
                         </div>
                         <!--container link-->
                         <div class="w-auto h-auto">
                             <li class="list-none">
-                                <a class="text-(--link-color) text-[24px] leading-normal" href="{{ linkItem.url }}">{{
+                                <a class="text-(--link-color) text-[24px] leading-normal lg:text-[96px] lg:group-hover:text-(--orange-color) transition-all duration-200 ease-in" href="{{ linkItem.url }}">{{
                                     linkItem.title |
                                     upcase }}</a>
                             </li>
@@ -55,14 +57,14 @@
                 {% for linkItem in linklists.main-menu.links %}
                 {% if linkItem.title == menuLink %}
                 <div
-                    class="w-full  flex flex-col items-start justify-center p-2.5 border border-b-(--border-color) transition-all duration-200 ease-linear lg:flex-1 lg:border-0">
+                    class="w-full  flex flex-col items-start justify-center p-2.5 border border-b-(--border-color) transition-all duration-200 ease-linear lg:flex-1 lg:border-0 lg:first:border lg:first:border-b-(--border-color)">
                     <div class="w-full h-auto flex flex-row items-center justify-between"
                         data-target="link-item-{{ forloop.index }}">
                         <!--container link-->
                         <div class="w-auto h-auto">
                             <li class="list-none">
-                                <a class="text-link text-(--link-color) text-[24px] leading-normal transition-all duration-200 ease-linear"
-                                    href="{{ linkItem.url }}">{{ linkItem.title |
+                                <a class="text-link text-(--link-color) text-[24px]  leading-normal transition-all duration-200 ease-linear lg:text-[96px] lg:opacity-[0.3]"
+                                    href="javascrip:void(0)">{{ linkItem.title |
                                     upcase }}</a>
                             </li>
                         </div>
@@ -94,13 +96,12 @@
         </div>
 
 
-        <div
-            class="w-full flex flex-col items-start justify-between">
+        <div class="w-full flex flex-col items-start justify-between lg:flex-row-reverse lg:relative lg:border lg:border-t-(--border-color)">
 
             <!--container switch language form-->
-            <div class="w-full px-2.5 py-5 flex items-center justify-center border border-(--border-color)">
+            <div class="w-full px-2.5 py-5 flex items-center justify-center border border-(--border-color) lg:border-0">
                 {% form 'localization', id: "localization_form_tag" %}
-                <div class="w-auto h-auto flex flex-row items-center justify-start gap-x-5">
+                <div class="w-auto h-auto flex flex-row items-center justify-start gap-x-5 lg:absolute lg:top-1/2 lg:left-1/2 lg:-translate-x-1/2 lg:-translate-y-1/2">
                     {% for locale in shop.published_locales %}
                     <button class="language-button w-auto h-auto text-[#E3DBD2] text-[12px]" type="button" tabindex="0"
                         data-locale-code="{{ locale.iso_code }}">
@@ -129,7 +130,7 @@
                             </svg>
                         </span></a>
                 </div>
-                <div class="w-auto h-auto">
+                <div class="w-auto h-auto lg:absolute lg:right-5">
                     <a class="text-(--link-color) text-[12px] font-(family-name:--submain-mobile-title-font-family) font-bold"
                         href="mailto:{{ section.settings.mail_to_email |  default: " mail@oniwines.it" }}">{{
                         section.settings.main_to | default: "mail@oniwines.it" | upcase }}</a>
@@ -196,44 +197,58 @@
 
         const targetLinks = document.querySelectorAll('[data-target]');
         const containersLinks = document.querySelectorAll('[data-child-link]');
-
         let isActive = null;
 
-        targetLinks.forEach((target, index) => {
-            target.addEventListener('click', () => {
+        function checkWindowSize() {
+            const windowSize = window.innerWidth;
 
-                if (isActive !== null) {
-                    const previousTarget = targetLinks[isActive];
-                    const previouslinkText = previousTarget.querySelector('.text-link');
-                    const previousArrow = previousTarget.querySelector('.container-arrow');
-                    const previousContainerLink = containersLinks[isActive];
-                    const previousParenteElLink = previousContainerLink.parentElement;
-                    const previousMainParent = previousParenteElLink.parentElement;
+            if (windowSize <= 1024) {
+                handleClickOnLinks()
+            }
+        }
+        window.addEventListener('resize', checkWindowSize)
 
-                    previousArrow.classList.remove('rotate-[90deg]');
-                    previouslinkText.classList.remove('opacity-[0.3]')
-                    previousContainerLink.style.height = '0px';
-                    previousParenteElLink.classList.remove('flex-auto');
-                    previousMainParent.classList.remove('flex-auto');
-                }
+        const handleClickOnLinks = () => {
+            targetLinks.forEach((target, index) => {
+                target.addEventListener('click', () => {
 
-                if (isActive !== index) {
-                    const linkText = target.querySelector('.text-link');
-                    const arrow = target.querySelector('.container-arrow');
-                    const containerLink = containersLinks[index];
-                    const parenteElLink = containerLink.parentElement;
-                    const mainParent = parenteElLink.parentElement;
+                    if (isActive !== null) {
+                        const previousTarget = targetLinks[isActive];
+                        const previouslinkText = previousTarget.querySelector('.text-link');
+                        const previousArrow = previousTarget.querySelector('.container-arrow');
+                        const previousContainerLink = containersLinks[isActive];
+                        const previousParenteElLink = previousContainerLink.parentElement;
+                        const previousMainParent = previousParenteElLink.parentElement;
 
-                    arrow.classList.add('rotate-[90deg]');
-                    linkText.classList.add('opacity-[0.3]');
-                    containerLink.style.height = `${containerLink.scrollHeight * 3}px`;
-                    parenteElLink.classList.add('flex-auto');
-                    mainParent.classList.add('flex-auto');
-                }
+                        previousArrow.classList.remove('rotate-[90deg]');
+                        previouslinkText.classList.remove('opacity-[0.3]')
+                        previousContainerLink.style.height = '0px';
+                        previousParenteElLink.classList.remove('flex-auto');
+                        previousMainParent.classList.remove('flex-auto');
+                    }
 
-                isActive = (isActive === index) ? null : index;
+                    if (isActive !== index) {
+                        const linkText = target.querySelector('.text-link');
+                        const arrow = target.querySelector('.container-arrow');
+                        const containerLink = containersLinks[index];
+                        const parenteElLink = containerLink.parentElement;
+                        const mainParent = parenteElLink.parentElement;
+
+                        arrow.classList.add('rotate-[90deg]');
+                        linkText.classList.add('opacity-[0.3]');
+                        containerLink.style.height = `${containerLink.scrollHeight * 3}px`;
+                        parenteElLink.classList.add('flex-auto');
+                        mainParent.classList.add('flex-auto');
+                    }
+
+                    isActive = (isActive === index) ? null : index;
+                });
             });
-        });
+        }
+
+        checkWindowSize();
+
+
 
     })
 </script>
