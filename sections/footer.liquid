@@ -1,8 +1,7 @@
-
-
 <!-- Footer Section -->
 <div class="px-5 py-5">
   <footer class="w-full rounded-[8px] text-white px-5 py-10" style="background-color: {{ section.settings.footer_bg_color }};">
+    
     <div class="flex justify-center mb-[36px] ">
       <img class="w-[726px] max-w-[726px] h-auto object-cover object-center"
         src="{{ section.settings.oniverse_main_logo | img_url: 'master' }}"
@@ -27,7 +26,6 @@
           
         </div>
 
-
         <!-- Column 2 -->
         <div class="flex-1 items-center text-center lg:h-[377px]">
           <h3 class="font-semibold text-lg text-gray-400">LE CANTINE</h3>
@@ -36,9 +34,7 @@
             {% for menuLink in menuLinks %}
               {% for linkItem in linklists.footer.links %}
                 {% if linkItem.title == menuLink %}
-                  <li>
-                    <a href="{{ linkItem.url }}" class="hover:underline">{{ linkItem.title | upcase }}</a>
-                  </li>
+                  <li><a href="{{ linkItem.url }}" class="hover:underline">{{ linkItem.title | upcase }}</a></li>
                 {% endif %}
               {% endfor %}
             {% endfor %}
@@ -46,7 +42,7 @@
         </div>
 
         <!-- Column 3 -->
-        <div class="flex-1 items-center text-center lg:items-end lg:text-right lg:h-[377px] relative">
+        <div class="flex flex-col flex-1 items-center text-center lg:items-end lg:text-right lg:h-[377px] relative">
           <div>
             <h3 class="font-semibold text-lg text-gray-400">PROGETTI SPECIALI</h3>
             <ul class="mt-2 space-y-2">
@@ -54,108 +50,122 @@
               {% for menuLink in menuLinks %}
                 {% for linkItem in linklists.footer.links %}
                   {% if linkItem.title == menuLink %}
-                    <li>
-                      <a href="{{ linkItem.url }}" class="hover:underline">{{ linkItem.title | upcase }}</a>
-                    </li>
+                    <li><a href="{{ linkItem.url }}" class="hover:underline">{{ linkItem.title | upcase }}</a></li>
                   {% endif %}
                 {% endfor %}
               {% endfor %}
             </ul>
           </div>
           <div class="absolute right-0 bottom-0">
-            <p>
-              torna su
-            </p>
-
-
+            <p>torna su</p>
           </div>
         </div>
       </div>
     </div>
 
     <!-- Under Footer -->
-    <div class="w-full h-auto">
-      <div class="flex flex-col lg:flex-row lg:justify-start lg:items-center">
+    <div class="w-full h-auto ">
+      <div class="flex flex-col items-center text-center  lg:flex-row lg:items-center">
         <!-- Column 1 -->
         <div class="flex-1">
-          <p>oniwines | P.IVA 00000000000 | mail@oniwines.it</p>
+          <p>{{ section.settings.company_info }} </p>
         </div>
 
         <!-- Column 2 -->
         <div class="flex-1">
-          <p>ONIVERSE</p>
+          <a href="{{ section.settings.brand_link }}" class="flex items-center space-x-1 justify-center">
+            <span style="color: #E86A58;">{{ section.settings.brand_name }}</span>
+            <span class="inline-flex">
+              <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 8 8" fill="none">
+                <path d="M1 1H7V7" stroke="#E86A58"/>
+                <path d="M1.17285 6.8335L6.88133 1.12504" stroke="#E86A58"/>
+              </svg>
+            </span>
+          </a>
         </div>
 
         <!-- Column 3 (Aligned Right) -->
-        <div class="flex-1">
-          <p>PREFERENZE COOKIE | PRIVACY | CREDITS</p>
+        <div class="flex-1 text-center lg:text-right">
+          <a href="{{ section.settings.cookie_link }}" class="hover:underline">{{ section.settings.cookie_text }}</a> |
+          <a href="{{ section.settings.privacy_link }}" class="hover:underline">{{ section.settings.privacy_text }}</a> |
+          <a href="{{ section.settings.credits_link }}" class="hover:underline">{{ section.settings.credits_text }}</a>
         </div>
       </div>
     </div>
-
   </footer>
 </div>
 
 {% schema %}
-  {
-    "name": "Footer",
-    "class": "footer-section",
-    "settings": [
-      {
-        "type": "image_picker",
-        "id": "oniverse_main_logo",
-        "label": "Main Logo"
-      }, {
-        "type": "color",
-        "id": "footer_bg_color",
-        "label": "Footer Background Color",
-        "default": "#000000"
-      }
-    ],
-    "blocks": [
-      {
-        "type": "menu",
-        "name": "Footer Menu",
-        "settings": [
-          {
-            "type": "text",
-            "id": "menu_title",
-            "label": "Menu Title",
-            "default": "ONIWINES"
-          }, {
-            "type": "link_list",
-            "id": "footer_links",
-            "label": "Menu Links"
-          }
-        ]
-      }
-    ],
-    "presets": [
-      {
-        "name": "Footer",
-        "category": "Footer",
-        "blocks": [
-          {
-            "type": "menu",
-            "settings": {
-              "menu_title": "ONIWINES",
-              "footer_links": "footer"
-            }
-          }, {
-            "type": "menu",
-            "settings": {
-              "menu_title": "LE CANTINE",
-              "footer_links": "footer_cantine"
-            }
-          }, {
-            "type": "menu",
-            "settings": {
-              "menu_title": "PROGETTI SPECIALI",
-              "footer_links": "footer_progetti"
-            }
-          }
-        ]
-      }
-    ]
-  }
+{
+  "name": "Footer",
+  "class": "footer-section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "oniverse_main_logo",
+      "label": "Main Logo"
+    },
+    {
+      "type": "color",
+      "id": "footer_bg_color",
+      "label": "Footer Background Color",
+      "default": "#262a39"
+    },
+    {
+      "type": "text",
+      "id": "cookie_text",
+      "label": "Cookie Link Text",
+      "default": "PREFERENZE COOKIE"
+    },
+    {
+      "type": "url",
+      "id": "cookie_link",
+      "label": "Cookie Link URL"
+    },
+    {
+      "type": "text",
+      "id": "privacy_text",
+      "label": "Privacy Link Text",
+      "default": "PRIVACY"
+    },
+    {
+      "type": "url",
+      "id": "privacy_link",
+      "label": "Privacy Link URL"
+    },
+    {
+      "type": "text",
+      "id": "credits_text",
+      "label": "Credits Link Text",
+      "default": "CREDITS"
+    },
+    {
+      "type": "url",
+      "id": "credits_link",
+      "label": "Credits Link URL"
+    },
+    {
+      "type": "text",
+      "id": "company_info",
+      "label": "Company Info",
+      "default": "oniwines | P.IVA 00000000000 | mail@oniwines.it"
+    },
+    {
+      "type": "text",
+      "id": "brand_name",
+      "label": "Brand Name",
+      "default": "ONIVERSE"
+    },
+    {
+      "type": "url",
+      "id": "brand_link",
+      "label": "Brand External Link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Footer"
+    }
+  ]
+}
 {% endschema %}
