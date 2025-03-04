@@ -614,6 +614,12 @@
       max-width: 96rem;
     }
   }
+  .m-6 {
+    margin: calc(var(--spacing) * 6);
+  }
+  .m-9 {
+    margin: calc(var(--spacing) * 9);
+  }
   .-mx-5 {
     margin-inline: calc(var(--spacing) * -5);
   }
@@ -709,6 +715,9 @@
   }
   .w-1\.5 {
     width: calc(var(--spacing) * 1.5);
+  }
+  .w-2 {
+    width: calc(var(--spacing) * 2);
   }
   .w-\[67px\] {
     width: 67px;
@@ -982,8 +991,14 @@
   .p-3\.5 {
     padding: calc(var(--spacing) * 3.5);
   }
+  .p-4 {
+    padding: calc(var(--spacing) * 4);
+  }
   .p-5 {
     padding: calc(var(--spacing) * 5);
+  }
+  .p-9 {
+    padding: calc(var(--spacing) * 9);
   }
   .px-2 {
     padding-inline: calc(var(--spacing) * 2);
@@ -1043,6 +1058,9 @@
     font-size: var(--text-lg);
     line-height: var(--tw-leading, var(--text-lg--line-height));
   }
+  .text-\[24px\] {
+    font-size: 24px;
+  }
   .text-\[40px\] {
     font-size: 40px;
   }
@@ -1055,13 +1073,6 @@
   .text-\[200px\] {
     font-size: 200px;
   }
-  .text-\[24px\] {
-    font-size: 24px;
-  }
-  .leading-\[90\%\] {
-    --tw-leading: 90%;
-    line-height: 90%;
-  }
   .leading-\[105\%\] {
     --tw-leading: 105%;
     line-height: 105%;
@@ -1069,6 +1080,10 @@
   .leading-\[16px\] {
     --tw-leading: 16px;
     line-height: 16px;
+  }
+  .leading-\[90\%\] {
+    --tw-leading: 90%;
+    line-height: 90%;
   }
   .leading-normal {
     --tw-leading: var(--leading-normal);
