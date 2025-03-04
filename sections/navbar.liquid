@@ -18,8 +18,8 @@
     class="navigation-container fixed inset-1.5 z-60 bg-(--blue-color) rounded-[8px] flex flex-col items-start justify-center hidden">
     <div class="w-full h-full flex flex-col items-start justify-between pt-16">
 
-        <div class="w-full flex flex-col items-start justify-center">
-            <div class="w-full flex flex-col items-start justify-between">
+        <div class="w-full flex flex-col items-start justify-center lg:flex-row lg:h-full">
+            <div class="w-full flex flex-col items-start justify-between lg:h-full">
                 <!--assign variable for each reference link into links menu-->
                 {% assign menuLinks = "Home,Il progetto,Contatti" | split: "," %}
                 {% for menuLink in menuLinks %}
@@ -47,7 +47,7 @@
                 {% endfor %}
             </div>
 
-            <div class="w-full flex flex-col items-start justify-between">
+            <div class="w-full flex flex-col items-start justify-between lg:h-full">
 
                 <!--assign variable for each reference link into links menu-->
                 {% assign menuLinks = "Le cantine,Prodotti" | split: "," %}

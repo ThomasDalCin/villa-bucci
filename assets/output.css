@@ -1365,6 +1365,11 @@
       height: auto;
     }
   }
+  .lg\:h-full {
+    @media (width >= 64rem) {
+      height: 100%;
+    }
+  }
   .lg\:min-h-\[400px\] {
     @media (width >= 64rem) {
       min-height: 400px;
