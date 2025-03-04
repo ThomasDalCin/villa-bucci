@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "canteen-main-text": {
@@ -37,13 +46,13 @@
         "canteen_text_BNVVKU"
       ],
       "settings": {
-        "canteen_main_logo": "shopify:\/\/shop_images\/TenimentiLeone-Logo.svg"
+        "canteen_main_logo": "shopify://shop_images/TenimentiLeone-Logo.svg"
       }
     },
     "video-content": {
       "type": "video-container",
       "settings": {
-        "video_source": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/a700a6e9af1e4acd9fbeb045fc59915b.mp4",
+        "video_source": "https://cdn.shopify.com/videos/c/o/v/a700a6e9af1e4acd9fbeb045fc59915b.mp4",
         "show_media_video": "block",
         "show_media_image": "hidden"
       }
@@ -92,7 +101,7 @@
         "canteen_slider_EnAEaD": {
           "type": "canteen_slider",
           "settings": {
-            "canteen_slider_image": "shopify:\/\/shop_images\/0f966f3074da6c9e117c9586db7c4043.jpg",
+            "canteen_slider_image": "shopify://shop_images/0f966f3074da6c9e117c9586db7c4043.jpg",
             "is_label": true,
             "label_text": ""
           }
@@ -100,7 +109,7 @@
         "canteen_slider_GihFHE": {
           "type": "canteen_slider",
           "settings": {
-            "canteen_slider_image": "shopify:\/\/shop_images\/bb7a7584399a9ae805b350ac1e69355b.jpg",
+            "canteen_slider_image": "shopify://shop_images/bb7a7584399a9ae805b350ac1e69355b.jpg",
             "is_label": true,
             "label_text": ""
           }
@@ -132,7 +141,7 @@
           "type": "block_text",
           "settings": {
             "main_text": "i prodotti",
-            "paragraph_text": "Da oltre 20 anni Villa Bucci si dedica ad una coltura naturale, con grande attenzione alla salvaguardia del territorio circostante sia nella produzione dei loro vini tradizionali, sia nella produzione dei 20\/25 quintali di olio d’oliva extravergine prodotti all’anno dagli oliveti di loro proprietà.",
+            "paragraph_text": "Da oltre 20 anni Villa Bucci si dedica ad una coltura naturale, con grande attenzione alla salvaguardia del territorio circostante sia nella produzione dei loro vini tradizionali, sia nella produzione dei 20/25 quintali di olio d’oliva extravergine prodotti all’anno dagli oliveti di loro proprietà.",
             "is_stroke_text": true,
             "additional_text": "",
             "color_text": "#d39278",
@@ -176,7 +185,6 @@
         "main_section_title": "",
         "main_stroke_section_title": "",
         "main_title_color": "#d39278",
-        "main_card_bg_color_hover": "#d39278",
         "main_card_bg_color_default": "#d39278"
       }
     },
