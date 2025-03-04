@@ -1551,6 +1551,12 @@
       border-width: 1px;
     }
   }
+  .lg\:border-0 {
+    @media (width >= 64rem) {
+      border-style: var(--tw-border-style);
+      border-width: 0px;
+    }
+  }
   .lg\:border-t-0 {
     @media (width >= 64rem) {
       border-top-style: var(--tw-border-style);
