@@ -54,14 +54,14 @@
 
   /* SUBMAIN TITLE */
   --submain-title-font-size: 16px;
-  --submain-title-font-family: "Area Normal"; /* font to import */
+  --submain-title-font-family: "area-normal"; /* font to import */
   --submain-title-font-style: normal;
   --submain-title-font-weight: 400;
   --submain-title-line-height: normal;
 
   /* SUBMAIN TITLE - MOBILE */
   --submain-mobile-title-font-size: 16px;
-  --submain-mobile-title-font-family: "Area Normal"; /* font to import */
+  --submain-mobile-title-font-family: "area-normal"; /* font to import */
   --submain-mobile-title-font-style: normal;
   --submain-mobile-title-font-weight: 400;
   --submain-mobile-title-line-height: normal;
