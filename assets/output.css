@@ -1030,6 +1030,9 @@
   .font-\(family-name\:--main-title-mobile-font-family\) {
     font-family: var(--main-title-mobile-font-family);
   }
+  .font-\(family-name\:--submain-mobile-title-font-family\) {
+    font-family: var(--submain-mobile-title-font-family);
+  }
   .text-lg {
     font-size: var(--text-lg);
     line-height: var(--tw-leading, var(--text-lg--line-height));
@@ -1106,6 +1109,9 @@
   }
   .text-\(--link-disable-color\) {
     color: var(--link-disable-color);
+  }
+  .text-\(--orange-color\) {
+    color: var(--orange-color);
   }
   .text-\[\#E3DBD2\] {
     color: #E3DBD2;
