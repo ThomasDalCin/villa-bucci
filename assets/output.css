@@ -1040,14 +1040,8 @@
     font-size: var(--text-lg);
     line-height: var(--tw-leading, var(--text-lg--line-height));
   }
-  .text-\[128px\] {
-    font-size: 128px;
-  }
   .text-\[12px\] {
     font-size: 12px;
-  }
-  .text-\[40px\] {
-    font-size: 40px;
   }
   .text-\[200px\] {
     font-size: 200px;
@@ -1055,9 +1049,11 @@
   .text-\[24px\] {
     font-size: 24px;
   }
-  .leading-\[90\%\] {
-    --tw-leading: 90%;
-    line-height: 90%;
+  .text-\[40px\] {
+    font-size: 40px;
+  }
+  .text-\[128px\] {
+    font-size: 128px;
   }
   .leading-\[105\%\] {
     --tw-leading: 105%;
@@ -1066,6 +1062,10 @@
   .leading-\[16px\] {
     --tw-leading: 16px;
     line-height: 16px;
+  }
+  .leading-\[90\%\] {
+    --tw-leading: 90%;
+    line-height: 90%;
   }
   .leading-normal {
     --tw-leading: var(--leading-normal);
@@ -1300,6 +1300,11 @@
       left: calc(var(--spacing) * 5);
     }
   }
+  .lg\:mt-20 {
+    @media (width >= 64rem) {
+      margin-top: calc(var(--spacing) * 20);
+    }
+  }
   .lg\:mb-\[130px\] {
     @media (width >= 64rem) {
       margin-bottom: 130px;
@@ -1361,6 +1366,11 @@
     }
   }
   .lg\:h-\[auto\] {
+    @media (width >= 64rem) {
+      height: auto;
+    }
+  }
+  .lg\:h-auto {
     @media (width >= 64rem) {
       height: auto;
     }
@@ -1528,6 +1538,11 @@
   .lg\:gap-y-\[150px\] {
     @media (width >= 64rem) {
       row-gap: 150px;
+    }
+  }
+  .lg\:overflow-auto {
+    @media (width >= 64rem) {
+      overflow: auto;
     }
   }
   .lg\:p-2\.5 {
