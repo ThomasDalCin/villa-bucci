@@ -626,9 +626,6 @@
   .mt-2 {
     margin-top: calc(var(--spacing) * 2);
   }
-  .mt-10 {
-    margin-top: calc(var(--spacing) * 10);
-  }
   .mb-5 {
     margin-bottom: calc(var(--spacing) * 5);
   }
@@ -946,9 +943,6 @@
   .bg-\(--beige-color\) {
     background-color: var(--beige-color);
   }
-  .bg-\(--beige-light\) {
-    background-color: var(--beige-light);
-  }
   .bg-\(--beige-menu\) {
     background-color: var(--beige-menu);
   }
@@ -1033,9 +1027,6 @@
   .text-left {
     text-align: left;
   }
-  .text-right {
-    text-align: right;
-  }
   .font-\(family-name\:--main-title-mobile-font-family\) {
     font-family: var(--main-title-mobile-font-family);
   }
@@ -1049,14 +1040,14 @@
   .text-\[12px\] {
     font-size: 12px;
   }
-  .text-\[40px\] {
-    font-size: 40px;
-  }
   .text-\[200px\] {
     font-size: 200px;
   }
   .text-\[24px\] {
     font-size: 24px;
+  }
+  .text-\[40px\] {
+    font-size: 40px;
   }
   .leading-\[105\%\] {
     --tw-leading: 105%;
@@ -1069,6 +1060,10 @@
   .leading-\[90\%\] {
     --tw-leading: 90%;
     line-height: 90%;
+  }
+  .leading-normal {
+    --tw-leading: var(--leading-normal);
+    line-height: var(--leading-normal);
   }
   .font-bold {
     --tw-font-weight: var(--font-weight-bold);
@@ -1274,11 +1269,6 @@
         margin-block-start: calc(calc(var(--spacing) * 0) * var(--tw-space-y-reverse));
         margin-block-end: calc(calc(var(--spacing) * 0) * calc(1 - var(--tw-space-y-reverse)));
       }
-    }
-  }
-  .md\:text-left {
-    @media (width >= 48rem) {
-      text-align: left;
     }
   }
   .lg\:absolute {
