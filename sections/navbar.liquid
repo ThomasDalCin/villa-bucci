@@ -31,13 +31,15 @@
                     class="w-full flex flex-col items-start justify-center p-2.5 border border-b-(--border-color) first:border-t first:border-t-(--border-color) lg:flex-1 lg:border-0 lg:border-t-0 lg:first:border-0 lg:even:border lg:even:border-t-(--border-color) lg:even:border-b-(--border-color) group">
                     <div class="w-full h-auto flex flex-row items-center justify-start lg:gap-x-10">
                         <!--icon link-->
-                        <div class="w-auto h-auto hidden lg:text-(--orange-color) lg:group-hover:block transition-all duration-200 ease-in">
+                        <div
+                            class="w-auto h-auto hidden lg:text-(--orange-color) lg:group-hover:block transition-all duration-200 ease-in">
                             {% render 'arrow-up' %}
                         </div>
                         <!--container link-->
                         <div class="w-auto h-auto">
                             <li class="list-none">
-                                <a class="text-(--link-color) text-[24px] leading-normal lg:text-[96px] lg:group-hover:text-(--orange-color) transition-all duration-200 ease-in" href="{{ linkItem.url }}">{{
+                                <a class="text-(--link-color) text-[24px] leading-normal lg:text-[96px] lg:group-hover:text-(--orange-color) transition-all duration-200 ease-in"
+                                    href="{{ linkItem.url }}">{{
                                     linkItem.title |
                                     upcase }}</a>
                             </li>
@@ -96,12 +98,14 @@
         </div>
 
 
-        <div class="w-full flex flex-col items-start justify-between lg:flex-row-reverse lg:relative lg:border lg:border-t-(--border-color)">
+        <div
+            class="w-full flex flex-col items-start justify-between lg:flex-row-reverse lg:relative lg:border lg:border-t-(--border-color)">
 
             <!--container switch language form-->
             <div class="w-full px-2.5 py-5 flex items-center justify-center border border-(--border-color) lg:border-0">
                 {% form 'localization', id: "localization_form_tag" %}
-                <div class="w-auto h-auto flex flex-row items-center justify-start gap-x-5 lg:absolute lg:top-1/2 lg:left-1/2 lg:-translate-x-1/2 lg:-translate-y-1/2">
+                <div
+                    class="w-auto h-auto flex flex-row items-center justify-start gap-x-5 lg:absolute lg:top-1/2 lg:left-1/2 lg:-translate-x-1/2 lg:-translate-y-1/2">
                     {% for locale in shop.published_locales %}
                     <button class="language-button w-auto h-auto text-[#E3DBD2] text-[12px]" type="button" tabindex="0"
                         data-locale-code="{{ locale.iso_code }}">
