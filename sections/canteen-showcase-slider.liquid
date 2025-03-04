@@ -19,7 +19,9 @@
     <div class="showcase-container-scroll w-full h-auto overflow-x-scroll flex flex-row justify-start items-center gap-x-5 px-5 py-5" data-collection="{{ collection.title |  replace: " ", "-" | downcase }}">
       {% for product in collection.products %}
 
-        <div class="card-product w-[250px] min-w-[250px] min-h-[500px] h-[500px] p-2.5 lg:w-[540px] lg:h-[790px] rounded-[18px] bg-(--gold-color-w-opacity) hover:bg-(--gold-color) flex flex-col items-center justify-between lg:justify-center outline outline-offset-4 outline-(--gold-color) relative group transition-all duration-200 ease-in-out" data-product="{{ product.title |  downcase }}">
+        <div
+          class="card-product w-[250px] min-w-[250px] min-h-[500px] h-[500px] p-2.5 lg:w-[540px] lg:h-[790px] rounded-[18px] flex flex-col items-center justify-between lg:justify-center outline outline-offset-4 relative group transition-all duration-200 ease-in-out"
+          data-product="{{ product.title |  downcase }}">
 
           <!-- container item number -->
           <div class="w-auto h-auto lg:absolute lg:left-5 lg:top-5">
@@ -43,6 +45,16 @@
   {% endfor %}
 
 </div>
+
+{% style %}
+  .card-product {
+    background: {{ section.settings.main_card_bg_color_default |  hex_to_rgba: 0.3 }};
+    outline-color: {{ section.settings.main_card_bg_color_default }}
+  }
+  .card-product:hover {
+    background-color: {{ section.settings.main_card_bg_color_default }};
+  }
+{% endstyle %}
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
@@ -98,14 +110,21 @@
         "type": "text",
         "id": "main_section_title",
         "label": "Main section title"
-      }, {
+      },
+      {
         "type": "text",
         "id": "main_stroke_section_title",
         "label": "Main section stroke title"
-      }, {
+      },
+      {
         "type": "color",
         "id": "main_title_color",
         "label": "Main title color"
+      },
+      {
+        "type": "color",
+        "id": "main_card_bg_color_default",
+        "label": "Card background default"
       }
     ]
   }
