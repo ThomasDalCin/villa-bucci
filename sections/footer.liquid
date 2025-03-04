@@ -27,23 +27,6 @@
           
         </div>
 
-        <!-- Column 2 -->
-        <div class="flex-1 items-center text-center lg:h-[377px]">
-          <h3 class="font-semibold text-lg text-gray-400">LE CANTINE</h3>
-          <ul class="mt-2 space-y-2">
-            {% assign menuLinks = "Podere Guardia Grande,La Giuva,Villa Bucci,Tenimenti Leone" | split: "," %}
-            {% for menuLink in menuLinks %}
-              {% for linkItem in linklists.footer.links %}
-                {% if linkItem.title == menuLink %}
-                  <li>
-                    <a href="{{ linkItem.url }}" class="hover:underline">{{ linkItem.title | upcase }}</a>
-                  </li>
-                {% endif %}
-              {% endfor %}
-            {% endfor %}
-          </ul>
-        </div>
-
 
         <!-- Column 2 -->
         <div class="flex-1 items-center text-center lg:h-[377px]">
