@@ -87,49 +87,50 @@
             {% endif %}
             {% endfor %}
             {% endfor %}
+        </div>
 
-            <div
-                class="w-full flex-1 flex flex-col items-start justify-between *:border *:border-b-(--border-color) first:border-t first:border-t-(--border-color)">
-                <!--container switch language form-->
-                <div class="w-full flex-1 px-2.5 flex items-center justify-center">
-                    {% form 'localization', id: "localization_form_tag" %}
-                    <div class="w-auto h-auto flex flex-row items-center justify-start gap-x-5">
-                        {% for locale in shop.published_locales %}
-                        <button class="language-button w-auto h-auto text-[#E3DBD2] text-[12px]" type="button"
-                            tabindex="0" data-locale-code="{{ locale.iso_code }}">
-                            {% case locale.endonym_name %}
-                            {% when "Italiano" %} IT
-                            {% when "English" %} EN
-                            {% else %}
-                            {% endcase %}
-                        </button>
-                        {% endfor %}
-                    </div>
-                    <input type="hidden" name="locale_code" value="{{ request.locale.iso_code }}" id="localeCode">
-                    {% endform %}
+        <div class="w-full flex-1 flex flex-col items-start justify-between *:border *:border-b-(--border-color) first:border-t first:border-t-(--border-color)">
+
+            <!--container switch language form-->
+            <div class="w-full flex-1 px-2.5 flex items-center justify-center">
+                {% form 'localization', id: "localization_form_tag" %}
+                <div class="w-auto h-auto flex flex-row items-center justify-start gap-x-5">
+                    {% for locale in shop.published_locales %}
+                    <button class="language-button w-auto h-auto text-[#E3DBD2] text-[12px]" type="button" tabindex="0"
+                        data-locale-code="{{ locale.iso_code }}">
+                        {% case locale.endonym_name %}
+                        {% when "Italiano" %} IT
+                        {% when "English" %} EN
+                        {% else %}
+                        {% endcase %}
+                    </button>
+                    {% endfor %}
+                </div>
+                <input type="hidden" name="locale_code" value="{{ request.locale.iso_code }}" id="localeCode">
+                {% endform %}
+            </div>
+
+            <!--container navigation contact info -->
+            <div class="w-full flex-1 px-3 flex flex-row items-center justify-between">
+                <div class="w-auto h-auto">
+                    <a class="flex flex-row items-start justify-start gap-x-1 font-(family-name:--submain-mobile-title-font-family) font-bold text-(--orange-color) text-[12px] leading-normal"
+                        href="{{ section.settings.link_to_oniverse }}">{{ section.settings.link_to_oniverse_text |
+                        default: "ONIVERSE" | upcase }}<span class="text-(--orange-color)">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-1.5 h-1.5" viewBox="0 0 19 20" fill="none"
+                                stroke="currentColor">
+                                <path d="M0 1H18V19" stroke="currentColor" />
+                                <line x1="17.8635" y1="1.34331" x2="0.863507" y2="19.3433" stroke="currentColor" />
+                            </svg>
+                        </span></a>
+                </div>
+                <div class="w-auto h-auto">
+                    <a class="text-(--link-color) text-[12px] font-(family-name:--submain-mobile-title-font-family) font-bold"
+                        href="mailto:{{ section.settings.mail_to_email |  default: " mail@oniwines.it" }}">{{
+                        section.settings.main_to | default: "mail@oniwines.it" | upcase }}</a>
                 </div>
             </div>
+            
         </div>
-        <!--container navigation contact info -->
-        <div class="w-full flex-1 px-3 flex flex-row items-center justify-between">
-            <div class="w-auto h-auto">
-                <a class="flex flex-row items-start justify-start gap-x-1 font-(family-name:--submain-mobile-title-font-family) font-bold text-(--orange-color) text-[12px] leading-normal"
-                    href="{{ section.settings.link_to_oniverse }}">{{ section.settings.link_to_oniverse_text |
-                    default: "ONIVERSE" | upcase }}<span class="text-(--orange-color)">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-1.5 h-1.5" viewBox="0 0 19 20" fill="none"
-                            stroke="currentColor">
-                            <path d="M0 1H18V19" stroke="currentColor" />
-                            <line x1="17.8635" y1="1.34331" x2="0.863507" y2="19.3433" stroke="currentColor" />
-                        </svg>
-                    </span></a>
-            </div>
-            <div class="w-auto h-auto">
-                <a class="text-(--link-color) text-[12px] font-(family-name:--submain-mobile-title-font-family) font-bold"
-                    href="mailto:{{ section.settings.mail_to_email |  default: " mail@oniwines.it" }}">{{
-                    section.settings.main_to | default: "mail@oniwines.it" | upcase }}</a>
-            </div>
-        </div>
-
     </div>
 </div>
 
