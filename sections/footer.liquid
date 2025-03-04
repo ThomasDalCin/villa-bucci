@@ -15,46 +15,61 @@
         </div>
 
   <footer class="w-full bg-(--blue-color) rounded-[8px] text-white px-5 py-10">
-    <div>
-
+    <div class="flex justify-center">
       <img class="w-[275px] max-w-[375px] h-auto object-cover object-center"
-        src="{{ section.settings.canteen_main_logo |  img_url: 'master' }}"
-        alt="{{ section.settings.canteen_main_logo.alt }}">
+        src="{{ section.settings.oniverse_main_logo | img_url: 'master' }}"
+        alt="{{ section.settings.oniverse_main_logo.alt }}">
     </div>
+    
 
-
-<div class="w-full h-auto">
-  <!-- Responsive Footer Layout -->
-  <div class="flex flex-col lg:flex-row lg:justify-start lg:items-center h-auto">
-    <!-- Column 1 -->
-    <div class="flex-1 lg:h-[377px]">
-      <h3 class="font-semibold text-gray-400">ONIWINES</h3>
-      <ul class="mt-2 space-y-2">
-        <li><a href="#" class="hover:underline">HOME</a></li>
-        <li><a href="#" class="hover:underline">IL GRUPPO</a></li>
-        <li><a href="#" class="hover:underline">CONTATTI</a></li>
-      </ul>
-    </div>
-
+    <div class="w-full h-auto">
+      <!-- Responsive Footer Layout -->
+      <div class="flex flex-col lg:flex-row lg:justify-start lg:items-center h-auto">
+        <!-- Column 1 -->
+        <div class="flex-1 lg:h-[377px]">
+          <h3 class="font-semibold text-gray-400">ONIWINES</h3>
+          <ul class="mt-2 space-y-2">
+            {% assign menuLinks = "Home,Il Gruppo,Magazine,Contatti" | split: "," %}
+            {% for menuLink in menuLinks %}
+              {% for linkItem in linklists.footer.links %}
+                {% if linkItem.title == menuLink %}
+                  <li><a href="{{ linkItem.url }}" class="hover:underline">{{ linkItem.title | upcase }}</a></li>
+                {% endif %}
+              {% endfor %}
+            {% endfor %}
+          </ul>
+        </div>
+      
+    
     <!-- Column 2 -->
-    <div class="flex-1 lg:h-[377px]">
+    <div class="flex-1 items-center text-center lg:h-[377px]">
       <h3 class="font-semibold text-lg text-gray-400">LE CANTINE</h3>
       <ul class="mt-2 space-y-2">
-        <li><a href="#" class="hover:underline">TENIMENTI LEONE</a></li>
-        <li><a href="#" class="hover:underline">PODERE GUARDIA GRANDE</a></li>
-        <li><a href="#" class="hover:underline">LA GIUVA</a></li>
-        <li><a href="#" class="hover:underline">VILLA BUCCI</a></li>
+        {% assign menuLinks = "Podere Guardia Grande,La Giuva,Villa Bucci,Tenimenti Leone" | split: "," %}
+            {% for menuLink in menuLinks %}
+              {% for linkItem in linklists.footer.links %}
+                {% if linkItem.title == menuLink %}
+                  <li><a href="{{ linkItem.url }}" class="hover:underline">{{ linkItem.title | upcase }}</a></li>
+                {% endif %}
+              {% endfor %}
+            {% endfor %}
       </ul>
     </div>
 
     <!-- Column 3 -->
-    <div class="flex-1 lg:h-[377px] relative">
+    <div class="flex-1 items-end text-right lg:h-[377px] relative">
       <div>
         <h3 class="font-semibold text-lg text-gray-400">PROGETTI SPECIALI</h3>
         <ul class="mt-2 space-y-2">
-          <li><a href="#" class="hover:underline">BENACUS</a></li>
-          <li><a href="#" class="hover:underline">FREDERIC LEVIN</a></li>
-        </ul>
+        {% assign menuLinks = "Benacus,Frederic Levin" | split: "," %}
+            {% for menuLink in menuLinks %}
+              {% for linkItem in linklists.footer.links %}
+                {% if linkItem.title == menuLink %}
+                  <li><a href="{{ linkItem.url }}" class="hover:underline">{{ linkItem.title | upcase }}</a></li>
+                {% endif %}
+              {% endfor %}
+            {% endfor %}
+      </ul>
       </div>
       <div class="absolute right-0 bottom-0">
         <p> torna su
@@ -89,3 +104,72 @@
 
 </footer>
 </div>
+
+{% schema %}
+  {
+    "name": "Footer",
+    "class": "footer-section",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "oniverse_main_logo",
+        "label": "Main Logo"
+      },
+      {
+        "type": "color",
+        "id": "footer_bg_color",
+        "label": "Footer Background Color",
+        "default": "#000000"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "menu",
+        "name": "Footer Menu",
+        "settings": [
+          {
+            "type": "text",
+            "id": "menu_title",
+            "label": "Menu Title",
+            "default": "ONIWINES"
+          },
+          {
+            "type": "link_list",
+            "id": "footer_links",
+            "label": "Menu Links"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Footer",
+        "category": "Footer",
+        "blocks": [
+          {
+            "type": "menu",
+            "settings": {
+              "menu_title": "ONIWINES",
+              "footer_links": "footer"
+            }
+          },
+          {
+            "type": "menu",
+            "settings": {
+              "menu_title": "LE CANTINE",
+              "footer_links": "footer_cantine"
+            }
+          },
+          {
+            "type": "menu",
+            "settings": {
+              "menu_title": "PROGETTI SPECIALI",
+              "footer_links": "footer_progetti"
+            }
+          }
+        ]
+      }
+    ]
+  }
+  {% endschema %}
+   
