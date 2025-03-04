@@ -89,10 +89,10 @@
             {% endfor %}
         </div>
 
-        <div class="w-full flex-1 flex flex-col items-start justify-between *:border *:border-b-(--border-color) first:border-t first:border-t-(--border-color)">
+        <div class="w-full flex flex-col items-start justify-between *:border *:border-b-(--border-color) first:border-t first:border-t-(--border-color)">
 
             <!--container switch language form-->
-            <div class="w-full flex-1 px-2.5 flex items-center justify-center">
+            <div class="w-full px-2.5 flex items-center justify-center">
                 {% form 'localization', id: "localization_form_tag" %}
                 <div class="w-auto h-auto flex flex-row items-center justify-start gap-x-5">
                     {% for locale in shop.published_locales %}
@@ -111,7 +111,7 @@
             </div>
 
             <!--container navigation contact info -->
-            <div class="w-full flex-1 px-3 flex flex-row items-center justify-between">
+            <div class="w-full px-3 flex flex-row items-center justify-between">
                 <div class="w-auto h-auto">
                     <a class="flex flex-row items-start justify-start gap-x-1 font-(family-name:--submain-mobile-title-font-family) font-bold text-(--orange-color) text-[12px] leading-normal"
                         href="{{ section.settings.link_to_oniverse }}">{{ section.settings.link_to_oniverse_text |
