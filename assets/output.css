@@ -1040,6 +1040,12 @@
     font-size: var(--text-lg);
     line-height: var(--tw-leading, var(--text-lg--line-height));
   }
+  .text-\[40px\] {
+    font-size: 40px;
+  }
+  .text-\[128px\] {
+    font-size: 128px;
+  }
   .text-\[12px\] {
     font-size: 12px;
   }
@@ -1048,12 +1054,6 @@
   }
   .text-\[24px\] {
     font-size: 24px;
-  }
-  .text-\[40px\] {
-    font-size: 40px;
-  }
-  .text-\[128px\] {
-    font-size: 128px;
   }
   .leading-\[105\%\] {
     --tw-leading: 105%;
@@ -1545,6 +1545,34 @@
       overflow: auto;
     }
   }
+  .lg\:border {
+    @media (width >= 64rem) {
+      border-style: var(--tw-border-style);
+      border-width: 1px;
+    }
+  }
+  .lg\:border-t-0 {
+    @media (width >= 64rem) {
+      border-top-style: var(--tw-border-style);
+      border-top-width: 0px;
+    }
+  }
+  .lg\:border-b-0 {
+    @media (width >= 64rem) {
+      border-bottom-style: var(--tw-border-style);
+      border-bottom-width: 0px;
+    }
+  }
+  .lg\:border-t-\(--border-color\) {
+    @media (width >= 64rem) {
+      border-top-color: var(--border-color);
+    }
+  }
+  .lg\:border-r-\(--border-color\) {
+    @media (width >= 64rem) {
+      border-right-color: var(--border-color);
+    }
+  }
   .lg\:p-2\.5 {
     @media (width >= 64rem) {
       padding: calc(var(--spacing) * 2.5);
@@ -1622,6 +1650,21 @@
     @media (width >= 64rem) {
       &:not(*:first-child) {
         width: calc(50% - 124px);
+      }
+    }
+  }
+  .lg\:odd\:border {
+    @media (width >= 64rem) {
+      &:nth-child(odd) {
+        border-style: var(--tw-border-style);
+        border-width: 1px;
+      }
+    }
+  }
+  .lg\:odd\:border-\(--border-color\) {
+    @media (width >= 64rem) {
+      &:nth-child(odd) {
+        border-color: var(--border-color);
       }
     }
   }

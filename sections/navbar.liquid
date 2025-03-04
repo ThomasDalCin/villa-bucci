@@ -18,15 +18,15 @@
     class="navigation-container fixed inset-1.5 z-60 bg-(--blue-color) rounded-[8px] flex flex-col items-start justify-center hidden">
     <div class="w-full h-full flex flex-col items-start justify-between pt-16">
 
-        <div class="w-full flex flex-col items-start justify-center lg:flex-row lg:h-full">
-            <div class="w-full flex flex-col items-start justify-between lg:h-full">
+        <div class="w-full flex flex-col items-start justify-center lg:flex-row lg:h-full lg:border lg:border-t-(--border-color)">
+            <div class="w-full flex flex-col items-start justify-between lg:h-full lg:odd:border lg:odd:border-(--border-color)">
                 <!--assign variable for each reference link into links menu-->
                 {% assign menuLinks = "Home,Il progetto,Contatti" | split: "," %}
                 {% for menuLink in menuLinks %}
                 {% for linkItem in linklists.main-menu.links %}
                 {% if linkItem.title == menuLink %}
                 <div
-                    class="w-full flex flex-col items-start justify-center p-2.5 border border-b-(--border-color) first:border-t first:border-t-(--border-color) lg:flex-1">
+                    class="w-full flex flex-col items-start justify-center p-2.5 border border-b-(--border-color) first:border-t first:border-t-(--border-color) lg:flex-1 lg:border-b-0 lg:border-t-0">
                     <div class="w-full h-auto flex flex-row items-center justify-start">
                         <!--icon link-->
                         <div class="w-auto h-auto hidden lg:text-(--orange-color)">
@@ -47,7 +47,7 @@
                 {% endfor %}
             </div>
 
-            <div class="w-full flex flex-col items-start justify-between lg:h-full">
+            <div class="w-full flex flex-col items-start justify-between lg:h-full lg:border lg:border-r-(--border-color)">
 
                 <!--assign variable for each reference link into links menu-->
                 {% assign menuLinks = "Le cantine,Prodotti" | split: "," %}
@@ -55,7 +55,7 @@
                 {% for linkItem in linklists.main-menu.links %}
                 {% if linkItem.title == menuLink %}
                 <div
-                    class="w-full  flex flex-col items-start justify-center p-2.5 border border-b-(--border-color)  transition-all duration-200 ease-linear lg:flex-1">
+                    class="w-full  flex flex-col items-start justify-center p-2.5 border border-b-(--border-color) transition-all duration-200 ease-linear lg:flex-1">
                     <div class="w-full h-auto flex flex-row items-center justify-between"
                         data-target="link-item-{{ forloop.index }}">
                         <!--container link-->
