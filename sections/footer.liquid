@@ -12,9 +12,9 @@
       <!-- Responsive Footer Layout -->
       <div class="flex flex-col lg:flex-row h-auto">
         <!-- Column 1 -->
-        <div class="flex-1 flex flex-col items-center justify-center lg:justify-start lg:items-start lg:flex-col lg:h-[377px]">
-          <h3 class="font-semibold text-gray-400 pb-[40px] ">ONIWINES</h3>
-          
+        <div class="flex-1 flex flex-col items-center justify-center lg:justify-start lg:items-start pt-5 pb-5 lg:flex-col lg:h-[377px]">
+          <h3 class="font-semibold text-gray-400">ONIWINES</h3>
+          <div class="w-full h-auto flex flex-col items-start justify-center">
             {% assign menuLinks = "Home,Il Gruppo,Magazine,Contatti" | split: "," %}
             {% for menuLink in menuLinks %}
               {% for linkItem in linklists.footer.links %}
@@ -23,13 +23,13 @@
                 {% endif %}
               {% endfor %}
             {% endfor %}
-         
+            </div>
         </div>
 
         <!-- Column 2 -->
-        <div class="flex-1 items-center text-center lg:h-[377px]">
+        <div class="flex-1 items-center text-center pt-5 pb-5 lg:h-[377px]">
           <h3 class="font-semibold text-lg text-gray-400">LE CANTINE</h3>
-         
+          <div class="w-full h-auto flex flex-col items-start justify-center">
             {% assign menuLinks = "Podere Guardia Grande,La Giuva,Villa Bucci,Tenimenti Leone" | split: "," %}
             {% for menuLink in menuLinks %}
               {% for linkItem in linklists.footer.links %}
@@ -38,14 +38,14 @@
                 {% endif %}
               {% endfor %}
             {% endfor %}
-          
+          </div>
         </div>
 
         <!-- Column 3 -->
-        <div class="flex flex-col flex-1 items-center text-center lg:items-end lg:text-right lg:h-[377px] relative">
-          <div>
+        <div class="flex flex-col flex-1 items-center text-center pt-5 pb-5 lg:items-end lg:text-right lg:h-[377px] relative">
+        
             <h3 class="font-semibold text-lg text-gray-400">PROGETTI SPECIALI</h3>
-           
+            <div class="w-full h-auto flex flex-col items-start justify-center">
               {% assign menuLinks = "Benacus,Frederic Levin" | split: "," %}
               {% for menuLink in menuLinks %}
                 {% for linkItem in linklists.footer.links %}
@@ -54,8 +54,8 @@
                   {% endif %}
                 {% endfor %}
               {% endfor %}
-         
-          </div>
+         </div>
+          
           <div class="absolute right-0 bottom-0">
             <p>torna su</p>
           </div>
