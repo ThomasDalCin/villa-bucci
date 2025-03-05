@@ -1,60 +1,60 @@
 <!-- Footer Section -->
 <div class="px-5 py-5">
-  <footer class="w-full rounded-[8px] text-white px-5 py-10" style="background-color: {{ section.settings.footer_bg_color }};">
+  <footer class="w-full flex flex-col items-start justify-center rounded-[8px] text-white px-5 py-10" style="background-color: {{ section.settings.footer_bg_color }};">
     
-    <div class="flex justify-center mb-[36px] ">
-      <img class="w-[726px] max-w-[726px] h-auto object-cover object-center"
+    <div class="flex justify-center pt-5 pb-5">
+      <img class="w-315 max-w[315] lg:w-[726px] lg:max-w-[726px] h-auto object-cover object-center"
         src="{{ section.settings.oniverse_main_logo | img_url: 'master' }}"
         alt="{{ section.settings.oniverse_main_logo.alt }}">
     </div>
 
-    <div class="w-full h-auto ">
+    <div class="w-full h-auto pt-5 pb-5">
       <!-- Responsive Footer Layout -->
       <div class="flex flex-col lg:flex-row h-auto">
         <!-- Column 1 -->
         <div class="flex-1 flex flex-col items-center justify-center lg:justify-start lg:items-start lg:flex-col lg:h-[377px]">
-          <h3 class="font-semibold text-gray-400">ONIWINES</h3>
-         
+          <h3 class="font-semibold text-gray-400 pb-[40px] ">ONIWINES</h3>
+          
             {% assign menuLinks = "Home,Il Gruppo,Magazine,Contatti" | split: "," %}
             {% for menuLink in menuLinks %}
               {% for linkItem in linklists.footer.links %}
                 {% if linkItem.title == menuLink %}
-                  <li class="list-none "><a href="{{ linkItem.url }}" class="hover:underline">{{ linkItem.title | upcase }}</a></li>
+                  <li class="list-none"><a href="{{ linkItem.url }}" class="hover:underline">{{ linkItem.title | upcase }}</a></li>
+                {% endif %}
+              {% endfor %}
+            {% endfor %}
+         
+        </div>
+
+        <!-- Column 2 -->
+        <div class="flex-1 items-center text-center lg:h-[377px]">
+          <h3 class="font-semibold text-lg text-gray-400">LE CANTINE</h3>
+         
+            {% assign menuLinks = "Podere Guardia Grande,La Giuva,Villa Bucci,Tenimenti Leone" | split: "," %}
+            {% for menuLink in menuLinks %}
+              {% for linkItem in linklists.footer.links %}
+                {% if linkItem.title == menuLink %}
+                  <li class="list-none"><a href="{{ linkItem.url }}" class="hover:underline">{{ linkItem.title | upcase }}</a></li>
                 {% endif %}
               {% endfor %}
             {% endfor %}
           
         </div>
 
-        <!-- Column 2 -->
-        <div class="flex-1 items-center text-center lg:h-[377px]">
-          <h3 class="font-semibold text-lg text-gray-400">LE CANTINE</h3>
-          <ul class="mt-2 space-y-2">
-            {% assign menuLinks = "Podere Guardia Grande,La Giuva,Villa Bucci,Tenimenti Leone" | split: "," %}
-            {% for menuLink in menuLinks %}
-              {% for linkItem in linklists.footer.links %}
-                {% if linkItem.title == menuLink %}
-                  <li><a href="{{ linkItem.url }}" class="hover:underline">{{ linkItem.title | upcase }}</a></li>
-                {% endif %}
-              {% endfor %}
-            {% endfor %}
-          </ul>
-        </div>
-
         <!-- Column 3 -->
         <div class="flex flex-col flex-1 items-center text-center lg:items-end lg:text-right lg:h-[377px] relative">
           <div>
             <h3 class="font-semibold text-lg text-gray-400">PROGETTI SPECIALI</h3>
-            <ul class="mt-2 space-y-2">
+           
               {% assign menuLinks = "Benacus,Frederic Levin" | split: "," %}
               {% for menuLink in menuLinks %}
                 {% for linkItem in linklists.footer.links %}
                   {% if linkItem.title == menuLink %}
-                    <li><a href="{{ linkItem.url }}" class="hover:underline">{{ linkItem.title | upcase }}</a></li>
+                    <li class="list-none"><a href="{{ linkItem.url }}" class="hover:underline">{{ linkItem.title | upcase }}</a></li>
                   {% endif %}
                 {% endfor %}
               {% endfor %}
-            </ul>
+         
           </div>
           <div class="absolute right-0 bottom-0">
             <p>torna su</p>
@@ -64,7 +64,7 @@
     </div>
 
     <!-- Under Footer -->
-    <div class="w-full h-auto ">
+    <div class="w-full h-auto pt-5 pb-5">
       <div class="flex flex-col items-center text-center  lg:flex-row lg:items-center">
         <!-- Column 1 -->
         <div class="flex-1">
