@@ -78,8 +78,8 @@
         </div>
 
         <!-- Column 4 -->
-        <div class="w-full h-auto flex flex-col items-center justify-center border border-r-0 border-l-0 border-t-0 border-b-(--border-color)">
-          <a href="{{ section.settings.brand_link }}" class="flex items-center space-x-1 justify-center">
+        <div class="w-full h-auto py-5 flex flex-col items-center justify-center border border-r-0 border-l-0 border-t-0 border-b-(--border-color)">
+          <a href="{{ section.settings.brand_link }}" class="flex flex-row items-center justify-start gap-x-2.5">
             <span style="color: #E86A58;">{{ section.settings.brand_name }}</span>
             <span class="inline-flex">
               <svg
@@ -98,25 +98,22 @@
     </div>
 
     <!-- Under Footer -->
-    <div class="w-full h-auto">
-      <div class="flex flex-col items-center text-center  lg:flex-row lg:items-center">
+    <div class="w-full h-auto flex-col items-start justify-center py-10">
+
+      <div class="w-full h-auto flex flex-col items-center justify-center lg:flex-row lg:items-center">
+
         <!-- Column 1 -->
-        <div class="flex-1">
-          <p class="text-[12px]">{{ section.settings.company_info }} </p>
+        <div class="w-full h-auto flex flex-col items-center justify-center">
+          <p class="text-[12px] font-(family-name:--submain-mobile-title-font-family) font-bold">{{ section.settings.company_info |  upcase }}</p>
         </div>
 
-        <!-- Column 2 -->
-        <div class="flex-1">
-          <p>{{ section.settings.company_info }}</p>
+        <!-- Column 2  -->
+        <div class="w-full h-auto flex flex-row items-center justify-center gap-x-0.5">
+          <a href="{{ section.settings.cookie_link }}" class="text-[12px]  font-(family-name:--submain-mobile-title-font-family) font-bold">{{ section.settings.cookie_text }}</a>
+          <a href="{{ section.settings.privacy_link }}" class="text-[12px] font-(family-name:--submain-mobile-title-font-family) font-bold">|{{ section.settings.privacy_text }}|</a>
+          <a href="{{ section.settings.credits_link }}" class="text-[12px] font-(family-name:--submain-mobile-title-font-family) font-bold">{{ section.settings.credits_text }}</a>
         </div>
 
-
-        <!-- Column 3 (Aligned Right) -->
-        <div class="flex-1 text-center lg:text-right">
-          <a  href="{{ section.settings.cookie_link }}" class="text-[12px]">{{ section.settings.cookie_text }}</a> |
-          <a href="{{ section.settings.privacy_link }}" class="text-[12px] ">{{ section.settings.privacy_text }}</a> |
-          <a href="{{ section.settings.credits_link }}" class="text-[12px]">{{ section.settings.credits_text }}</a>
-        </div>
       </div>
     </div>
   </footer>
