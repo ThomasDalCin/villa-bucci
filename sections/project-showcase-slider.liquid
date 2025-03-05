@@ -1,8 +1,8 @@
 <div class="outer-container-card">
-  <div class="sticky-container w-full h-screen sticky top-0 overflow-hidden">
-    <div class="mask-container w-full h-full relative z-100 overflow-hidden">
-      <div class="horizontal-scrollable-container-card h-full overflow-x-hidden">
-        <div class="content-card-canteen w-full h-full flex flex-row items-center justify-start gap-x-7 px-5">
+  <div class="sticky-container w-full h-auto static lg:h-screen lg:sticky lg:top-10 overflow-hidden">
+    <div class="mask-container w-full h-auto relative z-100 overflow-hidden lg:h-full">
+      <div class="horizontal-scrollable-container-card h-auto w-full overflow-x-auto lg:h-full lg:overflow-x-hidden">
+        <div class="content-card-canteen w-full h-full flex flex-row items-center justify-start gap-x-7 px-5 overflow-x-auto lg:overflow-hidden">
 
           {% for page in pages %}
             {% if page.title contains "Cantina" or page.title contains "Canteen" %}
@@ -25,7 +25,8 @@
                   </div>
 
                   <div class="w-full h-auto">
-                    <p class="font-(family-name:--main-title-mobile-font-family) text-[24px] text-white">{{ pageCustomTitle | upcase }}</p>
+                    <p class="font-(family-name:--main-title-mobile-font-family) text-[24px] text-white">{{ pageCustomTitle
+ | upcase }}</p>
                   </div>
 
                   {% for block in section.blocks %}
@@ -67,42 +68,47 @@
     const horizontalCardsScrollable = document.querySelector('.horizontal-scrollable-container-card');
     const contentsCard = document.querySelectorAll('.card-canteen');
   
-    const getDynamicSizesCards = () => {
-      const firstCardContent = contentsCard[0];
-      if (firstCardContent) {
-        const rectCard = firstCardContent.getBoundingClientRect();
-        const widthCard = rectCard.width;
-        const heightCard = rectCard.height;
-        return {widthCard, heightCard};
-      }
-      return null;
-    };
-  
-    const dynamicCardsSizes = getDynamicSizesCards();
-    const offsetValue = 40;
-  
-    const sizesCardsValue = {
-      width: (dynamicCardsSizes.widthCard * contentsCard.length) + (contentsCard.length / 2 * 26) + 40 + offsetValue,
-      height: dynamicCardsSizes.heightCard
-    }
-  
-    outerCardsContainer.style.height = `${sizesCardsValue.width}px`;
-    horizontalCardsScrollable.style.width = `${sizesCardsValue.width}px`;
-    const rectWidth = horizontalCardsScrollable.getBoundingClientRect().width;
-    const scrollableCardsValue = rectWidth - window.innerWidth;
   
     gsap.registerPlugin(ScrollTrigger);
+    let matchMedia = gsap.matchMedia();
+    matchMedia.add("(min-width:1024px)", () => {
   
-    gsap.to(horizontalCardsScrollable, {
-      x: () => `-${scrollableCardsValue}px`,
-      ease: "none",
-      scrollTrigger: {
-        trigger: outerCardsContainer,
-        start: "top top",
-        end: "center top+=100",
-        scrub: 1
+      const getDynamicSizesCards = () => {
+        const firstCardContent = contentsCard[0];
+        if (firstCardContent) {
+          const rectCard = firstCardContent.getBoundingClientRect();
+          const widthCard = rectCard.width;
+          const heightCard = rectCard.height;
+          return {widthCard, heightCard};
+        }
+        return null;
+      };
+  
+      const dynamicCardsSizes = getDynamicSizesCards();
+      const offsetValue = 40;
+  
+      const sizesCardsValue = {
+        width: (dynamicCardsSizes.widthCard * contentsCard.length) + (contentsCard.length / 2 * 26) + 40 + offsetValue,
+        height: dynamicCardsSizes.heightCard
       }
+  
+      outerCardsContainer.style.height = `${sizesCardsValue.width}px`;
+      horizontalCardsScrollable.style.width = `${sizesCardsValue.width}px`;
+      const rectWidth = horizontalCardsScrollable.getBoundingClientRect().width;
+      const scrollableCardsValue = rectWidth - window.innerWidth;
+  
+      gsap.to(horizontalCardsScrollable, {
+        x: () => `-${scrollableCardsValue}px`,
+        ease: "none",
+        scrollTrigger: {
+          trigger: outerCardsContainer,
+          start: "top top",
+          end: "center top+=100",
+          scrub: 1
+        }
+      })
     })
+  
   
   });
 </script>
