@@ -1,13 +1,11 @@
-<!-- Product Slider Footer Section -->
+<!-- Showcase product slider -->
 <div class="w-full h-auto px-5">
-  <!-- Main Wrapper Section -->
-  <div class="w-full h-auto rounded-[8px] bg-(--beige-color) p-5 flex flex-col items-start justify-center gap-y-[72px]">
-
-    <!-- Container Headings -->
+  <!-- wrapper main section -->
+  <div class="w-full h-auto rounded-[8px] bg-(--beige-color) p-2.5 flex flex-col items-start justify-center gap-y-[50px] lg:gap-y-[72px]">
+    <!-- container Headings -->
     <div class="w-full h-auto flex flex-col lg:flex-row justify-between items-left gap-y-4 lg:gap-y-0">
-      <h2
-        class="font-(family-name:--main-title-mobile-font-family) text-[40px] leading-[105%] tracking-[1.02px] lg:text-[96px] lg:tracking-[2.88px]"
-        style="
+      <!--first heading-->
+      <h2 class="font-(family-name:--main-title-mobile-font-family) text-[40px] leading-[105%] tracking-[1.02px] lg:text-[96px] lg:tracking-[2.88px]" style="
           {% if section.settings.is_stroke_left %}
             color: transparent; 
             -webkit-text-stroke-width: 1.5px;
@@ -18,10 +16,8 @@
         ">
         {{ section.settings.main_title_left | default: "Esplora" | upcase }}
       </h2>
-
-      <h2
-        class="font-(family-name:--main-title-mobile-font-family) text-[40px] leading-[105%] tracking-[1.02px] lg:text-[96px] lg:tracking-[2.88px]"
-        style="
+    <!--second heading-->
+      <h2 class="font-(family-name:--main-title-mobile-font-family) text-[40px] leading-[105%] tracking-[1.02px] lg:text-[96px] lg:tracking-[2.88px]" style="
           {% if section.settings.is_stroke_right %}
             color: transparent; 
             -webkit-text-stroke-width: 1.5px;
@@ -34,37 +30,40 @@
       </h2>
     </div>
 
-    <!-- Container Slider Showcase -->
-    <div class="w-[calc(100%_+_2.5rem)] h-auto overflow-x-scroll px-5 -mx-5 lg:mb-[130px]">
+    <!--container product showcase  -->
+    <div class="w-full h-auto overflow-x-scroll">
       <div class="w-auto h-auto flex flex-row justify-center items-center gap-x-5 flex-wrap">
         {% for collection in collections %}
         {% if collection.title == "Oniwines" %}
-        <div class="w-full h-auto overflow-x-scroll flex flex-col gap-y-[30px] justify-center items-center gap-x-5 lg:px-5 lg:py-5 lg:flex-row"
+        <div class="w-full h-auto overflow-x-scroll flex flex-col items-start justify-center gap-y-[30px] mb-9 lg:mb-10 lg:flex-row lg:items-center lg:justify-center lg:gap-x-5"
           data-collection="{{ collection.title | replace: ' ', '-' | downcase }}">
 
           {% for product in collection.products %}
-          <div
-            class="card-product lg:w-[250px] lg:min-w-[250px] lg:min-h-[400px] h-auto lg:h-[400px] lg:p-2.5 lg:w-[540px] lg:h-[auto] rounded-[18px] flex flex-col items-center justify-between lg:justify-center relative group"
-            data-product="{{ product.title | downcase }}">
+          <div class="card-product w-full h-auto flex flex-col items-start justify-center relative rounded-[18px] lg:w-auto group" data-product="{{ product.title | downcase }}">
 
             <!-- Container Image -->
-            <div class="canteen-item w-auto h-auto flex flex-col items-start justify-center gap-y-2.5 cursor-pointer">
-              <div class="lg:w-[355px] lg:h-[121px] w-full h-[150px]">
+            <div class="canteen-item w-full h-auto flex flex-col items-start justify-center gap-y-2.5 cursor-pointer lg:w-auto">
+
+              <div class="w-full h-[150px] lg:w-[355px] lg:h-[121px]">
                 <img class="page-image w-full h-full object-cover object-center rounded-[8px]"
                   src="{{ product.featured_image | img_url: 'master' }}" alt="{{ product.featured_image.alt }}">
               </div>
 
               <!-- Product Title -->
               <div class="w-full h-auto flex flex-row justify-between items-center">
-                <p class="text-(--beige-light)">{{ product.title | upcase }}</p>
+                <p class="text-(--beige-light) font-(family-name:--submain-title-font-family) font-bold text-[12px] leading-normal">{{ product.title | upcase }}</p>
                 <div class="arrow-canteen-box w-auto h-auto text-(--beige-light) lg:hidden">
                   {% render 'arrow-up' %}
                 </div>
               </div>
+
             </div>
+
           </div>
           {% endfor %}
+
         </div>
+
         {% endif %}
         {% endfor %}
       </div>
