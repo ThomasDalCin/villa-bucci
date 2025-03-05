@@ -1,0 +1,108 @@
+     <!-- container canvas -->
+     <div class="w-full h-screen fixed top-0 z-5">
+        <canvas id="canvas" class="w-full h-full">
+            <!-- Three.js content -->
+        </canvas>
+    </div>
+
+
+
+    <script type="module">
+    import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.173.0/build/three.module.js';
+    import {SVGLoader} from 'https://cdn.skypack.dev/three@0.130.0/examples/jsm/loaders/SVGLoader.js';
+    import threejsOrbitControls from 'https://cdn.skypack.dev/threejs-orbit-controls';
+
+
+    document.addEventListener('DOMContentLoaded', async () => {
+        const canvas = document.getElementById('canvas');
+
+        if (!canvas) {
+            console.error("Canvas element not found!");
+            return;
+        }
+
+        const scene = new THREE.Scene();
+        scene.background = new THREE.Color(0xDACABB);
+
+        // Camera setup
+        const canvasSizes = {width: window.innerWidth, height: window.innerHeight};
+        const aspectRatio = canvasSizes.width / canvasSizes.height;
+        const camera = new THREE.OrthographicCamera(
+            -aspectRatio * 20, aspectRatio * 20, 20, -20, 0.1, 100
+        );
+        camera.position.set(0, 0, 10);
+        camera.lookAt(0, 0, 0);
+
+        // Lighting
+        const ambientLight = new THREE.AmbientLight(0x404040);
+        scene.add(ambientLight);
+
+        const spotLight = new THREE.SpotLight(0xffffff, 0.9, 0, Math.PI / 8, 1);
+        spotLight.position.set(-3, 3, 9);
+        spotLight.target.position.set(0, 0, 0);
+        scene.add(spotLight);
+
+        const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+        directionalLight.position.set(5, 5, 5).normalize();
+        scene.add(directionalLight);
+
+        // Orbit Controls
+        // const controls = new threejsOrbitControls(camera, canvas);
+        // controls.enableDamping = true;
+
+        // SVG Loader
+        const loader = new SVGLoader();
+        loader.load(
+            "{{ 'map.svg' |  asset_url }}",
+            function (data) {
+                const paths = data.paths;
+                const group = new THREE.Group();
+                console.log(data);
+
+                for (let i = 0; i < paths.length; i++) {
+                    const path = paths[i];
+
+                    const material = new THREE.MeshBasicMaterial({
+                        color: new THREE.Color(path.color),
+                        side: THREE.DoubleSide,
+                        depthWrite: true,
+                    });
+
+                    const shapes = SVGLoader.createShapes(path);
+
+                    for (let j = 0; j < shapes.length; j++) {
+                        const shape = shapes[j];
+                        const geometry = new THREE.ShapeGeometry(shape);
+                        const mesh = new THREE.Mesh(geometry, material);
+                        group.add(mesh);
+                    }
+                }
+
+                scene.add(group);
+                group.scale.set(0.01, 0.01, 0.01); // Adjust scaling factor
+                group.position.set(0, -10, 0); // Centering
+            },
+            function (xhr) {
+                console.log((xhr.loaded / xhr.total) * 100 + '% loaded');
+            },
+            function (error) {
+                console.error('An error happened:', error);
+            }
+        );
+
+        // Axes Helper
+        const axesHelper = new THREE.AxesHelper(5);
+        scene.add(axesHelper);
+
+        // Renderer
+        const renderer = new THREE.WebGLRenderer({canvas: canvas, antialias: true});
+        renderer.setSize(canvasSizes.width, canvasSizes.height);
+
+        function animate() {
+            requestAnimationFrame(animate);
+            // controls.update();
+            renderer.render(scene, camera);
+        }
+        animate();
+    });
+</script>
