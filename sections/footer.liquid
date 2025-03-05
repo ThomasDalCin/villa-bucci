@@ -1,113 +1,126 @@
 <!-- Footer Section -->
 <div class="px-5 py-5">
-  <footer class="w-full flex flex-col items-start justify-center rounded-[8px] text-white py-10" style="background-color: {{ section.settings.footer_bg_color }};">
-
+<footer class="w-full flex flex-col items-start justify-center rounded-[8px] text-white py-10" style="background-color: {{ section.settings.footer_bg_color }};">
+ 
     <div class="w-full h-auto flex-col items-start justify-center px-5">
-      <img
+<img
         class="w-full h-auto object-cover object-center lg:w-[726px] lg:max-w-[726px]"
         src="{{ section.settings.oniverse_main_logo | img_url: 'master' }}"
         alt="{{ section.settings.oniverse_main_logo.alt }}">
-    </div>
-
+</div>
+ 
     <div class="w-full h-auto">
-      <!-- Responsive Footer Layout -->
-      <div class="flex flex-col lg:flex-row h-auto">
-
+<!-- Responsive Footer Layout -->
+<div class="flex flex-col lg:flex-row h-auto">
+ 
         <!-- Column 1 -->
-        <div class="flex-1 flex flex-col items-center justify-center lg:justify-start lg:items-start pt-5 pb-5 gap-y-[36px] border border-l-0 border-r-0 border-t-(--border-color) border-b-0 lg:flex-col lg:h-[377px]">
-          <h3 class="font-semibold text-(--beige-light) text-[16px] opacity-[0.3]">ONIWINES</h3>
-          <div class="w-full h-auto flex flex-col items-center justify-center gap-y-2.5">
+<div class="flex-1 flex flex-col items-center justify-center lg:justify-start lg:items-start pt-5 pb-5 gap-y-[36px] border border-l-0 border-r-0 border-t-(--border-color) border-b-0 lg:flex-col lg:h-[377px]">
+<h3 class="font-semibold text-(--beige-light) text-[16px] opacity-[0.3]">ONIWINES</h3>
+<div class="w-full h-auto flex flex-col items-center justify-center gap-y-2.5">
             {% assign menuLinks = "Home,Il Gruppo,Magazine,Contatti" | split: "," %}
             {% for menuLink in menuLinks %}
               {% for linkItem in linklists.footer.links %}
                 {% if linkItem.title == menuLink %}
-                  <li class="list-none">
-                    <a href="{{ linkItem.url }}" class="hover:underline text-[24px]">{{ linkItem.title | 
- upcase }}</a>
-                  </li>
+<li class="list-none">
+<a href="{{ linkItem.url }}" class="hover:underline text-[24px]">{{ linkItem.title | 
+upcase }}</a>
+</li>
                 {% endif %}
               {% endfor %}
             {% endfor %}
-          </div>
-        </div>
-
+</div>
+</div>
+ 
         <!-- Column 2 -->
-        <div class="flex-1 flex flex-col items-center justify-center lg:justify-start lg:items-start pt-5 pb-5 gap-y-[36px] border border-l-0 border-r-0 border-t-(--border-color) border-b-(--border-color) lg:flex-col lg:h-[377px]">
-          <h3 class="font-semibold text-lg text-(--beige-light) text-[16px] opacity-[0.3]">LE CANTINE</h3>
-          <div class="w-full h-auto flex flex-col items-center justify-center gap-y-2.5">
+<div class="flex-1 flex flex-col items-center justify-center lg:justify-start lg:items-start pt-5 pb-5 gap-y-[36px] border border-l-0 border-r-0 border-t-(--border-color) border-b-(--border-color) lg:flex-col lg:h-[377px]">
+<h3 class="font-semibold text-lg text-(--beige-light) text-[16px] opacity-[0.3]">LE CANTINE</h3>
+<div class="w-full h-auto flex flex-col items-center justify-center gap-y-2.5">
             {% assign menuLinks = "Podere Guardia Grande,La Giuva,Villa Bucci,Tenimenti Leone" | split: "," %}
             {% for menuLink in menuLinks %}
               {% for linkItem in linklists.footer.links %}
                 {% if linkItem.title == menuLink %}
-                  <li class="list-none">
-                    <a href="{{ linkItem.url }}" class="hover:underline text-[24px]">{{ linkItem.title | 
- upcase }}</a>
-                  </li>
+<li class="list-none">
+<a href="{{ linkItem.url }}" class="hover:underline text-[24px]">{{ linkItem.title | 
+upcase }}</a>
+</li>
                 {% endif %}
               {% endfor %}
             {% endfor %}
-          </div>
-        </div>
-
+</div>
+</div>
+ 
         <!-- Column 3 -->
-        <div class="flex flex-col flex-1 items-center text-center pt-5 pb-5 gap-y-[36px] border border-l-0 border-r-0 border-t-0 border-b-(--border-color) lg:items-end lg:text-right lg:h-[377px] relative">
-
+<div class="flex flex-col flex-1 items-center text-center pt-5 pb-5 gap-y-[36px] border border-l-0 border-r-0 border-t-0 border-b-(--border-color) lg:items-end lg:text-right lg:h-[377px] relative">
+ 
           <h3 class="font-semibold text-lg text-(--beige-light) text-[16px] opacity-[0.3]">PRODOTTI SPECIALI</h3>
-          <div class="w-full h-auto flex flex-col items-center justify-center gap-y-2.5">
+<div class="w-full h-auto flex flex-col items-center justify-center gap-y-2.5">
             {% assign menuLinks = "Benacus,Frederic Levin" | split: "," %}
             {% for menuLink in menuLinks %}
               {% for linkItem in linklists.footer.links %}
                 {% if linkItem.title == menuLink %}
-                  <li class="list-none">
-                    <a href="{{ linkItem.url }}" class="hover:underline text-[24px]">{{ linkItem.title | 
- upcase }}</a>
-                  </li>
+<li class="list-none">
+<a href="{{ linkItem.url }}" class="hover:underline text-[24px]">{{ linkItem.title | 
+upcase }}</a>
+</li>
                 {% endif %}
               {% endfor %}
             {% endfor %}
-          </div>
-
-          <div class="w-full h-auto pt-5 flex flex-col items-center justify-center border border-r-0 border-l-0 border-b-0 border-t-(--border-color)">
-            <div class="w-full h-auto flex flex-row-reverse gap-x-2.5 items-center justify-center">
-              <p class="text-[12px] leading-normal font-(family-name:--submain-mobile-title-font-family)">{{ section.settings.back_up_text | default: "torna su" | upcase }}</p>
-              {% render 'arrow-footer-up' %}
-            </div>
-          </div>
-
-
-        </div>
-
-        <!-- Column 4 -->
-        <div class="w-full h-auto flex flex-col items-center justify-center border border-r-0 border-l-0 border-t-0 border-b-(--border-color)">
-          <a href="{{ section.settings.brand_link }}" class="flex items-center space-x-1 justify-center">
-            <span style="font-family: var(--submain-mobile-title-font-family); color: #E86A58">{{ section.settings.brand_name }}</span>
-            <div class=" color:#E86A58"> 
-              {% render 'arrow-up' %}
-            </div>
-            
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Under Footer -->
-    <div class="w-full h-auto flex-col items-start justify-center py-10">
-
-      <div class="w-full h-auto flex flex-col items-center justify-center lg:flex-row lg:items-center">
-
-        <!-- Column 1 -->
-        <div class="w-full h-auto flex flex-col items-center justify-center">
-          <p class="text-[12px] font-(family-name:--submain-mobile-title-font-family) font-bold">{{ section.settings.company_info |  upcase }}</p>
-        </div>
-
-       
-
-      </div>
-    </div>
-  </footer>
 </div>
-
-
+ 
+          <div class="w-full h-auto pt-5 flex flex-col items-center justify-center border border-r-0 border-l-0 border-b-0 border-t-(--border-color)">
+<div class="w-full h-auto flex flex-row-reverse gap-x-2.5 items-center justify-center">
+<p class="text-[12px] leading-normal font-(family-name:--submain-mobile-title-font-family)">{{ section.settings.back_up_text | default: "torna su" | upcase }}</p>
+              {% render 'arrow-footer-up' %}
+</div>
+</div>
+ 
+ 
+        </div>
+ 
+        <!-- Column 4 -->
+<div class="w-full h-auto py-5 flex flex-col items-center justify-center border border-r-0 border-l-0 border-t-0 border-b-(--border-color)">
+<a href="{{ section.settings.brand_link }}" class="flex flex-row items-center justify-start gap-x-2.5">
+<span style="font-family: var(--submain-mobile-title-font-family); 
+color: #E86A58;">{{ section.settings.brand_name }}</span>
+<span class="inline-flex">
+<svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="8"
+                height="8"
+                viewBox="0 0 8 8"
+                fill="none">
+<path d="M1 1H7V7" stroke="#E86A58" />
+<path d="M1.17285 6.8335L6.88133 1.12504" stroke="#E86A58" />
+</svg>
+</span>
+</a>
+</div>
+</div>
+</div>
+ 
+    <!-- Under Footer -->
+<div class="w-full h-auto flex-col items-start justify-center py-10">
+ 
+      <div class="w-full h-auto flex flex-col items-center justify-center lg:flex-row lg:items-center">
+ 
+        <!-- Column 1 -->
+<div class="w-full h-auto flex flex-col items-center justify-center">
+<p class="text-[12px] font-(family-name:--submain-mobile-title-font-family) font-bold">{{ section.settings.company_info |  upcase }}</p>
+</div>
+ 
+        <!-- Column 2  -->
+<div class="w-full h-auto flex flex-row items-center justify-center gap-x-0.5">
+<a href="{{ section.settings.cookie_link }}" class="text-[12px]  font-(family-name:--submain-mobile-title-font-family) font-bold">{{ section.settings.cookie_text }}</a>
+<a href="{{ section.settings.privacy_link }}" class="text-[12px] font-(family-name:--submain-mobile-title-font-family) font-bold">|{{ section.settings.privacy_text }}|</a>
+<a href="{{ section.settings.credits_link }}" class="text-[12px] font-(family-name:--submain-mobile-title-font-family) font-bold">{{ section.settings.credits_text }}</a>
+</div>
+ 
+      </div>
+</div>
+</footer>
+</div>
+ 
+ 
 {% schema %}
   {
     "name": "Footer",
