@@ -1,5 +1,5 @@
 <!-- canteen story section -->
-<div class="canteen-storuy-section w-full h-auto px-5 py-[100px] lg:py-[120px] flex flex-col items-start justify-center gap-y-[100px] lg:gap-y-[150px]">
+<div class="canteen-story-section w-full h-auto px-5  flex flex-col items-start justify-center gap-y-[100px] lg:gap-y-[150px]">
   <!-- canteen story text main title container -->
   <div class="w-full h-auto flex flex-row justify-start items-center">
     <h2 class="font-(family-name:--main-title-mobile-font-family) text-[40px] leading-[105%] tracking-[1.02px] lg:text-[96px] lg:tracking-[2.88px]" style="color:{{ section.settings.main_story_text_color }}">{{ section.settings.main_story_text | default:
@@ -46,33 +46,48 @@
   </div>
 </div>
 
+{% style %}
+
+
+  .canteen-story-section {
+    margin-top: {{ section.settings.margin_desktop_section }}px;
+    margin-bottom: {{ section.settings.margin_desktop_section }}px;
+  }
+  @media (max-width: 480px) {
+    .canteen-story-section {
+      margin-top: {{ section.settings.margin_mobile_section }}px;
+      margin-bottom: {{ section.settings.margin_mobile_section }}px;
+    }
+  }
+{% endstyle %}
+
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-  gsap.registerPlugin(ScrollTrigger);
+    gsap.registerPlugin(ScrollTrigger);
   
-  const triggerSection = document.querySelector('.canteen-story-section');
-  const numbersText = document.querySelectorAll('.number-text');
+    const triggerSection = document.querySelector('.canteen-story-section');
+    const numbersText = document.querySelectorAll('.number-text');
   
-  numbersText.forEach((numberText) => {
-    const numberTextValue = numberText.getAttribute('data-increment');
+    numbersText.forEach((numberText) => {
+      const numberTextValue = numberText.getAttribute('data-increment');
   
-    gsap.fromTo(numberText, {
-      textContent: 0,
-    }, {
-      textContent: numberTextValue,
-      roundProps: 'textContent',
-      duration: 2,
-      ease: "Expo.easeOut",
-      scrollTrigger: {
-        trigger: triggerSection,
-        start: "top 80%",
-        end: "bottom top",
-        once: true,
-        markers: false,
-      }
+      gsap.fromTo(numberText, {
+        textContent: 0,
+      }, {
+        textContent: numberTextValue,
+        roundProps: 'textContent',
+        duration: 2,
+        ease: "Expo.easeOut",
+        scrollTrigger: {
+          trigger: triggerSection,
+          start: "top 80%",
+          end: "bottom top",
+          once: true,
+          markers: false,
+        }
+      });
     });
-  });
   });
 </script>
 
@@ -88,6 +103,24 @@
         "type": "color",
         "id": "main_story_text_color",
         "label": "Main story title color"
+      }, {
+        "type": "range",
+        "id": "margin_desktop_section",
+        "unit": "px",
+        "min": 0,
+        "max": 100,
+        "step": 10,
+        "default": 60,
+        "label": "Section distance top & bottom on desktop"
+      }, {
+        "type": "range",
+        "id": "margin_mobile_section",
+        "unit": "px",
+        "min": 0,
+        "max": 100,
+        "step": 10,
+        "default": 30,
+        "label": "Section distance top & bottom on mobile"
       }
     ],
     "blocks": [

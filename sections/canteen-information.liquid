@@ -1,12 +1,14 @@
 <!-- canteen information text -->
-<div class="w-full h-auto overflow-x-hidden py-[100px] lg:py-[120px] lg:px-5">
+<div class="canteen-information-wrapper w-full h-auto overflow-x-hidden lg:px-5">
   <div class="w-full h-auto flex flex-col items-start justify-center gap-y-[100px] lg:gap-y-[120px]">
     {% for block in section.blocks %}
-      {% if block.type == "block_text" %}
-        <div class="w-full h-auto flex flex-col items-start justify-center gap-y-5 lg:gap-y-[50px]">
+    {% if block.type == "block_text" %}
+    <div class="w-full h-auto flex flex-col items-start justify-center gap-y-5 lg:gap-y-[50px]">
 
-          <div class="w-full h-auto overflow-x-auto py-1.5 lg:py-0 lg:w-auto">
-            <h2 class="main-title font-(family-name:--main-title-mobile-font-family) text-[128px] text-nowrap font-light leading-[90%] lg:text-[96px] lg:leading-[105%] lg:whitespace-normal" style="
+      <div class="w-full h-auto overflow-x-auto py-1.5 lg:py-0 lg:w-auto">
+        <h2
+          class="main-title font-(family-name:--main-title-mobile-font-family) text-[128px] text-nowrap font-light leading-[90%] lg:text-[96px] lg:leading-[105%] lg:whitespace-normal"
+          style="
                                 {% if block.settings.is_stroke_text %}
                                     color: transparent;
                                     -webkit-text-stroke-width: 1.5px;
@@ -21,10 +23,12 @@
                                     margin-left: 0px;
                                 {% endif %}
                             ">
-              {{ block.settings.main_text | upcase }}
-            </h2>
-            {% if block.settings.additional_text %}
-                <h2 class="main-title font-(family-name:--main-title-mobile-font-family) text-nowrap text-[128px] font-light leading-[90%] lg:text-[96px] lg:leading-[105%] lg:whitespace-normal" style="
+          {{ block.settings.main_text | upcase }}
+        </h2>
+        {% if block.settings.additional_text %}
+        <h2
+          class="main-title font-(family-name:--main-title-mobile-font-family) text-nowrap text-[128px] font-light leading-[90%] lg:text-[96px] lg:leading-[105%] lg:whitespace-normal"
+          style="
                 {% if block.settings.is_stroke_text %}
                     color: transparent;
                     -webkit-text-stroke-width: 1.5px;
@@ -39,42 +43,73 @@
                     margin-left: 0px;
                 {% endif %}
             ">
-{{ block.settings.additional_text | upcase }}
-            {% endif %}
-          </div>
+          {{ block.settings.additional_text | upcase }}
+          {% endif %}
+      </div>
 
-          <div class="w-full h-auto px-5">
-            <p class="paragraph-container lg:max-w-[726px]" style="
+      <div class="w-full h-auto px-5">
+        <p class="paragraph-container lg:max-w-[726px]" style="
           {% if block.settings.is_padding_text %}
                                     margin-left: {{ block.settings.padding_left_paragraph | times: 5.17 }}px;
                                 {% else %}
                                     margin-left: 0px;
                                 {% endif %}">{{ block.settings.paragraph_text }}</p>
-          </div>
+      </div>
 
-        </div>
-      {% endif %}
+    </div>
+    {% endif %}
     {% endfor %}
   </div>
 </div>
 
 {% style %}
-
-  @media (max-width: 480px) {
-     .main-title{
-      margin-left: 0px !important;
-     }
-     .paragraph-container{
-      margin-left: 0px !important;
-     }
+  .canteen-information-wrapper {
+    margin-top: {{ section.settings.margin_desktop_section }}px;
+    margin-bottom: {{ section.settings.margin_desktop_section }}px;
   }
 
+  @media (max-width: 480px) {
+    .canteen-information-wrapper {
+      margin-top: {{ section.settings.margin_mobile_section }}px;
+      margin-bottom: {{ section.settings.margin_mobile_section }}px;
+    }
+
+    .main-title {
+      margin-left: 0px !important;
+    }
+
+    .paragraph-container {
+      margin-left: 0px !important;
+    }
+  }
 {% endstyle %}
+
 
 {% schema %}
   {
     "name": "canteen_information",
-    "settings": [],
+    "settings": [
+      {
+        "type": "range",
+        "id": "margin_desktop_section",
+        "unit": "px",
+        "min": 0,
+        "max": 100,
+        "step": 10,
+        "default": 60,
+        "label": "Section distance top & bottom on desktop"
+      },
+      {
+        "type": "range",
+        "id": "margin_mobile_section",
+        "unit": "px",
+        "min": 0,
+        "max": 100,
+        "step": 10,
+        "default": 30,
+        "label": "Section distance top & bottom on mobile"
+      }
+    ],
     "blocks": [
       {
         "type": "block_text",
@@ -100,11 +135,13 @@
             "type": "text",
             "id": "additional_text",
             "label": "Additional text"
-          }, {
+          },
+          {
             "type": "color",
             "id": "color_text",
             "label": "Color text"
-          }, {
+          },
+          {
             "type": "range",
             "id": "padding_left_text_title",
             "label": "Distance from left title",
@@ -112,7 +149,8 @@
             "min": 0,
             "max": 100,
             "step": 10
-          }, {
+          },
+          {
             "type": "range",
             "id": "padding_left_paragraph",
             "label": "Distance from left paragraph",
@@ -120,7 +158,8 @@
             "min": 0,
             "max": 100,
             "step": 10
-          }, {
+          },
+          {
             "type": "checkbox",
             "id": "is_padding_text",
             "default": false,
@@ -152,3 +191,4 @@
     ]
   }
 {% endschema %}
+  

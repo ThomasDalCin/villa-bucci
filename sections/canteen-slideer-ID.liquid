@@ -1,5 +1,5 @@
 <!-- canteen slider id footer section -->
-<div class="w-full h-auto px-2.5">
+<div class="canteen-slider-id-wrapper w-full h-auto px-2.5">
   <!-- main wrapper section -->
   <div class="w-full h-auto rounded-[8px] bg-(--beige-color) flex flex-col items-start justify-center gap-y-[30px] overflow-x-hidden lg:gap-y-[72px]">
 
@@ -25,7 +25,7 @@
         {{ section.settings.main_title_right | default: "Le cantine" | upcase }}</h2>
     </div>
 
- 
+
     {% assign titlePagesCanteen = pages | where: "title", "Canteen" %}
     {% assign titlePagesCantina = pages | where: "title", "Cantina" %}
 
@@ -49,12 +49,15 @@
                       class="page-image w-full h-full object-cover object-center rounded-[8px]"
                       src="{{ pageImage | img_url: 'master' }}"
                       alt="">
-                      <!--container canteen logo -->
-                      {% if pageCanteenLogo %}
-                        <div class="page-logo hidden w-auto h-auto max-w-[81px] max-h-[69px] absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-                          <img class="w-full h-full object-center object-cover" src="{{ pageCanteenLogo |  img_url: 'master' }}" alt="{{ pageCanteenLogo.alt }}">
-                        </div>
-                      {% endif %}
+                    <!-- container canteen logo -->
+                    {% if pageCanteenLogo %}
+                      <div class="page-logo hidden w-auto h-auto max-w-[81px] max-h-[69px] absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+                        <img
+                          class="w-full h-full object-center object-cover"
+                          src="{{ pageCanteenLogo |  img_url: 'master' }}"
+                          alt="{{ pageCanteenLogo.alt }}">
+                      </div>
+                    {% endif %}
                   </div>
                   <!-- page title -->
                   <div class="w-full h-auto flex flex-row justify-between items-center">
@@ -73,45 +76,59 @@
   </div>
 </div>
 
+{% style %}
+
+  .canteen-slider-id-wrapper {
+    margin-top: {{ section.settings.margin_desktop_section }}px;
+    margin-bottom: {{ section.settings.margin_desktop_section }}px;
+  }
+  @media (max-width: 480px) {
+    .canteen-slider-id-wrapper {
+      margin-top: {{ section.settings.margin_mobile_section }}px;
+      margin-bottom: {{ section.settings.margin_mobile_section }}px;
+    }
+  }
+{% endstyle %}
+
 
 <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const url = new URL(window.location.href);
-        const pathName = url.pathname;
-        const pathSegments = pathName.split("/").filter((segment) => segment !== "");
+  document.addEventListener('DOMContentLoaded', () => {
+    const url = new URL(window.location.href);
+    const pathName = url.pathname;
+    const pathSegments = pathName.split("/").filter((segment) => segment !== "");
   
-        const canteenItem = document.querySelectorAll('.canteen-item');
-        const canteenItemContainer = document.querySelectorAll('.canteen-item-container');
+    const canteenItem = document.querySelectorAll('.canteen-item');
+    const canteenItemContainer = document.querySelectorAll('.canteen-item-container');
   
-        let elementToMove = null;
-
-        canteenItem.forEach((item, index) => {
-            const canteenData = item.getAttribute('data-canteen').toLowerCase();
-            const canteenDataCustom = canteenData.replace(/ /g, "-");
-
-            if(pathSegments.some((i) => canteenDataCustom == i)) {
-                const classesToAdd = ["border", "border-(--beige-light)", "border-[11px]"];
-                const pageImage = item.querySelector('.page-image');
-                const arrowImage = item.querySelector('.arrow-canteen-box');
-                const pageLogo = item.querySelector('.page-logo');
-                classesToAdd.forEach((classToAdd) => {
-                    pageImage.classList.add(classToAdd);
-                });
-                arrowImage.classList.remove('hidden');
-                pageLogo.classList.remove('hidden');
-
-                elementToMove = canteenItemContainer[index];
-            } else {
-              const pageImage = item.querySelector('.page-image');
-              pageImage.style.filter = "brightness(70%)"
-            }
+    let elementToMove = null;
+  
+    canteenItem.forEach((item, index) => {
+      const canteenData = item.getAttribute('data-canteen').toLowerCase();
+      const canteenDataCustom = canteenData.replace(/ /g, "-");
+  
+      if (pathSegments.some((i) => canteenDataCustom == i)) {
+        const classesToAdd = ["border", "border-(--beige-light)", "border-[11px]"];
+        const pageImage = item.querySelector('.page-image');
+        const arrowImage = item.querySelector('.arrow-canteen-box');
+        const pageLogo = item.querySelector('.page-logo');
+        classesToAdd.forEach((classToAdd) => {
+          pageImage.classList.add(classToAdd);
         });
-
-        if (elementToMove) {
-            const parentContainer = elementToMove.parentNode;
-            parentContainer.prepend(elementToMove);
-        }
+        arrowImage.classList.remove('hidden');
+        pageLogo.classList.remove('hidden');
+  
+        elementToMove = canteenItemContainer[index];
+      } else {
+        const pageImage = item.querySelector('.page-image');
+        pageImage.style.filter = "brightness(70%)"
+      }
     });
+  
+    if (elementToMove) {
+      const parentContainer = elementToMove.parentNode;
+      parentContainer.prepend(elementToMove);
+    }
+  });
 </script>
 
 
@@ -123,20 +140,41 @@
         "type": "text",
         "id": "main_title_left",
         "label": "Main section title left"
-      }, {
+      },
+      {
         "type": "text",
         "id": "main_title_right",
         "label": "Main section title right"
-      }, {
+      },
+      {
         "type": "checkbox",
         "id": "is_stroke_left",
         "label": "Stroke text left",
         "default": false
-      }, {
+      },
+      {
         "type": "checkbox",
         "id": "is_stroke_right",
         "label": "Stroke text right",
         "default": true
+      }, {
+        "type": "range",
+        "id": "margin_desktop_section",
+        "unit": "px",
+        "min": 0,
+        "max": 100,
+        "step": 10,
+        "default": 60,
+        "label": "Section distance top & bottom on desktop"
+      }, {
+        "type": "range",
+        "id": "margin_mobile_section",
+        "unit": "px",
+        "min": 0,
+        "max": 100,
+        "step": 10,
+        "default": 30,
+        "label": "Section distance top & bottom on mobile"
       }
     ]
   }

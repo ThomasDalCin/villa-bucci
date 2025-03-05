@@ -1,4 +1,4 @@
-<div class="w-full h-auto relative py-[100px] lg:py-[120px] overflow-x-hidden">
+<div class="canteen-main-wrapper w-full h-auto relative overflow-x-hidden">
   <!-- canteen main logo -->
     <div class="w-auto h-auto absolute left-1/2 top-[40%] -translate-x-1/2 -translate-y-1/2 z-0">
       <img
@@ -28,6 +28,22 @@
 </div>
 
 
+{% style %}
+  .canteen-main-wrapper {
+    margin-top: {{ section.settings.margin_desktop_section }}px;
+    margin-bottom: {{ section.settings.margin_desktop_section }}px;
+  }
+
+  @media (max-width: 480px) {
+    .canteen-main-wrapper {
+      margin-top: {{ section.settings.margin_mobile_section }}px;
+      margin-bottom: {{ section.settings.margin_mobile_section }}px;
+    }
+  }
+{% endstyle %}
+
+
+
 {% schema %}
   {
     "name": "canteen_main_text",
@@ -36,6 +52,26 @@
         "type": "image_picker",
         "id": "canteen_main_logo",
         "label": "Canteen logo"
+      },
+      {
+        "type": "range",
+        "id": "margin_desktop_section",
+        "unit": "px",
+        "min": 0,
+        "max": 100,
+        "step": 10,
+        "default": 60,
+        "label": "Section distance top & bottom on desktop"
+      },
+      {
+        "type": "range",
+        "id": "margin_mobile_section",
+        "unit": "px",
+        "min": 0,
+        "max": 100,
+        "step": 10,
+        "default": 30,
+        "label": "Section distance top & bottom on mobile"
       }
     ],
     "blocks": [

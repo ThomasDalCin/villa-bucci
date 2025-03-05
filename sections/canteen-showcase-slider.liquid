@@ -1,5 +1,5 @@
 <!-- canteen showcase slider collections products -->
-<div class="w-full h-auto flex flex-col items-start justify-center py-[100px] lg:py-[120px] gap-y-2.5">
+<div class="canteen-showcase-wrapper w-full h-auto flex flex-col items-start justify-center gap-y-2.5">
 
   <!-- container main section title -->
   <div class="w-full h-auto flex flex-col items-end justify-center px-5">
@@ -16,12 +16,10 @@
   <!-- container slider showcase -->
   {% for collection in collections %}
     <!-- showcase container -->
-    <div class="showcase-container-scroll w-full h-auto overflow-x-scroll flex flex-row justify-start items-center gap-x-5 px-5 py-5" data-collection="{{ collection.title |  replace: " ", "-" | downcase }}">
+    <div class="showcase-container-scroll w-full h-auto overflow-x-scroll flex flex-row justify-start items-center gap-x-5 px-5 py-5" data-collection="{{ collection.title |  replace: " ", " -" | downcase }}">
       {% for product in collection.products %}
 
-        <div
-          class="card-product w-[250px] min-w-[250px] min-h-[500px] h-[500px] p-2.5 lg:w-[540px] lg:h-[790px] rounded-[18px] flex flex-col items-center justify-between lg:justify-center outline outline-offset-4 relative group transition-all duration-200 ease-in-out"
-          data-product="{{ product.title |  downcase }}">
+        <div class="card-product w-[250px] min-w-[250px] min-h-[500px] h-[500px] p-2.5 lg:w-[540px] lg:h-[790px] rounded-[18px] flex flex-col items-center justify-between lg:justify-center outline outline-offset-4 relative group transition-all duration-200 ease-in-out" data-product="{{ product.title |  downcase }}">
 
           <!-- container item number -->
           <div class="w-auto h-auto lg:absolute lg:left-5 lg:top-5">
@@ -48,11 +46,22 @@
 
 {% style %}
   .card-product {
-    background: {{ section.settings.main_card_bg_color_default |  hex_to_rgba: 0.3 }};
+    background: {{ section.settings.main_card_bg_color_default | hex_to_rgba: 0.3 }};
     outline-color: {{ section.settings.main_card_bg_color_default }}
   }
   .card-product:hover {
     background-color: {{ section.settings.main_card_bg_color_default }};
+  }
+
+  .canteen-showcase-wrapper {
+    margin-top: {{ section.settings.margin_desktop_section }}px;
+    margin-bottom: {{ section.settings.margin_desktop_section }}px;
+  }
+  @media (max-width: 480px) {
+    .canteen-showcase-wrapper {
+      margin-top: {{ section.settings.margin_mobile_section }}px;
+      margin-bottom: {{ section.settings.margin_mobile_section }}px;
+    }
   }
 {% endstyle %}
 
@@ -125,6 +134,26 @@
         "type": "color",
         "id": "main_card_bg_color_default",
         "label": "Card background default"
+      }, 
+      {
+        "type": "range",
+        "id": "margin_desktop_section",
+        "unit": "px",
+        "min": 0,
+        "max": 100,
+        "step": 10,
+        "default": 60,
+        "label": "Section distance top & bottom on desktop"
+      },
+      {
+        "type": "range",
+        "id": "margin_mobile_section",
+        "unit": "px",
+        "min": 0,
+        "max": 100,
+        "step": 10,
+        "default": 30,
+        "label": "Section distance top & bottom on mobile"
       }
     ]
   }

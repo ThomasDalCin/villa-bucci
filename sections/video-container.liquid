@@ -21,6 +21,21 @@
 
 
 </div>
+{% style %}
+
+
+  .main-container {
+    margin-top: {{ section.settings.margin_desktop_section }}px;
+    margin-bottom: {{ section.settings.margin_desktop_section }}px;
+  }
+
+  @media (max-width: 480px) {
+    .main-container {
+      margin-top: {{ section.settings.margin_mobile_section }}px;
+      margin-bottom: {{ section.settings.margin_mobile_section }}px;
+    }
+  }
+{% endstyle %}
 
 {% schema %}
   {
@@ -34,7 +49,27 @@
         "type": "image_picker",
         "id": "banner_image",
         "label": "Image"
+      },
+      {
+        "type": "range",
+        "id": "margin_desktop_section",
+        "unit": "px",
+        "min": 0,
+        "max": 100,
+        "step": 10,
+        "default": 60,
+        "label": "Section distance top & bottom on desktop"
       }, {
+        "type": "range",
+        "id": "margin_mobile_section",
+        "unit": "px",
+        "min": 0,
+        "max": 100,
+        "step": 10,
+        "default": 30,
+        "label": "Section distance top & bottom on mobile"
+      },
+      {
         "type": "select",
         "default": "block",
         "id": "show_media_video",

@@ -1,6 +1,6 @@
 <div class="outer-container">
   <div class="sticky-container w-full h-auto static lg:h-screen lg:sticky lg:top-10 overflow-hidden">
-    <div class="mask-container w-full h-auto relative z-100 overflow-hidden lg:h-full">
+    <div class="mask-container w-full h-auto relative z-50 overflow-hidden lg:h-full">
       <div class="horizontal-scrollable-container h-auto w-full overflow-x-auto lg:h-full lg:overflow-x-hidden">
         <div class="content w-full h-auto flex flex-row items-center justify-start gap-x-1.5 px-5 overflow-x-auto lg:overflow-hidden">
           {% for block in section.blocks %}
@@ -27,6 +27,20 @@
     </div>
   </div>
 </div>
+
+{% style %}
+
+  .outer-container {
+    margin-top: {{ section.settings.margin_desktop_section }}px;
+    margin-bottom: {{ section.settings.margin_desktop_section }}px;
+  }
+  @media (max-width: 480px) {
+    .outer-container {
+      margin-top: {{ section.settings.margin_mobile_section }}px;
+      margin-bottom: {{ section.settings.margin_mobile_section }}px;
+    }
+  }
+{% endstyle %}
 
 
 <script>
@@ -67,7 +81,7 @@
       horizontalScrollable.style.width = `${sizesValue.width}px`;
       const rectWidth = horizontalScrollable.getBoundingClientRect().width;
       const scrollableValue = rectWidth - window.innerWidth;
-      
+  
       gsap.to(horizontalScrollable, {
         x: () => `-${scrollableValue}px`,
         ease: "none",
@@ -88,7 +102,27 @@
 {% schema %}
   {
     "name": "canteen_slider",
-    "settings": [],
+    "settings": [
+      {
+        "type": "range",
+        "id": "margin_desktop_section",
+        "unit": "px",
+        "min": 0,
+        "max": 100,
+        "step": 10,
+        "default": 60,
+        "label": "Section distance top & bottom on desktop"
+      }, {
+        "type": "range",
+        "id": "margin_mobile_section",
+        "unit": "px",
+        "min": 0,
+        "max": 100,
+        "step": 10,
+        "default": 30,
+        "label": "Section distance top & bottom on mobile"
+      }
+    ],
     "blocks": [
       {
         "type": "canteen_slider",
