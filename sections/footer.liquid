@@ -101,7 +101,9 @@
     <div class="w-full h-auto">
       <div class="flex flex-col items-center text-center  lg:flex-row lg:items-center">
         <!-- Column 1 -->
-
+        <div class="flex-1">
+          <p class="text-[12px]">{{ section.settings.company_info }} </p>
+        </div>
 
         <!-- Column 2 -->
         <div class="flex-1">
@@ -111,11 +113,9 @@
 
         <!-- Column 3 (Aligned Right) -->
         <div class="flex-1 text-center lg:text-right">
-          <a href="{{ section.settings.cookie_link }}" class="hover:underline">{{ section.settings.cookie_text }}</a>
-          |
-          <a href="{{ section.settings.privacy_link }}" class="hover:underline">{{ section.settings.privacy_text }}</a>
-          |
-          <a href="{{ section.settings.credits_link }}" class="hover:underline">{{ section.settings.credits_text }}</a>
+          <a  href="{{ section.settings.cookie_link }}" class="text-[12px]">{{ section.settings.cookie_text }}</a> |
+          <a href="{{ section.settings.privacy_link }}" class="text-[12px] ">{{ section.settings.privacy_text }}</a> |
+          <a href="{{ section.settings.credits_link }}" class="text-[12px]">{{ section.settings.credits_text }}</a>
         </div>
       </div>
     </div>
