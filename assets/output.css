@@ -380,6 +380,9 @@
   .w-2 {
     width: calc(var(--spacing) * 2);
   }
+  .w-315 {
+    width: calc(var(--spacing) * 315);
+  }
   .w-\[67px\] {
     width: 67px;
   }
@@ -694,8 +697,17 @@
   .py-\[100px\] {
     padding-block: 100px;
   }
+  .pt-5 {
+    padding-top: calc(var(--spacing) * 5);
+  }
   .pt-16 {
     padding-top: calc(var(--spacing) * 16);
+  }
+  .pb-5 {
+    padding-bottom: calc(var(--spacing) * 5);
+  }
+  .pb-\[40px\] {
+    padding-bottom: 40px;
   }
   .text-center {
     text-align: center;
@@ -1106,6 +1118,11 @@
   .lg\:w-\[640px\] {
     @media (width >= 64rem) {
       width: 640px;
+    }
+  }
+  .lg\:w-\[726px\] {
+    @media (width >= 64rem) {
+      width: 726px;
     }
   }
   .lg\:w-\[1472px\] {
