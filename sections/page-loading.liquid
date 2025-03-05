@@ -188,6 +188,23 @@
         directionalLight.position.set(5, 5, 5).normalize();
         scene.add(directionalLight);
 
+        const axesHelper = new THREE.AxesHelper(5);
+        scene.add(axesHelper);
+
+        const canvasSizes = {width: window.innerWidth, height: window.innerHeight};
+        const aspectRatio = canvasSizes.width / canvasSizes.height;
+        const cameraWidth = 20;
+        const cameraHeight = cameraWidth / aspectRatio;
+
+        const camera = new THREE.OrthographicCamera(
+            -cameraWidth, cameraWidth, cameraHeight, -cameraHeight, 0.1, 100
+        );
+        camera.position.set(0, 0, 40);
+        camera.lookAt(0, 0, 0);
+
+        const renderer = new THREE.WebGLRenderer({canvas: canvas, antialias: true});
+        renderer.setSize(canvasSizes.width, canvasSizes.height);
+
         const loader = new SVGLoader();
 
         loader.load(
@@ -218,6 +235,8 @@
                 console.log(group)
                 group.position.set(0, 0, 0);
                 group.scale.set(10, 10, 10);
+
+                renderer.render(scene, camera);
             },
             function (xhr) {
                 console.log((xhr.loaded / xhr.total) * 100 + '% loaded');
@@ -227,23 +246,6 @@
             }
         );
 
-        const axesHelper = new THREE.AxesHelper(5);
-        scene.add(axesHelper);
-
-        const canvasSizes = {width: window.innerWidth, height: window.innerHeight};
-        const aspectRatio = canvasSizes.width / canvasSizes.height;
-        const cameraWidth = 20;
-        const cameraHeight = cameraWidth / aspectRatio;
-
-        const camera = new THREE.OrthographicCamera(
-            -cameraWidth, cameraWidth, cameraHeight, -cameraHeight, 0.1, 100
-        );
-        camera.position.set(0, 0, 40);
-        camera.lookAt(0, 0, 0);
-
-        const renderer = new THREE.WebGLRenderer({canvas: canvas, antialias: true});
-        renderer.setSize(canvasSizes.width, canvasSizes.height);
-        renderer.render(scene, camera);
 
     });
 </script>
