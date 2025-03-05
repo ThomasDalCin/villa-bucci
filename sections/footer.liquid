@@ -78,20 +78,13 @@
         </div>
 
         <!-- Column 4 -->
-        <div class="w-full h-auto py-5 flex flex-col items-center justify-center border border-r-0 border-l-0 border-t-0 border-b-(--border-color)">
-          <a href="{{ section.settings.brand_link }}" class="flex flex-row items-center justify-start gap-x-2.5">
-            <span style="color: #E86A58;">{{ section.settings.brand_name }}</span>
-            <span class="inline-flex">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="8"
-                height="8"
-                viewBox="0 0 8 8"
-                fill="none">
-                <path d="M1 1H7V7" stroke="#E86A58" />
-                <path d="M1.17285 6.8335L6.88133 1.12504" stroke="#E86A58" />
-              </svg>
-            </span>
+        <div class="w-full h-auto flex flex-col items-center justify-center border border-r-0 border-l-0 border-t-0 border-b-(--border-color)">
+          <a href="{{ section.settings.brand_link }}" class="flex items-center space-x-1 justify-center">
+            <span style="font-family: var(--submain-mobile-title-font-family); color: #E86A58">{{ section.settings.brand_name }}</span>
+            <div class=" color:#E86A58"> 
+              {% render 'arrow-up' %}
+            </div>
+            
           </a>
         </div>
       </div>
@@ -107,12 +100,7 @@
           <p class="text-[12px] font-(family-name:--submain-mobile-title-font-family) font-bold">{{ section.settings.company_info |  upcase }}</p>
         </div>
 
-        <!-- Column 2  -->
-        <div class="w-full h-auto flex flex-row items-center justify-center gap-x-0.5">
-          <a href="{{ section.settings.cookie_link }}" class="text-[12px]  font-(family-name:--submain-mobile-title-font-family) font-bold">{{ section.settings.cookie_text }}</a>
-          <a href="{{ section.settings.privacy_link }}" class="text-[12px] font-(family-name:--submain-mobile-title-font-family) font-bold">|{{ section.settings.privacy_text }}|</a>
-          <a href="{{ section.settings.credits_link }}" class="text-[12px] font-(family-name:--submain-mobile-title-font-family) font-bold">{{ section.settings.credits_text }}</a>
-        </div>
+       
 
       </div>
     </div>
