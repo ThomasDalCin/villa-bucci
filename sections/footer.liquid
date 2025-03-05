@@ -56,8 +56,8 @@
               {% endfor %}
          </div>
           
-          <div class="absolute right-0 bottom-0">
-            <p>torna su</p>
+          <div class="absolute left-0 right-0 bottom-0">
+            <p>Torna su</p>
           </div>
         </div>
       </div>
@@ -68,7 +68,7 @@
       <div class="flex flex-col items-center text-center  lg:flex-row lg:items-center">
         <!-- Column 1 -->
         <div class="flex-1">
-          <p>{{ section.settings.company_info }} </p>
+          <p class="text-[12px]">{{ section.settings.company_info }} </p>
         </div>
 
         <!-- Column 2 -->
@@ -86,9 +86,9 @@
 
         <!-- Column 3 (Aligned Right) -->
         <div class="flex-1 text-center lg:text-right">
-          <a href="{{ section.settings.cookie_link }}" class="hover:underline">{{ section.settings.cookie_text }}</a> |
-          <a href="{{ section.settings.privacy_link }}" class="hover:underline">{{ section.settings.privacy_text }}</a> |
-          <a href="{{ section.settings.credits_link }}" class="hover:underline">{{ section.settings.credits_text }}</a>
+          <a  href="{{ section.settings.cookie_link }}" class="text-[12px]">{{ section.settings.cookie_text }}</a> |
+          <a href="{{ section.settings.privacy_link }}" class="text-[12px] ">{{ section.settings.privacy_text }}</a> |
+          <a href="{{ section.settings.credits_link }}" class="text-[12px]">{{ section.settings.credits_text }}</a>
         </div>
       </div>
     </div>
@@ -154,7 +154,7 @@
       "type": "text",
       "id": "company_info",
       "label": "Company Info",
-      "default": "oniwines | P.IVA 00000000000 | mail@oniwines.it"
+      "default": "ONIWINES | P.IVA 00000000000 | mail@oniwines.it"
     },
     {
       "type": "text",
