@@ -135,10 +135,7 @@
                 currentTranslateValue += percentValue;
 
                 loadingWrapper.style.transform = `translateY(-${currentTranslateValue}%)`;
-
-                loadingWrapper.addEventListener('transitionend', () => {
-                    navbar.classList.remove('opacity-0');
-                });
+                
             }, 500);
         });
 
