@@ -1,7 +1,8 @@
 <!-- video section container -->
-<div class="w-full h-[500px] lg:h-[942px] p-5">
+<div class="main-container w-full h-[500px] lg:h-[942px] p-5">
   <!-- video wrapper container -->
   <div class="w-full h-full {{ section.settings.show_media_video }}">
+
     <video
       class="w-full h-full object-cover object-center rounded-[8px]"
       autoplay
@@ -11,7 +12,7 @@
     </video>
   </div>
 
-  <div class="w-full h-full  {{ section.settings.show_media_image }}">
+  <div class="w-full h-full {{ section.settings.show_media_image }}">
     <img
       class="w-full h-full object-cover object-center rounded-[8px]"
       src="{{ section.settings.banner_image |  img_url: 'master'}}"

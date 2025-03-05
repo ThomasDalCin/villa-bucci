@@ -4,6 +4,7 @@
       "type": "video-container",
       "custom_css": [
         "img {height: 355px !important;}",
+        ".main-container{height: auto}",
         "@media (min-width: 1024px) {img {height: 558px !important; }}"
       ],
       "settings": {
