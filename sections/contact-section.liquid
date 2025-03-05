@@ -1,5 +1,5 @@
 <!-- contact section -->
-<div class="w-full h-auto flex flex-col items-start justify-center p-5 gap-y-[55px] lg:gap-y-[70px] mb-[150px]">
+<div class="contact-wrapper w-full h-auto flex flex-col items-start justify-center p-5 gap-y-[55px] lg:gap-y-[70px] mb-[150px]">
 
   <div class="w-full h-auto flex flex-row items-center justify-start">
     <h2 class="font-(family-name:--main-title-mobile-font-family) text-[40px] leading-[105%] tracking-[1.02px] lg:text-[96px] lg:tracking-[2.88px]">{{ section.settings.main_title | default: "Contatti" | upcase }}</h2>
@@ -22,6 +22,23 @@
 </div>
 
 
+{% style %}
+
+
+  .contact-wrapper {
+    margin-top: {{ section.settings.margin_desktop_section }}px;
+    margin-bottom: {{ section.settings.margin_desktop_section }}px;
+  }
+
+  @media (max-width: 480px) {
+    .contact-wrapper {
+      margin-top: {{ section.settings.margin_mobile_section }}px;
+      margin-bottom: {{ section.settings.margin_mobile_section }}px;
+    }
+  }
+{% endstyle %}
+
+
 {% schema %}
   {
     "name": "contact_info",
@@ -30,6 +47,25 @@
         "type": "text",
         "id": "main_title",
         "label": "Main section title"
+      },
+      {
+        "type": "range",
+        "id": "margin_desktop_section",
+        "unit": "px",
+        "min": 0,
+        "max": 100,
+        "step": 10,
+        "default": 60,
+        "label": "Section distance top & bottom on desktop"
+      }, {
+        "type": "range",
+        "id": "margin_mobile_section",
+        "unit": "px",
+        "min": 0,
+        "max": 100,
+        "step": 10,
+        "default": 30,
+        "label": "Section distance top & bottom on mobile"
       }
     ],
     "blocks": [

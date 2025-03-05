@@ -1,4 +1,4 @@
-<div class="w-full h-auto overflow-hidden">
+<div class="text-wrapper w-full h-auto overflow-hidden">
   {% for block in section.blocks %}
     {% assign indexModule = forloop.index | modulo: 2 %}
     {% if block.type == "emotional_text" %}
@@ -23,6 +23,22 @@
     {% endif %}
   {% endfor %}
 </div>
+
+
+
+{% style %}
+    .text-wrapper {
+    margin-top: {{ section.settings.margin_desktop_section }}px;
+    margin-bottom: {{ section.settings.margin_desktop_section }}px;
+  }
+
+  @media (max-width: 480px) {
+    .text-wrapper {
+      margin-top: {{ section.settings.margin_mobile_section }}px;
+      margin-bottom: {{ section.settings.margin_mobile_section }}px;
+    }
+  }
+{% endstyle %}
 
 
 <script>
@@ -65,7 +81,27 @@
 {% schema %}
   {
     "name": "emotional_text_section",
-    "settings": [],
+    "settings": [
+      {
+        "type": "range",
+        "id": "margin_desktop_section",
+        "unit": "px",
+        "min": 0,
+        "max": 100,
+        "step": 10,
+        "default": 60,
+        "label": "Section distance top & bottom on desktop"
+      }, {
+        "type": "range",
+        "id": "margin_mobile_section",
+        "unit": "px",
+        "min": 0,
+        "max": 100,
+        "step": 10,
+        "default": 30,
+        "label": "Section distance top & bottom on mobile"
+      }
+    ],
     "blocks": [
       {
         "type": "emotional_text",
