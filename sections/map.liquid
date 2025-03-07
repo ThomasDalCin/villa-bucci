@@ -1,17 +1,111 @@
-     <!-- container canvas -->
-     <div class="w-full h-screen fixed top-0 z-5">
-        <canvas id="canvas" class="w-full h-full">
-            <!-- Three.js content -->
-        </canvas>
+<!-- container canvas -->
+<div class="w-full h-screen fixed top-0 z-5">
+    <canvas id="canvas" class="w-full h-full">
+        <!-- Three.js content -->
+    </canvas>
+
+    <!--outer container -->
+    {% assign counter = 0 %}
+    {% for page in pages %}
+    {% if page.title contains "Cantina" or page.title contains "Canteen" %}
+    {% assign counter = counter | plus: 1 %}
+    {% endif %}
+    {% endfor %}
+    {% assign counter = counter | plus: 1 | times: 100 %}
+
+    <div class="outer-container w-full h-[{{ counter }}vh] absolute left-0 top-0 right-0">
+        <div class="sticky-container w-full h-screen overflow-hidden relative">
+            <div class="container-sections w-full h-screen overflow-y-scroll snap-mandatory snap-y">
+                {% for page in pages %}
+                {% if page.title contains "Cantina" or page.title contains "Canteen" %}
+                {% assign pageCustomTitle = page.title | split: " " %}
+                {% assign pageCustomTitle = pageCustomTitle | slice: 1, pageCustomTitle.size %}
+                {% assign pageCustomTitle = pageCustomTitle | join: " " %}
+                {% assign canteenLocation = page.metafields.custom.page_canteen_location.value %}
+
+                <div class="section w-full h-full flex flex-col items-center justify-center gap-y-5 snap-start"
+                    data-id="{{ forloop.index }}" data-href="{{ page.url }}">
+                    <h2
+                        class="font-(family-name:--main-title-mobile-font-family) text-center text-[40px] text-(--green-color) leading-[105%] tracking-[1.02px] lg:text-[96px] lg:tracking-[2.88px] lg:max-w-[900px] lg:text-center">
+                        {{ pageCustomTitle | upcase
+                        }}</h2>
+                    {% if canteenLocation %}
+                    <p class="text-[12px] leading-normal text-(--green-color)">{{ canteenLocation }}</p>
+                    {% endif %}
+                </div>
+                {% endif %}
+                {% endfor %}
+
+                <!--extra section-->
+                <div class="section w-full h-full flex flex-col items-center justify-center gap-y-5 snap-start" data-href="#">
+                    <h2
+                        class="font-(family-name:--main-title-mobile-font-family) text-center text-[40px] text-(--green-color) leading-[105%] tracking-[1.02px] lg:text-[96px] lg:tracking-[2.88px] lg:max-w-[900px] lg:text-center">
+                        {{ section.settings.extra_section_title | default: "What's next?" | upcase
+                        }}</h2>
+                </div>
+            </div>
+
+            <!--container cta fix-->
+            <div
+                class="w-auto h-auto absolute bottom-[30px] lg:bottom-[155px] left-1/2 -translate-x-1/2 flex flex-col items-center justify-end z-20">
+                <div class="cta-orange">
+                    <a href="#" class="redirect-to-website">
+                        <p class="uppercase text-[12px] leading-[16px] tracking-[-3%]">{{ section.settings.cta_text |
+                            default: "Vai al sito" }}
+                        </p>
+                    </a>
+                    {% render 'arrow-up' %}
+                </div>
+            </div>
+        </div>
     </div>
+</div>
+
+
+<script>
+    const ctaRedirect = document.querySelector('.redirect-to-website');
+    const sections = document.querySelectorAll('.section');
+    const containerSections = document.querySelector('.container-sections');
+    const originalCtaText = ctaRedirect.firstElementChild.innerHTML;
+
+    function updateCta() {
+        let currentSection = null;
+
+        sections.forEach((section, index) => {
+            const rect = section.getBoundingClientRect();
+
+            if (rect.top < window.innerHeight && rect.bottom > 0) {
+                currentSection = {section, index};
+            }
+        });
+
+        if (currentSection && currentSection.index === sections.length - 1) {
+
+            ctaRedirect.setAttribute('href', 'progetto');
+            const ctaText = ctaRedirect.firstElementChild;
+            ctaText.innerHTML = "PROGETTO".toUpperCase()
+
+        } else {
+            const newHref = currentSection.section.getAttribute('data-href');
+            ctaRedirect.setAttribute('href', newHref);
+            const ctaText = ctaRedirect.firstElementChild;
+            ctaText.innerHTML = originalCtaText;
+        }
+    }
+
+    containerSections.addEventListener('scroll', updateCta);
+
+    updateCta();
+</script>
 
 
 
-    <script type="module">
+
+
+
+<script type="module">
     import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.173.0/build/three.module.js';
     import {SVGLoader} from 'https://cdn.skypack.dev/three@0.130.0/examples/jsm/loaders/SVGLoader.js';
-    import threejsOrbitControls from 'https://cdn.skypack.dev/threejs-orbit-controls';
-
 
     document.addEventListener('DOMContentLoaded', async () => {
         const canvas = document.getElementById('canvas');
@@ -24,7 +118,7 @@
         const scene = new THREE.Scene();
         scene.background = new THREE.Color(0xDACABB);
 
-        // Camera setup
+        //set up camea
         const canvasSizes = {width: window.innerWidth, height: window.innerHeight};
         const aspectRatio = canvasSizes.width / canvasSizes.height;
         const camera = new THREE.OrthographicCamera(
@@ -33,7 +127,7 @@
         camera.position.set(0, 0, 10);
         camera.lookAt(0, 0, 0);
 
-        // Lighting
+        //set up light
         const ambientLight = new THREE.AmbientLight(0x404040);
         scene.add(ambientLight);
 
@@ -46,55 +140,47 @@
         directionalLight.position.set(5, 5, 5).normalize();
         scene.add(directionalLight);
 
-        // Orbit Controls
-        // const controls = new threejsOrbitControls(camera, canvas);
-        // controls.enableDamping = true;
-
-        // SVG Loader
+        //set up geometries using svgloader
         const loader = new SVGLoader();
+        let pathMeshes = [];
+
         loader.load(
-            "{{ 'mappa_new.svg' |  asset_url }}",
+            "{{ 'mappa_new.svg' | asset_url }}",
             function (data) {
                 const paths = data.paths;
                 const group = new THREE.Group();
-                console.log(data);
-                let color;
 
-                for (let i = 0; i < paths.length; i++) {
-
-                    const path = paths[i];
-                    const userData = path.userData.node.id;
-
-                    if (userData != "") {
-                        color = new THREE.Color("#A38A70")
-                    } else {
-                        color = new THREE.Color("#EAE3DA");
-                    }
-
-                    console.log(userData)
+                paths.forEach((path) => {
+                    const pathId = path.userData.node.id;
 
                     const material = new THREE.MeshBasicMaterial({
-                        color: color,
+                        color: new THREE.Color("#EAE3DA"),
                         side: THREE.DoubleSide,
                         depthWrite: true,
                     });
 
                     const shapes = SVGLoader.createShapes(path);
 
-                    for (let j = 0; j < shapes.length; j++) {
-                        const shape = shapes[j];
+                    shapes.forEach(shape => {
                         const geometry = new THREE.ShapeGeometry(shape);
                         const mesh = new THREE.Mesh(geometry, material);
                         group.add(mesh);
-                    }
-                }
+
+                        if (pathId && pathId.trim() !== "") {
+                            pathMeshes.push({mesh, pathId});
+                        }
+                    });
+                });
 
                 scene.add(group);
-                group.scale.set(0.035, 0.035, 0.035); // Adjust scaling factor group map
-                group.position.set(-10, 27.5, 0); // Centering group - position map on screen
-                group.rotation.x = Math.PI; // rotation map group
-                group.rotation.y = 0;
-                group.rotation.z = 0;
+                group.scale.set(0.045, 0.040, 0.040);
+                group.position.set(-10, 27.5, 0);
+                group.rotation.x = Math.PI;
+
+                window.group = group;
+                window.pathMeshes = pathMeshes;
+
+                highlightPath("lazio");
             },
             function (xhr) {
                 console.log((xhr.loaded / xhr.total) * 100 + '% loaded');
@@ -108,15 +194,92 @@
         const axesHelper = new THREE.AxesHelper(5);
         scene.add(axesHelper);
 
-        // Renderer
+        // Define coordinates order to move the group inside
+        const coordinatePathMapping = [
+            {coordinates: new THREE.Vector3(-15.5, 45.5, 0), pathId: "sardegna"},
+            {coordinates: new THREE.Vector3(-5, 20, 0), pathId: "veneto"},
+            {coordinates: new THREE.Vector3(-20.5, 30.5, 0), pathId: "marche"},
+            {coordinates: new THREE.Vector3(-20.5, 30.5, 0), pathId: "all"},
+        ];
+
+        let targetIndex = 3;
+        let targetPosition = coordinatePathMapping[targetIndex].coordinates;
+        let targetPathId = coordinatePathMapping[targetIndex].pathId;
+        let isMoving = false;
+
+        let targetZoom = camera.zoom;
+        let zoomSpeed = 0.05;
+
+        window.addEventListener('scroll', () => {
+            targetIndex = (targetIndex + 1) % coordinatePathMapping.length;
+            targetPosition = coordinatePathMapping[targetIndex].coordinates;
+            targetPathId = coordinatePathMapping[targetIndex].pathId;
+            isMoving = true;
+
+            if (targetPathId === "all") {
+                targetZoom = 0.45;
+            } else {
+                targetZoom = 1;
+            }
+
+            highlightPath(targetPathId);
+        });
+
+        //set color
+        function highlightPath(pathId) {
+            if (window.pathMeshes) {
+                window.pathMeshes.forEach(pathData => {
+                    const {mesh} = pathData;
+                    mesh.material.color.set("#EAE3DA");
+                });
+
+                const targetPath = window.pathMeshes.find(pathData => pathData.pathId === pathId);
+                if (targetPath) {
+                    targetPath.mesh.material.color.set("#A38A70");
+                }
+            }
+        }
+
+        // Renderer setup
         const renderer = new THREE.WebGLRenderer({canvas: canvas, antialias: true});
         renderer.setSize(canvasSizes.width, canvasSizes.height);
 
+        //update camera during scroll
+        function onWindowResize() {
+            canvasSizes.width = window.innerWidth;
+            canvasSizes.height = window.innerHeight;
+            renderer.setSize(canvasSizes.width, canvasSizes.height);
+
+            camera.left = -canvasSizes.width / canvasSizes.height * 20;
+            camera.right = canvasSizes.width / canvasSizes.height * 20;
+            camera.top = 20;
+            camera.bottom = -20;
+            camera.updateProjectionMatrix();
+        }
+
+        window.addEventListener('resize', onWindowResize, false);
+
         function animate() {
             requestAnimationFrame(animate);
-            // controls.update();
+            
+            //position
+            if (window.group && isMoving) {
+                window.group.position.lerp(targetPosition, 0.07);
+
+                if (window.group.position.distanceTo(targetPosition) < 0.1) {
+                    isMoving = false;
+                }
+            }
+
+            //zoom 
+            if (Math.abs(camera.zoom - targetZoom) > 0.01) {
+                camera.zoom += (targetZoom - camera.zoom) * zoomSpeed;
+                camera.updateProjectionMatrix();
+            }
+
             renderer.render(scene, camera);
         }
+
         animate();
     });
 </script>
