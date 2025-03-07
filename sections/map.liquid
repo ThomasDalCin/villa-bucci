@@ -53,17 +53,28 @@
         // SVG Loader
         const loader = new SVGLoader();
         loader.load(
-            "{{ 'map.svg' |  asset_url }}",
+            "{{ 'mappa_new.svg' |  asset_url }}",
             function (data) {
                 const paths = data.paths;
                 const group = new THREE.Group();
                 console.log(data);
+                let color;
 
                 for (let i = 0; i < paths.length; i++) {
+
                     const path = paths[i];
+                    const userData = path.userData.node.id;
+
+                    if (userData != "") {
+                        color = new THREE.Color("#A38A70")
+                    } else {
+                        color = new THREE.Color("#EAE3DA");
+                    }
+
+                    console.log(userData)
 
                     const material = new THREE.MeshBasicMaterial({
-                        color: new THREE.Color(path.color),
+                        color: color,
                         side: THREE.DoubleSide,
                         depthWrite: true,
                     });
@@ -79,8 +90,11 @@
                 }
 
                 scene.add(group);
-                group.scale.set(0.01, 0.01, 0.01); // Adjust scaling factor
-                group.position.set(0, -10, 0); // Centering
+                group.scale.set(0.035, 0.035, 0.035); // Adjust scaling factor group map
+                group.position.set(-10, 27.5, 0); // Centering group - position map on screen
+                group.rotation.x = Math.PI; // rotation map group
+                group.rotation.y = 0;
+                group.rotation.z = 0;
             },
             function (xhr) {
                 console.log((xhr.loaded / xhr.total) * 100 + '% loaded');
