@@ -210,7 +210,7 @@
         let targetZoom = camera.zoom;
         let zoomSpeed = 0.05;
 
-        window.addEventListener('scroll', () => {
+        canvas.addEventListener('scroll', () => {
             targetIndex = (targetIndex + 1) % coordinatePathMapping.length;
             targetPosition = coordinatePathMapping[targetIndex].coordinates;
             targetPathId = coordinatePathMapping[targetIndex].pathId;
