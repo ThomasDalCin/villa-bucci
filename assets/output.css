@@ -1,4 +1,4 @@
-/*! tailwindcss v4.0.6 | MIT License | https://tailwindcss.com */
+/*! tailwindcss v4.0.9 | MIT License | https://tailwindcss.com */
 @layer theme, base, components, utilities;
 @layer theme {
   :root, :host {
@@ -1090,17 +1090,11 @@
     font-size: var(--text-lg);
     line-height: var(--tw-leading, var(--text-lg--line-height));
   }
-  .text-\[128px\] {
-    font-size: 128px;
-  }
   .text-\[12px\] {
     font-size: 12px;
   }
   .text-\[16px\] {
     font-size: 16px;
-  }
-  .text-\[200px\] {
-    font-size: 200px;
   }
   .text-\[24px\] {
     font-size: 24px;
@@ -1111,6 +1105,16 @@
   .text-\[50px\] {
     font-size: 50px;
   }
+  .text-\[128px\] {
+    font-size: 128px;
+  }
+  .text-\[200px\] {
+    font-size: 200px;
+  }
+  .leading-\[16px\] {
+    --tw-leading: 16px;
+    line-height: 16px;
+  }
   .leading-\[90\%\] {
     --tw-leading: 90%;
     line-height: 90%;
@@ -1118,10 +1122,6 @@
   .leading-\[105\%\] {
     --tw-leading: 105%;
     line-height: 105%;
-  }
-  .leading-\[16px\] {
-    --tw-leading: 16px;
-    line-height: 16px;
   }
   .leading-normal {
     --tw-leading: var(--leading-normal);
@@ -1346,11 +1346,6 @@
   .lg\:bottom-0 {
     @media (width >= 64rem) {
       bottom: calc(var(--spacing) * 0);
-    }
-  }
-  .lg\:bottom-1 {
-    @media (width >= 64rem) {
-      bottom: calc(var(--spacing) * 1);
     }
   }
   .lg\:bottom-5 {
@@ -2039,32 +2034,6 @@
     box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
   }
 }
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-@keyframes ping {
-  75%, 100% {
-    transform: scale(2);
-    opacity: 0;
-  }
-}
-@keyframes pulse {
-  50% {
-    opacity: 0.5;
-  }
-}
-@keyframes bounce {
-  0%, 100% {
-    transform: translateY(-25%);
-    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
-  }
-  50% {
-    transform: none;
-    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
-  }
-}
 @property --tw-translate-x {
   syntax: "*";
   inherits: false;
@@ -2223,6 +2192,10 @@
   syntax: "*";
   inherits: false;
 }
+@property --tw-drop-shadow {
+  syntax: "*";
+  inherits: false;
+}
 @property --tw-backdrop-blur {
   syntax: "*";
   inherits: false;
@@ -2266,4 +2239,30 @@
 @property --tw-ease {
   syntax: "*";
   inherits: false;
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes ping {
+  75%, 100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+@keyframes pulse {
+  50% {
+    opacity: 0.5;
+  }
+}
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(-25%);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+  50% {
+    transform: none;
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
 }
