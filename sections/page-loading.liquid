@@ -1,17 +1,17 @@
-<!--page loading section with video-->
+<!-- page loading section with video -->
 <div class="w-full h-svh relative z-50">
 
-    <!--wrapper container main elements-->
+    <!-- wrapper container main elements -->
     <div class="loading-wrapper w-full transform transition-all duration-500 ease-[cubic-bezier(.06,.86,.78,.22)]">
 
-        <!--container video-->
+        <!-- container video -->
         <div class="section-content video-container w-full h-screen">
             <video class="video w-full h-full object-cover object-center" autoplay muted playsinline>
                 <source src="{{ 'page-loading.mp4' | asset_url }}" />
             </video>
         </div>
 
-        <!--home step text layout -->
+        <!-- home step text layout -->
         <div class="section-content w-full h-screen">
             <div class="w-full h-full flex flex-col items-center justify-center gap-y-10 relative">
                 <div class="w-auto h-auto flex items-center justify-center text-center">
@@ -36,64 +36,91 @@
             </div>
         </div>
 
-        <!--container clip-path -->
-        <div class="section-content w-full h-screen overflow-hidden relative flex items-center justify-center">
-            <!--clip path content-->
-            <div class="clip-path-container w-full h-full overflow-hidde relative"
-                style="clip-path: polygon(20% 20%, 80% 20%, 80% 80%, 20% 80%);">
-                <!-- Container video -->
-                <video class="video-hero w-full h-full object-cover object-center relative" autoplay muted playsinline
-                    loop>
-                    <source src="https://cdn.shopify.com/videos/c/o/v/a700a6e9af1e4acd9fbeb045fc59915b.mp4" />
-                </video>
-                <!--container video icon -->
-                <div class="audio-button w-auto h-auto absolute bottom-7 right-7 cursor-pointer">
-                    {% render 'audio-icon' %}
+        <!--content clip path + three -->
+        <div class="w-full h-screen releative flex flex-col items-start justify-start overflow-y-scroll snap-y snap-mandatory">
+
+            <!-- container clip-path -->
+            <div class="section-content w-full h-screen min-h-screen overflow-hidden relative flex items-center justify-center snap-start">
+                <!-- clip path content -->
+                <div class="clip-path-container w-full h-full overflow-hidde relative"
+                    style="clip-path: polygon(20% 20%, 80% 20%, 80% 80%, 20% 80%);">
+                    <!-- Container video -->
+                    <video class="video-hero w-full h-full object-cover object-center relative" autoplay muted
+                        playsinline loop>
+                        <source src="https://cdn.shopify.com/videos/c/o/v/a700a6e9af1e4acd9fbeb045fc59915b.mp4" />
+                    </video>
+                    <!-- container video icon -->
+                    <div class="audio-button w-auto h-auto absolute bottom-7 right-7 cursor-pointer">
+                        {% render 'audio-icon' %}
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <!--liquid code -->
-        {% assign counter = 0 %}
-        {% for page in pages %}
-        {% if page.title contains "Cantina" or page.title contains "Canteen" %}
-        {% assign counter = counter | plus: 1 %}
-        {% endif %}
-        {% endfor %}
+            <!-- contain three js scene -->
+            <div class="w-full h-screen relative z-5 snap-start">
 
-        {% assign counter_vh = counter | times: 100 %}
+                <canvas id="canvas" class="w-full h-full">
+                    <!-- Three.js content -->
+                </canvas>
 
-        <div class="section-content w-full h-screen">
-            <div class="section-content-overlay content-overlay w-full h-auto relative">
+                <!-- outer container -->
+                {% assign counter = 0 %}
+                {% for page in pages %}
+                {% if page.title contains "Cantina" or page.title contains "Canteen" %}
+                {% assign counter = counter | plus: 1 %}
+                {% endif %}
+                {% endfor %}
+                {% assign counter = counter | plus: 1 | times: 100 %}
 
+                <div class="outer-container w-full h-[{{ counter }}vh] absolute left-0 top-0 right-0">
+                    <div class="sticky-container w-full h-screen overflow-hidden relative">
+                        <div class="container-sections w-full h-screen overflow-y-scroll snap-mandatory snap-y">
+                            {% for page in pages %}
+                            {% if page.title contains "Cantina" or page.title contains "Canteen" %}
+                            {% assign pageCustomTitle = page.title | split: " " %}
+                            {% assign pageCustomTitle = pageCustomTitle | slice: 1, pageCustomTitle.size %}
+                            {% assign pageCustomTitle = pageCustomTitle | join: " " %}
+                            {% assign canteenLocation = page.metafields.custom.page_canteen_location.value %}
 
-                <div class="w-full h-screen sticky top-0 z-20 overflow-y-scroll"
-                    style="clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)">
+                            <div class="section w-full h-full flex flex-col items-center justify-center gap-y-5 snap-start"
+                                data-id="{{ forloop.index }}" data-href="{{ page.url }}">
+                                <h2
+                                    class="font-(family-name:--main-title-mobile-font-family) text-center text-[40px] text-(--green-color) leading-[105%] tracking-[1.02px] lg:text-[96px] lg:tracking-[2.88px] lg:max-w-[900px] lg:text-center">
+                                    {{ pageCustomTitle | upcase
+                                    }}</h2>
+                                {% if canteenLocation %}
+                                <p class="text-[12px] leading-normal text-(--green-color)">{{ canteenLocation }}</p>
+                                {% endif %}
+                            </div>
+                            {% endif %}
+                            {% endfor %}
 
-                    <!-- container canvas -->
-                    <div class="w-full h-screen sticky top-0 z-5">
-                        <canvas id="canvas" class="w-full h-full">
-                            <!-- Three.js content -->
-                        </canvas>
-                    </div>
-
-                    <div class="w-full h-auto absolute top-0 left-0 right-0 z-10">
-                        {% for page in pages %}
-                        {% if page.title contains "Cantina" or page.title contains "Canteen" %}
-                        {% assign pageCustomTitle = page.title | split: " " %}
-                        {% assign pageCustomTitle = pageCustomTitle | slice: 1, pageCustomTitle.size %}
-                        {% assign pageCustomTitle = pageCustomTitle | join: " " %}
-                        <div
-                            class="overlay-section w-full h-screen flex items-center justify-center flex-col gap-y-5 snap-start">
-                            <div class="w-auto h-auto flex items-start justify-center">
-                                <h2 class="main-title-mobile lg:main-title-laptop">{{ pageCustomTitle | upcase }}</h2>
+                            <!-- extra section -->
+                            <div class="section w-full h-full flex flex-col items-center justify-center gap-y-5 snap-start "
+                                data-href="#">
+                                <h2
+                                    class="font-(family-name:--main-title-mobile-font-family) text-center text-[50px] text-(--green-color) leading-[105%] tracking-[1.02px] lg:text-[96px] lg:tracking-[2.88px] lg:max-w-[900px] lg:text-center">
+                                    {{ section.settings.extra_section_title | default: "What's next?" | upcase
+                                    }}</h2>
                             </div>
                         </div>
-                        {% endif %}
-                        {% endfor %}
+
+                        <!-- container cta fix -->
+                        <div
+                            class="w-auto h-auto absolute bottom-[30px] lg:bottom-[155px] left-1/2 -translate-x-1/2 flex flex-col items-center justify-end z-20">
+                            <div class="cta-orange">
+                                <a href="#" class="redirect-to-website">
+                                    <p class="uppercase text-[12px] leading-[16px] tracking-[-3%]">{{
+                                        section.settings.cta_text |
+                                        default: "Vai al sito" }}</p>
+                                </a>
+                                {% render 'arrow-up' %}
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+            
         </div>
 
     </div>
@@ -102,8 +129,32 @@
 
 
 
+
+{% schema %}
+{
+"name": "page-loading",
+"settings": [
+{
+"type": "text",
+"id": "first_step_title",
+"label": "Main section title"
+}, {
+"type": "text",
+"id": "cta_text",
+"label": "Main text Cta"
+}, {
+"type": "text",
+"id": "custom_settings_text",
+"label": "Custom video settings text"
+}
+]
+}
+{% endschema %}
+
+
 <script>
     document.addEventListener('DOMContentLoaded', async () => {
+
         const navbar = document.querySelector('.navigation');
         const loadingWrapper = document.querySelector('.loading-wrapper');
         const sectionOverlays = document.querySelector('.content-overlay');
@@ -150,17 +201,239 @@
                         clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
                         duration: 1,
                         ease: "Power2.easeOut",
-                        onComplete: () => { }
+                        onComplete: () => { 
+                            document.body.classList.remove('no-scroll'); 
+                        }
                     })
                 }, 200)
             })
         })
 
-        audioButton.addEventListener('click', () => {
-            currentTranslateValue += percentValue;
-            loadingWrapper.style.transform = `translateY(-${currentTranslateValue}%)`;
-            document.body.classList.remove('no-scroll');
+    });
+</script>
+
+<script>
+    const ctaRedirect = document.querySelector('.redirect-to-website');
+    const sections = document.querySelectorAll('.section');
+    const containerSections = document.querySelector('.container-sections');
+    const originalCtaText = ctaRedirect.firstElementChild.innerHTML;
+
+    function updateCta() {
+        let currentSection = null;
+
+        sections.forEach((section, index) => {
+            const rect = section.getBoundingClientRect();
+
+            if (rect.top < window.innerHeight && rect.bottom > 0) {
+                currentSection = {section, index};
+            }
         });
 
+        if (currentSection && currentSection.index === sections.length - 1) {
+
+            ctaRedirect.setAttribute('href', 'progetto');
+            const ctaText = ctaRedirect.firstElementChild;
+            ctaText.innerHTML = "PROGETTO".toUpperCase()
+
+        } else {
+            const newHref = currentSection.section.getAttribute('data-href');
+            ctaRedirect.setAttribute('href', newHref);
+            const ctaText = ctaRedirect.firstElementChild;
+            ctaText.innerHTML = originalCtaText;
+        }
+    }
+
+    containerSections.addEventListener('scroll', updateCta);
+
+    updateCta();
+</script>
+
+
+<script type="module">
+    import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.173.0/build/three.module.js';
+    import {SVGLoader} from 'https://cdn.skypack.dev/three@0.130.0/examples/jsm/loaders/SVGLoader.js';
+
+    document.addEventListener('DOMContentLoaded', async () => {
+        const canvas = document.getElementById('canvas');
+        if (!canvas) {
+            console.error("Canvas element not found!");
+            return;
+        }
+
+        const scene = new THREE.Scene();
+        scene.background = new THREE.Color(0xDACABB);
+
+        const canvasSizes = {width: window.innerWidth, height: window.innerHeight};
+        const aspectRatio = canvasSizes.width / canvasSizes.height;
+        const camera = new THREE.OrthographicCamera(
+            -aspectRatio * 20, aspectRatio * 20, 20, -20, 0.1, 100
+        );
+        camera.position.set(0, 0, 10);
+        camera.lookAt(0, 0, 0);
+
+        const ambientLight = new THREE.AmbientLight(0x404040);
+        scene.add(ambientLight);
+
+        const spotLight = new THREE.SpotLight(0xffffff, 0.9, 0, Math.PI / 8, 1);
+        spotLight.position.set(-3, 3, 9);
+        spotLight.target.position.set(0, 0, 0);
+        scene.add(spotLight);
+
+        const loader = new SVGLoader();
+        let pathMeshes = [];
+        let group;
+
+        const isMobile = window.innerWidth <= 768;
+        const scaleFactor = isMobile ? 0.025 : 0.045;
+        const initialPosition = isMobile ? new THREE.Vector3(-15, 17, 0) : new THREE.Vector3(-10, 27.5, 0);
+
+        loader.load(
+            "{{ 'mappa_new.svg' | asset_url }}",
+            function (data) {
+                const paths = data.paths;
+                group = new THREE.Group();
+
+                paths.forEach((path) => {
+                    const pathId = path.userData.node.id;
+                    const material = new THREE.MeshBasicMaterial({
+                        color: new THREE.Color("#EAE3DA"),
+                        side: THREE.DoubleSide,
+                        depthWrite: true,
+                    });
+
+                    const shapes = SVGLoader.createShapes(path);
+                    shapes.forEach(shape => {
+                        const geometry = new THREE.ShapeGeometry(shape);
+                        const mesh = new THREE.Mesh(geometry, material);
+                        group.add(mesh);
+
+                        if (pathId && pathId.trim() !== "") {
+                            pathMeshes.push({mesh, pathId});
+                        }
+                    });
+                });
+
+                scene.add(group);
+                group.scale.set(scaleFactor, scaleFactor, scaleFactor);
+                group.position.set(initialPosition.x, initialPosition.y, initialPosition.z);
+                group.rotation.x = Math.PI;
+
+                window.group = group;
+                window.pathMeshes = pathMeshes;
+
+                highlightPath("lazio");
+            },
+            function (xhr) {
+                console.log((xhr.loaded / xhr.total) * 100 + '% loaded');
+            },
+            function (error) {
+                console.error('An error happened:', error);
+            }
+        );
+
+        const desktopCoordinates = [
+            {coordinates: new THREE.Vector3(-10, 27.5, 0), pathId: "lazio"},
+            {coordinates: new THREE.Vector3(-15.5, 45.5, 0), pathId: "sardegna"},
+            {coordinates: new THREE.Vector3(-5, 20, 0), pathId: "veneto"},
+            {coordinates: new THREE.Vector3(-20.5, 30.5, 0), pathId: "marche"},
+            {coordinates: new THREE.Vector3(-20.5, 30.5, 0), pathId: "all"},
+        ];
+
+        const mobileCoordinates = [
+            {coordinates: new THREE.Vector3(-15, 17, 0), pathId: "lazio"},
+            {coordinates: new THREE.Vector3(-7.5, 30, 0), pathId: "sardegna"},
+            {coordinates: new THREE.Vector3(-12, 15, 0), pathId: "veneto"},
+            {coordinates: new THREE.Vector3(-17, 20, 0), pathId: "marche"},
+            {coordinates: new THREE.Vector3(-17, 20, 0), pathId: "all"},
+        ];
+
+        const coordinatePathMapping = isMobile ? mobileCoordinates : desktopCoordinates;
+
+        let targetIndex = 3;
+        let targetPosition = coordinatePathMapping[targetIndex].coordinates;
+        let targetPathId = coordinatePathMapping[targetIndex].pathId;
+        let isMoving = false;
+
+        let targetZoom = camera.zoom;
+        let zoomSpeed = 0.05;
+        let isZooming = false;
+
+        function highlightPath(pathId) {
+            if (window.pathMeshes) {
+                window.pathMeshes.forEach(pathData => {
+                    const {mesh} = pathData;
+                    mesh.material.color.set("#EAE3DA");
+                });
+
+                const targetPath = window.pathMeshes.find(pathData => pathData.pathId === pathId);
+                if (targetPath) {
+                    targetPath.mesh.material.color.set("#A38A70");
+                }
+            }
+        }
+
+        const containerSections = document.querySelector('.container-sections');
+        const sections = document.querySelectorAll('.section');
+        let scrollProgress = 0;
+
+        containerSections.addEventListener('scroll', () => {
+            const scrollTop = containerSections.scrollTop;
+            const scrollHeight = containerSections.scrollHeight - containerSections.clientHeight;
+
+            scrollProgress = scrollTop / scrollHeight;
+
+            const mappedIndex = Math.floor(scrollProgress * coordinatePathMapping.length);
+            targetPosition = coordinatePathMapping[mappedIndex].coordinates;
+            targetPathId = coordinatePathMapping[mappedIndex].pathId;
+            isMoving = true;
+
+            highlightPath(targetPathId);
+
+            if (targetPathId === "all" && !isZooming) {
+                isZooming = true;
+                targetZoom = 0.5;
+            } else if (targetPathId !== "all" && isZooming) {
+                isZooming = false;
+                targetZoom = 1;
+            }
+        });
+
+        function onWindowResize() {
+            canvasSizes.width = window.innerWidth;
+            canvasSizes.height = window.innerHeight;
+            renderer.setSize(canvasSizes.width, canvasSizes.height);
+
+            camera.left = -canvasSizes.width / canvasSizes.height * 20;
+            camera.right = canvasSizes.width / canvasSizes.height * 20;
+            camera.top = 20;
+            camera.bottom = -20;
+            camera.updateProjectionMatrix();
+        }
+
+        window.addEventListener('resize', onWindowResize, false);
+
+        const renderer = new THREE.WebGLRenderer({canvas: canvas, antialias: true});
+        renderer.setSize(canvasSizes.width, canvasSizes.height);
+
+        function animate() {
+            requestAnimationFrame(animate);
+
+            if (window.group && isMoving) {
+                window.group.position.lerp(targetPosition, 0.07);
+
+                if (window.group.position.distanceTo(targetPosition) < 0.1) {
+                    isMoving = false;
+                }
+            }
+
+            if (Math.abs(camera.zoom - targetZoom) > 0.01) {
+                camera.zoom += (targetZoom - camera.zoom) * zoomSpeed;
+                camera.updateProjectionMatrix();
+            }
+
+            renderer.render(scene, camera);
+        }
+
+        animate();
     });
 </script>
