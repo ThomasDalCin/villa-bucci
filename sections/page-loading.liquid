@@ -27,7 +27,7 @@
                     </div>
                 </div>
                 <div class="bottom-text-container w-full absolute h-auto left-0 bottom-7 right-0">
-                    <div class="w-auto h-auto flex items-center justify-center">
+                    <div class="settings-cta w-auto h-auto flex items-center justify-center">
                         <p class="uppercase underline text-[12px] leading-[16px] tracking-[-3%] font-bold">
                             {{ section.settings.custom_settings_text | default: "Entra senza audio" }}
                         </p>
@@ -47,7 +47,7 @@
                 <div class="clip-path-container w-full h-full overflow-hidde relative"
                     style="clip-path: polygon(20% 20%, 80% 20%, 80% 80%, 20% 80%);">
                     <!-- Container video -->
-                    <video class="video-hero w-full h-full object-cover object-center relative" autoplay muted
+                    <video class="main-video video-hero w-full h-full object-cover object-center relative" autoplay
                         playsinline loop>
                         <source src="https://cdn.shopify.com/videos/c/o/v/a700a6e9af1e4acd9fbeb045fc59915b.mp4" />
                     </video>
@@ -168,6 +168,10 @@
         const sectionsContainer = document.querySelectorAll('.section-content');
         const enterButton = document.querySelector('.cta-orange');
         const audioButton = document.querySelector('.audio-button');
+        //handle video settings by click;
+        const ctaSettings = document.querySelector('.settings-cta');
+        const mainVideo = document.querySelector('.main-video');
+        const mainButtons = [ctaSettings, enterButton];
 
         let currentTranslateValue = 0;
 
@@ -194,22 +198,32 @@
             }, 500);
         });
 
-        enterButton.addEventListener('click', () => {
-            currentTranslateValue += percentValue;
+        mainButtons.forEach((button) => {
+            button.addEventListener('click', () => {
+                currentTranslateValue += percentValue;
 
-            loadingWrapper.style.transform = `translateY(-${currentTranslateValue}%)`;
+                loadingWrapper.style.transform = `translateY(-${currentTranslateValue}%)`;
 
-            loadingWrapper.addEventListener('transitionend', () => {
-                setTimeout(() => {
-                    gsap.to(".clip-path-container", {
-                        clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-                        duration: 1,
-                        ease: "Power2.easeOut",
-                        onComplete: () => {
-                            document.body.classList.remove('no-scroll');
-                        }
-                    })
-                }, 200)
+                loadingWrapper.addEventListener('transitionend', () => {
+                    setTimeout(() => {
+                        gsap.to(".clip-path-container", {
+                            clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+                            duration: 1,
+                            ease: "Power2.easeOut",
+                            onComplete: () => {
+                                document.body.classList.remove('no-scroll');
+                            }
+                        })
+                    }, 200)
+                })
+
+                if (!(button.classList.contains('settings-cta'))) {
+                    return;
+                }
+                if (!mainVideo.hasAttribute('muted')) {
+                    mainVideo.setAttribute('muted', true);
+                }
+
             })
         })
 
@@ -223,6 +237,7 @@
         } else {
             return;
         }
+
 
     });
 </script>

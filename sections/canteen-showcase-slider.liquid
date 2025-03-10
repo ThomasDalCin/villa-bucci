@@ -16,7 +16,7 @@
   <!-- container slider showcase -->
   {% for collection in collections %}
     <!-- showcase container -->
-    <div class="showcase-container-scroll w-full h-auto overflow-x-scroll flex flex-row justify-start items-center gap-x-5 px-5 py-5" data-collection="{{ collection.title |  replace: " ", " -" | downcase }}">
+    <div class="showcase-container-scroll w-full h-auto overflow-x-scroll flex flex-row justify-start items-center gap-x-5 px-5 py-5" data-collection="{{ collection.title |  replace: " ", "-" | downcase }}">
       {% for product in collection.products %}
 
         <div class="card-product w-[250px] min-w-[250px] min-h-[500px] h-[500px] p-2.5 lg:w-[540px] lg:h-[790px] rounded-[18px] flex flex-col items-center justify-between lg:justify-center outline outline-offset-4 relative group transition-all duration-200 ease-in-out" data-product="{{ product.title |  downcase }}">
@@ -50,7 +50,7 @@
     background: {{ section.settings.main_card_bg_color_default | hex_to_rgba: 0.3 }};
     outline-color: {{ section.settings.main_card_bg_color_default }}
   }
-  
+
   .card-product:hover {
     background-color: {{ section.settings.main_card_bg_color_default }};
   }
