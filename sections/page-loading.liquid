@@ -37,10 +37,12 @@
         </div>
 
         <!--content clip path + three -->
-        <div class="w-full h-screen releative flex flex-col items-start justify-start overflow-y-scroll snap-y snap-mandatory">
+        <div
+            class="w-full h-screen releative flex flex-col items-start justify-start overflow-y-scroll snap-y snap-mandatory">
 
             <!-- container clip-path -->
-            <div class="section-content w-full h-screen min-h-screen overflow-hidden relative flex items-center justify-center snap-start">
+            <div
+                class="section-content w-full h-screen min-h-screen overflow-hidden relative flex items-center justify-center snap-start">
                 <!-- clip path content -->
                 <div class="clip-path-container w-full h-full overflow-hidde relative"
                     style="clip-path: polygon(20% 20%, 80% 20%, 80% 80%, 20% 80%);">
@@ -120,7 +122,7 @@
                     </div>
                 </div>
             </div>
-            
+
         </div>
 
     </div>
@@ -154,6 +156,8 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', async () => {
+
+
 
         const navbar = document.querySelector('.navigation');
         const loadingWrapper = document.querySelector('.loading-wrapper');
@@ -201,13 +205,24 @@
                         clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
                         duration: 1,
                         ease: "Power2.easeOut",
-                        onComplete: () => { 
-                            document.body.classList.remove('no-scroll'); 
+                        onComplete: () => {
+                            document.body.classList.remove('no-scroll');
                         }
                     })
                 }, 200)
             })
         })
+
+        //handle bg footer color base on path;
+        const footer = document.querySelector('.footer');
+        const pathName = window.location.pathname;
+        const pathSegments = pathName.split("/").filter((segment) => segment !== "");
+
+        if (pathSegments.length === 0 || pathSegments.length === 1) {
+            footer.classList.add('bg-[#DACABB]');
+        } else {
+            return;
+        }
 
     });
 </script>

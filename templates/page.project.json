@@ -10,6 +10,8 @@
       "settings": {
         "video_source": "",
         "banner_image": "shopify:\/\/shop_images\/1fdad5dff1d64399103d03a2f3f10ae0.jpg",
+        "margin_desktop_section": 60,
+        "margin_mobile_section": 30,
         "show_media_video": "hidden",
         "show_media_image": "block"
       }
@@ -38,7 +40,10 @@
         ".main-title {font-size: 40px !important; white-space: normal; padding-left: 20px; padding-right: 20px;}",
         "@media (min-width: 1024px) {.main-title {font-size: 96px !important; }}"
       ],
-      "settings": {}
+      "settings": {
+        "margin_desktop_section": 60,
+        "margin_mobile_section": 30
+      }
     },
     "project-showcase-slider": {
       "type": "project-showcase-slider",
@@ -100,7 +105,14 @@
       "block_order": [
         "block_text_yWNRCB"
       ],
-      "settings": {}
+      "custom_css": [
+        ".main-title {font-size: 40px !important;}",
+        "@media (min-width: 1024px) {.main-title {font-size: 96px !important; }}"
+      ],
+      "settings": {
+        "margin_desktop_section": 60,
+        "margin_mobile_section": 30
+      }
     },
     "emotional_text": {
       "type": "emotional-text",
@@ -148,7 +160,10 @@
         "emotional_text_4PdtRT",
         "emotional_text_ip89wH"
       ],
-      "settings": {}
+      "settings": {
+        "margin_desktop_section": 60,
+        "margin_mobile_section": 30
+      }
     },
     "canteen_slider": {
       "type": "canteen-slider",
@@ -174,7 +189,10 @@
         "canteen_slider_EnAEaD",
         "canteen_slider_GihFHE"
       ],
-      "settings": {}
+      "settings": {
+        "margin_desktop_section": 60,
+        "margin_mobile_section": 30
+      }
     },
     "canteen_information_fem3HL": {
       "type": "canteen-information",
@@ -196,7 +214,14 @@
       "block_order": [
         "block_text_fEMdKJ"
       ],
-      "settings": {}
+      "custom_css": [
+        ".main-title{font-size: 40px !important;}",
+        "@media (min-width: 1024px){.main-title{font-size: 96px !important; }}"
+      ],
+      "settings": {
+        "margin_desktop_section": 60,
+        "margin_mobile_section": 30
+      }
     },
     "canteen_slider_id": {
       "type": "canteen-slideer-ID",
@@ -204,7 +229,9 @@
         "main_title_left": "",
         "main_title_right": "",
         "is_stroke_left": false,
-        "is_stroke_right": true
+        "is_stroke_right": true,
+        "margin_desktop_section": 60,
+        "margin_mobile_section": 30
       }
     }
   },
