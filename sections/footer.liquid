@@ -1,3 +1,6 @@
+
+
+
 <!-- Footer Section -->
 <div class="px-5 py-5 bg-[#DACABB]">
 <footer class="w-full flex flex-col items-start justify-center rounded-[8px] text-white py-10" style="background-color: {{ section.settings.footer_bg_color }};">
@@ -14,7 +17,7 @@
 <div class="flex flex-col lg:flex-wrap lg:flex-row h-auto">
  
         <!-- Column 1 -->
-<div class="flex-1 flex flex-col items-center justify-center lg:justify-start lg:items-start pt-5 pb-5 gap-y-[36px] border border-l-0 border-r-0 border-t-(--border-color) border-b-0 lg:flex-col lg:h-[377px] border-t-(--border-color)">
+<div class="flex-1 flex flex-col items-center justify-center lg:justify-start lg:items-start pt-5 pb-5 gap-y-[36px] border border-l-0 border-r-0 border-t-(--border-color) border-b-0 lg:flex-col lg:h-[377px] border-t-(--border-color) lg:border-b border-[var(--border-color)] lg:pl-10">
 <h3 class="font-semibold text-(--beige-light) text-[16px] opacity-[0.3]">ONIWINES</h3>
 <div class="w-full h-auto flex flex-col items-center justify-center gap-y-2.5 lg:items-start">
             {% assign menuLinks = "Home,Il Gruppo,Magazine,Contatti" | split: "," %}
@@ -50,7 +53,7 @@ upcase }}</a>
 </div>
  
    <!-- Column 3 -->
-<div class="flex flex-col flex-1 items-center text-center pt-5 pb-5 gap-y-[36px] border border-l-0 border-r-0 border-t-0 border-b-(--border-color) lg:items-end lg:text-right lg:h-[377px] relative lg:border-t-(--border-color)">
+<div class="flex flex-col flex-1 items-center text-center pt-5 pb-5 gap-y-[36px] border border-l-0 border-r-0 border-t-0 border-b-(--border-color) lg:items-end lg:text-right lg:h-[377px] relative lg:border-t border-[var(--border-color)] lg:pr-10">
   <h3 class="font-semibold text-lg text-(--beige-light) text-[16px] opacity-[0.3]">PRODOTTI SPECIALI</h3>
   <div class="w-full h-auto flex flex-col items-center justify-center gap-y-2.5 lg:items-end">
       {% assign menuLinks = "Benacus,Frederic Levin" | split: "," %}
@@ -65,8 +68,8 @@ upcase }}</a>
       {% endfor %}
   </div>
 
-  <div class="w-full h-auto pt-5 flex flex-col items-center justify-center border border-r-0 border-l-0 border-b-0 border-t-(--border-color) lg:absolute lg:border-0 lg:justify-end lg:items-end lg:bottom-0 lg:right-0">
-      <div class="w-full h-auto flex flex-row-reverse gap-x-2.5 items-center justify-center lg:justify-end">
+  <div class="w-full h-auto pt-5 flex flex-col items-center justify-center border border-r-0 border-l-0 border-b-0 border-t-(--border-color) lg:absolute lg:border-0 lg:justify-end lg:items-end lg:bottom-0 lg:right-0 ">
+      <div class="w-full h-auto flex flex-row-reverse gap-x-2.5 items-center justify-center lg:justify-start lg:pr-5 ">
           <p class="text-[12px] leading-normal font-(family-name:--submain-mobile-title-font-family)">{{ section.settings.back_up_text | default: "torna su" | upcase }}</p>
           {% render 'arrow-footer-up' %}
       </div>

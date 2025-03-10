@@ -28,6 +28,16 @@
         "name": "file_reference",
         "category": "REFERENCE"
       }
+    },
+    {
+      "key": "page_canteen_location",
+      "namespace": "custom",
+      "name": "page_canteen_location",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
     }
   ],
   "product": [],
