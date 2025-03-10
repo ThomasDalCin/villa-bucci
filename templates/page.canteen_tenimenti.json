@@ -37,13 +37,17 @@
         "canteen_text_BNVVKU"
       ],
       "settings": {
-        "canteen_main_logo": "shopify:\/\/shop_images\/TenimentiLeone-Logo.svg"
+        "canteen_main_logo": "shopify:\/\/shop_images\/TenimentiLeone-Logo.svg",
+        "margin_desktop_section": 60,
+        "margin_mobile_section": 30
       }
     },
     "video-content": {
       "type": "video-container",
       "settings": {
         "video_source": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/a700a6e9af1e4acd9fbeb045fc59915b.mp4",
+        "margin_desktop_section": 60,
+        "margin_mobile_section": 30,
         "show_media_video": "block",
         "show_media_image": "hidden"
       }
@@ -83,7 +87,9 @@
       ],
       "settings": {
         "main_story_text": "",
-        "main_story_text_color": "#d39278"
+        "main_story_text_color": "#d39278",
+        "margin_desktop_section": 60,
+        "margin_mobile_section": 30
       }
     },
     "canteen_slider": {
@@ -110,7 +116,10 @@
         "canteen_slider_EnAEaD",
         "canteen_slider_GihFHE"
       ],
-      "settings": {}
+      "settings": {
+        "margin_desktop_section": 60,
+        "margin_mobile_section": 30
+      }
     },
     "canteen-information": {
       "type": "canteen-information",
@@ -146,7 +155,10 @@
         "block_text_qEn6X8",
         "block_text_cF3Jhw"
       ],
-      "settings": {}
+      "settings": {
+        "margin_desktop_section": 60,
+        "margin_mobile_section": 30
+      }
     },
     "canteen_information_qXgxjz": {
       "type": "canteen-information",
@@ -168,7 +180,10 @@
       "block_order": [
         "block_text_f8Fb7E"
       ],
-      "settings": {}
+      "settings": {
+        "margin_desktop_section": 60,
+        "margin_mobile_section": 30
+      }
     },
     "canteen_showcase": {
       "type": "canteen-showcase-slider",
@@ -176,7 +191,9 @@
         "main_section_title": "",
         "main_stroke_section_title": "",
         "main_title_color": "#d39278",
-        "main_card_bg_color_default": "#d39278"
+        "main_card_bg_color_default": "#d39278",
+        "margin_desktop_section": 60,
+        "margin_mobile_section": 30
       }
     },
     "canteen_slider_id": {
@@ -185,7 +202,11 @@
         "main_title_left": "",
         "main_title_right": "",
         "is_stroke_left": false,
-        "is_stroke_right": true
+        "is_stroke_right": true,
+        "margin_desktop_section": 60,
+        "margin_mobile_section": 30,
+        "layout_slider_direction_mobile": "column",
+        "layout_slider_alignment_mobile": "center"
       }
     }
   },

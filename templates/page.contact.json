@@ -4,12 +4,14 @@
       "type": "video-container",
       "custom_css": [
         "img {height: 355px !important;}",
-        ".main-container{height: auto}",
+        ".main-container {height: auto;}",
         "@media (min-width: 1024px) {img {height: 558px !important; }}"
       ],
       "settings": {
         "video_source": "",
         "banner_image": "shopify:\/\/shop_images\/0e6525da7643e990e28358ddeecb798c.jpg",
+        "margin_desktop_section": 60,
+        "margin_mobile_section": 0,
         "show_media_video": "hidden",
         "show_media_image": "block"
       }
@@ -53,7 +55,9 @@
         "contact_info_block_dceQ4t"
       ],
       "settings": {
-        "main_title": ""
+        "main_title": "",
+        "margin_desktop_section": 60,
+        "margin_mobile_section": 30
       }
     }
   },
