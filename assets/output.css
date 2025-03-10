@@ -1062,11 +1062,17 @@
   .pt-5 {
     padding-top: calc(var(--spacing) * 5);
   }
+  .pt-12 {
+    padding-top: calc(var(--spacing) * 12);
+  }
   .pt-16 {
     padding-top: calc(var(--spacing) * 16);
   }
   .pb-5 {
     padding-bottom: calc(var(--spacing) * 5);
+  }
+  .pb-8 {
+    padding-bottom: calc(var(--spacing) * 8);
   }
   .text-center {
     text-align: center;
@@ -1084,26 +1090,26 @@
     font-size: var(--text-lg);
     line-height: var(--tw-leading, var(--text-lg--line-height));
   }
-  .text-\[16px\] {
-    font-size: 16px;
-  }
-  .text-\[40px\] {
-    font-size: 40px;
-  }
-  .text-\[50px\] {
-    font-size: 50px;
-  }
   .text-\[128px\] {
     font-size: 128px;
   }
   .text-\[12px\] {
     font-size: 12px;
   }
+  .text-\[16px\] {
+    font-size: 16px;
+  }
   .text-\[200px\] {
     font-size: 200px;
   }
   .text-\[24px\] {
     font-size: 24px;
+  }
+  .text-\[40px\] {
+    font-size: 40px;
+  }
+  .text-\[50px\] {
+    font-size: 50px;
   }
   .leading-\[90\%\] {
     --tw-leading: 90%;
