@@ -30,8 +30,8 @@
     {% assign titlePagesCantina = pages | where: "title", "Cantina" %}
 
     <!-- container slider id canteen -->
-    <div class="w-full h-auto overflow-x-scroll mb-[130px] flex justify-start items-center">
-      <div class="w-auto h-auto px-5 flex flex-row justify-start items-center gap-x-5 {% if titlePagesCanteen.size <= 4 or titlePagesCantina.size <= 4  %} lg:w-full lg:max-w-full {% endif %}">
+    <div class="w-full h-auto overflow-x-scroll mb-[130px] content-layout-slider">
+      <div class="w-auto h-auto px-5 gap-x-5 layout-slider {% if titlePagesCanteen.size <= 4 or titlePagesCantina.size <= 4  %} lg:w-full lg:max-w-full {% endif %}">
         {% for page in pages %}
           {% assign pageImage = page.metafields.custom.page_image.value %}
           {% assign pageCanteenLogo = page.metafields.custom.page_canteen_logo.value %}
@@ -82,10 +82,32 @@
     margin-top: {{ section.settings.margin_desktop_section }}px;
     margin-bottom: {{ section.settings.margin_desktop_section }}px;
   }
+
+  .layout-slider{
+    display:flex;
+    align-items: start;
+    justify-content: center;
+    flex-direction: row;
+  }
+
+  .content-layout-slider{
+    display:flex;
+    align-items: start;
+    justify-content: center;
+  }
+
   @media (max-width: 480px) {
     .canteen-slider-id-wrapper {
       margin-top: {{ section.settings.margin_mobile_section }}px;
       margin-bottom: {{ section.settings.margin_mobile_section }}px;
+    }
+
+    .layout-slider{
+      flex-direction: {{ section.settings.layout_slider_direction_mobile }};
+    }
+
+    .content-layout-slider{
+    justify-content: {{ section.settings.layout_slider_alignment_mobile }};
     }
   }
 {% endstyle %}
@@ -175,6 +197,38 @@
         "step": 10,
         "default": 30,
         "label": "Section distance top & bottom on mobile"
+      },
+      {
+        "type": "select",
+        "id": "layout_slider_direction_mobile",
+        "label": "Layout slider direction",
+        "default": "row",
+        "options": [
+          {
+            "label": "row",
+            "value": "row"
+          },
+          {
+            "label": "column",
+            "value": "column"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "layout_slider_alignment_mobile",
+        "label": "Layout slider alignment",
+        "default": "start",
+        "options": [
+          {
+            "label": "left",
+            "value": "start"
+          },
+          {
+            "label": "center",
+            "value": "center"
+          }
+        ]
       }
     ]
   }

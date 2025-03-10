@@ -45,10 +45,12 @@
 </div>
 
 {% style %}
+
   .card-product {
     background: {{ section.settings.main_card_bg_color_default | hex_to_rgba: 0.3 }};
     outline-color: {{ section.settings.main_card_bg_color_default }}
   }
+  
   .card-product:hover {
     background-color: {{ section.settings.main_card_bg_color_default }};
   }
@@ -57,12 +59,14 @@
     margin-top: {{ section.settings.margin_desktop_section }}px;
     margin-bottom: {{ section.settings.margin_desktop_section }}px;
   }
+
   @media (max-width: 480px) {
     .canteen-showcase-wrapper {
       margin-top: {{ section.settings.margin_mobile_section }}px;
       margin-bottom: {{ section.settings.margin_mobile_section }}px;
     }
   }
+
 {% endstyle %}
 
 <script>
