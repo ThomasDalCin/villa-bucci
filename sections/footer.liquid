@@ -72,6 +72,10 @@
               <a href="{{ childLink.url }}" class="text-[24px]">{{ childLink.title |
                 upcase }}</a>
             </li>
+          {% endfor %}
+        {% endif %}
+        {% endif %}
+        {% endfor %}
           </div>
 
           <div
@@ -135,69 +139,76 @@ color: #E86A58;">{{ section.settings.brand_name }}</span>
 
 
 {% schema %}
-{
-"name": "Footer",
-"class": "footer-section",
-"settings": [
-{
-"type": "image_picker",
-"id": "oniverse_main_logo",
-"label": "Main Logo"
-},
-{
-"type": "color",
-"id": "footer_bg_color",
-"label": "Footer Background Color",
-"default": "#262a39"
-},
-{
-"type": "text",
-"id": "cookie_text",
-"label": "Cookie Link Text",
-"default": "PREFERENZE COOKIE"
-},
-{
-"type": "url",
-"id": "cookie_link",
-"label": "Cookie Link URL"
-}, {
-"type": "text",
-"id": "privacy_text",
-"label": "Privacy Link Text",
-"default": "PRIVACY"
-}, {
-"type": "url",
-"id": "privacy_link",
-"label": "Privacy Link URL"
-}, {
-"type": "text",
-"id": "credits_text",
-"label": "Credits Link Text",
-"default": "CREDITS"
-}, {
-"type": "url",
-"id": "credits_link",
-"label": "Credits Link URL"
-}, {
-"type": "text",
-"id": "company_info",
-"label": "Company Info",
-"default": "oniwines | P.IVA 00000000000 | mail@oniwines.it"
-}, {
-"type": "text",
-"id": "brand_name",
-"label": "Brand Name",
-"default": "ONIVERSE"
-}, {
-"type": "url",
-"id": "brand_link",
-"label": "Brand External Link"
-}
-],
-"presets": [
-{
-"name": "Footer"
-}
-]
-}
-{% endschema %}
+  {
+    "name": "Footer",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "oniverse_main_logo",
+        "label": "Main Logo"
+      },
+      {
+        "type": "color",
+        "id": "footer_bg_color",
+        "label": "Footer Background Color",
+        "default": "#262a39"
+      },
+      {
+        "type": "text",
+        "id": "cookie_text",
+        "label": "Cookie Link Text",
+        "default": "PREFERENZE COOKIE"
+      },
+      {
+        "type": "url",
+        "id": "cookie_link",
+        "label": "Cookie Link URL"
+      },
+      {
+        "type": "text",
+        "id": "privacy_text",
+        "label": "Privacy Link Text",
+        "default": "PRIVACY"
+      },
+      {
+        "type": "url",
+        "id": "privacy_link",
+        "label": "Privacy Link URL"
+      },
+      {
+        "type": "text",
+        "id": "credits_text",
+        "label": "Credits Link Text",
+        "default": "CREDITS"
+      },
+      {
+        "type": "url",
+        "id": "credits_link",
+        "label": "Credits Link URL"
+      },
+      {
+        "type": "text",
+        "id": "company_info",
+        "label": "Company Info",
+        "default": "oniwines | P.IVA 00000000000 | mail@oniwines.it"
+      },
+      {
+        "type": "text",
+        "id": "brand_name",
+        "label": "Brand Name",
+        "default": "ONIVERSE"
+      },
+      {
+        "type": "url",
+        "id": "brand_link",
+        "label": "Brand External Link"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Footer"
+      }
+    ]
+  }
+  {% endschema %}
+  

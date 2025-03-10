@@ -12,14 +12,23 @@
         </div>
 
         <!-- home step text layout -->
-        <div class="section-content w-full h-screen">
+        <div class="section-content floating-div-target w-full h-screen relative">
+
+            <!--floating div-->
+            <div
+                class="floating-div z-30 w-auto h-auto hidden lg:flex flex-col items-center justify-center absolute left-0 top-0 transition-all duration-200 ease-linear">
+                <p class="uppercase text-[12px] leading-[16px] tracking-[-3%] font-bold text-(--orange-color)">{{
+                    section.settings.floating_cursor_text | default: "Entra" }}</p>
+            </div>
+
             <div class="w-full h-full flex flex-col items-center justify-center gap-y-10 relative">
                 <div class="w-auto h-auto flex items-center justify-center text-center">
-                    <h1 class="font-(family-name:--main-title-mobile-font-family) text-[40px] leading-[105%] text-(--green-color) tracking-[1.02px] lg:text-[96px] lg:tracking-[2.88px]">
+                    <h1
+                        class="font-(family-name:--main-title-mobile-font-family) text-[40px] leading-[105%] text-(--green-color) tracking-[1.02px] lg:text-[96px] lg:tracking-[2.88px]">
                         {{ section.settings.first_step_title | default: "Scopri il mondo di Oniwines." }}
                     </h1>
                 </div>
-                <div class="cta-container w-auto h-auto flex items-center justify-center">
+                <div class="cta-container w-auto h-auto flex items-center justify-center lg:hidden">
                     <div class="cta-orange">
                         <p class="uppercase text-[12px] leading-[16px] tracking-[-3%]">{{ section.settings.cta_text |
                             default: "Entra" }}</p>
@@ -156,9 +165,6 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', async () => {
-
-
-
         const navbar = document.querySelector('.navigation');
         const loadingWrapper = document.querySelector('.loading-wrapper');
         const sectionOverlays = document.querySelector('.content-overlay');
@@ -237,6 +243,40 @@
         } else {
             return;
         }
+
+        const floatingDiv = document.querySelector('.floating-div');
+        const floatingTarget = document.querySelector('.floating-div-target');
+
+        function floatingDivPosition() {
+            const rect = floatingTarget.getBoundingClientRect();
+            const offeset = 200;
+            const centerXposition = (rect.width / 2) - floatingDiv.offsetWidth / 2;
+            const centerYposition = (rect.height / 2) + offeset - floatingDiv.offsetHeight / 2;
+            floatingDiv.style.transform = `translate(${centerXposition}px, ${centerYposition}px)`;
+        }
+
+        floatingDivPosition();
+
+        floatingTarget.addEventListener('mousemove', (e) => {
+            const rect = floatingTarget.getBoundingClientRect();
+            const mouseX = e.pageX;
+            const mouseY = e.pageY;
+
+            let newX = mouseX - rect.left - floatingDiv.offsetWidth / 2;
+            let newY = mouseY - rect.top - floatingDiv.offsetHeight / 2;
+
+            const maxX = rect.width - floatingDiv.offsetWidth;
+            const maxY = rect.height - floatingDiv.offsetHeight;
+
+            newX = Math.max(0, Math.min(newX, maxX));
+            newY = Math.max(0, Math.min(newY, maxY));
+
+            floatingDiv.style.transform = `translate(${newX}px, ${newY}px)`;
+        });
+
+        floatingTarget.addEventListener('mouseleave', () => {
+            floatingDivPosition();
+        });
 
 
     });
