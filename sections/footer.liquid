@@ -68,8 +68,8 @@ upcase }}</a>
       {% endfor %}
   </div>
 
-  <div class="w-full h-auto pt-5 flex flex-col items-center justify-center border border-r-0 border-l-0 border-b-0 border-t-(--border-color) lg:absolute lg:border-0 lg:justify-end lg:items-end lg:bottom-0 lg:right-0">
-      <div class="w-full h-auto flex flex-row-reverse gap-x-2.5 items-center justify-center lg:justify-end">
+  <div class="w-full h-auto pt-5 flex flex-col items-center justify-center border border-r-0 border-l-0 border-b-0 border-t-(--border-color) lg:absolute lg:border-0 lg:justify-end lg:items-end lg:bottom-0 lg:right-0 ">
+      <div class="w-full h-auto flex flex-row-reverse gap-x-2.5 items-center justify-center lg:justify-start lg:pr-5 ">
           <p class="text-[12px] leading-normal font-(family-name:--submain-mobile-title-font-family)">{{ section.settings.back_up_text | default: "torna su" | upcase }}</p>
           {% render 'arrow-footer-up' %}
       </div>
