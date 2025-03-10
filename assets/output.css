@@ -1,4 +1,4 @@
-/*! tailwindcss v4.0.9 | MIT License | https://tailwindcss.com */
+/*! tailwindcss v4.0.6 | MIT License | https://tailwindcss.com */
 @layer theme, base, components, utilities;
 @layer theme {
   :root, :host {
@@ -867,6 +867,9 @@
   .gap-x-2\.5 {
     column-gap: calc(var(--spacing) * 2.5);
   }
+  .gap-x-4 {
+    column-gap: calc(var(--spacing) * 4);
+  }
   .gap-x-5 {
     column-gap: calc(var(--spacing) * 5);
   }
@@ -1084,14 +1087,17 @@
     font-size: var(--text-lg);
     line-height: var(--tw-leading, var(--text-lg--line-height));
   }
-  .text-\[12px\] {
-    font-size: 12px;
-  }
   .text-\[16px\] {
     font-size: 16px;
   }
   .text-\[24px\] {
     font-size: 24px;
+  }
+  .text-\[128px\] {
+    font-size: 128px;
+  }
+  .text-\[12px\] {
+    font-size: 12px;
   }
   .text-\[40px\] {
     font-size: 40px;
@@ -1099,15 +1105,8 @@
   .text-\[50px\] {
     font-size: 50px;
   }
-  .text-\[128px\] {
-    font-size: 128px;
-  }
   .text-\[200px\] {
     font-size: 200px;
-  }
-  .leading-\[16px\] {
-    --tw-leading: 16px;
-    line-height: 16px;
   }
   .leading-\[90\%\] {
     --tw-leading: 90%;
@@ -1116,6 +1115,10 @@
   .leading-\[105\%\] {
     --tw-leading: 105%;
     line-height: 105%;
+  }
+  .leading-\[16px\] {
+    --tw-leading: 16px;
+    line-height: 16px;
   }
   .leading-normal {
     --tw-leading: var(--leading-normal);
@@ -1524,6 +1527,11 @@
       flex-direction: column;
     }
   }
+  .lg\:flex-col-reverse {
+    @media (width >= 64rem) {
+      flex-direction: column-reverse;
+    }
+  }
   .lg\:flex-row {
     @media (width >= 64rem) {
       flex-direction: row;
@@ -1704,6 +1712,11 @@
       padding-block: calc(var(--spacing) * 0);
     }
   }
+  .lg\:py-5 {
+    @media (width >= 64rem) {
+      padding-block: calc(var(--spacing) * 5);
+    }
+  }
   .lg\:pr-5 {
     @media (width >= 64rem) {
       padding-right: calc(var(--spacing) * 5);
@@ -1712,6 +1725,21 @@
   .lg\:pr-10 {
     @media (width >= 64rem) {
       padding-right: calc(var(--spacing) * 10);
+    }
+  }
+  .lg\:pb-5 {
+    @media (width >= 64rem) {
+      padding-bottom: calc(var(--spacing) * 5);
+    }
+  }
+  .lg\:pb-9 {
+    @media (width >= 64rem) {
+      padding-bottom: calc(var(--spacing) * 9);
+    }
+  }
+  .lg\:pl-5 {
+    @media (width >= 64rem) {
+      padding-left: calc(var(--spacing) * 5);
     }
   }
   .lg\:pl-10 {
@@ -2002,6 +2030,32 @@
     box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
   }
 }
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes ping {
+  75%, 100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+@keyframes pulse {
+  50% {
+    opacity: 0.5;
+  }
+}
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(-25%);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+  50% {
+    transform: none;
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
+}
 @property --tw-translate-x {
   syntax: "*";
   inherits: false;
@@ -2160,10 +2214,6 @@
   syntax: "*";
   inherits: false;
 }
-@property --tw-drop-shadow {
-  syntax: "*";
-  inherits: false;
-}
 @property --tw-backdrop-blur {
   syntax: "*";
   inherits: false;
@@ -2207,30 +2257,4 @@
 @property --tw-ease {
   syntax: "*";
   inherits: false;
-}
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-@keyframes ping {
-  75%, 100% {
-    transform: scale(2);
-    opacity: 0;
-  }
-}
-@keyframes pulse {
-  50% {
-    opacity: 0.5;
-  }
-}
-@keyframes bounce {
-  0%, 100% {
-    transform: translateY(-25%);
-    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
-  }
-  50% {
-    transform: none;
-    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
-  }
 }
