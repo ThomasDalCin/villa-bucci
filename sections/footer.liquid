@@ -3,7 +3,7 @@
 
 <!-- Footer Section -->
 <div class="footer px-5 py-5">
-<footer class="w-full flex flex-col items-start justify-center rounded-[8px] text-white py-10 lg:relative" style="background-color: {{ section.settings.footer_bg_color }};">
+<footer class="w-full flex flex-col items-start justify-center rounded-[8px] text-white pt-5 pb-5 lg:relative" style="background-color: {{ section.settings.footer_bg_color }};">
  
     <div class="w-full h-auto flex flex-col items-start justify-center px-5 lg:items-center lg:justify-center lg:pb-9">
 <img
@@ -17,7 +17,7 @@
 <div class="flex flex-col lg:flex-wrap lg:flex-row h-auto">
  
         <!-- Column 1 -->
-<div class="flex-1 flex flex-col items-center justify-center lg:justify-start lg:items-start pt-5 pb-5 gap-y-[36px] border border-l-0 border-r-0 border-t-(--border-color) border-b-0 lg:flex-col lg:h-[377px] border-t-(--border-color) lg:border-b border-[var(--border-color)] lg:pl-10 ">
+<div class="flex-1 flex flex-col items-center justify-center lg:justify-start lg:items-start pt-5 pb-5 gap-y-[36px] border border-l-0 border-r-0 border-t-(--border-color) border-b-0 lg:flex-col lg:h-[377px] border-t-(--border-color) lg:border-b border-[var(--border-color)] lg:pl-10 lg:border-r border-[var(--border-color)] lg:pr-10 ">
 <h3 class=" text-center font-semibold text-(--beige-light) text-[16px] opacity-[0.3]">ONIWINES</h3>
 <div class="w-full h-auto flex flex-col items-center justify-center gap-y-2.5 lg:items-start lg:justify-start">
             {% assign menuLinks = "Home,Il Gruppo,Magazine,Contatti" | split: "," %}
@@ -35,7 +35,7 @@ upcase }}</a>
 </div>
  
         <!-- Column 2 -->
-<div class="flex-1 flex flex-col items-center justify-center lg:justify-start lg:items-start pt-5 pb-5 gap-y-[36px] border border-l-0 border-r-0 border-t-(--border-color) border-b-(--border-color) lg:flex-col lg:h-[377px]">
+<div class="flex-1 flex flex-col items-center justify-center lg:justify-start lg:items-start pt-5 pb-5 gap-y-[36px] border border-l-0 border-r-0 border-t-(--border-color) border-b-(--border-color) lg:flex-col lg:h-[377px] lg:border-r border-[var(--border-color)] lg:pr-10">
 <h3 class="font-semibold text-lg text-(--beige-light) text-[16px] opacity-[0.3] lg:self-center">LE CANTINE</h3>
 <div class="w-full h-auto flex flex-col items-center justify-center gap-y-2.5 ">
             {% assign menuLinks = "Podere Guardia Grande,La Giuva,Villa Bucci,Tenimenti Leone" | split: "," %}
@@ -78,7 +78,7 @@ upcase }}</a>
 
  
         <!-- Column 4 -->
-<div class="w-full h-auto py-5 flex flex-col items-center justify-center border border-r-0 border-l-0 border-t-0 border-b-(--border-color) lg:border-0 lg:absolute lg:bottom-5">
+<div class="w-full h-auto py-5 flex flex-col items-center justify-center border border-r-0 border-l-0 border-t-0 border-b-(--border-color) lg:border-0 lg:absolute lg:bottom-1">
 <a href="{{ section.settings.brand_link }}" class="flex flex-row items-center justify-start gap-x-2.5">
 <span style="font-family: var(--submain-mobile-title-font-family); 
 color: #E86A58;">{{ section.settings.brand_name }}</span>
@@ -99,7 +99,7 @@ color: #E86A58;">{{ section.settings.brand_name }}</span>
 </div>
  
     <!-- Under Footer -->
-    <div class="w-full h-auto flex flex-col items-center justify-center ">
+    <div class="w-full h-auto flex flex-col items-center justify-center pt-5">
       <div class="w-full h-auto flex flex-col lg:flex-row items-center lg:justify-between gap-x-4">
         
         <!-- Column 1 -->
@@ -188,3 +188,4 @@ color: #E86A58;">{{ section.settings.brand_name }}</span>
     ]
   }
 {% endschema %}
+
