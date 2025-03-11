@@ -41,21 +41,22 @@
             {% assign pageTitleCustom = pageTitleCustom | slice: 1, pageTitleCustom.size %}
             {% assign pageTitleCustom = pageTitleCustom | join: " " %}
             <a class="canteen-item-container {% if titlePagesCanteen.size <= 4 or titlePagesCantina.size <= 4  %} flex-1 flex  {% else %} block {% endif %}" href="{{ page.url }}">
-              <div class="canteen-item w-auto h-auto flex flex-col items-start justify-center gap-y-2.5 cursor-pointer {% if titlePagesCanteen.size <= 4 or titlePagesCantina.size <= 4  %} lg:w-full {% endif %}" data-canteen="{{ page.title }}">
+              <div class="canteen-item w-auto h-auto flex flex-col items-start justify-center gap-y-2.5 cursor-pointer group {% if titlePagesCanteen.size <= 4 or titlePagesCantina.size <= 4  %} lg:w-full {% endif %}" data-canteen="{{ page.title }}">
                 {% if pageImage %}
                   <!-- page image -->
                   <div class="w-[348px] h-[121px] relative {% if titlePagesCanteen.size <= 4 or titlePagesCantina.size <= 4  %} lg:w-full {% endif %}">
                     <img
-                      class="page-image w-full h-full object-cover object-center rounded-[8px]"
+                      class="page-image w-full h-full object-cover object-center rounded-[8px] group-hover:border-(--beige-light) group-hover:border-[11px]"
                       src="{{ pageImage | img_url: 'master' }}"
                       alt="">
                     <!-- container canteen logo -->
                     {% if pageCanteenLogo %}
-                      <div class="page-logo hidden w-auto h-auto max-w-[81px] max-h-[69px] absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-                        <img
-                          class="w-full h-full object-center object-cover"
-                          src="{{ pageCanteenLogo |  img_url: 'master' }}"
-                          alt="{{ pageCanteenLogo.alt }}">
+                      <div class="page-logo w-auto h-auto max-w-[81px] max-h-[69px] absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+                      <img
+                      class="w-full h-full object-center object-cover opacity-0 group-hover:opacity-100 transition-all duration-75 ease-linear"
+                      src="{{ pageCanteenLogo | img_url: 'master' }}"
+                      alt="{{ pageCanteenLogo.alt }}"
+                    >
                       </div>
                     {% endif %}
                   </div>
@@ -129,20 +130,13 @@
       const canteenDataCustom = canteenData.replace(/ /g, "-");
   
       if (pathSegments.some((i) => canteenDataCustom == i)) {
+
         const classesToAdd = ["border", "border-(--beige-light)", "border-[11px]"];
         const pageImage = item.querySelector('.page-image');
-        const arrowImage = item.querySelector('.arrow-canteen-box');
-        const pageLogo = item.querySelector('.page-logo');
-        classesToAdd.forEach((classToAdd) => {
-          pageImage.classList.add(classToAdd);
-        });
-        arrowImage.classList.remove('hidden');
-        pageLogo.classList.remove('hidden');
-  
+      
+        pageImage.style.filter = "brightness(70%)";
         elementToMove = canteenItemContainer[index];
-      } else {
-        const pageImage = item.querySelector('.page-image');
-        pageImage.style.filter = "brightness(70%)"
+
       }
     });
   
@@ -150,6 +144,7 @@
       const parentContainer = elementToMove.parentNode;
       parentContainer.prepend(elementToMove);
     }
+
   });
 </script>
 

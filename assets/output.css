@@ -837,6 +837,9 @@
   .underline {
     text-decoration-line: underline;
   }
+  .opacity-0 {
+    opacity: 0%;
+  }
   .opacity-\[0\.3\] {
     opacity: 0.3;
   }
@@ -866,6 +869,10 @@
     transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
     transition-duration: var(--tw-duration, var(--default-transition-duration));
   }
+  .duration-75 {
+    --tw-duration: 75ms;
+    transition-duration: 75ms;
+  }
   .duration-200 {
     --tw-duration: 200ms;
     transition-duration: 200ms;
@@ -894,6 +901,13 @@
     --tw-ease: linear;
     transition-timing-function: linear;
   }
+  .group-hover\:block {
+    &:is(:where(.group):hover *) {
+      @media (hover: hover) {
+        display: block;
+      }
+    }
+  }
   .group-hover\:scale-\[1\.1\] {
     &:is(:where(.group):hover *) {
       @media (hover: hover) {
@@ -901,10 +915,59 @@
       }
     }
   }
+  .group-hover\:border {
+    &:is(:where(.group):hover *) {
+      @media (hover: hover) {
+        border-style: var(--tw-border-style);
+        border-width: 1px;
+      }
+    }
+  }
+  .group-hover\:border-\[11px\] {
+    &:is(:where(.group):hover *) {
+      @media (hover: hover) {
+        border-style: var(--tw-border-style);
+        border-width: 11px;
+      }
+    }
+  }
+  .group-hover\:border-\(--beige-light\) {
+    &:is(:where(.group):hover *) {
+      @media (hover: hover) {
+        border-color: var(--beige-light);
+      }
+    }
+  }
   .group-hover\:text-\(--blue-color\) {
     &:is(:where(.group):hover *) {
       @media (hover: hover) {
         color: var(--blue-color);
+      }
+    }
+  }
+  .group-hover\:opacity-100 {
+    &:is(:where(.group):hover *) {
+      @media (hover: hover) {
+        opacity: 100%;
+      }
+    }
+  }
+  .group-hover\:not-first\:border-\[11px\] {
+    &:is(:where(.group):hover *) {
+      @media (hover: hover) {
+        &:not(*:first-child) {
+          border-style: var(--tw-border-style);
+          border-width: 11px;
+        }
+      }
+    }
+  }
+  .group-hover\:not-first\:border-\(--beige-light\) {
+    &:is(:where(.group):hover *) {
+      @media (hover: hover) {
+        &:not(*:first-child) {
+          border-color: var(--beige-light);
+        }
       }
     }
   }
@@ -931,6 +994,14 @@
       border-top-color: var(--border-color);
     }
   }
+  .hover\:border-\[11px\] {
+    &:hover {
+      @media (hover: hover) {
+        border-style: var(--tw-border-style);
+        border-width: 11px;
+      }
+    }
+  }
   .hover\:bg-\(--green-color\) {
     &:hover {
       @media (hover: hover) {
@@ -943,6 +1014,25 @@
       @media (hover: hover) {
         --tw-outline-style: none;
         outline-style: none;
+      }
+    }
+  }
+  .hover\:not-first\:border-\[11px\] {
+    &:hover {
+      @media (hover: hover) {
+        &:not(*:first-child) {
+          border-style: var(--tw-border-style);
+          border-width: 11px;
+        }
+      }
+    }
+  }
+  .hover\:not-first\:border-\(--beige-light\) {
+    &:hover {
+      @media (hover: hover) {
+        &:not(*:first-child) {
+          border-color: var(--beige-light);
+        }
       }
     }
   }
