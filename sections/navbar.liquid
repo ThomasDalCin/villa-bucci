@@ -38,7 +38,7 @@
                         <!--container link-->
                         <div class="w-auto h-auto">
                             <li class="list-none">
-                                <a class="text-(--link-color) text-[24px] leading-normal lg:text-[96px] lg:group-hover:text-(--orange-color) transition-all duration-200 ease-in"
+                                <a class="main-menu-link text-(--link-color) text-[24px] leading-normal lg:text-[96px] lg:group-hover:text-(--orange-color) transition-all duration-200 ease-in"
                                     href="{{ linkItem.url }}">{{
                                     linkItem.title |
                                     upcase }}</a>
@@ -82,7 +82,8 @@
                         <!--content childlinks-->
                         <div class="w-auto h-auto">
                             <li class="list-none">
-                                <a class="text-(--link-color) text-[24px] leading-normal" href="{{ childlinks.url }}">{{
+                                <a class="main-menu-sublink text-(--link-color) text-[24px] leading-normal"
+                                    href="{{ childlinks.url }}">{{
                                     childlinks.title |
                                     upcase }}</a>
                             </li>
@@ -99,7 +100,7 @@
 
 
         <div
-            class="w-full flex flex-col items-start justify-between lg:flex-row-reverse lg:relative lg:border lg:border-t-(--border-color)">
+            class="w-full flex flex-col items-start justify-between lg:flex-row-reverse lg:relative lg:border lg:border-t-(--border-color) lg:border-l-0 lg:border-r-0 lg:border-b-0">
 
             <!--container switch language form-->
             <div class="w-full px-2.5 py-5 flex items-center justify-center border border-(--border-color) lg:border-0">
@@ -211,7 +212,7 @@
             }
         }
 
-        
+
         window.addEventListener('resize', checkWindowSize)
 
         const handleClickOnLinks = () => {
@@ -253,6 +254,30 @@
         }
 
         checkWindowSize();
+
+
+        //dispaly menu item active on page loading;
+        const path = window.location.pathname;
+        const pathSegments = path.split("/").filter((segment) => segment != "");
+
+    
+        const mainLinks = document.querySelectorAll('.main-menu-link');
+        const mainSubLinks = document.querySelectorAll('.main-menu-sublink');
+        const allLinks = [...mainLinks, ...mainSubLinks]
+
+
+        pathSegments.forEach((segment) => {
+            let newSegment = segment.replace(/-/g, " ");
+            newSegment = newSegment.replace(/cantina/g, "").trim();
+
+            allLinks.forEach((link) => {
+                const linkValue = link.innerHTML.toLowerCase();
+
+                if( newSegment == linkValue ){
+                    link.classList.add('text-(--orange-color)')
+                }
+            })
+        })
 
     })
 </script>
