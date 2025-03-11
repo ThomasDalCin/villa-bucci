@@ -13,6 +13,7 @@
     </div>
 </div>
 
+
 <!--container full screen navigation-->
 <div
     class="navigation-container fixed inset-1.5 z-60 bg-(--blue-color) rounded-[8px] flex flex-col items-start justify-center hidden">
@@ -273,7 +274,7 @@
             }
             link.classList.add('text-(--orange-color)');
         };
-        
+
         if (pathSegments.length === 0 || (pathSegments.length === 1 && (pathSegments[0] === "it" || pathSegments[0] === "en"))) {
             allLinks.forEach((link) => {
                 if (link.innerHTML.toLowerCase() === "home") {

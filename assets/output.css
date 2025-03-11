@@ -6,6 +6,7 @@
       "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
+    --color-black: #000;
     --color-white: #fff;
     --spacing: 0.25rem;
     --text-lg: 1.125rem;
@@ -17,6 +18,7 @@
     --ease-in: cubic-bezier(0.4, 0, 1, 1);
     --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
     --blur-xs: 4px;
+    --blur-lg: 16px;
     --default-transition-duration: 150ms;
     --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     --default-font-family: var(--font-sans);
@@ -638,11 +640,20 @@
   .bg-\(--blue-color\) {
     background-color: var(--blue-color);
   }
+  .bg-\(--blue-color-w-opacity\) {
+    background-color: var(--blue-color-w-opacity);
+  }
+  .bg-\(--blue-opacity\) {
+    background-color: var(--blue-opacity);
+  }
   .bg-\(--green-color-w-opacity\) {
     background-color: var(--green-color-w-opacity);
   }
   .bg-\[\#DACABB\] {
     background-color: #DACABB;
+  }
+  .bg-black {
+    background-color: var(--color-black);
   }
   .object-cover {
     object-fit: cover;
@@ -895,6 +906,18 @@
       @media (hover: hover) {
         color: var(--blue-color);
       }
+    }
+  }
+  .backdrop\:blur-\[5px\] {
+    &::backdrop {
+      --tw-blur: blur(5px);
+      filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
+    }
+  }
+  .backdrop\:blur-lg {
+    &::backdrop {
+      --tw-blur: blur(var(--blur-lg));
+      filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
     }
   }
   .first\:border-t {
@@ -1220,11 +1243,6 @@
       column-gap: calc(var(--spacing) * 7);
     }
   }
-  .lg\:gap-x-10 {
-    @media (width >= 64rem) {
-      column-gap: calc(var(--spacing) * 10);
-    }
-  }
   .lg\:gap-x-\[124px\] {
     @media (width >= 64rem) {
       column-gap: 124px;
@@ -1452,11 +1470,6 @@
       white-space: normal;
     }
   }
-  .lg\:text-\(--orange-color\) {
-    @media (width >= 64rem) {
-      color: var(--orange-color);
-    }
-  }
   .lg\:opacity-\[0\.3\] {
     @media (width >= 64rem) {
       opacity: 0.3;
@@ -1466,15 +1479,6 @@
     @media (width >= 64rem) {
       &:not(*:first-child) {
         width: calc(50% - 124px);
-      }
-    }
-  }
-  .lg\:group-hover\:block {
-    @media (width >= 64rem) {
-      &:is(:where(.group):hover *) {
-        @media (hover: hover) {
-          display: block;
-        }
       }
     }
   }
@@ -1552,6 +1556,7 @@
   --beige-light: #E3DBD2;
   --beige-menu: rgba(227, 219, 210, 0.8);
   --blue-color-w-opacity: rgba(38, 42, 57, 0.8);
+  --blue-opacity: rgba(38, 42, 57, 0.95);
   --gold-color: #c8a758;
   --gold-color-w-opacity: rgba(200, 167, 88, 0.2);
   --peach-color: #d39278;
