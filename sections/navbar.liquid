@@ -269,29 +269,30 @@
             if (containerArrow) {
                 containerArrow.classList.remove('hidden');
                 containerArrow.classList.add('text-(--orange-color)');
+                containerArrow.classList.add('mr-[20px]')
             }
             link.classList.add('text-(--orange-color)');
         };
-
-        if (pathSegments.length === 0 || pathSegments[0] === "it" || pathSegments[0] === "en") {
+        
+        if (pathSegments.length === 0 || (pathSegments.length === 1 && (pathSegments[0] === "it" || pathSegments[0] === "en"))) {
             allLinks.forEach((link) => {
                 if (link.innerHTML.toLowerCase() === "home") {
                     setActiveLink(link);
                 }
             });
-        } else {
-            pathSegments.forEach((segment) => {
-                let newSegment = segment.replace(/-/g, " ").replace(/cantina/g, "").trim().toLowerCase();
-
-                allLinks.forEach((link) => {
-                    const linkValue = link.innerHTML.toLowerCase();
-
-                    if (linkValue.includes(newSegment)) {
-                        setActiveLink(link);
-                    }
-                });
-            });
         }
+
+        pathSegments.forEach((segment) => {
+            let newSegment = segment.replace(/-/g, " ").replace(/cantina/g, "").trim().toLowerCase();
+
+            allLinks.forEach((link) => {
+                const linkValue = link.innerHTML.toLowerCase();
+
+                if (linkValue.includes(newSegment)) {
+                    setActiveLink(link);
+                }
+            });
+        });
 
     })
 </script>
