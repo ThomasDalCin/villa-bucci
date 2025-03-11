@@ -29,12 +29,13 @@
                 {% if linkItem.title == menuLink %}
                 <div
                     class="w-full flex flex-col items-start justify-center p-2.5 border border-b-(--border-color) first:border-t first:border-t-(--border-color) lg:flex-1 lg:border-0 lg:border-t-0 lg:first:border-0 lg:even:border lg:even:border-t-(--border-color) lg:even:border-b-(--border-color) group">
-                    <div class="w-full h-auto flex flex-row items-center justify-start lg:gap-x-10">
+                    <div class="w-full h-auto flex flex-row items-center justify-start lg:gap-x-5">
+
                         <!--icon link-->
-                        <div
-                            class="w-auto h-auto hidden lg:text-(--orange-color) lg:group-hover:block transition-all duration-200 ease-in">
+                        <div class="container-arrow-link w-auto h-auto hidden">
                             {% render 'arrow-up' %}
                         </div>
+
                         <!--container link-->
                         <div class="w-auto h-auto">
                             <li class="list-none">
@@ -82,7 +83,7 @@
                         <!--content childlinks-->
                         <div class="w-auto h-auto">
                             <li class="list-none">
-                                <a class="main-menu-sublink text-(--link-color) text-[24px] leading-normal"
+                                <a class="main-menu-sublink text-(--link-color) text-[24px] leading-normal lg:hover:text-(--orange-color) transition-all duration-200 ease-linear"
                                     href="{{ childlinks.url }}">{{
                                     childlinks.title |
                                     upcase }}</a>
@@ -255,29 +256,43 @@
 
         checkWindowSize();
 
-
-        //dispaly menu item active on page loading;
+        // Display menu item active on page load;
         const path = window.location.pathname;
-        const pathSegments = path.split("/").filter((segment) => segment != "");
+        const pathSegments = path.split("/").filter((segment) => segment !== "");
+        console.log(pathSegments);
 
-    
         const mainLinks = document.querySelectorAll('.main-menu-link');
         const mainSubLinks = document.querySelectorAll('.main-menu-sublink');
-        const allLinks = [...mainLinks, ...mainSubLinks]
+        const allLinks = [...mainLinks, ...mainSubLinks];
 
+        const setActiveLink = (link) => {
+            const containerArrow = link.closest('.w-full')?.querySelector('.container-arrow-link');
+            if (containerArrow) {
+                containerArrow.classList.remove('hidden');
+                containerArrow.classList.add('text-(--orange-color)');
+            }
+            link.classList.add('text-(--orange-color)');
+        };
 
-        pathSegments.forEach((segment) => {
-            let newSegment = segment.replace(/-/g, " ");
-            newSegment = newSegment.replace(/cantina/g, "").trim();
-
+        if (pathSegments.length === 0 || pathSegments[0] === "it" || pathSegments[0] === "en") {
             allLinks.forEach((link) => {
-                const linkValue = link.innerHTML.toLowerCase();
-
-                if( newSegment == linkValue ){
-                    link.classList.add('text-(--orange-color)')
+                if (link.innerHTML.toLowerCase() === "home") {
+                    setActiveLink(link);
                 }
-            })
-        })
+            });
+        } else {
+            pathSegments.forEach((segment) => {
+                let newSegment = segment.replace(/-/g, " ").replace(/cantina/g, "").trim().toLowerCase();
+
+                allLinks.forEach((link) => {
+                    const linkValue = link.innerHTML.toLowerCase();
+
+                    if (linkValue.includes(newSegment)) {
+                        setActiveLink(link);
+                    }
+                });
+            });
+        }
 
     })
 </script>
