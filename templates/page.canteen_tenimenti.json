@@ -155,6 +155,9 @@
         "block_text_qEn6X8",
         "block_text_cF3Jhw"
       ],
+      "custom_css": [
+        "@media (min-width: 1024px) {.main-title {font-size: 64px; }}"
+      ],
       "settings": {
         "margin_desktop_section": 60,
         "margin_mobile_section": 30
@@ -171,8 +174,8 @@
             "is_stroke_text": false,
             "additional_text": "per noi",
             "color_text": "#d39278",
-            "padding_left_text_title": 0,
-            "padding_left_paragraph": 40,
+            "padding_left_text_title": 90,
+            "padding_left_paragraph": 80,
             "is_padding_text": true
           }
         }
