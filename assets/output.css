@@ -962,6 +962,13 @@
       }
     }
   }
+  .hover\:text-\(--orange-color\) {
+    &:hover {
+      @media (hover: hover) {
+        color: var(--orange-color);
+      }
+    }
+  }
   .hover\:outline-none {
     &:hover {
       @media (hover: hover) {

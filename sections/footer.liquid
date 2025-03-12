@@ -25,7 +25,7 @@
             {% for linkItem in linklists.footer.links %}
             {% if linkItem.title == menuLink %}
             <li class="list-none">
-              <a href="{{ linkItem.url }}" class="text-[24px]">{{ linkItem.title |
+              <a href="{{ linkItem.url }}" class="text-[24px] hover:text-(--orange-color) transition-all duration-200 ease-in">{{ linkItem.title |
                 upcase }}</a>
             </li>
             {% endif %}
@@ -47,7 +47,7 @@
             {% if matchingLink.links.size > 0 %}
             {% for childLink in matchingLink.links %}
             <li class="list-none">
-              <a href="{{ childLink.url }}" class="text-[24px]">{{ childLink.title |
+              <a href="{{ childLink.url }}" class="text-[24px] hover:text-(--orange-color) transition-all duration-200 ease-in">{{ childLink.title |
                 upcase }}</a>
             </li>
             {% endfor %}
@@ -69,7 +69,7 @@
             {% if matchingLink.links.size > 0 %}
             {% for childLink in matchingLink.links %}
             <li class="list-none">
-              <a href="{{ childLink.url }}" class="text-[24px]">{{ childLink.title |
+              <a href="{{ childLink.url }}" class="text-[24px] hover:text-(--orange-color) transition-all duration-200 ease-in">{{ childLink.title |
                 upcase }}</a>
             </li>
           {% endfor %}
