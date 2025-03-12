@@ -1,11 +1,11 @@
 <!-- canteen information text -->
-<div class="canteen-information-wrapper w-full h-auto overflow-x-hidden lg:px-5">
+<div class="canteen-information-wrapper w-full h-auto overflow-x-hidden overflow-y-hidden lg:px-5">
   <div class="w-full h-auto flex flex-col items-start justify-center gap-y-[100px] lg:gap-y-[120px]">
     {% for block in section.blocks %}
     {% if block.type == "block_text" %}
     <div class="w-full h-auto flex flex-col items-start justify-center gap-y-5 lg:gap-y-[50px]">
 
-      <div class="w-full h-auto overflow-x-auto py-1.5 lg:py-0 lg:w-auto">
+      <div class="w-full h-auto overflow-x-auto overflow-y-hidden py-1.5 lg:py-0 lg:w-auto">
         <h2
           class="main-title font-(family-name:--main-title-mobile-font-family) text-[128px] text-nowrap font-light leading-[90%] lg:text-[96px] lg:leading-[105%] lg:whitespace-normal"
           style="

@@ -1,7 +1,7 @@
 <!-- canteen slider id footer section -->
 <div class="canteen-slider-id-wrapper w-full h-auto px-2.5">
   <!-- main wrapper section -->
-  <div class="w-full h-auto rounded-[8px] bg-(--beige-color) flex flex-col items-start justify-center gap-y-[30px] overflow-x-hidden lg:gap-y-[72px]">
+  <div class="w-full h-auto rounded-[8px] bg-(--beige-color) flex flex-col items-start justify-center gap-y-[30px] overflow-x-hidden overflow-y-hidden lg:gap-y-[72px]">
 
     <!-- container headings -->
     <div class="w-full h-auto flex flex-col items-start justify-center p-5 lg:flex-row lg:justify-between lg:items-center">
@@ -30,7 +30,7 @@
     {% assign titlePagesCantina = pages | where: "title", "Cantina" %}
 
     <!-- container slider id canteen -->
-    <div class="w-full h-auto overflow-x-scroll mb-[130px] content-layout-slider">
+    <div class="w-full h-auto overflow-x-scroll overflow-y-hidden mb-[130px] content-layout-slider">
       <div class="w-auto h-auto px-5 gap-x-5 layout-slider {% if titlePagesCanteen.size <= 4 or titlePagesCantina.size <= 4  %} lg:w-full lg:max-w-full {% endif %}">
         {% for page in pages %}
           {% assign pageImage = page.metafields.custom.page_image.value %}
