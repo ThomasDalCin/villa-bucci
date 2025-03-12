@@ -65,7 +65,7 @@
       "type": "video-container",
       "settings": {
         "video_source": "https://cdn.shopify.com/videos/c/o/v/a700a6e9af1e4acd9fbeb045fc59915b.mp4",
-        "margin_desktop_section": 60,
+        "margin_desktop_section": 10,
         "margin_mobile_section": 30,
         "show_media_video": "block",
         "show_media_image": "hidden"
@@ -225,8 +225,8 @@
         "main_title_right": "",
         "is_stroke_left": false,
         "is_stroke_right": true,
-        "margin_desktop_section": 60,
-        "margin_mobile_section": 30,
+        "margin_desktop_section": 10,
+        "margin_mobile_section": 10,
         "layout_slider_direction_mobile": "row",
         "layout_slider_alignment_mobile": "start"
       }
