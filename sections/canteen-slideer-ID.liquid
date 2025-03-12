@@ -1,7 +1,8 @@
 <!-- canteen slider id footer section -->
 <div class="canteen-slider-id-wrapper w-full h-auto px-2.5">
+
   <!-- main wrapper section -->
-  <div class="w-full h-auto rounded-[8px] bg-(--beige-color) flex flex-col items-start justify-center gap-y-[30px] overflow-x-hidden lg:gap-y-[72px]">
+  <div class="w-full h-auto rounded-[8px] bg-(--beige-color) flex flex-col items-start justify-center gap-y-[30px] overflow-x-hidden relative lg:gap-y-[72px]">
 
     <!-- container headings -->
     <div class="w-full h-auto flex flex-col items-start justify-center p-5 lg:flex-row lg:justify-between lg:items-center">
@@ -30,8 +31,9 @@
     {% assign titlePagesCantina = pages | where: "title", "Cantina" %}
 
     <!-- container slider id canteen -->
-    <div class="w-full h-auto overflow-x-scroll mb-[130px] content-layout-slider">
-      <div class="w-auto h-auto px-5 gap-x-5 layout-slider {% if titlePagesCanteen.size <= 4 or titlePagesCantina.size <= 4  %} lg:w-full lg:max-w-full {% endif %}">
+    <div class="w-full h-auto overflow-hidden mb-[130px] px-5">
+
+      <div class="container-canteen-items w-full h-auto gap-x-5 flex flex-row items-center justify-start overflow-x-scroll snap-x snap-mandatory {% if titlePagesCanteen.size <= 4 or titlePagesCantina.size <= 4  %} lg:w-full lg:max-w-full lg:items-start {% endif %}">
         {% for page in pages %}
           {% assign pageImage = page.metafields.custom.page_image.value %}
           {% assign pageCanteenLogo = page.metafields.custom.page_canteen_logo.value %}
@@ -40,11 +42,12 @@
             {% assign pageTitleCustom = page.title | split: " " %}
             {% assign pageTitleCustom = pageTitleCustom | slice: 1, pageTitleCustom.size %}
             {% assign pageTitleCustom = pageTitleCustom | join: " " %}
-            <a class="canteen-item-container {% if titlePagesCanteen.size <= 4 or titlePagesCantina.size <= 4  %} flex-1 flex  {% else %} block {% endif %}" href="{{ page.url }}">
+
+            <a class="canteen-item-container w-full min-w-full h-auto snap-start {% if titlePagesCanteen.size <= 4 or titlePagesCantina.size <= 4  %} lg:flex lg:flex-1 lg:min-w-0 {% endif %}" href="{{ page.url }}">
               <div class="canteen-item w-auto h-auto flex flex-col items-start justify-center gap-y-2.5 cursor-pointer group {% if titlePagesCanteen.size <= 4 or titlePagesCantina.size <= 4  %} lg:w-full {% endif %}" data-canteen="{{ page.title }}">
                 {% if pageImage %}
                   <!-- page image -->
-                  <div class="w-[348px] h-[121px] relative {% if titlePagesCanteen.size <= 4 or titlePagesCantina.size <= 4  %} lg:w-full {% endif %}">
+                  <div class="w-full h-[121px] relative {% if titlePagesCanteen.size <= 4 or titlePagesCantina.size <= 4  %} lg:w-full {% endif %}">
                     <img
                       class="page-image w-full h-full object-cover object-center rounded-[8px] group-hover:border-(--beige-light) group-hover:border-[11px]"
                       src="{{ pageImage | img_url: 'master' }}"
@@ -52,11 +55,10 @@
                     <!-- container canteen logo -->
                     {% if pageCanteenLogo %}
                       <div class="page-logo w-auto h-auto max-w-[81px] max-h-[69px] absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-                      <img
-                      class="w-full h-full object-center object-cover opacity-0 group-hover:opacity-100 transition-all duration-75 ease-linear"
-                      src="{{ pageCanteenLogo | img_url: 'master' }}"
-                      alt="{{ pageCanteenLogo.alt }}"
-                    >
+                        <img
+                          class="w-full h-full object-center object-cover opacity-0 group-hover:opacity-100 transition-all duration-75 ease-linear"
+                          src="{{ pageCanteenLogo | img_url: 'master' }}"
+                          alt="{{ pageCanteenLogo.alt }}">
                       </div>
                     {% endif %}
                   </div>
@@ -74,6 +76,38 @@
         {% endfor %}
       </div>
     </div>
+
+    <!-- controls slider on mobile -->
+    <div class="w-full h-auto flex flex-row items-center justify-between absolute left-0 right-0 bottom-[30px] lg:hidden">
+
+      <div class="w-auto h-auto arrow-left">
+
+        <div class="w-[80px] h-[40px] relative">
+          <img
+            class="w-full h-full object-cover"
+            src="{{ 'rectangle.png' |  asset_url }}"
+            alt="">
+          <div class="w-auto h-auto absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+            {% render 'arrow-left-slider' %}
+          </div>
+        </div>
+
+      </div>
+
+      <div class="w-auto h-auto arrow-right">
+        <div class="w-[80px] h-[40px] relative">
+          <img
+            class="w-full h-full object-cover"
+            src="{{ 'rectangle.png' |  asset_url }}"
+            alt="">
+          <div class="w-auto h-auto absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+            {% render 'arrow-right-slider' %}
+          </div>
+        </div>
+      </div>
+
+    </div>
+
   </div>
 </div>
 
@@ -84,18 +118,6 @@
     margin-bottom: {{ section.settings.margin_desktop_section }}px;
   }
 
-  .layout-slider{
-    display:flex;
-    align-items: start;
-    justify-content: center;
-    flex-direction: row;
-  }
-
-  .content-layout-slider{
-    display:flex;
-    align-items: start;
-    justify-content: center;
-  }
 
   @media (max-width: 480px) {
     .canteen-slider-id-wrapper {
@@ -103,12 +125,12 @@
       margin-bottom: {{ section.settings.margin_mobile_section }}px;
     }
 
-    .layout-slider{
+    .layout-slider {
       flex-direction: {{ section.settings.layout_slider_direction_mobile }};
     }
 
-    .content-layout-slider{
-    justify-content: {{ section.settings.layout_slider_alignment_mobile }};
+    .content-layout-slider {
+      justify-content: {{ section.settings.layout_slider_alignment_mobile }};
     }
   }
 {% endstyle %}
@@ -130,13 +152,13 @@
       const canteenDataCustom = canteenData.replace(/ /g, "-");
   
       if (pathSegments.some((i) => canteenDataCustom == i)) {
-
+  
         const classesToAdd = ["border", "border-(--beige-light)", "border-[11px]"];
         const pageImage = item.querySelector('.page-image');
-      
+  
         pageImage.style.filter = "brightness(70%)";
         elementToMove = canteenItemContainer[index];
-
+  
       }
     });
   
@@ -144,7 +166,56 @@
       const parentContainer = elementToMove.parentNode;
       parentContainer.prepend(elementToMove);
     }
+  
+    // Gestire lo scroll al click
+    const arrowLeft = document.querySelector('.arrow-left'); // Selettore corretto con il punto per la classe
+    const arrowRight = document.querySelector('.arrow-right');
+    const containerCanteenItems = document.querySelector('.container-canteen-items');
+    const containerItem = document.querySelector('.canteen-item-container');
+    const containerRect = containerItem.getBoundingClientRect();
+  
+    const scrollableContent = containerCanteenItems.scrollWidth - containerCanteenItems.clientWidth;
+    const valueToScroll = containerRect.width;
+  
+    let scrollValue = valueToScroll;
+  
+    // Click su freccia sinistra
+    arrowLeft.addEventListener('click', () => {
 
+      if (containerCanteenItems.scrollLeft > 0) {
+        containerCanteenItems.scrollTo({
+          left: containerCanteenItems.scrollLeft - scrollValue,
+          behavior: 'smooth'
+        });
+
+      } else {
+        containerCanteenItems.scrollTo({
+          left: scrollableContent,
+          behavior: 'smooth'
+        });
+      }
+    })
+  
+    arrowRight.addEventListener('click', () => {
+
+      if (containerCanteenItems.scrollLeft < scrollableContent) {
+
+        containerCanteenItems.scrollTo({
+          left: containerCanteenItems.scrollLeft + scrollValue,
+          behavior: 'smooth'
+        });
+
+      } else {
+
+        containerCanteenItems.scrollTo({
+          left: 0,
+          behavior: 'smooth'
+        });
+      }
+    })
+  
+  
+  
   });
 </script>
 
@@ -192,38 +263,6 @@
         "step": 10,
         "default": 30,
         "label": "Section distance top & bottom on mobile"
-      },
-      {
-        "type": "select",
-        "id": "layout_slider_direction_mobile",
-        "label": "Layout slider direction",
-        "default": "row",
-        "options": [
-          {
-            "label": "row",
-            "value": "row"
-          },
-          {
-            "label": "column",
-            "value": "column"
-          }
-        ]
-      },
-      {
-        "type": "select",
-        "id": "layout_slider_alignment_mobile",
-        "label": "Layout slider alignment",
-        "default": "start",
-        "options": [
-          {
-            "label": "left",
-            "value": "start"
-          },
-          {
-            "label": "center",
-            "value": "center"
-          }
-        ]
       }
     ]
   }

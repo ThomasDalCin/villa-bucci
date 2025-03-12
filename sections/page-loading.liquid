@@ -12,7 +12,7 @@
         </div>
 
         <!-- home step text layout -->
-        <div class="section-content floating-div-target w-full h-screen relative">
+        <div class="section-content floating-div-target w-full h-screen relative first-section">
 
             <!--floating div-->
             <div
@@ -36,8 +36,9 @@
                     </div>
                 </div>
                 <div class="bottom-text-container w-full absolute h-auto left-0 bottom-7 right-0">
-                    <div class="settings-cta w-auto h-auto flex items-center justify-center">
-                        <p class="uppercase underline text-[12px] leading-[16px] tracking-[-3%] font-bold">
+                    <div class="settings-cta w-auto flex items-center justify-center">
+                        <p
+                            class="settings-cta-text w-auto h-[100px] flex items-center uppercase underline text-[12px] leading-[16px] tracking-[-3%] font-bold cursor-pointer relative z-30">
                             {{ section.settings.custom_settings_text | default: "Entra senza audio" }}
                         </p>
                     </div>
@@ -165,6 +166,7 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', async () => {
+
         const navbar = document.querySelector('.navigation');
         const loadingWrapper = document.querySelector('.loading-wrapper');
         const sectionOverlays = document.querySelector('.content-overlay');
@@ -206,6 +208,7 @@
 
         mainButtons.forEach((button) => {
             button.addEventListener('click', () => {
+                
                 currentTranslateValue += percentValue;
 
                 loadingWrapper.style.transform = `translateY(-${currentTranslateValue}%)`;
@@ -231,7 +234,39 @@
                 }
 
             })
-        })
+        });
+
+        const mainSection = document.querySelector('.first-section');
+
+        function handleMainSectionClick() {
+
+            const windowSize = window.innerWidth;
+
+            if (windowSize >= 1024) {
+
+                mainSection.addEventListener('click', () => {
+                    currentTranslateValue += percentValue;
+
+                    loadingWrapper.style.transform = `translateY(-${currentTranslateValue}%)`;
+
+                    loadingWrapper.addEventListener('transitionend', () => {
+                        setTimeout(() => {
+                            gsap.to(".clip-path-container", {
+                                clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+                                duration: 1,
+                                ease: "Power2.easeOut",
+                                onComplete: () => {
+                                    document.body.classList.remove('no-scroll');
+                                }
+                            })
+                        }, 200)
+                    })
+                })
+            }
+        }
+
+        handleMainSectionClick();
+        window.addEventListener('resize', handleMainSectionClick);
 
         //handle bg footer color base on path;
         const footer = document.querySelector('.footer');
@@ -244,8 +279,10 @@
             return;
         }
 
+        //handle customized mouse cursor
         const floatingDiv = document.querySelector('.floating-div');
         const floatingTarget = document.querySelector('.floating-div-target');
+
 
         function floatingDivPosition() {
             const rect = floatingTarget.getBoundingClientRect();
@@ -276,6 +313,15 @@
 
         floatingTarget.addEventListener('mouseleave', () => {
             floatingDivPosition();
+        });
+
+        const ctaSettingsText = document.querySelector('.settings-cta-text');
+
+        ctaSettingsText.addEventListener('mouseover', () => {
+            floatingDiv.classList.add('opacity-0');
+        });
+        ctaSettingsText.addEventListener('mouseout', () => {
+            floatingDiv.classList.remove('opacity-0');
         });
 
 
@@ -406,7 +452,7 @@
             {coordinates: new THREE.Vector3(-15.5, 45.5, 0), pathId: "sardegna"},
             {coordinates: new THREE.Vector3(-5, 20, 0), pathId: "veneto"},
             {coordinates: new THREE.Vector3(-20.5, 30.5, 0), pathId: "marche"},
-            {coordinates: new THREE.Vector3(-20.5, 30.5, 0), pathId: "all"},
+            {coordinates: new THREE.Vector3(-20.5, 35.5, 0), pathId: "all"},
         ];
 
         const mobileCoordinates = [
@@ -461,7 +507,7 @@
 
             if (targetPathId === "all" && !isZooming) {
                 isZooming = true;
-                targetZoom = 0.5;
+                targetZoom = 0.4;
             } else if (targetPathId !== "all" && isZooming) {
                 isZooming = false;
                 targetZoom = 1;
