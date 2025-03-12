@@ -623,6 +623,9 @@
       max-width: 96rem;
     }
   }
+  .m-6 {
+    margin: calc(var(--spacing) * 6);
+  }
   .mr-\[20px\] {
     margin-right: 20px;
   }
