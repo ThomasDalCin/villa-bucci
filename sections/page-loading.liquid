@@ -493,13 +493,15 @@
                         const mesh = new THREE.Mesh(geometry, material);
                         group.add(mesh);
 
-                        // Calcola la boundingBox della geometria
-                        geometry.computeBoundingBox();
+                        geometry.computeBoundingBox(); // Questo è necessario per ottenere la boundingBox corretta
+                        const boundingBox = geometry.boundingBox;
 
                         if (pathId && pathId.trim() !== "") {
-                            pathMeshes.push({mesh, pathId, pathCordinates});
+                            pathMeshes.push({mesh, pathId, pathCordinates, boundingBox});
                         }
                     });
+
+                    console.log(pathMeshes)
                 });
 
                 scene.add(group);
@@ -520,9 +522,9 @@
                         const coordinates = matchingPath.pathCordinates;
                         console.log(coordinates);
 
-                        // Calcola la posizione relativa della forma
-                        const shapePosition = matchingPath.mesh.geometry.boundingBox.getCenter(new THREE.Vector3());
-                        console.log(shapePosition)
+                        // Calcola la posizione relativa della forma usando la boundingBox
+                        const shapePosition = matchingPath.boundingBox.getCenter(new THREE.Vector3());
+                        console.log(shapePosition);
 
                         // Posiziona il cerchio sopra la forma
                         circleGroup.position.set(
