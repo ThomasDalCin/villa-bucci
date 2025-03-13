@@ -493,6 +493,9 @@
                         const mesh = new THREE.Mesh(geometry, material);
                         group.add(mesh);
 
+                        // Calcola la boundingBox della geometria
+                        geometry.computeBoundingBox();
+
                         if (pathId && pathId.trim() !== "") {
                             pathMeshes.push({mesh, pathId, pathCordinates});
                         }
