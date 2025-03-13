@@ -105,12 +105,11 @@
                                 {% if canteenLocation %}
                                 <p class="text-[12px] leading-normal text-(--green-color)">{{ canteenLocation }}</p>
                                 {% if canteenLogo %}
-                                {% comment %} <div
-                                    class="canteen-logo w-[65px] h-[65px] bg-[#E86A58] rounded-full absolute p-1.5 flex items-center justify-center opacity-0 transition-all duration-200 ease-linear"
+                                <div class="canteen-logo w-[65px] h-[65px] bg-[#E86A58] rounded-full absolute p-1.5 flex items-center justify-center opacity-0 transition-all duration-500 ease-linear"
                                     data-logo="{% if pageCustomTitle == 'La Giuva' %}marche{% elsif pageCustomTitle == 'Podere Guardia Grande' %}sardegna{% elsif pageCustomTitle == 'Tenimenti Leone' %}veneto{% elsif pageCustomTitle == 'Villa Bucci' %}marche{% endif %}">
                                     <img class="w-full h-full object-contain object-center"
                                         src="{{ canteenLogo | img_url: 'master' }}" alt="">
-                                </div> {% endcomment %}
+                                </div>
                                 {% endif %}
                                 {% endif %}
                             </div>
@@ -397,6 +396,7 @@
     import {SVGLoader} from 'https://cdn.skypack.dev/three@0.130.0/examples/jsm/loaders/SVGLoader.js';
 
 
+
     document.addEventListener('DOMContentLoaded', async () => {
 
         const canvas = document.getElementById('canvas');
@@ -433,43 +433,16 @@
         const scaleFactor = isMobile ? 0.025 : 0.045;
         const initialPosition = isMobile ? new THREE.Vector3(-15, 17, 0) : new THREE.Vector3(-10, 27.5, 0);
 
-        const loaderTexture = new THREE.TextureLoader();
-        const texture = loaderTexture.load("{{ 'LA_GIUVA_LOGO.svg' | asset_url }}");
-        const regioni = ['veneto', 'marche', 'sardegna', 'lazio'];
+        //texture loaders;
+        const loader = new THREE.TextureLoader();
+        const texture = loader.load("{{ 'LA_GIUVA_LOGO.svg' |  asset_url }}");
 
-
-        for (let index = 0; index < 4; index++) {
-
-            const circleGeometryBackground = new THREE.CircleGeometry(2, 200);
-            const materialBackground = new THREE.MeshBasicMaterial({color: '#E86A58', depthTest: false});
-            const circleBackground = new THREE.Mesh(circleGeometryBackground, materialBackground);
-
-            const padding = 0.5;
-
-            const circleGeometryLogo = new THREE.CircleGeometry(2 - padding, 200);
-            const materialLogo = new THREE.MeshBasicMaterial({
-                map: texture,
-                transparent: true,
-                opacity: 1,
-                depthTest: false
-            });
-
-            const circleLogo = new THREE.Mesh(circleGeometryLogo, materialLogo);
-            const groupCircle = new THREE.Group();
-
-            groupCircle.userData.id = regioni[index];
-            groupCircle.renderOrder = 1;
-          
-            groupCircle.add(circleBackground);
-            groupCircle.add(circleLogo);
-            groupCircle.position.set(0,0,0)
-
-            console.log(groupCircle.userData.id)
-
-            scene.add(groupCircle);
+        for (let index = 0; index < 4 ; index++) {
+            const circleGeometry = new THREE.CircleGeometry( 5, 32 );
+            const material  = new THREE.MeshBasicMaterial( { color: E86A58, map: texture } ); 
+            const circle = new THREE.Mesh(circleGeometry, material);
+            console.log(circle)
         }
-
-
 
         loader.load(
             "{{ 'mappa_new.svg' | asset_url }}",
@@ -556,19 +529,31 @@
             if (window.pathMeshes) {
                 window.pathMeshes.forEach(pathData => {
                     const {mesh} = pathData;
-                    mesh.material.color.set("#EAE3DA");
+                    mesh.material.color.set("#EAE3DA"); 
                 });
 
                 const targetPath = window.pathMeshes.find(pathData => pathData.pathId === targetPathId);
+                console.log(targetPath)
+                console.log(targetPath.pathCordinates)
 
                 if (targetPath) {
-                    targetPath.mesh.material.color.set("#A38A70");
-                    console.log(targetPath)
-
+                    targetPath.mesh.material.color.set("#A38A70"); 
+                    const logos = document.querySelectorAll('.canteen-logo');
+                    logos.forEach(logo => {
+                        const logoPathId = logo.getAttribute('data-logo');
+                        console.log(logoPathId)
+                        if (logoPathId === targetPathId) {
+                            if (targetPath.pathCordinates) {
+                                logo.style.position = "absolute";
+                                logo.style.opacity = "100%"
+                                logo.style.left = `${targetPath.pathCordinates.x}px`;
+                                logo.style.top = `${targetPath.pathCordinates.y}px`;
+                            }
+                        }
+                    });
                 }
             }
         }
-
 
 
         const containerSections = document.querySelector('.container-sections');
@@ -626,17 +611,6 @@
                     isMoving = false;
                 }
             }
-
-            scene.children.forEach(groupCircle => {
-                if (groupCircle.userData.id === targetPathId && groupCircle.targetPosition) {
-
-                    groupCircle.position.lerp(groupCircle.targetPosition, 0.07);
-
-                    if (groupCircle.position.distanceTo(groupCircle.targetPosition) < 0.1) {
-                        isMoving = false
-                    }
-                }
-            });
 
             if (Math.abs(camera.zoom - targetZoom) > 0.01) {
                 camera.zoom += (targetZoom - camera.zoom) * zoomSpeed;
