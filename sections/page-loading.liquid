@@ -466,9 +466,6 @@
 
             console.log(groupCircle.userData.id);
 
-            groupCircle.position.set(0, 0, 0);
-            scene.add(groupCircle)
-
             circleGemotries.push(groupCircle);
         }
 
@@ -512,22 +509,23 @@
                 window.group = group;
                 window.pathMeshes = pathMeshes;
 
-                // circleGemotries.forEach(circleGroup => {
-                //     const circleId = circleGroup.userData.id;
+                circleGemotries.forEach(circleGroup => {
+                    const circleId = circleGroup.userData.id;
 
-                //     const matchingPath = pathMeshes.find(path => path.pathId === circleId);
-                //     console.log(matchingPath)
+                    const matchingPath = pathMeshes.find(path => path.pathId === circleId);
+                    console.log(matchingPath)
 
-                //     if (matchingPath) {
+                    if (matchingPath) {
 
-                //         const coordinates = matchingPath.pathCordinates;
+                        const coordinates = matchingPath.pathCordinates;
+                        console.log(coordinates);
 
-                //         circleGroup.position.set(0, 0, 0);
+                        circleGroup.position.set(coordinates.x, coordinates.y, 0);
 
-                //         scene.add(circleGroup); 
+                        scene.add(circleGroup); 
 
-                //     }
-                // });
+                    }
+                });
 
                 highlightPath("lazio");
 
