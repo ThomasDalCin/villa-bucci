@@ -477,7 +477,6 @@
                 let pathMeshes = [];
 
                 paths.forEach((path) => {
-
                     const pathId = path.userData.node.id;
                     const pathCordinates = path.currentPath.currentPoint;
 
@@ -496,7 +495,6 @@
 
                         if (pathId && pathId.trim() !== "") {
                             pathMeshes.push({mesh, pathId, pathCordinates});
-
                         }
                     });
                 });
@@ -513,26 +511,27 @@
                     const circleId = circleGroup.userData.id;
 
                     const matchingPath = pathMeshes.find(path => path.pathId === circleId);
-                    console.log(matchingPath)
+                    console.log(matchingPath);
 
                     if (matchingPath) {
-
                         const coordinates = matchingPath.pathCordinates;
                         console.log(coordinates);
 
+                        // Calcola la posizione relativa della forma
+                        const shapePosition = matchingPath.mesh.geometry.boundingBox.getCenter(new THREE.Vector3());
+
+                        // Posiziona il cerchio sopra la forma
                         circleGroup.position.set(
-                            (coordinates.x * scaleFactor) + initialPosition.x,
-                            (coordinates.y * scaleFactor) + initialPosition.y,
+                            (coordinates.x * scaleFactor) + shapePosition.x,
+                            (coordinates.y * scaleFactor) + shapePosition.y,
                             0
                         );
 
                         scene.add(circleGroup);
-
                     }
                 });
 
                 highlightPath("lazio");
-
             },
             function (xhr) {
                 console.log((xhr.loaded / xhr.total) * 100 + '% loaded');
