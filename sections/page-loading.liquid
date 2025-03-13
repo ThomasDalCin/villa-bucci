@@ -520,9 +520,13 @@
                         const coordinates = matchingPath.pathCordinates;
                         console.log(coordinates);
 
-                        circleGroup.position.set(coordinates.x * scaleFactor, coordinates.y * scaleFactor, 0);
+                        circleGroup.position.set(
+                            (coordinates.x * scaleFactor) + initialPosition.x,
+                            (coordinates.y * scaleFactor) + initialPosition.y,
+                            0
+                        );
 
-                        scene.add(circleGroup); 
+                        scene.add(circleGroup);
 
                     }
                 });
