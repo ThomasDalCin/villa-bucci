@@ -581,7 +581,6 @@
         let scrollProgress = 0;
 
         containerSections.addEventListener('scroll', () => {
-
             const scrollTop = containerSections.scrollTop;
             const scrollHeight = containerSections.scrollHeight - containerSections.clientHeight;
 
@@ -593,6 +592,7 @@
             targetPathId = coordinatePathMapping[mappedIndex].pathId;
             isMoving = true;
 
+            // Ottieni le coordinate del percorso tramite la funzione highlightPath
             const pathCoordinates = highlightPath(targetPathId);
             console.log(pathCoordinates);
 
@@ -614,8 +614,8 @@
                 });
             }
 
-            console.log(targetPositionsArray)
-            
+            console.log(targetPositionsArray);
+
             if (targetPathId === "all" && !isZooming) {
                 isZooming = true;
                 targetZoom = 0.4;
@@ -625,6 +625,7 @@
             }
         });
 
+        
         function onWindowResize() {
             canvasSizes.width = window.innerWidth;
             canvasSizes.height = window.innerHeight;
@@ -641,10 +642,10 @@
 
         const renderer = new THREE.WebGLRenderer({canvas: canvas, antialias: true});
         renderer.setSize(canvasSizes.width, canvasSizes.height);
-
         function animate() {
             requestAnimationFrame(animate);
 
+            // Movimento di window.group verso targetPosition
             if (window.group && isMoving) {
                 window.group.position.lerp(targetPosition, 0.07);
 
@@ -653,6 +654,7 @@
                 }
             }
 
+            // Movimento dei groupCircle verso la targetPosition
             scene.children.forEach(groupCircle => {
                 if (groupCircle.userData.id === targetPathId) {
                     // Trova l'oggetto corrispondente nell'array per ottenere la targetPosition
@@ -662,6 +664,9 @@
                         // Muove il groupCircle verso la targetPosition
                         groupCircle.position.lerp(targetPositionData.targetPosition, 0.07);
 
+                        // Aggiungi un log per il controllo del movimento
+                        console.log(`GroupCircle ${groupCircle.userData.id} moving to ${targetPositionData.targetPosition}`);
+
                         if (groupCircle.position.distanceTo(targetPositionData.targetPosition) < 0.1) {
                             isMoving = false;
                         }
@@ -669,6 +674,7 @@
                 }
             });
 
+            // Gestione dello zoom
             if (Math.abs(camera.zoom - targetZoom) > 0.01) {
                 camera.zoom += (targetZoom - camera.zoom) * zoomSpeed;
                 camera.updateProjectionMatrix();
