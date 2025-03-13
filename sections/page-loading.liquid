@@ -613,7 +613,9 @@
                     }
                 });
             }
+
             console.log(targetPositionsArray)
+            
             if (targetPathId === "all" && !isZooming) {
                 isZooming = true;
                 targetZoom = 0.4;
@@ -652,12 +654,17 @@
             }
 
             scene.children.forEach(groupCircle => {
-                if (groupCircle.userData.id === targetPathId && groupCircle.targetPosition) {
+                if (groupCircle.userData.id === targetPathId) {
+                    // Trova l'oggetto corrispondente nell'array per ottenere la targetPosition
+                    const targetPositionData = targetPositionsArray.find(item => item.id === groupCircle.userData.id);
 
-                    groupCircle.position.lerp(groupCircle.targetPosition, 0.07);
+                    if (targetPositionData && targetPositionData.targetPosition) {
+                        // Muove il groupCircle verso la targetPosition
+                        groupCircle.position.lerp(targetPositionData.targetPosition, 0.07);
 
-                    if (groupCircle.position.distanceTo(groupCircle.targetPosition) < 0.1) {
-                        isMoving = false
+                        if (groupCircle.position.distanceTo(targetPositionData.targetPosition) < 0.1) {
+                            isMoving = false;
+                        }
                     }
                 }
             });
