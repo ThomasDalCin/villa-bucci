@@ -599,15 +599,14 @@
             if (pathCoordinates) {
                 scene.children.forEach(groupCircle => {
                     if (groupCircle.userData.id === targetPathId) {
-                        // Trova o crea l'oggetto associato a questo groupCircle
                         let targetPositionData = targetPositionsArray.find(item => item.id === groupCircle.userData.id);
 
                         if (!targetPositionData) {
-                            // Se non esiste ancora un oggetto, creane uno nuovo
+
                             targetPositionData = {id: groupCircle.userData.id, targetPosition: pathCoordinates};
                             targetPositionsArray.push(targetPositionData);
                         } else {
-                            // Aggiorna la target position esistente
+                            
                             targetPositionData.targetPosition = pathCoordinates;
                         }
                     }
