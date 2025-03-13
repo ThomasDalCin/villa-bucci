@@ -525,8 +525,8 @@
 
                         // Posiziona il cerchio sopra la forma
                         circleGroup.position.set(
-                            (coordinates.x * scaleFactor) + shapePosition.x,
-                            (coordinates.y * scaleFactor) + shapePosition.y,
+                            (coordinates.x * scaleFactor) + shapePosition.x * scaleFactor,
+                            (coordinates.y * scaleFactor) + shapePosition.y * scaleFactor,
                             0
                         );
 
