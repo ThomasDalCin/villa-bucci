@@ -426,7 +426,6 @@
 
 
         const loader = new SVGLoader();
-        let pathMeshes = [];
         let group;
 
         const isMobile = window.innerWidth <= 768;
@@ -475,6 +474,7 @@
             function (data) {
                 const paths = data.paths;
                 group = new THREE.Group();
+                let pathMeshes = [];
 
                 paths.forEach((path) => {
 
