@@ -459,10 +459,10 @@
 
             groupCircle.userData.id = regioni[index];
             groupCircle.renderOrder = 1;
-          
+
             groupCircle.add(circleBackground);
             groupCircle.add(circleLogo);
-            groupCircle.position.set(0,0,0)
+            groupCircle.position.set(0, 0, 0)
 
             console.log(groupCircle.userData.id)
 
@@ -551,8 +551,9 @@
         let zoomSpeed = 0.05;
         let isZooming = false;
 
+
         function highlightPath(targetPathId) {
-            let pathCoordinates = null; 
+            let pathCoordinates = null;
 
             if (window.pathMeshes) {
                 window.pathMeshes.forEach(pathData => {
@@ -573,6 +574,7 @@
         }
 
 
+        let targetPositionsArray = [];
 
         const containerSections = document.querySelector('.container-sections');
         const sections = document.querySelectorAll('.section');
@@ -592,8 +594,26 @@
             isMoving = true;
 
             const pathCoordinates = highlightPath(targetPathId);
-            console.log(pathCoordinates)
+            console.log(pathCoordinates);
 
+            if (pathCoordinates) {
+                scene.children.forEach(groupCircle => {
+                    if (groupCircle.userData.id === targetPathId) {
+                        // Trova o crea l'oggetto associato a questo groupCircle
+                        let targetPositionData = targetPositionsArray.find(item => item.id === groupCircle.userData.id);
+
+                        if (!targetPositionData) {
+                            // Se non esiste ancora un oggetto, creane uno nuovo
+                            targetPositionData = {id: groupCircle.userData.id, targetPosition: pathCoordinates};
+                            targetPositionsArray.push(targetPositionData);
+                        } else {
+                            // Aggiorna la target position esistente
+                            targetPositionData.targetPosition = pathCoordinates;
+                        }
+                    }
+                });
+            }
+            console.log(targetPositionsArray)
             if (targetPathId === "all" && !isZooming) {
                 isZooming = true;
                 targetZoom = 0.4;
