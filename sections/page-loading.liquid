@@ -520,11 +520,7 @@
                         const coordinates = matchingPath.pathCordinates;
                         console.log(coordinates);
 
-                        circleGroup.position.set(
-                            (coordinates.x * scaleFactor) + initialPosition.x,
-                            (coordinates.y * scaleFactor) + initialPosition.y,
-                            0
-                        );
+                        circleGroup.position.set(0,0,0);
 
                         scene.add(circleGroup);
 
