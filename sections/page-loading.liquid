@@ -516,15 +516,14 @@
                     const circleId = circleGroup.userData.id;
 
                     const matchingPath = pathMeshes.find(path => path.pathId === circleId);
+                    console.log(matchingPath)
 
                     if (matchingPath) {
 
                         const coordinates = matchingPath.pathCoordinates;
-                        circleGroup.position.set(coordinates.x, coordinates.y, coordinates.z);
+                        circleGroup.position.set(coordinates.x, coordinates.y, 0);
                     }
                 });
-
-
 
                 highlightPath("lazio");
 
