@@ -552,6 +552,7 @@
         let isZooming = false;
 
         function highlightPath(targetPathId) {
+            let pathCoordinates = null; 
 
             if (window.pathMeshes) {
                 window.pathMeshes.forEach(pathData => {
