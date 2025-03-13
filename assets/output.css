@@ -376,6 +376,9 @@
   .w-\[280px\] {
     width: 280px;
   }
+  .w-\[334px\] {
+    width: 334px;
+  }
   .w-\[500px\] {
     width: 500px;
   }
@@ -614,6 +617,9 @@
   }
   .bg-\[\#DACABB\] {
     background-color: #DACABB;
+  }
+  .bg-clip-content {
+    background-clip: content-box;
   }
   .object-cover {
     object-fit: cover;
@@ -1076,6 +1082,11 @@
   .lg\:w-\[726px\] {
     @media (width >= 64rem) {
       width: 726px;
+    }
+  }
+  .lg\:w-\[1024px\] {
+    @media (width >= 64rem) {
+      width: 1024px;
     }
   }
   .lg\:w-\[1472px\] {

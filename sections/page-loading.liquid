@@ -24,8 +24,8 @@
             <div class="w-full h-full flex flex-col items-center justify-center gap-y-10 relative">
                 <div class="w-auto h-auto flex items-center justify-center text-center">
                     <h1
-                        class="font-(family-name:--main-title-mobile-font-family) text-[40px] leading-[105%] text-(--green-color) tracking-[1.02px] lg:text-[96px] lg:tracking-[2.88px]">
-                        {{ section.settings.first_step_title | default: "Scopri il mondo di Oniwines." }}
+                        class="font-(family-name:--main-title-mobile-font-family) text-[40px] leading-[105%] text-(--green-color) tracking-[1.02px] w-[334px] text-center lg:text-[96px] lg:tracking-[2.88px] lg:w-[1024px] ">
+                        {{ section.settings.first_step_title | default: "Scopri il mondo di Oniwines." |  upcase }}
                     </h1>
                 </div>
                 <div class="cta-container w-auto h-auto flex items-center justify-center lg:hidden">
@@ -54,8 +54,8 @@
             <div
                 class="section-content w-full h-screen min-h-screen overflow-hidden relative flex items-center justify-center snap-start">
                 <!-- clip path content -->
-                <div class="clip-path-container w-full h-full overflow-hidde relative"
-                    style="clip-path: polygon(20% 20%, 80% 20%, 80% 80%, 20% 80%);">
+                <div class="clip-path-container w-full h-full overflow-hidde relative rounded-[8px]"
+                style="clip-path: polygon(20% 20%, 80% 20%, 80% 80%, 20% 80%);">
                     <!-- Container video -->
                     <video class="main-video video-hero w-full h-full object-cover object-center relative" autoplay
                         playsinline loop>
@@ -182,6 +182,7 @@
         const mainButtons = [ctaSettings, enterButton];
 
         let currentTranslateValue = 0;
+        let isTransitioning = false;
 
         const getPercentValueToScroll = async (value) => {
             const valueToDivide = 100;
@@ -198,16 +199,24 @@
 
 
         video.addEventListener('ended', () => {
+            if (isTransitioning) return; 
+            isTransitioning = true;
+
             setTimeout(() => {
                 currentTranslateValue += percentValue;
 
                 loadingWrapper.style.transform = `translateY(-${currentTranslateValue}%)`;
-
+                loadingWrapper.addEventListener('transitionend', () => {
+                    document.body.classList.remove('no-scroll');
+                    isTransitioning = false;
+                });
             }, 500);
         });
 
         mainButtons.forEach((button) => {
             button.addEventListener('click', () => {
+                if (isTransitioning) return; 
+                isTransitioning = true;
                 
                 currentTranslateValue += percentValue;
 
@@ -221,6 +230,7 @@
                             ease: "Power2.easeOut",
                             onComplete: () => {
                                 document.body.classList.remove('no-scroll');
+                                isTransitioning = false; 
                             }
                         })
                     }, 200)
@@ -245,6 +255,9 @@
             if (windowSize >= 1024) {
 
                 mainSection.addEventListener('click', () => {
+                    if (isTransitioning) return; 
+                    isTransitioning = true;
+
                     currentTranslateValue += percentValue;
 
                     loadingWrapper.style.transform = `translateY(-${currentTranslateValue}%)`;
@@ -257,6 +270,7 @@
                                 ease: "Power2.easeOut",
                                 onComplete: () => {
                                     document.body.classList.remove('no-scroll');
+                                    isTransitioning = false; 
                                 }
                             })
                         }, 200)

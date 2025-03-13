@@ -148,6 +148,11 @@
     </div>
 </div>
 
+{% style %}
+    .main-blur{
+        filter: blur(40px);
+    }
+{% endstyle %}
 
 <!--javascript code here-->
 <script>
@@ -194,11 +199,13 @@
         //handle toggle menu
         const menuButton = document.querySelector('.menu-box');
         const navigationContainer = document.querySelector('.navigation-container');
+        const mainContent = document.querySelector('main');
 
         menuButton.addEventListener('click', () => {
             menuButton.classList.toggle('bg-(--beige-menu)');
             navigationContainer.classList.toggle('hidden');
             document.body.classList.toggle('no-scroll');
+            mainContent.classList.toggle('main-blur');
         });
 
 
