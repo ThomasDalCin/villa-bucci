@@ -437,6 +437,7 @@
         const texture = loaderTexture.load("{{ 'LA_GIUVA_LOGO.svg' | asset_url }}");
         const regioni = ['veneto', 'marche', 'sardegna', 'lazio'];
 
+        const circleGemotries = [];
 
         for (let index = 0; index < 4; index++) {
 
@@ -467,6 +468,7 @@
             console.log(groupCircle.userData.id)
 
             scene.add(groupCircle);
+            circleGemotries.push(groupCircle);
         }
 
 
@@ -497,6 +499,7 @@
 
                         if (pathId && pathId.trim() !== "") {
                             pathMeshes.push({mesh, pathId, pathCordinates});
+
                         }
                     });
                 });
@@ -508,6 +511,19 @@
 
                 window.group = group;
                 window.pathMeshes = pathMeshes;
+
+                circleGemotries.forEach(circleGroup => {
+                    const circleId = circleGroup.userData.id;
+
+                    const matchingPath = pathMeshes.find(path => path.pathId === circleId);
+
+                    if (matchingPath) {
+
+                        const coordinates = matchingPath.pathCoordinates;
+                        circleGroup.position.set(coordinates.x, coordinates.y, coordinates.z);
+                    }
+                });
+
 
 
                 highlightPath("lazio");
@@ -565,12 +581,9 @@
 
                 if (targetPath) {
                     targetPath.mesh.material.color.set("#A38A70");
-
-                    pathCoordinates = targetPath.pathCordinates;
                 }
             }
 
-            return pathCoordinates;
         }
 
 
@@ -593,26 +606,9 @@
             targetPathId = coordinatePathMapping[mappedIndex].pathId;
             isMoving = true;
 
-            const pathCoordinates = highlightPath(targetPathId);
-            console.log(pathCoordinates);
+            highlightPath(targetPathId);
 
-            if (pathCoordinates) {
-                scene.children.forEach(groupCircle => {
-                    if (groupCircle.userData.id === targetPathId) {
-                        let targetPositionData = targetPositionsArray.find(item => item.id === groupCircle.userData.id);
 
-                        if (!targetPositionData) {
-
-                            targetPositionData = {id: groupCircle.userData.id, targetPosition: pathCoordinates};
-                            targetPositionsArray.push(targetPositionData);
-                        } else {
-                            
-                            targetPositionData.targetPosition = pathCoordinates;
-                        }
-                    }
-                });
-            }
-            console.log(targetPositionsArray)
             if (targetPathId === "all" && !isZooming) {
                 isZooming = true;
                 targetZoom = 0.4;
@@ -649,17 +645,6 @@
                     isMoving = false;
                 }
             }
-
-            scene.children.forEach(groupCircle => {
-                if (groupCircle.userData.id === targetPathId && groupCircle.targetPosition) {
-
-                    groupCircle.position.lerp(groupCircle.targetPosition, 0.07);
-
-                    if (groupCircle.position.distanceTo(groupCircle.targetPosition) < 0.1) {
-                        isMoving = false
-                    }
-                }
-            });
 
             if (Math.abs(camera.zoom - targetZoom) > 0.01) {
                 camera.zoom += (targetZoom - camera.zoom) * zoomSpeed;
