@@ -459,7 +459,7 @@
             const groupCircle = new THREE.Group();
 
             groupCircle.userData.id = regioni[index];
-            groupCircle.renderOrder = 1;
+            groupCircle.renderOrder = 0;
 
             groupCircle.add(circleBackground);
             groupCircle.add(circleLogo);
@@ -518,9 +518,10 @@
                     if (matchingPath) {
                         const coordinates = matchingPath.pathCordinates;
                         circleGroup.position.set(coordinates.x, coordinates.y, 0);
-                        circleGroup.scale.set(1,1,1);
+                        circleGroup.scale.set(10, 10, 10);
                         console.log(circleGroup)
                         scene.add(circleGroup);
+                        console.log(scene.children); 
                     }
                 });
 
