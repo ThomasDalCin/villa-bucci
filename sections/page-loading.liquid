@@ -563,10 +563,12 @@
 
                 if (targetPath) {
                     targetPath.mesh.material.color.set("#A38A70");
-                    console.log(targetPath)
 
+                    pathCoordinates = targetPath.pathCoordinates;
                 }
             }
+
+            return pathCoordinates;
         }
 
 
@@ -588,7 +590,8 @@
             targetPathId = coordinatePathMapping[mappedIndex].pathId;
             isMoving = true;
 
-            highlightPath(targetPathId);
+            const pathCoordinates = highlightPath(targetPathId);
+            console.log(pathCoordinates)
 
             if (targetPathId === "all" && !isZooming) {
                 isZooming = true;
