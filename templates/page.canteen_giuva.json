@@ -1,6 +1,6 @@
 {
   "sections": {
-    "map": {
+    "custom": {
       "type": "custom",
       "settings": {}
     }
