@@ -1,27 +1,47 @@
-  <!-- container video -->
-  <div class="section-content video-container w-full h-screen flex flex-col items-start justify-center">
+<!-- container video -->
+<div class="section-content video-container w-full h-screen flex flex-col items-center justify-center relative">
+    {% for index in (1..263) %}
+    {% if index < 10 %} <img
+        class="frame absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 object-cover w-[500px] h-[400px] lg:object-contain opacity-0 lg:w-auto lg:h-auto"
+        src="{{ 'Oniwines_Step_Logo_0000' | append: index | append: '.png' | asset_url }}" alt="Image {{ index }}">
+        {% elsif index >= 10 and index < 100 %} <img
+            class="frame absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 object-cover w-[500px] h-[400px] lg:object-contain opacity-0 lg:w-auto lg:h-auto"
+            src="{{ 'Oniwines_Step_Logo_000' | append: index | append: '.png' | asset_url }}" alt="Image {{ index }}">
+            {% else %}
+            <img class="frame absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 object-cover w-[500px] h-[400px] lg:object-contain opacity-0 lg:w-auto lg:h-auto"
+                src="{{ 'Oniwines_Step_Logo_00' | append: index | append: '.png' | asset_url }}"
+                alt="Image {{ index }}">
+            {% endif %}
+            {% endfor %}
+</div>
 
-     
-  </div>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-  
-      const assetPaths = [];
-  
-      for (let index = 0; index < 263; index++) {
-  
-        if (index < 10) {
-          const firstPathRange = `Oniwines_Step_Logo_000${index}.png`;
-          assetPaths.push(firstPathRange);
-        } else {
-          const secondPathRange = `Oniwines_Step_Logo_00${index}.png`;
-          assetPaths.push(secondPathRange);
-        }
-      }
-  
-      console.log(assetPaths);
-  
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+
+        var images = document.querySelectorAll('.frame');
+        var fps = 80; // Frame rate per la sequenza
+        var frameDuration = 1 / fps;  // Durata per ogni frame in base agli fps
+
+        var sequence = gsap.timeline({repeat: 0, defaults: {ease: "power1.inOut"}});
+
+        // Mostra e nascondi le immagini
+        images.forEach(function (image, index) {
+            // Mostra l'immagine corrente
+            sequence.to(image, {
+                opacity: 1,  // Rendi visibile l'immagine
+                duration: 0.0003,  // Durata molto breve per l'apparizione (molto rapida)
+            }, index * frameDuration);  // Ritardo crescente in base all'indice
+
+            // Nascondi immediatamente l'immagine precedente (eccetto l'ultima)
+            if (index !== images.length - 1) {
+                sequence.to(image, {
+                    opacity: 0,  // Nascondi l'immagine
+                    duration: 0.0003, // Durata per la scomparsa (un po' più lunga)
+                }, (index + 1) * frameDuration);  // Ritardo crescente per la scomparsa
+            }
+        });
     });
-  </script>
 
+</script>

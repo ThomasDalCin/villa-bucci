@@ -175,6 +175,9 @@
   }
 }
 @layer utilities {
+  .visible {
+    visibility: visible;
+  }
   .absolute {
     position: absolute;
   }
@@ -346,8 +349,14 @@
   .h-\[150px\] {
     height: 150px;
   }
+  .h-\[300px\] {
+    height: 300px;
+  }
   .h-\[381px\] {
     height: 381px;
+  }
+  .h-\[400px\] {
+    height: 400px;
   }
   .h-\[500px\] {
     height: 500px;
@@ -1454,6 +1463,11 @@
   .lg\:border-r-\(--border-color\) {
     @media (width >= 64rem) {
       border-right-color: var(--border-color);
+    }
+  }
+  .lg\:object-contain {
+    @media (width >= 64rem) {
+      object-fit: contain;
     }
   }
   .lg\:p-5 {
