@@ -1,99 +1,98 @@
-  <!--content clip path + three -->
-  <div
-  class="w-full h-screen releative flex flex-col items-start justify-start overflow-y-scroll snap-y snap-mandatory">
+<!--content clip path + three -->
+<div class="w-full h-screen releative flex flex-col items-start justify-start overflow-y-scroll snap-y snap-mandatory">
 
-  <!-- container clip-path -->
-  <div
-      class="section-content w-full h-screen min-h-screen overflow-hidden relative flex items-center justify-center snap-start">
-      <!-- clip path content -->
-      <div class="clip-path-container w-full h-full overflow-hidde relative rounded-[8px]"
-          style="clip-path: polygon(20% 20%, 80% 20%, 80% 80%, 20% 80%);">
-          <!-- Container video -->
-          <video class="main-video video-hero w-full h-full object-cover object-center relative" autoplay
-              playsinline loop>
-              <source src="https://cdn.shopify.com/videos/c/o/v/a700a6e9af1e4acd9fbeb045fc59915b.mp4" />
-          </video>
-          <!-- container video icon -->
-          <div class="audio-button w-auto h-auto absolute bottom-7 right-7 cursor-pointer">
-              {% render 'audio-icon' %}
-          </div>
-      </div>
-  </div>
+    <!-- container clip-path -->
+    <div
+        class="section-content w-full h-screen min-h-screen overflow-hidden relative flex items-center justify-center snap-start">
+        <!-- clip path content -->
+        <div class="clip-path-container w-full h-full overflow-hidde relative rounded-[8px]"
+            style="clip-path: polygon(20% 20%, 80% 20%, 80% 80%, 20% 80%);">
+            <!-- Container video -->
+            <video class="main-video video-hero w-full h-full object-cover object-center relative" autoplay playsinline
+                loop>
+                <source src="https://cdn.shopify.com/videos/c/o/v/a700a6e9af1e4acd9fbeb045fc59915b.mp4" />
+            </video>
+            <!-- container video icon -->
+            <div class="audio-button w-auto h-auto absolute bottom-7 right-7 cursor-pointer">
+                {% render 'audio-icon' %}
+            </div>
+        </div>
+    </div>
 
-  <!-- contain three js scene -->
-  <div class="canvas-container w-full h-screen relative z-5 snap-start">
+    <!-- contain three js scene -->
+    <div class="canvas-container w-full h-screen relative z-5 snap-start">
 
-      <canvas id="canvas" class="w-full h-full">
-          <!-- Three.js content -->
-      </canvas>
+        <canvas id="canvas" class="w-full h-full">
+            <!-- Three.js content -->
+        </canvas>
 
-      <!-- outer container -->
-      {% assign counter = 0 %}
-      {% for page in pages %}
-      {% if page.title contains "Cantina" or page.title contains "Canteen" %}
-      {% assign counter = counter | plus: 1 %}
-      {% endif %}
-      {% endfor %}
-      {% assign counter = counter | plus: 1 | times: 100 %}
+        <!-- outer container -->
+        {% assign counter = 0 %}
+        {% for page in pages %}
+        {% if page.title contains "Cantina" or page.title contains "Canteen" %}
+        {% assign counter = counter | plus: 1 %}
+        {% endif %}
+        {% endfor %}
+        {% assign counter = counter | plus: 1 | times: 100 %}
 
-      <div class="outer-container w-full h-[{{ counter }}vh] absolute left-0 top-0 right-0">
-          <div class="sticky-container w-full h-screen overflow-hidden relative">
-              <div class="container-sections w-full h-screen overflow-y-scroll snap-mandatory snap-y">
+        <div class="outer-container w-full h-[{{ counter }}vh] absolute left-0 top-0 right-0">
+            <div class="sticky-container w-full h-screen overflow-hidden relative">
+                <div class="container-sections w-full h-screen overflow-y-scroll snap-mandatory snap-y">
 
-                  {% for page in pages %}
-                  {% if page.title contains "Cantina" or page.title contains "Canteen" %}
-                  {% assign pageCustomTitle = page.title | split: " " %}
-                  {% assign pageCustomTitle = pageCustomTitle | slice: 1, pageCustomTitle.size %}
-                  {% assign pageCustomTitle = pageCustomTitle | join: " " %}
-                  {% assign canteenLocation = page.metafields.custom.page_canteen_location.value %}
-                  {% assign canteenLogo = page.metafields.custom.page_canteen_logo.value %}
+                    {% for page in pages %}
+                    {% if page.title contains "Cantina" or page.title contains "Canteen" %}
+                    {% assign pageCustomTitle = page.title | split: " " %}
+                    {% assign pageCustomTitle = pageCustomTitle | slice: 1, pageCustomTitle.size %}
+                    {% assign pageCustomTitle = pageCustomTitle | join: " " %}
+                    {% assign canteenLocation = page.metafields.custom.page_canteen_location.value %}
+                    {% assign canteenLogo = page.metafields.custom.page_canteen_logo.value %}
 
-                  <div class="section w-full h-full flex flex-col items-center justify-center gap-y-5 snap-start relative"
-                      data-id="{{ forloop.index }}" data-href="{{ page.url }}">
-                      <h2
-                          class="font-(family-name:--main-title-mobile-font-family) text-center text-[40px] text-(--green-color) leading-[105%] tracking-[1.02px] lg:text-[96px] lg:tracking-[2.88px] lg:max-w-[900px] lg:text-center">
-                          {{ pageCustomTitle | upcase
-                          }}</h2>
-                      {% if canteenLocation %}
-                      <p class="text-[12px] leading-normal text-(--green-color)">{{ canteenLocation }}</p>
-                      {% if canteenLogo %}
-                      {% comment %} <div
-                          class="canteen-logo w-[65px] h-[65px] bg-[#E86A58] rounded-full absolute p-1.5 flex items-center justify-center opacity-0 transition-all duration-200 ease-linear"
-                          data-logo="{% if pageCustomTitle == 'La Giuva' %}marche{% elsif pageCustomTitle == 'Podere Guardia Grande' %}sardegna{% elsif pageCustomTitle == 'Tenimenti Leone' %}veneto{% elsif pageCustomTitle == 'Villa Bucci' %}marche{% endif %}">
-                          <img class="w-full h-full object-contain object-center"
-                              src="{{ canteenLogo | img_url: 'master' }}" alt="">
-                      </div> {% endcomment %}
-                      {% endif %}
-                      {% endif %}
-                  </div>
-                  {% endif %}
-                  {% endfor %}
+                    <div class="section w-full h-full flex flex-col items-center justify-center gap-y-5 snap-start relative"
+                        data-id="{{ forloop.index }}" data-href="{{ page.url }}">
+                        <h2
+                            class="font-(family-name:--main-title-mobile-font-family) text-center text-[40px] text-(--green-color) leading-[105%] tracking-[1.02px] lg:text-[96px] lg:tracking-[2.88px] lg:max-w-[900px] lg:text-center">
+                            {{ pageCustomTitle | upcase
+                            }}</h2>
+                        {% if canteenLocation %}
+                        <p class="text-[12px] leading-normal text-(--green-color)">{{ canteenLocation }}</p>
+                        {% if canteenLogo %}
+                        {% comment %} <div
+                            class="canteen-logo w-[65px] h-[65px] bg-[#E86A58] rounded-full absolute p-1.5 flex items-center justify-center opacity-0 transition-all duration-200 ease-linear"
+                            data-logo="{% if pageCustomTitle == 'La Giuva' %}marche{% elsif pageCustomTitle == 'Podere Guardia Grande' %}sardegna{% elsif pageCustomTitle == 'Tenimenti Leone' %}veneto{% elsif pageCustomTitle == 'Villa Bucci' %}marche{% endif %}">
+                            <img class="w-full h-full object-contain object-center"
+                                src="{{ canteenLogo | img_url: 'master' }}" alt="">
+                        </div> {% endcomment %}
+                        {% endif %}
+                        {% endif %}
+                    </div>
+                    {% endif %}
+                    {% endfor %}
 
-                  <!-- extra section -->
-                  <div class="section w-full h-full flex flex-col items-center justify-center gap-y-5 snap-start "
-                      data-href="#">
-                      <h2
-                          class="font-(family-name:--main-title-mobile-font-family) text-center text-[50px] text-(--green-color) leading-[105%] tracking-[1.02px] lg:text-[96px] lg:tracking-[2.88px] lg:max-w-[900px] lg:text-center">
-                          {{ section.settings.extra_section_title | default: "What's next?" | upcase
-                          }}</h2>
-                  </div>
-              </div>
+                    <!-- extra section -->
+                    <div class="section w-full h-full flex flex-col items-center justify-center gap-y-5 snap-start "
+                        data-href="#">
+                        <h2
+                            class="font-(family-name:--main-title-mobile-font-family) text-center text-[50px] text-(--green-color) leading-[105%] tracking-[1.02px] lg:text-[96px] lg:tracking-[2.88px] lg:max-w-[900px] lg:text-center">
+                            {{ section.settings.extra_section_title | default: "What's next?" | upcase
+                            }}</h2>
+                    </div>
+                </div>
 
-              <!-- container cta fix -->
-              <div
-                  class="w-auto h-auto absolute bottom-[30px] lg:bottom-[155px] left-1/2 -translate-x-1/2 flex flex-col items-center justify-end z-20">
-                  <div class="cta-orange">
-                      <a href="#" class="redirect-to-website">
-                          <p class="uppercase text-[12px] leading-[16px] tracking-[-3%]">{{
-                              section.settings.cta_text |
-                              default: "Vai al sito" }}</p>
-                      </a>
-                      {% render 'arrow-up' %}
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
+                <!-- container cta fix -->
+                <div
+                    class="w-auto h-auto absolute bottom-[30px] lg:bottom-[155px] left-1/2 -translate-x-1/2 flex flex-col items-center justify-end z-20">
+                    <div class="cta-orange">
+                        <a href="#" class="redirect-to-website">
+                            <p class="uppercase text-[12px] leading-[16px] tracking-[-3%]">{{
+                                section.settings.cta_text |
+                                default: "Vai al sito" }}</p>
+                        </a>
+                        {% render 'arrow-up' %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </div>
 
@@ -102,7 +101,6 @@
 <script type="module">
     import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.173.0/build/three.module.js';
     import {SVGLoader} from 'https://cdn.skypack.dev/three@0.130.0/examples/jsm/loaders/SVGLoader.js';
-
 
     document.addEventListener('DOMContentLoaded', async () => {
 
@@ -131,50 +129,12 @@
         spotLight.target.position.set(0, 0, 0);
         scene.add(spotLight);
 
-
         const loader = new SVGLoader();
         let group;
 
         const isMobile = window.innerWidth <= 768;
         const scaleFactor = isMobile ? 0.025 : 0.045;
         const initialPosition = isMobile ? new THREE.Vector3(-15, 17, 0) : new THREE.Vector3(-10, 27.5, 0);
-
-        const loaderTexture = new THREE.TextureLoader();
-        const texture = loaderTexture.load("{{ 'LA_GIUVA_LOGO.svg' | asset_url }}");
-        const regioni = ['veneto', 'marche', 'sardegna', 'lazio'];
-
-        const circleGemotries = [];
-
-        for (let index = 0; index < 4; index++) {
-
-            const circleGeometryBackground = new THREE.CircleGeometry(2, 200);
-            const materialBackground = new THREE.MeshBasicMaterial({color: '#E86A58', depthTest: false});
-            const circleBackground = new THREE.Mesh(circleGeometryBackground, materialBackground);
-
-            const padding = 0.5;
-
-            const circleGeometryLogo = new THREE.CircleGeometry(2 - padding, 200);
-            const materialLogo = new THREE.MeshBasicMaterial({
-                map: texture,
-                transparent: true,
-                opacity: 1,
-                depthTest: false
-            });
-
-            const circleLogo = new THREE.Mesh(circleGeometryLogo, materialLogo);
-            const groupCircle = new THREE.Group();
-
-            groupCircle.userData.id = regioni[index];
-            groupCircle.renderOrder = 1;
-
-            groupCircle.add(circleBackground);
-            groupCircle.add(circleLogo);
-
-            console.log(groupCircle.userData.id);
-
-            circleGemotries.push(groupCircle);
-        }
-
 
         loader.load(
             "{{ 'mappa_new.svg' | asset_url }}",
@@ -200,15 +160,10 @@
                         const mesh = new THREE.Mesh(geometry, material);
                         group.add(mesh);
 
-                        geometry.computeBoundingBox(); // Questo è necessario per ottenere la boundingBox corretta
-                        const boundingBox = geometry.boundingBox;
-
                         if (pathId && pathId.trim() !== "") {
-                            pathMeshes.push({mesh, pathId, pathCordinates, boundingBox});
+                            pathMeshes.push({mesh, pathId, pathCordinates});
                         }
                     });
-
-                    console.log(pathMeshes)
                 });
 
                 scene.add(group);
@@ -218,31 +173,6 @@
 
                 window.group = group;
                 window.pathMeshes = pathMeshes;
-
-                circleGemotries.forEach(circleGroup => {
-                    const circleId = circleGroup.userData.id;
-
-                    const matchingPath = pathMeshes.find(path => path.pathId === circleId);
-                    console.log(matchingPath);
-
-                    if (matchingPath) {
-                        const coordinates = matchingPath.pathCordinates;
-                        console.log(coordinates);
-
-                        // Calcola la posizione relativa della forma usando la boundingBox
-                        const shapePosition = matchingPath.boundingBox.getCenter(new THREE.Vector3());
-                        console.log(shapePosition);
-
-                        // Posiziona il cerchio sopra la forma
-                        circleGroup.position.set(
-                            coordinates.x + shapePosition.x * scaleFactor,
-                            coordinates.y + shapePosition.y * scaleFactor,
-                            0
-                        );
-
-                        scene.add(circleGroup);
-                    }
-                });
 
                 highlightPath("lazio");
             },
@@ -254,8 +184,75 @@
             }
         );
 
+        // Handle SVG logos
+        const svgLogos = [
+            "{{ 'LA_GIUVA_LOGO.svg' | asset_url }}",
+            "{{ 'Logo_TenimentiLeone.svg' | asset_url }}",
+            "{{ 'VillaBucci-LogoBlack.svg' | asset_url }}",
+        ];
 
+        const logoIds = ["veneto", "marche", "sardegna", "lazio"];
 
+        // Memorizza i loghi in un oggetto per tenerne traccia
+        let logoObjects = {};
+
+        const loadLogoWithId = (svgData, position, id) => {
+            loader.load(svgData,
+                function (data) {
+                    const paths = data.paths;
+                    const group = new THREE.Group();
+
+                    paths.forEach((path) => {
+                        const material = new THREE.MeshBasicMaterial({
+                            color: path.color,
+                            side: THREE.DoubleSide,
+                            depthWrite: false
+                        });
+
+                        const shapes = SVGLoader.createShapes(path);
+
+                        shapes.forEach(shape => {
+                            const geometry = new THREE.ShapeGeometry(shape);
+                            const mesh = new THREE.Mesh(geometry, material);
+                            group.add(mesh);
+                        });
+                    });
+
+                    // Imposta la posizione iniziale fuori dalla vista (-99, -99, 0)
+                    group.position.set(0, 0, 0);
+                    group.renderOrder = 1;
+                    group.scale.set(0.010, 0.010, 0.010);
+                    group.rotation.x = Math.PI;
+                    scene.add(group);
+
+                    // Aggiungi il logo all'oggetto che memorizza i loghi
+                    logoObjects[id] = {group, targetPosition: position};
+                },
+                function (xhr) {
+                    console.log((xhr.loaded / xhr.total) * 100 + '% loaded');
+                },
+                function (error) {
+                    console.error('An error happened:', error);
+                }
+            );
+        };
+
+        console.log(logoObjects);
+
+        const positions = [
+            {coordinates: new THREE.Vector3(20.5, -10, 0), pathId: "lazio"},
+            {coordinates: new THREE.Vector3(19.5, 10.5, 0), pathId: "veneto"},
+            {coordinates: new THREE.Vector3(13.5, 4, 0), pathId: "marche"},
+        ];
+
+        const loadLogos = () => {
+            svgLogos.forEach((logo, index) => {
+                const logoId = logoIds[index]; // Prendi l'ID corrispondente
+                loadLogoWithId(logo, positions[index].coordinates, logoId); // Carica il logo e assegnagli un ID
+            });
+        };
+
+        loadLogos();
 
         const desktopCoordinates = [
             {coordinates: new THREE.Vector3(-10, 27.5, 0), pathId: "lazio", logo: "lazio"},
@@ -284,7 +281,6 @@
         let zoomSpeed = 0.05;
         let isZooming = false;
 
-
         function highlightPath(targetPathId) {
             let pathCoordinates = null;
 
@@ -300,11 +296,7 @@
                     targetPath.mesh.material.color.set("#A38A70");
                 }
             }
-
         }
-
-
-        let targetPositionsArray = [];
 
         const containerSections = document.querySelector('.container-sections');
         const sections = document.querySelectorAll('.section');
@@ -324,7 +316,6 @@
             isMoving = true;
 
             highlightPath(targetPathId);
-
 
             if (targetPathId === "all" && !isZooming) {
                 isZooming = true;
@@ -355,21 +346,50 @@
         function animate() {
             requestAnimationFrame(animate);
 
+            // Muovi il gruppo principale
             if (window.group && isMoving) {
                 window.group.position.lerp(targetPosition, 0.07);
 
+                // Se il gruppo è arrivato a destinazione, fermiamo il movimento
                 if (window.group.position.distanceTo(targetPosition) < 0.1) {
                     isMoving = false;
                 }
             }
 
+            // Muovi solo il logo che corrisponde alla posizione del gruppo
+            if (window.group && isMoving) {
+                // Troviamo la posizione attuale del gruppo nel mapping delle coordinate
+                const currentCoordinate = coordinatePathMapping.find(item =>
+                    item.coordinates.distanceTo(window.group.position) < 0.1); // verifica se il gruppo è vicino alla posizione
+
+                // Se c'è una posizione corrispondente
+                if (currentCoordinate) {
+                    const logoId = currentCoordinate.logo; // Ottieni l'id del logo dalla posizione
+
+                    // Troviamo il logo corrispondente nell'oggetto logoObjects
+                    const logo = logoObjects[logoId];
+
+                    if (logo) {
+                        console.log(logo)
+                        // Muovi il logo verso la sua destinazione
+                        logo.group.position.lerp(currentCoordinate.coordinates, 0.07);
+                    }
+                }
+            }
+
+            // Gestisci lo zoom
             if (Math.abs(camera.zoom - targetZoom) > 0.01) {
                 camera.zoom += (targetZoom - camera.zoom) * zoomSpeed;
                 camera.updateProjectionMatrix();
             }
 
+            // Rendi il rendering della scena
             renderer.render(scene, camera);
         }
+
+        animate();
+
+
 
         animate();
     });

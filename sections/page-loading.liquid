@@ -397,6 +397,7 @@
     import {SVGLoader} from 'https://cdn.skypack.dev/three@0.130.0/examples/jsm/loaders/SVGLoader.js';
 
 
+
     document.addEventListener('DOMContentLoaded', async () => {
 
         const canvas = document.getElementById('canvas');
@@ -426,57 +427,22 @@
 
 
         const loader = new SVGLoader();
+        let pathMeshes = [];
         let group;
 
         const isMobile = window.innerWidth <= 768;
         const scaleFactor = isMobile ? 0.025 : 0.045;
         const initialPosition = isMobile ? new THREE.Vector3(-15, 17, 0) : new THREE.Vector3(-10, 27.5, 0);
 
-        const loaderTexture = new THREE.TextureLoader();
-        const texture = loaderTexture.load("{{ 'LA_GIUVA_LOGO.svg' | asset_url }}");
-        const regioni = ['veneto', 'marche', 'sardegna', 'lazio'];
-
-        const circleGemotries = [];
-
-        for (let index = 0; index < 4; index++) {
-
-            const circleGeometryBackground = new THREE.CircleGeometry(2, 200);
-            const materialBackground = new THREE.MeshBasicMaterial({color: '#E86A58', depthTest: false});
-            const circleBackground = new THREE.Mesh(circleGeometryBackground, materialBackground);
-
-            const padding = 0.5;
-
-            const circleGeometryLogo = new THREE.CircleGeometry(2 - padding, 200);
-            const materialLogo = new THREE.MeshBasicMaterial({
-                map: texture,
-                transparent: true,
-                opacity: 1,
-                depthTest: false
-            });
-
-            const circleLogo = new THREE.Mesh(circleGeometryLogo, materialLogo);
-            const groupCircle = new THREE.Group();
-
-            groupCircle.userData.id = regioni[index];
-            groupCircle.renderOrder = 1;
-
-            groupCircle.add(circleBackground);
-            groupCircle.add(circleLogo);
-
-            console.log(groupCircle.userData.id);
-
-            circleGemotries.push(groupCircle);
-        }
-
-
+    
         loader.load(
             "{{ 'mappa_new.svg' | asset_url }}",
             function (data) {
                 const paths = data.paths;
                 group = new THREE.Group();
-                let pathMeshes = [];
 
                 paths.forEach((path) => {
+
                     const pathId = path.userData.node.id;
                     const pathCordinates = path.currentPath.currentPoint;
 
@@ -493,15 +459,10 @@
                         const mesh = new THREE.Mesh(geometry, material);
                         group.add(mesh);
 
-                        geometry.computeBoundingBox(); // Questo è necessario per ottenere la boundingBox corretta
-                        const boundingBox = geometry.boundingBox;
-
                         if (pathId && pathId.trim() !== "") {
-                            pathMeshes.push({mesh, pathId, pathCordinates, boundingBox});
+                            pathMeshes.push({mesh, pathId, pathCordinates});
                         }
                     });
-
-                    console.log(pathMeshes)
                 });
 
                 scene.add(group);
@@ -512,32 +473,9 @@
                 window.group = group;
                 window.pathMeshes = pathMeshes;
 
-                circleGemotries.forEach(circleGroup => {
-                    const circleId = circleGroup.userData.id;
-
-                    const matchingPath = pathMeshes.find(path => path.pathId === circleId);
-                    console.log(matchingPath);
-
-                    if (matchingPath) {
-                        const coordinates = matchingPath.pathCordinates;
-                        console.log(coordinates);
-
-                        // Calcola la posizione relativa della forma usando la boundingBox
-                        const shapePosition = matchingPath.boundingBox.getCenter(new THREE.Vector3());
-                        console.log(shapePosition);
-
-                        // Posiziona il cerchio sopra la forma
-                        circleGroup.position.set(
-                            coordinates.x + shapePosition.x * scaleFactor,
-                            coordinates.y + shapePosition.y * scaleFactor,
-                            0
-                        );
-
-                        scene.add(circleGroup);
-                    }
-                });
 
                 highlightPath("lazio");
+
             },
             function (xhr) {
                 console.log((xhr.loaded / xhr.total) * 100 + '% loaded');
@@ -547,7 +485,7 @@
             }
         );
 
-
+        console.log(pathMeshes)
 
 
         const desktopCoordinates = [
@@ -577,27 +515,23 @@
         let zoomSpeed = 0.05;
         let isZooming = false;
 
-
         function highlightPath(targetPathId) {
-            let pathCoordinates = null;
 
             if (window.pathMeshes) {
                 window.pathMeshes.forEach(pathData => {
                     const {mesh} = pathData;
-                    mesh.material.color.set("#EAE3DA");
+                    mesh.material.color.set("#EAE3DA"); 
                 });
 
                 const targetPath = window.pathMeshes.find(pathData => pathData.pathId === targetPathId);
 
                 if (targetPath) {
-                    targetPath.mesh.material.color.set("#A38A70");
+                    targetPath.mesh.material.color.set("#A38A70"); 
+                    const logos = document.querySelectorAll('.canteen-logo');
                 }
             }
-
         }
 
-
-        let targetPositionsArray = [];
 
         const containerSections = document.querySelector('.container-sections');
         const sections = document.querySelectorAll('.section');
@@ -617,7 +551,6 @@
             isMoving = true;
 
             highlightPath(targetPathId);
-
 
             if (targetPathId === "all" && !isZooming) {
                 isZooming = true;
