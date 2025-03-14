@@ -15,7 +15,7 @@
                   <div class="w-auto h-auto hidden lg:absolute lg:top-[772px] right-[250px] lg:flex items-center justify-center">
                     {% render 'union-shape' %}
                     <div class="w-auto h-auto absolute">
-                      <p>{{ block.settings.label_text | default: "Lorem ipsum" }}</p>
+                      <p class="text-[16px] leading-normal mb-2.5 font-bold">{{ block.settings.label_text | default: "Lorem ipsum" |  upcase }}</p>
                     </div>
                   </div>
                 {% endif %}
