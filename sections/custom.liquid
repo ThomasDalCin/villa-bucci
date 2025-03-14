@@ -1,0 +1,27 @@
+  <!-- container video -->
+  <div class="section-content video-container w-full h-screen flex flex-col items-start justify-center">
+
+     
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+  
+      const assetPaths = [];
+  
+      for (let index = 0; index < 263; index++) {
+  
+        if (index < 10) {
+          const firstPathRange = `Oniwines_Step_Logo_000${index}.png`;
+          assetPaths.push(firstPathRange);
+        } else {
+          const secondPathRange = `Oniwines_Step_Logo_00${index}.png`;
+          assetPaths.push(secondPathRange);
+        }
+      }
+  
+      console.log(assetPaths);
+  
+    });
+  </script>
+
