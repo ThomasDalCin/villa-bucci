@@ -292,9 +292,6 @@
   .mb-\[100px\] {
     margin-bottom: 100px;
   }
-  .mb-\[130px\] {
-    margin-bottom: 130px;
-  }
   .mb-\[150px\] {
     margin-bottom: 150px;
   }
@@ -464,17 +461,11 @@
     --tw-translate-y: calc(calc(1/2 * 100%) * -1);
     translate: var(--tw-translate-x) var(--tw-translate-y);
   }
-  .rotate-90 {
-    rotate: 90deg;
-  }
   .rotate-\[90deg\] {
     rotate: 90deg;
   }
   .rotate-\[180deg\] {
     rotate: 180deg;
-  }
-  .rotate-\[360deg\] {
-    rotate: 360deg;
   }
   .transform {
     transform: var(--tw-rotate-x) var(--tw-rotate-y) var(--tw-rotate-z) var(--tw-skew-x) var(--tw-skew-y);
@@ -773,6 +764,9 @@
   .font-\(family-name\:--submain-mobile-title-font-family\) {
     font-family: var(--submain-mobile-title-font-family);
   }
+  .font-\(family-name\:--submain-title-font-famil\) {
+    font-family: var(--submain-title-font-famil);
+  }
   .font-\(family-name\:--submain-title-font-family\) {
     font-family: var(--submain-title-font-family);
   }
@@ -952,21 +946,6 @@
     &:is(:where(.group):hover *) {
       @media (hover: hover) {
         scale: 1.1;
-      }
-    }
-  }
-  .group-hover\:border-\[11px\] {
-    &:is(:where(.group):hover *) {
-      @media (hover: hover) {
-        border-style: var(--tw-border-style);
-        border-width: 11px;
-      }
-    }
-  }
-  .group-hover\:border-\(--beige-color\) {
-    &:is(:where(.group):hover *) {
-      @media (hover: hover) {
-        border-color: var(--beige-color);
       }
     }
   }

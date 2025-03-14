@@ -111,7 +111,7 @@
                     class="section w-full h-full flex flex-col items-center justify-center gap-y-5 snap-start relative"
                     data-id="{{ forloop.index }}"
                     data-href="{{ matchingPage.url }}">
-                    <h2 class="font-(family-name:--main-title-mobile-font-family) text-center text-[40px] text-(--green-color) leading-[105%] tracking-[1.02px] lg:text-[96px] lg:tracking-[2.88px] lg:max-w-[900px] lg:text-center">
+                    <h2 class="font-(family-name:--main-title-mobile-font-family) text-center text-[40px] text-(--green-color) leading-[105%] tracking-[1.02px] w-[334px] lg:text-[96px] lg:tracking-[2.88px] lg:max-w-[900px] lg:text-center">
                       {{ pageCustomTitle | upcase }}
                     </h2>
                     {% if canteenLocation %}
@@ -133,7 +133,7 @@
             <div class="w-auto h-auto absolute bottom-[30px] lg:bottom-[155px] left-1/2 -translate-x-1/2 flex flex-col items-center justify-end z-20">
               <div class="cta-orange">
                 <a href="#" class="redirect-to-website">
-                  <p class="uppercase text-[12px] leading-[16px] tracking-[-3%]">{{ section.settings.cta_text | 
+                  <p class="uppercase text-[12px] leading-[16px] tracking-[-3%] font-(family-name:--submain-title-font-family)">{{ section.settings.cta_text | 
  default: "Vai al sito" }}</p>
                 </a>
                 {% render 'arrow-up' %}
