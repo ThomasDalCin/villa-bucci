@@ -1,1 +1,11 @@
-
+{
+  "sections": {
+    "map": {
+      "type": "map",
+      "settings": {}
+    }
+  },
+  "order": [
+    "map"
+  ]
+}
