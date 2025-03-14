@@ -31,7 +31,7 @@
     {% assign titlePagesCantina = pages | where: "title", "Cantina" %}
 
     <!-- container slider id canteen -->
-    <div class="w-full h-auto overflow-hidden mb-[130px] px-5">
+    <div class="w-full h-auto overflow-hidden mb-[100px] px-5">
 
       <div class="container-canteen-items w-full h-auto gap-x-5 flex flex-row items-center justify-start overflow-x-scroll snap-x snap-mandatory {% if titlePagesCanteen.size <= 4 or titlePagesCantina.size <= 4  %} lg:w-full lg:max-w-full lg:items-start {% endif %}">
         {% for page in pages %}
@@ -82,11 +82,10 @@
 
       <div class="w-auto h-auto arrow-left">
 
-        <div class="w-[80px] h-[40px] relative">
-          <img
-            class="w-full h-full object-cover"
-            src="{{ 'rectangle.png' |  asset_url }}"
-            alt="">
+        <div class="w-[80px] h-[40px] relative flex flex-col items-center justify-center">
+          <div class="w-auto h-auto">
+            {% render 'arrow-bg-slider' %}
+          </div>
           <div class="w-auto h-auto absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
             {% render 'arrow-left-slider' %}
           </div>
@@ -95,11 +94,10 @@
       </div>
 
       <div class="w-auto h-auto arrow-right">
-        <div class="w-[80px] h-[40px] relative">
-          <img
-            class="w-full h-full object-cover"
-            src="{{ 'rectangle.png' |  asset_url }}"
-            alt="">
+        <div class="w-[80px] h-[40px] relative flex flex-col items-center justify-center">
+          <div class="w-auto h-auto rotate-[180deg]">
+            {% render 'arrow-bg-slider' %}
+          </div>
           <div class="w-auto h-auto absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
             {% render 'arrow-right-slider' %}
           </div>
