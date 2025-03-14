@@ -49,7 +49,7 @@
                   <!-- page image -->
                   <div class="w-full h-[121px] relative {% if titlePagesCanteen.size <= 4 or titlePagesCantina.size <= 4  %} lg:w-full {% endif %}">
                     <img
-                      class="page-image w-full h-full object-cover object-center rounded-[8px] group-hover:border-(--beige-light) group-hover:border-[11px]"
+                      class="page-image w-full h-full object-cover object-center rounded-[8px]"
                       src="{{ pageImage | img_url: 'master' }}"
                       alt="">
                     <!-- container canteen logo -->
@@ -60,12 +60,15 @@
                           src="{{ pageCanteenLogo | img_url: 'master' }}"
                           alt="{{ pageCanteenLogo.alt }}">
                       </div>
+                    <!--div like border-->
+                    <div class="w-full h-full absolute left-0 top-0 right-0 z-10 rounded-[8px] border-[11px] border-transparent transition-all duration-100 ease-linear group-hover:border-(--beige-light)"></div>
+
                     {% endif %}
                   </div>
                   <!-- page title -->
                   <div class="w-full h-auto flex flex-row justify-between items-center">
                     <p class="text-(--beige-light)">{{ pageTitleCustom | upcase }}</p>
-                    <div class="arrow-canteen-box w-auto h-auto text-(--beige-light) hidden">
+                    <div class="arrow-canteen-box w-auto h-auto text-(--beige-light) opacity-0 transition-all duration-200 ease-linear group-hover:opacity-100">
                       {% render 'arrow-up' %}
                     </div>
                   </div>

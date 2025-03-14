@@ -662,6 +662,9 @@
   .border-\[var\(--border-color\)\] {
     border-color: var(--border-color);
   }
+  .border-transparent {
+    border-color: transparent;
+  }
   .border-t-\(--border-color\) {
     border-top-color: var(--border-color);
   }
@@ -913,6 +916,10 @@
     --tw-duration: 75ms;
     transition-duration: 75ms;
   }
+  .duration-100 {
+    --tw-duration: 100ms;
+    transition-duration: 100ms;
+  }
   .duration-200 {
     --tw-duration: 200ms;
     transition-duration: 200ms;
@@ -953,6 +960,13 @@
       @media (hover: hover) {
         border-style: var(--tw-border-style);
         border-width: 11px;
+      }
+    }
+  }
+  .group-hover\:border-\(--beige-color\) {
+    &:is(:where(.group):hover *) {
+      @media (hover: hover) {
+        border-color: var(--beige-color);
       }
     }
   }
