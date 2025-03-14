@@ -80,9 +80,19 @@
                     {% if linkItem.links.size > 0 %}
                     <div class="container-childlinks overflow-hidden w-full flex flex-col items-start justify-center gap-y-1.5 h-0 transition-all duration-200 ease-linear lg:h-auto lg:overflow-auto lg:mt-20"
                         data-child-link="link-item-{{ forloop.index }}">
+
+                        <div class="container-arrow-link w-auto h-auto hidden">
+                            {% render 'arrow-up' %}
+                        </div>
+
                         {% for childlinks in linkItem.links %}
                         <!--content childlinks-->
-                        <div class="w-auto h-auto">
+                        <div class="w-full h-auto flex flex-row items-center justify-start lg:gap-x-1">
+
+                            <div class="container-arrow-link w-auto h-auto hidden">
+                                {% render 'arrow-up' %}
+                            </div>
+
                             <li class="list-none">
                                 <a class="main-menu-sublink text-(--link-color) text-[24px] leading-normal lg:hover:text-(--orange-color) transition-all duration-200 ease-linear"
                                     href="{{ childlinks.url }}">{{
@@ -149,9 +159,9 @@
 </div>
 
 {% style %}
-    .main-blur{
-        filter: blur(40px);
-    }
+.main-blur{
+filter: blur(40px);
+}
 {% endstyle %}
 
 <!--javascript code here-->

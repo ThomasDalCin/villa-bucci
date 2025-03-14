@@ -1321,6 +1321,11 @@
       justify-content: flex-start;
     }
   }
+  .lg\:gap-x-1 {
+    @media (width >= 64rem) {
+      column-gap: calc(var(--spacing) * 1);
+    }
+  }
   .lg\:gap-x-5 {
     @media (width >= 64rem) {
       column-gap: calc(var(--spacing) * 5);
