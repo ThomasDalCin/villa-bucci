@@ -5,10 +5,20 @@
   <div class="loading-wrapper w-full transform transition-all duration-500 ease-[cubic-bezier(.06,.86,.78,.22)]">
 
     <!-- container video -->
-    <div class="section-content video-container w-full h-dvh">
-      <video class="video w-full h-full object-cover object-center" autoplay muted playsinline>
-        <source src="{{ 'page-loading.mp4' | asset_url }}" />
-      </video>
+    <div class="section-content video-container w-full h-dvh flex flex-col items-center justify-center relative">
+      {% for index in (1..263) %}
+      {% if index < 10 %} <img
+        class="frame absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 object-cover w-[500px] h-[400px] lg:object-contain opacity-0 lg:w-auto lg:h-auto"
+        src="{{ 'Oniwines_Step_Logo_0000' | append: index | append: '.png' | asset_url }}" alt="Image {{ index }}">
+        {% elsif index >= 10 and index < 100 %} <img
+          class="frame absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 object-cover w-[500px] h-[400px] lg:object-contain opacity-0 lg:w-auto lg:h-auto"
+          src="{{ 'Oniwines_Step_Logo_000' | append: index | append: '.png' | asset_url }}" alt="Image {{ index }}">
+          {% else %}
+          <img
+            class="frame absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 object-cover w-[500px] h-[400px] lg:object-contain opacity-0 lg:w-auto lg:h-auto"
+            src="{{ 'Oniwines_Step_Logo_00' | append: index | append: '.png' | asset_url }}" alt="Image {{ index }}">
+          {% endif %}
+          {% endfor %}
     </div>
 
     <!-- home step text layout -->
@@ -47,8 +57,7 @@
     </div>
 
     <!-- content clip path + three -->
-    <div
-      class="w-full h-dvh releative flex flex-col items-start justify-start overflow-y-scroll snap-y snap-mandatory">
+    <div class="w-full h-dvh releative flex flex-col items-start justify-start overflow-y-scroll snap-y snap-mandatory">
 
       <!-- container clip-path -->
       <div
@@ -112,7 +121,8 @@
                 data-id="{{ forloop.index }}" data-href="{{ matchingPage.url }}">
 
                 <!--container floating logo-->
-                <div class="w-full h-full left-0 top-0 right-0 flex flex-row items-start justify-center overflow-hidden absolute">
+                <div
+                  class="w-full h-full left-0 top-0 right-0 flex flex-row items-start justify-center overflow-hidden absolute">
 
                   <div
                     class="circular-logo-container w-[65px] h-[65px] rounded-full bg-(--orange-color) absolute left-1/2 top-[30%] -translate-x-1/2 -translate-y-1/2 p-1 opacity-0 lg:top-[20%]">
@@ -206,6 +216,11 @@
     const ctaSettings = document.querySelector('.settings-cta');
     const mainVideo = document.querySelector('.main-video');
     const mainButtons = [ctaSettings, enterButton];
+    //settings frame png path;
+    var images = document.querySelectorAll('.frame');
+    var fps = 80; // Frame rate per la sequenza
+    var frameDuration = 1 / fps;  // Durata per ogni frame in base agli fps
+    var sequence = gsap.timeline({repeat: 0, defaults: {ease: "power1.inOut"}});
 
     let currentTranslateValue = 0;
     let isTransitioning = false;
@@ -224,19 +239,36 @@
     document.body.classList.add('no-scroll');
 
 
-    video.addEventListener('ended', () => {
-      if (isTransitioning) return;
+    var sequence = gsap.timeline({repeat: 0, defaults: {ease: "power1.inOut"}});
+
+    images.forEach(function (image, index) {
+      sequence.to(image, {
+        opacity: 1, 
+        duration: 0.0003,
+      }, index * frameDuration);
+
+      if (index !== images.length - 1) {
+        sequence.to(image, {
+          opacity: 0, 
+          duration: 0.0003,
+        }, (index + 1) * frameDuration); 
+      }
+    });
+
+    sequence.eventCallback("onComplete", function () {
+      if (isTransitioning) return; 
       isTransitioning = true;
 
       setTimeout(() => {
         currentTranslateValue += percentValue;
-
         loadingWrapper.style.transform = `translateY(-${currentTranslateValue}%)`;
+
         loadingWrapper.addEventListener('transitionend', () => {
           isTransitioning = false;
         });
       }, 500);
     });
+
 
     mainButtons.forEach((button) => {
       button.addEventListener('click', () => {
