@@ -233,7 +233,6 @@
 
         loadingWrapper.style.transform = `translateY(-${currentTranslateValue}%)`;
         loadingWrapper.addEventListener('transitionend', () => {
-          document.body.classList.remove('no-scroll');
           isTransitioning = false;
         });
       }, 500);
