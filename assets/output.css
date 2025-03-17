@@ -394,6 +394,9 @@
   .max-h-\[69px\] {
     max-height: 69px;
   }
+  .max-h-\[200px\] {
+    max-height: 200px;
+  }
   .min-h-\[500px\] {
     min-height: 500px;
   }
