@@ -1,18 +1,18 @@
 <!-- page loading section with video -->
-<div class="w-full h-svh relative z-50">
+<div class="w-full h-dvh relative z-50">
 
   <!-- wrapper container main elements -->
   <div class="loading-wrapper w-full transform transition-all duration-500 ease-[cubic-bezier(.06,.86,.78,.22)]">
 
     <!-- container video -->
-    <div class="section-content video-container w-full h-svh">
+    <div class="section-content video-container w-full h-dvh">
       <video class="video w-full h-full object-cover object-center" autoplay muted playsinline>
         <source src="{{ 'page-loading.mp4' | asset_url }}" />
       </video>
     </div>
 
     <!-- home step text layout -->
-    <div class="section-content floating-div-target w-full h-svh relative first-section">
+    <div class="section-content floating-div-target w-full h-dvh relative first-section">
 
       <!-- floating div -->
       <div
@@ -48,11 +48,11 @@
 
     <!-- content clip path + three -->
     <div
-      class="w-full h-svh releative flex flex-col items-start justify-start overflow-y-scroll snap-y snap-mandatory">
+      class="w-full h-dvh releative flex flex-col items-start justify-start overflow-y-scroll snap-y snap-mandatory">
 
       <!-- container clip-path -->
       <div
-        class="section-content w-full h-svh min-h-svh overflow-hidden relative flex items-center justify-center snap-start">
+        class="section-content w-full h-dvh min-h-dvh overflow-hidden relative flex items-center justify-center snap-start">
         <!-- clip path content -->
         <div class="clip-path-container w-full h-full overflow-hidde relative rounded-[8px]"
           style="clip-path: polygon(20% 20%, 80% 20%, 80% 80%, 20% 80%);">
@@ -69,7 +69,7 @@
       </div>
 
       <!-- contain three js scene -->
-      <div class="canvas-container w-full h-svh relative z-5 snap-start">
+      <div class="canvas-container w-full h-dvh relative z-5 snap-start">
 
         <canvas id="canvas" class="w-full h-full">
           <!-- Three.js content -->
@@ -84,9 +84,9 @@
         {% endfor %}
         {% assign counter = counter | plus: 1 | times: 100 %}
 
-        <div class="outer-container w-full h-[{{ counter }}svh] absolute left-0 top-0 right-0">
-          <div class="sticky-container w-full h-svh overflow-hidden relative">
-            <div class="container-sections w-full h-svh overflow-y-scroll snap-mandatory snap-y">
+        <div class="outer-container w-full h-[{{ counter }}dvh] absolute left-0 top-0 right-0">
+          <div class="sticky-container w-full h-dvh overflow-hidden relative">
+            <div class="container-sections w-full h-dvh overflow-y-scroll snap-mandatory snap-y">
 
               {% assign customOrder = "Tenimenti Leone,Podere Guardia Grande,La Giuva,Villa Bucci" | split: "," %}
 
@@ -220,7 +220,7 @@
     console.log(percentValue);
 
 
-    loadingWrapper.classList.add(`h-[${sectionsContainer.length * 100}svh]`);
+    loadingWrapper.classList.add(`h-[${sectionsContainer.length * 100}dvh]`);
     document.body.classList.add('no-scroll');
 
 
