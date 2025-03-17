@@ -121,7 +121,7 @@
                   <img
                     class="circular-logo w-[50px] h-[50px]  absolute left-1/2 top-[30%] -translate-x-1/2 -translate-y-1/2 p-1 z-20 opacity-0 lg:top-[20%]"
                     src="{{ canteenPageLogo |  img_url: 'master' }}" alt="">
-                    
+
                 </div>
 
                 <h2
@@ -558,13 +558,13 @@
       gsap.fromTo(
         circularLogoContainer[index],
         {opacity: 0, y: -1000},
-        {opacity: 1, y: 0, duration: 1}
+        {opacity: 1, y: 0, duration: 1, ease: "power1.inOut"}
       );
 
       gsap.fromTo(
         circularLogo[index],
         {opacity: 0, y: 1000},
-        {opacity: 1, y: 0, duration: 0.8}
+        {opacity: 1, y: 0, duration: 0.8, ease: "power1.inOut"}
       );
     };
 
