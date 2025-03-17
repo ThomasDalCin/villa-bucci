@@ -349,6 +349,9 @@
   .h-\[100px\] {
     height: 100px;
   }
+  .h-\[120px\] {
+    height: 120px;
+  }
   .h-\[121px\] {
     height: 121px;
   }
@@ -438,6 +441,9 @@
   }
   .w-\[100px\] {
     width: 100px;
+  }
+  .w-\[120px\] {
+    width: 120px;
   }
   .w-\[130px\] {
     width: 130px;
