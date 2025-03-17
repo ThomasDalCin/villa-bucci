@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "video-container": {
@@ -5,7 +14,7 @@
       "custom_css": [],
       "settings": {
         "video_source": "",
-        "banner_image": "shopify:\/\/shop_images\/1fdad5dff1d64399103d03a2f3f10ae0.jpg",
+        "banner_image": "shopify://shop_images/1fdad5dff1d64399103d03a2f3f10ae0.jpg",
         "margin_desktop_section": 60,
         "margin_mobile_section": 0,
         "show_media_video": "hidden",
@@ -196,7 +205,7 @@
         "canteen_slider_EnAEaD": {
           "type": "canteen_slider",
           "settings": {
-            "canteen_slider_image": "shopify:\/\/shop_images\/0f966f3074da6c9e117c9586db7c4043.jpg",
+            "canteen_slider_image": "shopify://shop_images/0f966f3074da6c9e117c9586db7c4043.jpg",
             "is_label": true,
             "label_text": ""
           }
@@ -204,7 +213,7 @@
         "canteen_slider_GihFHE": {
           "type": "canteen_slider",
           "settings": {
-            "canteen_slider_image": "shopify:\/\/shop_images\/bb7a7584399a9ae805b350ac1e69355b.jpg",
+            "canteen_slider_image": "shopify://shop_images/bb7a7584399a9ae805b350ac1e69355b.jpg",
             "is_label": true,
             "label_text": ""
           }
@@ -256,9 +265,7 @@
         "is_stroke_left": false,
         "is_stroke_right": true,
         "margin_desktop_section": 10,
-        "margin_mobile_section": 30,
-        "layout_slider_direction_mobile": "row",
-        "layout_slider_alignment_mobile": "start"
+        "margin_mobile_section": 10
       }
     }
   },
