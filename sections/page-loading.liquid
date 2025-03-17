@@ -123,10 +123,11 @@
                 <!--container floating logo-->
                 <div
                   class="w-full h-full left-0 top-0 right-0 flex flex-row items-start justify-center overflow-hidden absolute">
-
+                  {% if section.settings.active_logo_circle %}
                   <div
                     class="circular-logo-container w-[65px] h-[65px] rounded-full bg-(--orange-color) absolute left-1/2 top-[30%] -translate-x-1/2 -translate-y-1/2 p-1 opacity-0 lg:top-[20%]">
                   </div>
+                  {% endif %}
 
                   <img
                     class="circular-logo w-[50px] h-[50px]  absolute left-1/2 top-[30%] -translate-x-1/2 -translate-y-1/2 p-1 z-20 opacity-0 lg:top-[20%]"
@@ -194,6 +195,12 @@
 "type": "text",
 "id": "custom_settings_text",
 "label": "Custom video settings text"
+},
+{
+"type": "checkbox",
+"id": "active_logo_circle",
+"label": "Visibility circle behind logo",
+"default": true
 }
 ]
 }
@@ -243,20 +250,20 @@
 
     images.forEach(function (image, index) {
       sequence.to(image, {
-        opacity: 1, 
+        opacity: 1,
         duration: 0.0003,
       }, index * frameDuration);
 
       if (index !== images.length - 1) {
         sequence.to(image, {
-          opacity: 0, 
+          opacity: 0,
           duration: 0.0003,
-        }, (index + 1) * frameDuration); 
+        }, (index + 1) * frameDuration);
       }
     });
 
     sequence.eventCallback("onComplete", function () {
-      if (isTransitioning) return; 
+      if (isTransitioning) return;
       isTransitioning = true;
 
       setTimeout(() => {
@@ -586,11 +593,14 @@
     const circularLogo = document.querySelectorAll('.circular-logo');
 
     function animateElement(index) {
-      gsap.fromTo(
-        circularLogoContainer[index],
-        {opacity: 0, y: -1000},
-        {opacity: 1, y: 0, duration: 1, ease: "power1.inOut"}
-      );
+      if (circularLogoContainer && circularLogoContainer[index]) {
+        gsap.fromTo(
+          circularLogoContainer[index],
+          {opacity: 0, y: -1000},
+          {opacity: 1, y: 0, duration: 1, ease: "power1.inOut"}
+        );
+
+      }
 
       gsap.fromTo(
         circularLogo[index],
