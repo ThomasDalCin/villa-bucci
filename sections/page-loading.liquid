@@ -5,14 +5,14 @@
   <div class="loading-wrapper w-full transform transition-all duration-500 ease-[cubic-bezier(.06,.86,.78,.22)]">
 
     <!-- container video -->
-    <div class="section-content video-container w-full h-dvh">
+    <div class="section-content video-container w-full h-screen">
       <video class="video w-full h-full object-cover object-center" autoplay muted playsinline>
         <source src="{{ 'page-loading.mp4' | asset_url }}" />
       </video>
     </div>
 
     <!-- home step text layout -->
-    <div class="section-content floating-div-target w-full h-dvh relative first-section">
+    <div class="section-content floating-div-target w-full h-screen relative first-section">
 
       <!-- floating div -->
       <div
@@ -48,7 +48,7 @@
 
     <!-- content clip path + three -->
     <div
-      class="w-full h-dvh releative flex flex-col items-start justify-start overflow-y-scroll snap-y snap-mandatory">
+      class="w-full h-screen releative flex flex-col items-start justify-start overflow-y-scroll snap-y snap-mandatory">
 
       <!-- container clip-path -->
       <div
@@ -84,7 +84,7 @@
         {% endfor %}
         {% assign counter = counter | plus: 1 | times: 100 %}
 
-        <div class="outer-container w-full h-[{{ counter }}svh] absolute left-0 top-0 right-0">
+        <div class="outer-container w-full h-[{{ counter }}vh] absolute left-0 top-0 right-0">
           <div class="sticky-container w-full h-dvh overflow-hidden relative">
             <div class="container-sections w-full h-dvh overflow-y-scroll snap-mandatory snap-y">
 
