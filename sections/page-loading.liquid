@@ -127,12 +127,14 @@
                   <div
                     class="circular-logo-container w-[65px] h-[65px] rounded-full bg-(--orange-color) absolute left-1/2 top-[30%] -translate-x-1/2 -translate-y-1/2 p-1 opacity-0 lg:top-[20%]">
                   </div>
-                  {% endif %}
-
                   <img
-                    class="circular-logo w-[50px] h-[50px]  absolute left-1/2 top-[30%] -translate-x-1/2 -translate-y-1/2 p-1 z-20 opacity-0 lg:top-[20%]"
-                    src="{{ canteenPageLogo |  img_url: 'master' }}" alt="">
-
+                  class="circular-logo w-[50px] h-[50px]  absolute left-1/2 top-[30%] -translate-x-1/2 -translate-y-1/2 p-1 z-20 opacity-0 lg:top-[20%]"
+                  src="{{ canteenPageLogo |  img_url: 'master' }}" alt="">
+                   {% else %}
+                   <img
+                   class="circular-logo w-[150px] h-[150px]  absolute left-1/2 top-[30%] -translate-x-1/2 -translate-y-1/2 p-1 z-20 opacity-0 lg:top-[20%]"
+                   src="{{ canteenPageLogo |  img_url: 'master' }}" alt="">
+                  {% endif %}
                 </div>
 
                 <h2
