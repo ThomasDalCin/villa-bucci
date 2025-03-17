@@ -1,4 +1,4 @@
-/*! tailwindcss v4.0.13 | MIT License | https://tailwindcss.com */
+/*! tailwindcss v4.0.14 | MIT License | https://tailwindcss.com */
 @layer theme, base, components, utilities;
 @layer theme {
   :root, :host {
@@ -175,9 +175,6 @@
   }
 }
 @layer utilities {
-  .visible {
-    visibility: visible;
-  }
   .absolute {
     position: absolute;
   }
@@ -204,6 +201,15 @@
   }
   .top-1\/2 {
     top: calc(1/2 * 100%);
+  }
+  .top-\[10\%\] {
+    top: 10%;
+  }
+  .top-\[20\%\] {
+    top: 20%;
+  }
+  .top-\[30\%\] {
+    top: 30%;
   }
   .top-\[40\%\] {
     top: 40%;
@@ -325,14 +331,17 @@
   .h-1\.5 {
     height: calc(var(--spacing) * 1.5);
   }
-  .h-4 {
-    height: calc(var(--spacing) * 4);
-  }
   .h-\[40px\] {
     height: 40px;
   }
+  .h-\[50px\] {
+    height: 50px;
+  }
   .h-\[56px\] {
     height: 56px;
+  }
+  .h-\[60px\] {
+    height: 60px;
   }
   .h-\[65px\] {
     height: 65px;
@@ -349,8 +358,8 @@
   .h-\[150px\] {
     height: 150px;
   }
-  .h-\[300px\] {
-    height: 300px;
+  .h-\[200px\] {
+    height: 200px;
   }
   .h-\[381px\] {
     height: 381px;
@@ -385,14 +394,20 @@
   .min-h-screen {
     min-height: 100vh;
   }
+  .min-h-svh {
+    min-height: 100svh;
+  }
   .w-1 {
     width: calc(var(--spacing) * 1);
   }
   .w-1\.5 {
     width: calc(var(--spacing) * 1.5);
   }
-  .w-2 {
-    width: calc(var(--spacing) * 2);
+  .w-\[50px\] {
+    width: 50px;
+  }
+  .w-\[60px\] {
+    width: 60px;
   }
   .w-\[65px\] {
     width: 65px;
@@ -457,12 +472,6 @@
   .flex-auto {
     flex: auto;
   }
-  .flex-shrink {
-    flex-shrink: 1;
-  }
-  .shrink {
-    flex-shrink: 1;
-  }
   .border-collapse {
     border-collapse: collapse;
   }
@@ -480,6 +489,18 @@
   }
   .-translate-y-1\/2 {
     --tw-translate-y: calc(calc(1/2 * 100%) * -1);
+    translate: var(--tw-translate-x) var(--tw-translate-y);
+  }
+  .-translate-y-\[-1000px\] {
+    --tw-translate-y: calc(-1000px * -1);
+    translate: var(--tw-translate-x) var(--tw-translate-y);
+  }
+  .-translate-y-\[20\%\] {
+    --tw-translate-y: calc(20% * -1);
+    translate: var(--tw-translate-x) var(--tw-translate-y);
+  }
+  .-translate-y-\[1000px\] {
+    --tw-translate-y: calc(1000px * -1);
     translate: var(--tw-translate-x) var(--tw-translate-y);
   }
   .rotate-\[90deg\] {
@@ -697,6 +718,9 @@
   }
   .bg-\(--green-color-w-opacity\) {
     background-color: var(--green-color-w-opacity);
+  }
+  .bg-\(--orange-color\) {
+    background-color: var(--orange-color);
   }
   .bg-\[\#DACABB\] {
     background-color: #DACABB;
@@ -919,11 +943,6 @@
     -webkit-backdrop-filter: var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) var(--tw-backdrop-contrast,) var(--tw-backdrop-grayscale,) var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,) var(--tw-backdrop-saturate,) var(--tw-backdrop-sepia,);
     backdrop-filter: var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) var(--tw-backdrop-contrast,) var(--tw-backdrop-grayscale,) var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,) var(--tw-backdrop-saturate,) var(--tw-backdrop-sepia,);
   }
-  .transition {
-    transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to, opacity, box-shadow, transform, translate, scale, rotate, filter, -webkit-backdrop-filter, backdrop-filter;
-    transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
-    transition-duration: var(--tw-duration, var(--default-transition-duration));
-  }
   .transition-all {
     transition-property: all;
     transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
@@ -964,9 +983,6 @@
   .ease-linear {
     --tw-ease: linear;
     transition-timing-function: linear;
-  }
-  .\[default\:\\u202F\$\{N\(\`\$\{u\}\`\)\}\] {
-    default: \u202F${N(`${u}`)};
   }
   .group-hover\:scale-\[1\.1\] {
     &:is(:where(.group):hover *) {
@@ -1057,6 +1073,16 @@
   .lg\:top-10 {
     @media (width >= 64rem) {
       top: calc(var(--spacing) * 10);
+    }
+  }
+  .lg\:top-\[20\%\] {
+    @media (width >= 64rem) {
+      top: 20%;
+    }
+  }
+  .lg\:top-\[30\%\] {
+    @media (width >= 64rem) {
+      top: 30%;
     }
   }
   .lg\:top-\[772px\] {
@@ -1197,6 +1223,11 @@
   .lg\:w-\[726px\] {
     @media (width >= 64rem) {
       width: 726px;
+    }
+  }
+  .lg\:w-\[800px\] {
+    @media (width >= 64rem) {
+      width: 800px;
     }
   }
   .lg\:w-\[1024px\] {

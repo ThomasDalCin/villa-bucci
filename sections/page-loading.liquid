@@ -5,40 +5,40 @@
   <div class="loading-wrapper w-full transform transition-all duration-500 ease-[cubic-bezier(.06,.86,.78,.22)]">
 
     <!-- container video -->
-    <div class="section-content video-container w-full h-screen">
-      <video
-        class="video w-full h-full object-cover object-center"
-        autoplay
-        muted
-        playsinline>
+    <div class="section-content video-container w-full h-svh">
+      <video class="video w-full h-full object-cover object-center" autoplay muted playsinline>
         <source src="{{ 'page-loading.mp4' | asset_url }}" />
       </video>
     </div>
 
     <!-- home step text layout -->
-    <div class="section-content floating-div-target w-full h-screen relative first-section">
+    <div class="section-content floating-div-target w-full h-svh relative first-section">
 
       <!-- floating div -->
-      <div class="floating-div z-30 w-auto h-auto hidden lg:flex flex-col items-center justify-center absolute left-0 top-0 transition-all duration-200 ease-linear">
-        <p class="uppercase text-[12px] leading-[16px] tracking-[-3%] font-bold text-(--orange-color)">{{ section.settings.floating_cursor_text | default: "Entra" }}</p>
+      <div
+        class="floating-div z-30 w-auto h-auto hidden lg:flex flex-col items-center justify-center absolute left-0 top-0 transition-all duration-200 ease-linear">
+        <p class="uppercase text-[12px] leading-[16px] tracking-[-3%] font-bold text-(--orange-color)">{{
+          section.settings.floating_cursor_text | default: "Entra" }}</p>
       </div>
 
       <div class="w-full h-full flex flex-col items-center justify-center gap-y-10 relative">
         <div class="w-auto h-auto flex items-center justify-center text-center">
-          <h1 class="font-(family-name:--main-title-mobile-font-family) text-[40px] leading-[105%] text-(--green-color) tracking-[1.02px] w-[334px] text-center lg:text-[96px] lg:tracking-[2.88px] lg:w-[1024px] ">
+          <h1
+            class="font-(family-name:--main-title-mobile-font-family) text-[40px] leading-[105%] text-(--green-color) tracking-[1.02px] w-[334px] text-center lg:text-[96px] lg:tracking-[2.88px] lg:w-[1024px] ">
             {{ section.settings.first_step_title | default: "Scopri il mondo di Oniwines." | upcase }}
           </h1>
         </div>
         <div class="cta-container w-auto h-auto flex items-center justify-center lg:hidden">
           <div class="cta-orange">
-            <p class="uppercase text-[12px] leading-[16px] tracking-[-3%]">{{ section.settings.cta_text | 
- default: "Entra" }}</p>
+            <p class="uppercase text-[12px] leading-[16px] tracking-[-3%]">{{ section.settings.cta_text |
+              default: "Entra" }}</p>
             {% render 'play-poligon' %}
           </div>
         </div>
         <div class="bottom-text-container w-full absolute h-auto left-0 bottom-7 right-0">
           <div class="settings-cta w-auto flex items-center justify-center">
-            <p class="settings-cta-text w-auto h-[100px] flex items-center uppercase underline text-[12px] leading-[16px] tracking-[-3%] font-bold cursor-pointer relative z-30">
+            <p
+              class="settings-cta-text w-auto h-[100px] flex items-center uppercase underline text-[12px] leading-[16px] tracking-[-3%] font-bold cursor-pointer relative z-30">
               {{ section.settings.custom_settings_text | default: "Entra senza audio" }}
             </p>
           </div>
@@ -47,17 +47,17 @@
     </div>
 
     <!-- content clip path + three -->
-    <div class="w-full h-screen releative flex flex-col items-start justify-start overflow-y-scroll snap-y snap-mandatory">
+    <div
+      class="w-full h-svh releative flex flex-col items-start justify-start overflow-y-scroll snap-y snap-mandatory">
 
       <!-- container clip-path -->
-      <div class="section-content w-full h-screen min-h-screen overflow-hidden relative flex items-center justify-center snap-start">
+      <div
+        class="section-content w-full h-svh min-h-svh overflow-hidden relative flex items-center justify-center snap-start">
         <!-- clip path content -->
-        <div class="clip-path-container w-full h-full overflow-hidde relative rounded-[8px]" style="clip-path: polygon(20% 20%, 80% 20%, 80% 80%, 20% 80%);">
+        <div class="clip-path-container w-full h-full overflow-hidde relative rounded-[8px]"
+          style="clip-path: polygon(20% 20%, 80% 20%, 80% 80%, 20% 80%);">
           <!-- Container video -->
-          <video
-            class="main-video video-hero w-full h-full object-cover object-center relative"
-            autoplay
-            playsinline
+          <video class="main-video video-hero w-full h-full object-cover object-center relative" autoplay playsinline
             loop>
             <source src="https://cdn.shopify.com/videos/c/o/v/a700a6e9af1e4acd9fbeb045fc59915b.mp4" />
           </video>
@@ -69,72 +69,89 @@
       </div>
 
       <!-- contain three js scene -->
-      <div class="canvas-container w-full h-screen relative z-5 snap-start">
+      <div class="canvas-container w-full h-svh relative z-5 snap-start">
 
         <canvas id="canvas" class="w-full h-full">
           <!-- Three.js content -->
-      </canvas>
+        </canvas>
 
         <!-- outer container -->
         {% assign counter = 0 %}
         {% for page in pages %}
-          {% if page.title contains "Cantina" or page.title contains "Canteen" %}
-            {% assign counter = counter | plus: 1 %}
-          {% endif %}
+        {% if page.title contains "Cantina" or page.title contains "Canteen" %}
+        {% assign counter = counter | plus: 1 %}
+        {% endif %}
         {% endfor %}
         {% assign counter = counter | plus: 1 | times: 100 %}
 
-        <div class="outer-container w-full h-[{{ counter }}vh] absolute left-0 top-0 right-0">
-          <div class="sticky-container w-full h-screen overflow-hidden relative">
-            <div class="container-sections w-full h-screen overflow-y-scroll snap-mandatory snap-y">
+        <div class="outer-container w-full h-[{{ counter }}svh] absolute left-0 top-0 right-0">
+          <div class="sticky-container w-full h-svh overflow-hidden relative">
+            <div class="container-sections w-full h-svh overflow-y-scroll snap-mandatory snap-y">
 
-              {% assign customOrder = "Tenimenti Leone,Podere Guardia Grande,La Giuva,Villa Bucci" | 
- split: "," %}
+              {% assign customOrder = "Tenimenti Leone,Podere Guardia Grande,La Giuva,Villa Bucci" | split: "," %}
 
               {% for title in customOrder %}
-                {% assign matchingPage = nil %}
+              {% assign matchingPage = nil %}
 
-                {% for page in pages %}
-                  {% if page.title contains title %}
-                    {% assign matchingPage = page %}
-                    {% break %}
-                  {% endif %}
-                {% endfor %}
+              {% for page in pages %}
+              {% if page.title contains title %}
+              {% assign matchingPage = page %}
+              {% break %}
+              {% endif %}
+              {% endfor %}
 
-                {% if matchingPage %}
-                  {% assign pageCustomTitle = matchingPage.title | split: " " %}
-                  {% assign pageCustomTitle = pageCustomTitle | slice: 1, pageCustomTitle.size %}
-                  {% assign pageCustomTitle = pageCustomTitle | join: " " %}
-                  {% assign canteenLocation = matchingPage.metafields.custom.page_canteen_location.value %}
 
+              {% if matchingPage %}
+              {% assign pageCustomTitle = matchingPage.title | split: " " %}
+              {% assign pageCustomTitle = pageCustomTitle | slice: 1, pageCustomTitle.size %}
+              {% assign pageCustomTitle = pageCustomTitle | join: " " %}
+              {% assign canteenLocation = matchingPage.metafields.custom.page_canteen_location.value %}
+              {% assign canteenPageLogo = matchingPage.metafields.custom.page_canteen_logo.value %}
+
+              <div class="section w-full h-full flex flex-col items-center justify-center gap-y-5 snap-start relative"
+                data-id="{{ forloop.index }}" data-href="{{ matchingPage.url }}">
+
+                <!--container floating logo-->
+                <div
+                  class="w-full h-full left-0 top-0 right-0 flex flex-row items-start justify-center overflow-hidden absolute z-10">
                   <div
-                    class="section w-full h-full flex flex-col items-center justify-center gap-y-5 snap-start relative"
-                    data-id="{{ forloop.index }}"
-                    data-href="{{ matchingPage.url }}">
-                    <h2 class="font-(family-name:--main-title-mobile-font-family) text-center text-[40px] text-(--green-color) leading-[105%] tracking-[1.02px] w-[334px] lg:text-[96px] lg:tracking-[2.88px] lg:max-w-[900px] lg:text-center">
-                      {{ pageCustomTitle | upcase }}
-                    </h2>
-                    {% if canteenLocation %}
-                      <p class="text-[12px] leading-normal text-(--green-color)">{{ canteenLocation }}</p>
-                    {% endif %}
+                    class="circular-logo-container w-[65px] h-[65px] rounded-full bg-(--orange-color) absolute left-1/2 top-[30%] -translate-x-1/2 -translate-y-1/2 p-1 opacity-0 lg:top-[20%]">
                   </div>
+                  <img
+                    class="circular-logo w-[50px] h-[50px]  absolute left-1/2 top-[30%] -translate-x-1/2 -translate-y-1/2 p-1 z-20 opacity-0 lg:top-[20%]"
+                    src="{{ canteenPageLogo |  img_url: 'master' }}" alt="">
+                </div>
+
+                <h2
+                  class="font-(family-name:--main-title-mobile-font-family) text-center text-[40px] text-(--green-color) leading-[105%] tracking-[1.02px] lg:text-[96px] lg:tracking-[2.88px] lg:max-w-[900px] lg:text-center">
+                  {{ pageCustomTitle | upcase }}
+                </h2>
+                {% if canteenLocation %}
+                <p class="text-[12px] leading-normal text-(--green-color)">{{ canteenLocation }}</p>
                 {% endif %}
+              </div>
+              {% endif %}
               {% endfor %}
 
               <!-- extra section -->
-              <div class="section w-full h-full flex flex-col items-center justify-center gap-y-5 snap-start " data-href="#">
-                <h2 class="font-(family-name:--main-title-mobile-font-family) text-center text-[50px] text-(--green-color) leading-[105%] tracking-[1.02px] lg:text-[96px] lg:tracking-[2.88px] lg:max-w-[900px] lg:text-center">
+              <div class="section w-full h-full flex flex-col items-center justify-center gap-y-5 snap-start "
+                data-href="#">
+                <h2
+                  class="font-(family-name:--main-title-mobile-font-family) text-center text-[50px] text-(--green-color) leading-[105%] tracking-[1.02px] w-[334px] lg:text-[96px] lg:w-[800px] lg:tracking-[2.88px] lg:max-w-[900px] lg:text-center">
                   {{ section.settings.extra_section_title | default: "What's next?" | upcase
                   }}</h2>
               </div>
             </div>
 
             <!-- container cta fix -->
-            <div class="w-auto h-auto absolute bottom-[30px] lg:bottom-[155px] left-1/2 -translate-x-1/2 flex flex-col items-center justify-end z-20">
+            <div
+              class="w-auto h-auto absolute bottom-[30px] lg:bottom-[155px] left-1/2 -translate-x-1/2 flex flex-col items-center justify-end z-30">
               <div class="cta-orange">
                 <a href="#" class="redirect-to-website">
-                  <p class="uppercase text-[12px] leading-[16px] tracking-[-3%] font-(family-name:--submain-title-font-family)">{{ section.settings.cta_text | 
- default: "Vai al sito" }}</p>
+                  <p
+                    class="uppercase text-[12px] leading-[16px] tracking-[-3%] font-(family-name:--submain-title-font-family)">
+                    {{ section.settings.cta_text |
+                    default: "Vai al sito" }}</p>
                 </a>
                 {% render 'arrow-up' %}
               </div>
@@ -150,447 +167,486 @@
 
 
 {% schema %}
-  {
-    "name": "page-loading",
-    "settings": [
-      {
-        "type": "text",
-        "id": "first_step_title",
-        "label": "Main section title"
-      }, {
-        "type": "text",
-        "id": "cta_text",
-        "label": "Main text Cta"
-      }, {
-        "type": "text",
-        "id": "custom_settings_text",
-        "label": "Custom video settings text"
-      }
-    ]
-  }
+{
+"name": "page-loading",
+"settings": [
+{
+"type": "text",
+"id": "first_step_title",
+"label": "Main section title"
+}, {
+"type": "text",
+"id": "cta_text",
+"label": "Main text Cta"
+}, {
+"type": "text",
+"id": "custom_settings_text",
+"label": "Custom video settings text"
+}
+]
+}
 {% endschema %}
 
 
 <script>
-    document.addEventListener('DOMContentLoaded', async () => {
-  
-        const navbar = document.querySelector('.navigation');
-        const loadingWrapper = document.querySelector('.loading-wrapper');
-        const sectionOverlays = document.querySelector('.content-overlay');
-        const overlayTextContainer = document.querySelector('.overlays-container');
-        const overlaySection = document.querySelectorAll('.overlay-section');
-        const video = document.querySelector('.video');
-        const sectionsContainer = document.querySelectorAll('.section-content');
-        const enterButton = document.querySelector('.cta-orange');
-        const audioButton = document.querySelector('.audio-button');
-        //handle video settings by click;
-        const ctaSettings = document.querySelector('.settings-cta');
-        const mainVideo = document.querySelector('.main-video');
-        const mainButtons = [ctaSettings, enterButton];
-  
-        let currentTranslateValue = 0;
-        let isTransitioning = false;
-  
-        const getPercentValueToScroll = async (value) => {
-            const valueToDivide = 100;
-            const percentValue = valueToDivide / value.length;
-            return percentValue;
-        }
-  
-        const percentValue = await getPercentValueToScroll(sectionsContainer);
-        console.log(percentValue);
-  
-  
-        loadingWrapper.classList.add(`h-[${sectionsContainer.length * 100}vh]`);
-        document.body.classList.add('no-scroll');
-  
-  
-        video.addEventListener('ended', () => {
-            if (isTransitioning) return;
-            isTransitioning = true;
-  
-            setTimeout(() => {
-                currentTranslateValue += percentValue;
-  
-                loadingWrapper.style.transform = `translateY(-${currentTranslateValue}%)`;
-                loadingWrapper.addEventListener('transitionend', () => {
-                    document.body.classList.remove('no-scroll');
-                    isTransitioning = false;
-                });
-            }, 500);
+  document.addEventListener('DOMContentLoaded', async () => {
+
+    const navbar = document.querySelector('.navigation');
+    const loadingWrapper = document.querySelector('.loading-wrapper');
+    const sectionOverlays = document.querySelector('.content-overlay');
+    const overlayTextContainer = document.querySelector('.overlays-container');
+    const overlaySection = document.querySelectorAll('.overlay-section');
+    const video = document.querySelector('.video');
+    const sectionsContainer = document.querySelectorAll('.section-content');
+    const enterButton = document.querySelector('.cta-orange');
+    const audioButton = document.querySelector('.audio-button');
+    //handle video settings by click;
+    const ctaSettings = document.querySelector('.settings-cta');
+    const mainVideo = document.querySelector('.main-video');
+    const mainButtons = [ctaSettings, enterButton];
+
+    let currentTranslateValue = 0;
+    let isTransitioning = false;
+
+    const getPercentValueToScroll = async (value) => {
+      const valueToDivide = 100;
+      const percentValue = valueToDivide / value.length;
+      return percentValue;
+    }
+
+    const percentValue = await getPercentValueToScroll(sectionsContainer);
+    console.log(percentValue);
+
+
+    loadingWrapper.classList.add(`h-[${sectionsContainer.length * 100}svh]`);
+    document.body.classList.add('no-scroll');
+
+
+    video.addEventListener('ended', () => {
+      if (isTransitioning) return;
+      isTransitioning = true;
+
+      setTimeout(() => {
+        currentTranslateValue += percentValue;
+
+        loadingWrapper.style.transform = `translateY(-${currentTranslateValue}%)`;
+        loadingWrapper.addEventListener('transitionend', () => {
+          document.body.classList.remove('no-scroll');
+          isTransitioning = false;
         });
-  
-        mainButtons.forEach((button) => {
-            button.addEventListener('click', () => {
-                if (isTransitioning) return;
-                isTransitioning = true;
-  
-                currentTranslateValue += percentValue;
-  
-                loadingWrapper.style.transform = `translateY(-${currentTranslateValue}%)`;
-  
-                loadingWrapper.addEventListener('transitionend', () => {
-                    setTimeout(() => {
-                        gsap.to(".clip-path-container", {
-                            clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-                            duration: 1,
-                            ease: "Power2.easeOut",
-                            onComplete: () => {
-                                document.body.classList.remove('no-scroll');
-                                isTransitioning = false;
-                            }
-                        })
-                    }, 200)
-                })
-  
-                if (!(button.classList.contains('settings-cta'))) {
-                    return;
-                }
-                if (!mainVideo.hasAttribute('muted')) {
-                    mainVideo.setAttribute('muted', true);
-                }
-  
-            })
-        });
-  
-        const mainSection = document.querySelector('.first-section');
-  
-        function handleMainSectionClick() {
-  
-            const windowSize = window.innerWidth;
-  
-            if (windowSize >= 1024) {
-  
-                mainSection.addEventListener('click', () => {
-                    if (isTransitioning) return;
-                    isTransitioning = true;
-  
-                    currentTranslateValue += percentValue;
-  
-                    loadingWrapper.style.transform = `translateY(-${currentTranslateValue}%)`;
-  
-                    loadingWrapper.addEventListener('transitionend', () => {
-                        setTimeout(() => {
-                            gsap.to(".clip-path-container", {
-                                clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-                                duration: 1,
-                                ease: "Power2.easeOut",
-                                onComplete: () => {
-                                    document.body.classList.remove('no-scroll');
-                                    isTransitioning = false;
-                                }
-                            })
-                        }, 200)
-                    })
-                })
-            }
-        }
-  
-        handleMainSectionClick();
-        window.addEventListener('resize', handleMainSectionClick);
-  
-        //handle bg footer color base on path;
-        const footer = document.querySelector('.footer');
-        const pathName = window.location.pathname;
-        const pathSegments = pathName.split("/").filter((segment) => segment !== "");
-  
-        if (pathSegments.length === 0 || pathSegments.length === 1) {
-            footer.classList.add('bg-[#DACABB]');
-        } else {
-            return;
-        }
-  
-        //handle customized mouse cursor
-        const floatingDiv = document.querySelector('.floating-div');
-        const floatingTarget = document.querySelector('.floating-div-target');
-  
-  
-        function floatingDivPosition() {
-            const rect = floatingTarget.getBoundingClientRect();
-            const offeset = 200;
-            const centerXposition = (rect.width / 2) - floatingDiv.offsetWidth / 2;
-            const centerYposition = (rect.height / 2) + offeset - floatingDiv.offsetHeight / 2;
-            floatingDiv.style.transform = `translate(${centerXposition}px, ${centerYposition}px)`;
-        }
-  
-        floatingDivPosition();
-  
-        floatingTarget.addEventListener('mousemove', (e) => {
-            const rect = floatingTarget.getBoundingClientRect();
-            const mouseX = e.pageX;
-            const mouseY = e.pageY;
-  
-            let newX = mouseX - rect.left - floatingDiv.offsetWidth / 2;
-            let newY = mouseY - rect.top - floatingDiv.offsetHeight / 2;
-  
-            const maxX = rect.width - floatingDiv.offsetWidth;
-            const maxY = rect.height - floatingDiv.offsetHeight;
-  
-            newX = Math.max(0, Math.min(newX, maxX));
-            newY = Math.max(0, Math.min(newY, maxY));
-  
-            floatingDiv.style.transform = `translate(${newX}px, ${newY}px)`;
-        });
-  
-        floatingTarget.addEventListener('mouseleave', () => {
-            floatingDivPosition();
-        });
-  
-        const ctaSettingsText = document.querySelector('.settings-cta-text');
-  
-        ctaSettingsText.addEventListener('mouseover', () => {
-            floatingDiv.classList.add('opacity-0');
-        });
-        ctaSettingsText.addEventListener('mouseout', () => {
-            floatingDiv.classList.remove('opacity-0');
-        });
-  
-  
+      }, 500);
     });
+
+    mainButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        if (isTransitioning) return;
+        isTransitioning = true;
+
+        currentTranslateValue += percentValue;
+
+        loadingWrapper.style.transform = `translateY(-${currentTranslateValue}%)`;
+
+        loadingWrapper.addEventListener('transitionend', () => {
+          setTimeout(() => {
+            gsap.to(".clip-path-container", {
+              clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+              duration: 1,
+              ease: "Power2.easeOut",
+              onComplete: () => {
+                document.body.classList.remove('no-scroll');
+                isTransitioning = false;
+              }
+            })
+          }, 200)
+        })
+
+        if (!(button.classList.contains('settings-cta'))) {
+          return;
+        }
+        if (!mainVideo.hasAttribute('muted')) {
+          mainVideo.setAttribute('muted', true);
+        }
+
+      })
+    });
+
+    const mainSection = document.querySelector('.first-section');
+
+    function handleMainSectionClick() {
+
+      const windowSize = window.innerWidth;
+
+      if (windowSize >= 1024) {
+
+        mainSection.addEventListener('click', () => {
+          if (isTransitioning) return;
+          isTransitioning = true;
+
+          currentTranslateValue += percentValue;
+
+          loadingWrapper.style.transform = `translateY(-${currentTranslateValue}%)`;
+
+          loadingWrapper.addEventListener('transitionend', () => {
+            setTimeout(() => {
+              gsap.to(".clip-path-container", {
+                clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+                duration: 1,
+                ease: "Power2.easeOut",
+                onComplete: () => {
+                  document.body.classList.remove('no-scroll');
+                  isTransitioning = false;
+                }
+              })
+            }, 200)
+          })
+        })
+      }
+    }
+
+    handleMainSectionClick();
+    window.addEventListener('resize', handleMainSectionClick);
+
+    //handle bg footer color base on path;
+    const footer = document.querySelector('.footer');
+    const pathName = window.location.pathname;
+    const pathSegments = pathName.split("/").filter((segment) => segment !== "");
+
+    if (pathSegments.length === 0 || pathSegments.length === 1) {
+      footer.classList.add('bg-[#DACABB]');
+    } else {
+      return;
+    }
+
+    //handle customized mouse cursor
+    const floatingDiv = document.querySelector('.floating-div');
+    const floatingTarget = document.querySelector('.floating-div-target');
+
+
+    function floatingDivPosition() {
+      const rect = floatingTarget.getBoundingClientRect();
+      const offeset = 200;
+      const centerXposition = (rect.width / 2) - floatingDiv.offsetWidth / 2;
+      const centerYposition = (rect.height / 2) + offeset - floatingDiv.offsetHeight / 2;
+      floatingDiv.style.transform = `translate(${centerXposition}px, ${centerYposition}px)`;
+    }
+
+    floatingDivPosition();
+
+    floatingTarget.addEventListener('mousemove', (e) => {
+      const rect = floatingTarget.getBoundingClientRect();
+      const mouseX = e.pageX;
+      const mouseY = e.pageY;
+
+      let newX = mouseX - rect.left - floatingDiv.offsetWidth / 2;
+      let newY = mouseY - rect.top - floatingDiv.offsetHeight / 2;
+
+      const maxX = rect.width - floatingDiv.offsetWidth;
+      const maxY = rect.height - floatingDiv.offsetHeight;
+
+      newX = Math.max(0, Math.min(newX, maxX));
+      newY = Math.max(0, Math.min(newY, maxY));
+
+      floatingDiv.style.transform = `translate(${newX}px, ${newY}px)`;
+    });
+
+    floatingTarget.addEventListener('mouseleave', () => {
+      floatingDivPosition();
+    });
+
+    const ctaSettingsText = document.querySelector('.settings-cta-text');
+
+    ctaSettingsText.addEventListener('mouseover', () => {
+      floatingDiv.classList.add('opacity-0');
+    });
+    ctaSettingsText.addEventListener('mouseout', () => {
+      floatingDiv.classList.remove('opacity-0');
+    });
+
+
+  });
 </script>
 
 <script>
-    const ctaRedirect = document.querySelector('.redirect-to-website');
-    const sections = document.querySelectorAll('.section');
-    const containerSections = document.querySelector('.container-sections');
-    const originalCtaText = ctaRedirect.firstElementChild.innerHTML;
-  
-    function updateCta() {
-        let currentSection = null;
-  
-        sections.forEach((section, index) => {
-            const rect = section.getBoundingClientRect();
-  
-            if (rect.top < window.innerHeight && rect.bottom > 0) {
-                currentSection = {section, index};
-            }
-        });
-  
-        if (currentSection && currentSection.index === sections.length - 1) {
-  
-            ctaRedirect.setAttribute('href', 'progetto');
-            const ctaText = ctaRedirect.firstElementChild;
-            ctaText.innerHTML = "PROGETTO".toUpperCase()
-  
-        } else {
-            const newHref = currentSection.section.getAttribute('data-href');
-            ctaRedirect.setAttribute('href', newHref);
-            const ctaText = ctaRedirect.firstElementChild;
-            ctaText.innerHTML = originalCtaText;
-        }
+  const ctaRedirect = document.querySelector('.redirect-to-website');
+  const sections = document.querySelectorAll('.section');
+  const containerSections = document.querySelector('.container-sections');
+  const originalCtaText = ctaRedirect.firstElementChild.innerHTML;
+
+  function updateCta() {
+    let currentSection = null;
+
+    sections.forEach((section, index) => {
+      const rect = section.getBoundingClientRect();
+
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
+        currentSection = {section, index};
+      }
+    });
+
+    if (currentSection && currentSection.index === sections.length - 1) {
+
+      ctaRedirect.setAttribute('href', 'progetto');
+      const ctaText = ctaRedirect.firstElementChild;
+      ctaText.innerHTML = "PROGETTO".toUpperCase()
+
+    } else {
+      const newHref = currentSection.section.getAttribute('data-href');
+      ctaRedirect.setAttribute('href', newHref);
+      const ctaText = ctaRedirect.firstElementChild;
+      ctaText.innerHTML = originalCtaText;
     }
-  
-    containerSections.addEventListener('scroll', updateCta);
-  
-    updateCta();
+  }
+
+  containerSections.addEventListener('scroll', updateCta);
+
+  updateCta();
 </script>
 
 
 <script type="module">
-    import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.173.0/build/three.module.js';
-    import {SVGLoader} from 'https://cdn.skypack.dev/three@0.130.0/examples/jsm/loaders/SVGLoader.js';
-  
-  
-  
-    document.addEventListener('DOMContentLoaded', async () => {
-  
-        const canvas = document.getElementById('canvas');
-        if (!canvas) {
-            console.error("Canvas element not found!");
-            return;
-        }
-  
-        const scene = new THREE.Scene();
-        scene.background = new THREE.Color(0xDACABB);
-  
-        const canvasSizes = {width: window.innerWidth, height: window.innerHeight};
-        const aspectRatio = canvasSizes.width / canvasSizes.height;
-        const camera = new THREE.OrthographicCamera(
-            -aspectRatio * 20, aspectRatio * 20, 20, -20, 0.1, 100
-        );
-        camera.position.set(0, 0, 10);
-        camera.lookAt(0, 0, 0);
-  
-        const ambientLight = new THREE.AmbientLight(0x404040);
-        scene.add(ambientLight);
-  
-        const spotLight = new THREE.SpotLight(0xffffff, 0.9, 0, Math.PI / 8, 1);
-        spotLight.position.set(-3, 3, 9);
-        spotLight.target.position.set(0, 0, 0);
-        scene.add(spotLight);
-  
-  
-        const loader = new SVGLoader();
-        let pathMeshes = [];
-        let group;
-  
-        const isMobile = window.innerWidth <= 768;
-        const scaleFactor = isMobile ? 0.025 : 0.045;
-        const initialPosition = isMobile ? new THREE.Vector3(-15, 17, 0) : new THREE.Vector3(-10, 27.5, 0);
-  
-  
-        loader.load(
-            "{{ 'mappa_new.svg' | asset_url }}",
-            function (data) {
-                const paths = data.paths;
-                group = new THREE.Group();
-  
-                paths.forEach((path) => {
-  
-                    const pathId = path.userData.node.id;
-                    const pathCordinates = path.currentPath.currentPoint;
-  
-                    const material = new THREE.MeshBasicMaterial({
-                        color: new THREE.Color("#EAE3DA"),
-                        side: THREE.DoubleSide,
-                        depthWrite: true,
-                    });
-  
-                    const shapes = SVGLoader.createShapes(path);
-  
-                    shapes.forEach(shape => {
-                        const geometry = new THREE.ShapeGeometry(shape);
-                        const mesh = new THREE.Mesh(geometry, material);
-                        group.add(mesh);
-  
-                        if (pathId && pathId.trim() !== "") {
-                            pathMeshes.push({mesh, pathId, pathCordinates});
-                        }
-                    });
-                });
-  
-                scene.add(group);
-                group.scale.set(scaleFactor, scaleFactor, scaleFactor);
-                group.position.set(initialPosition.x, initialPosition.y, initialPosition.z);
-                group.rotation.x = Math.PI;
-  
-                window.group = group;
-                window.pathMeshes = pathMeshes;
-  
-  
-                highlightPath("lazio");
-  
-            },
-            function (xhr) {
-                console.log((xhr.loaded / xhr.total) * 100 + '% loaded');
-            },
-            function (error) {
-                console.error('An error happened:', error);
+  import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.173.0/build/three.module.js';
+  import {SVGLoader} from 'https://cdn.skypack.dev/three@0.130.0/examples/jsm/loaders/SVGLoader.js';
+
+
+
+  document.addEventListener('DOMContentLoaded', async () => {
+
+    const canvas = document.getElementById('canvas');
+    if (!canvas) {
+      console.error("Canvas element not found!");
+      return;
+    }
+
+    const scene = new THREE.Scene();
+    scene.background = new THREE.Color(0xDACABB);
+
+    const canvasSizes = {width: window.innerWidth, height: window.innerHeight};
+    const aspectRatio = canvasSizes.width / canvasSizes.height;
+    const camera = new THREE.OrthographicCamera(
+      -aspectRatio * 20, aspectRatio * 20, 20, -20, 0.1, 100
+    );
+    camera.position.set(0, 0, 10);
+    camera.lookAt(0, 0, 0);
+
+    const ambientLight = new THREE.AmbientLight(0x404040);
+    scene.add(ambientLight);
+
+    const spotLight = new THREE.SpotLight(0xffffff, 0.9, 0, Math.PI / 8, 1);
+    spotLight.position.set(-3, 3, 9);
+    spotLight.target.position.set(0, 0, 0);
+    scene.add(spotLight);
+
+
+    const loader = new SVGLoader();
+    let pathMeshes = [];
+    let group;
+
+    const isMobile = window.innerWidth <= 768;
+    const scaleFactor = isMobile ? 0.025 : 0.045;
+    const initialPosition = isMobile ? new THREE.Vector3(-15, 17, 0) : new THREE.Vector3(-10, 27.5, 0);
+
+
+    loader.load(
+      "{{ 'mappa_new.svg' | asset_url }}",
+      function (data) {
+        const paths = data.paths;
+        group = new THREE.Group();
+
+        paths.forEach((path) => {
+
+          const pathId = path.userData.node.id;
+          const pathCordinates = path.currentPath.currentPoint;
+
+          const material = new THREE.MeshBasicMaterial({
+            color: new THREE.Color("#EAE3DA"),
+            side: THREE.DoubleSide,
+            depthWrite: true,
+          });
+
+          const shapes = SVGLoader.createShapes(path);
+
+          shapes.forEach(shape => {
+            const geometry = new THREE.ShapeGeometry(shape);
+            const mesh = new THREE.Mesh(geometry, material);
+            group.add(mesh);
+
+            if (pathId && pathId.trim() !== "") {
+              pathMeshes.push({mesh, pathId, pathCordinates});
             }
-        );
-  
-        console.log(pathMeshes)
-  
-  
-        const desktopCoordinates = [
-            {coordinates: new THREE.Vector3(-10, 27.5, 0), pathId: "lazio", logo: "lazio"},
-            {coordinates: new THREE.Vector3(-15.5, 45.5, 0), pathId: "sardegna", logo: "sardegna"},
-            {coordinates: new THREE.Vector3(-5, 20, 0), pathId: "veneto", logo: "veneto"},
-            {coordinates: new THREE.Vector3(-20.5, 30.5, 0), pathId: "marche", logo: "marche"},
-            {coordinates: new THREE.Vector3(-20.5, 35.5, 0), pathId: "all"},
-        ];
-  
-        const mobileCoordinates = [
-            {coordinates: new THREE.Vector3(-15, 17, 0), pathId: "lazio", logo: "lazio"},
-            {coordinates: new THREE.Vector3(-7.5, 30, 0), pathId: "sardegna", logo: "sardegna"},
-            {coordinates: new THREE.Vector3(-12, 15, 0), pathId: "veneto", logo: "veneto"},
-            {coordinates: new THREE.Vector3(-17, 20, 0), pathId: "marche", logo: "marche"},
-            {coordinates: new THREE.Vector3(-17, 20, 0), pathId: "all"},
-        ];
-  
-        const coordinatePathMapping = isMobile ? mobileCoordinates : desktopCoordinates;
-  
-        let targetIndex = 3;
-        let targetPosition = coordinatePathMapping[targetIndex].coordinates;
-        let targetPathId = coordinatePathMapping[targetIndex].pathId;
-        let isMoving = false;
-  
-        let targetZoom = camera.zoom;
-        let zoomSpeed = 0.05;
-        let isZooming = false;
-  
-        function highlightPath(targetPathId) {
-  
-            if (window.pathMeshes) {
-                window.pathMeshes.forEach(pathData => {
-                    const {mesh} = pathData;
-                    mesh.material.color.set("#EAE3DA");
-                });
-  
-                const targetPath = window.pathMeshes.find(pathData => pathData.pathId === targetPathId);
-  
-                if (targetPath) {
-                    targetPath.mesh.material.color.set("#A38A70");
-                    const logos = document.querySelectorAll('.canteen-logo');
-                }
-            }
-        }
-  
-  
-        const containerSections = document.querySelector('.container-sections');
-        const sections = document.querySelectorAll('.section');
-        let scrollProgress = 0;
-  
-        containerSections.addEventListener('scroll', () => {
-  
-            const scrollTop = containerSections.scrollTop;
-            const scrollHeight = containerSections.scrollHeight - containerSections.clientHeight;
-  
-            scrollProgress = scrollTop / scrollHeight;
-  
-            const mappedIndex = Math.floor(scrollProgress * coordinatePathMapping.length);
-  
-            targetPosition = coordinatePathMapping[mappedIndex].coordinates;
-            targetPathId = coordinatePathMapping[mappedIndex].pathId;
-            isMoving = true;
-  
-            highlightPath(targetPathId);
-  
-            if (targetPathId === "all" && !isZooming) {
-                isZooming = true;
-                targetZoom = 0.4;
-            } else if (targetPathId !== "all" && isZooming) {
-                isZooming = false;
-                targetZoom = 1;
-            }
+          });
         });
-  
-        function onWindowResize() {
-            canvasSizes.width = window.innerWidth;
-            canvasSizes.height = window.innerHeight;
-            renderer.setSize(canvasSizes.width, canvasSizes.height);
-  
-            camera.left = -canvasSizes.width / canvasSizes.height * 20;
-            camera.right = canvasSizes.width / canvasSizes.height * 20;
-            camera.top = 20;
-            camera.bottom = -20;
-            camera.updateProjectionMatrix();
+
+        scene.add(group);
+        group.scale.set(scaleFactor, scaleFactor, scaleFactor);
+        group.position.set(initialPosition.x, initialPosition.y, initialPosition.z);
+        group.rotation.x = Math.PI;
+
+        window.group = group;
+        window.pathMeshes = pathMeshes;
+
+
+        highlightPath("lazio");
+
+      },
+      function (xhr) {
+        console.log((xhr.loaded / xhr.total) * 100 + '% loaded');
+      },
+      function (error) {
+        console.error('An error happened:', error);
+      }
+    );
+
+    console.log(pathMeshes)
+
+
+    const desktopCoordinates = [
+      {coordinates: new THREE.Vector3(-10, 27.5, 0), pathId: "lazio", logo: "lazio"},
+      {coordinates: new THREE.Vector3(-15.5, 45.5, 0), pathId: "sardegna", logo: "sardegna"},
+      {coordinates: new THREE.Vector3(-5, 20, 0), pathId: "veneto", logo: "veneto"},
+      {coordinates: new THREE.Vector3(-20.5, 30.5, 0), pathId: "marche", logo: "marche"},
+      {coordinates: new THREE.Vector3(-20.5, 35.5, 0), pathId: "all"},
+    ];
+
+    const mobileCoordinates = [
+      {coordinates: new THREE.Vector3(-15, 17, 0), pathId: "lazio", logo: "lazio"},
+      {coordinates: new THREE.Vector3(-7.5, 30, 0), pathId: "sardegna", logo: "sardegna"},
+      {coordinates: new THREE.Vector3(-12, 15, 0), pathId: "veneto", logo: "veneto"},
+      {coordinates: new THREE.Vector3(-17, 20, 0), pathId: "marche", logo: "marche"},
+      {coordinates: new THREE.Vector3(-17, 20, 0), pathId: "all"},
+    ];
+
+    const coordinatePathMapping = isMobile ? mobileCoordinates : desktopCoordinates;
+
+    let targetIndex = 3;
+    let targetPosition = coordinatePathMapping[targetIndex].coordinates;
+    let targetPathId = coordinatePathMapping[targetIndex].pathId;
+    let isMoving = false;
+
+    let targetZoom = camera.zoom;
+    let zoomSpeed = 0.05;
+    let isZooming = false;
+
+    function highlightPath(targetPathId) {
+
+      if (window.pathMeshes) {
+        window.pathMeshes.forEach(pathData => {
+          const {mesh} = pathData;
+          mesh.material.color.set("#EAE3DA");
+        });
+
+        const targetPath = window.pathMeshes.find(pathData => pathData.pathId === targetPathId);
+
+        if (targetPath) {
+          targetPath.mesh.material.color.set("#A38A70");
+          const logos = document.querySelectorAll('.canteen-logo');
         }
-  
-        window.addEventListener('resize', onWindowResize, false);
-  
-        const renderer = new THREE.WebGLRenderer({canvas: canvas, antialias: true});
-        renderer.setSize(canvasSizes.width, canvasSizes.height);
-  
-        function animate() {
-            requestAnimationFrame(animate);
-  
-            if (window.group && isMoving) {
-                window.group.position.lerp(targetPosition, 0.07);
-  
-                if (window.group.position.distanceTo(targetPosition) < 0.1) {
-                    isMoving = false;
-                }
-            }
-  
-            if (Math.abs(camera.zoom - targetZoom) > 0.01) {
-                camera.zoom += (targetZoom - camera.zoom) * zoomSpeed;
-                camera.updateProjectionMatrix();
-            }
-  
-            renderer.render(scene, camera);
+      }
+    }
+
+
+    const containerSections = document.querySelector('.container-sections');
+    const sections = document.querySelectorAll('.section');
+    let scrollProgress = 0;
+
+    let animatedIndices = [];
+    const circularLogoContainer = document.querySelectorAll('.circular-logo-container');
+    const circularLogo = document.querySelectorAll('.circular-logo');
+
+    function animateElement(index) {
+      gsap.fromTo(
+        circularLogoContainer[index],
+        {opacity: 0, y: -1000},
+        {opacity: 1, y: 0, duration: 1}
+      );
+
+      gsap.fromTo(
+        circularLogo[index],
+        {opacity: 0, y: 1000},
+        {opacity: 1, y: 0, duration: 0.8}
+      );
+    };
+
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const index = 0;
+          if (!animatedIndices.includes(index)) {
+            animatedIndices.push(index);
+            animateElement(index);
+          }
         }
-  
-        animate();
+      });
+    }, {threshold: 0.5});
+
+    const sectionToObserve = document.querySelector('[data-id="1"]');
+    sectionObserver.observe(sectionToObserve);
+
+    containerSections.addEventListener('scroll', () => {
+
+      const scrollTop = containerSections.scrollTop;
+      const scrollHeight = containerSections.scrollHeight - containerSections.clientHeight;
+
+      scrollProgress = scrollTop / scrollHeight;
+
+      const mappedIndex = Math.floor(scrollProgress * coordinatePathMapping.length);
+
+      targetPosition = coordinatePathMapping[mappedIndex].coordinates;
+      targetPathId = coordinatePathMapping[mappedIndex].pathId;
+      isMoving = true;
+
+      highlightPath(targetPathId);
+
+
+      if (!animatedIndices.includes(mappedIndex)) {
+        animatedIndices.push(mappedIndex);
+        animateElement(mappedIndex);
+      }
+
+      if (targetPathId === "all" && !isZooming) {
+        isZooming = true;
+        targetZoom = 0.4;
+      } else if (targetPathId !== "all" && isZooming) {
+        isZooming = false;
+        targetZoom = 1;
+      }
     });
+
+    function onWindowResize() {
+      canvasSizes.width = window.innerWidth;
+      canvasSizes.height = window.innerHeight;
+      renderer.setSize(canvasSizes.width, canvasSizes.height);
+
+      camera.left = -canvasSizes.width / canvasSizes.height * 20;
+      camera.right = canvasSizes.width / canvasSizes.height * 20;
+      camera.top = 20;
+      camera.bottom = -20;
+      camera.updateProjectionMatrix();
+    }
+
+    window.addEventListener('resize', onWindowResize, false);
+
+    const renderer = new THREE.WebGLRenderer({canvas: canvas, antialias: true});
+    renderer.setSize(canvasSizes.width, canvasSizes.height);
+
+    function animate() {
+      requestAnimationFrame(animate);
+
+      if (window.group && isMoving) {
+        window.group.position.lerp(targetPosition, 0.07);
+
+        if (window.group.position.distanceTo(targetPosition) < 0.1) {
+          isMoving = false;
+        }
+      }
+
+      if (Math.abs(camera.zoom - targetZoom) > 0.01) {
+        camera.zoom += (targetZoom - camera.zoom) * zoomSpeed;
+        camera.updateProjectionMatrix();
+      }
+
+      renderer.render(scene, camera);
+    }
+
+    animate();
+  });
 </script>
