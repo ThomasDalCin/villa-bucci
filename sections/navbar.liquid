@@ -46,9 +46,14 @@
             </svg>
         </div>
         <!--container menu box -->
-        <div class="menu-box">
-            <div class="line line1"></div>
-            <div class="line line2"></div>
+        <div class="container w-auto h-auto flex flex-row items-center justify-start gap-x-9">
+            <div class="w-auto h-auto show-active-language hidden lg:block">
+                <p class="text-[12px] uppercase font-bold active-language"></p>
+            </div>
+            <div class="menu-box">
+                <div class="line line1"></div>
+                <div class="line line2"></div>
+            </div>
         </div>
     </div>
 </div>
@@ -243,6 +248,7 @@ background-color: black;
         const languageButtons = document.querySelectorAll('.language-button');
         const localizationForm = document.getElementById('localization_form_tag');
         const localeCodeHidden = document.getElementById('localeCode');
+        const activeLanguage = document.querySelector('.active-language');
         let localeCodeActive = null;
 
         function showLocaleActive() {
@@ -250,6 +256,7 @@ background-color: black;
                 if (button.getAttribute('data-locale-code') != localeCodeHidden.value) {
                     button.classList.remove('text-[#E3DBD2]');
                     button.classList.add('text-(--link-disable-color)');
+                    activeLanguage.innerHTML = localeCodeHidden.value
                 }
             })
         }
