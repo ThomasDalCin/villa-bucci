@@ -81,7 +81,7 @@
           <div
             class="w-full h-auto pt-5 flex flex-col items-center justify-center border border-r-0 border-l-0 border-b-0 border-t-(--border-color) lg:absolute lg:border-0 lg:justify-end lg:items-end lg:bottom-0 lg:right-0 lg:pb-5 lg:bottom-5">
             <div
-              class="w-full h-auto flex flex-row-reverse gap-x-2.5 items-center justify-center lg:justify-start lg:pr-5 lg:pb-5">
+              class="back-up w-full h-auto flex flex-row-reverse gap-x-2.5 items-center justify-center lg:justify-start lg:pr-5 lg:pb-5">
               <p class="text-[12px] leading-normal font-(family-name:--submain-mobile-title-font-family)">{{
                 section.settings.back_up_text | default: "torna su" | upcase }}</p>
               {% render 'arrow-footer-up' %}
@@ -136,6 +136,16 @@ color: #E86A58;">{{ section.settings.brand_name }}</span>
 
   </footer>
 </div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const backUpText = document.querySelector('.back-up');
+    backUpText.addEventListener('click', () => {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    })
+  })
+</script>
 
 
 {% schema %}
