@@ -65,12 +65,12 @@
   
       gsap.to(el, {
         x: valueToScroll * direction,
-        ease: "power1.inOut",
+        ease: "power2.inOut",
         scrollTrigger: {
           trigger: el.parentElement,
           start: "top center",
           end: "bottom+=100px center",
-          scrub: 0.2
+          scrub: 1
         }
       });
     });
