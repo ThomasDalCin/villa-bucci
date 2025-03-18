@@ -37,6 +37,7 @@
         {% for page in pages %}
           {% assign pageImage = page.metafields.custom.page_image.value %}
           {% assign pageCanteenLogo = page.metafields.custom.page_canteen_logo.value %}
+          {% assign pageCanteenLogoWhite = page.metafields.custom.page_canteen_logo_white.value %}
 
           {% if page.title contains "Cantina" or page.title contains "Canteen" %}
             {% assign pageTitleCustom = page.title | split: " " %}
@@ -53,12 +54,12 @@
                       src="{{ pageImage | img_url: 'master' }}"
                       alt="">
                     <!-- container canteen logo -->
-                    {% if pageCanteenLogo %}
+                    {% if pageCanteenLogoWhite %}
                       <div class="page-logo w-auto h-auto max-w-[81px] max-h-[69px] absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
                         <img
                           class="w-full h-full object-center object-cover opacity-0 group-hover:opacity-100 transition-all duration-75 ease-linear"
-                          src="{{ pageCanteenLogo | img_url: 'master' }}"
-                          alt="{{ pageCanteenLogo.alt }}">
+                          src="{{ pageCanteenLogoWhite | img_url: 'master' }}"
+                          alt="{{ pageCanteenLogoWhite.alt }}">
                       </div>
                     <!--div like border-->
                     <div class="w-full h-full absolute left-0 top-0 right-0 z-10 rounded-[8px] border-[11px] border-transparent transition-all duration-100 ease-linear group-hover:border-(--beige-light)"></div>
