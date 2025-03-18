@@ -40,7 +40,7 @@
               {% for product in collection.products %}
                 <div class="card-product w-full h-auto flex flex-col items-start justify-center relative rounded-[18px] lg:w-auto group" data-product="{{ product.title | downcase }}">
 
-                  <a href="{{ product.url }}">
+                  <a href="{{ product.url }}" class="w-full h-auto lg:w-auto">
                     <!-- Container Image -->
                     <div class="canteen-item w-full h-auto flex flex-col items-start justify-center gap-y-2.5 cursor-pointer lg:w-auto">
 
