@@ -4,7 +4,8 @@
     <div class="w-full h-auto flex flex-row items-center justify-between">
         <!--container logo-->
         <div class="w-auto h-auto">
-            <svg class="oniwines-logo" xmlns="http://www.w3.org/2000/svg" width="152" height="37" viewBox="0 0 152 37" fill="none">
+            <svg class="oniwines-logo" xmlns="http://www.w3.org/2000/svg" width="152" height="37" viewBox="0 0 152 37"
+                fill="none">
                 <path
                     d="M15.2717 13.2872C14.7053 14.3212 13.9381 15.1358 12.9559 15.7307C11.9736 16.3257 10.8838 16.6231 9.68642 16.6231C8.48906 16.6231 7.42792 16.3257 6.44565 15.7307C5.46339 15.1358 4.69623 14.3212 4.14415 13.2872C3.59207 12.2531 3.31245 11.1057 3.31245 9.84498C3.31245 8.58426 3.59207 7.44393 4.14415 6.43111C4.69623 5.41828 5.46339 4.61085 6.44565 4.0159C7.42792 3.42096 8.51057 3.12348 9.68642 3.12348C10.8623 3.12348 11.9736 3.42096 12.9559 4.0159C13.9381 4.61085 14.7124 5.41828 15.2717 6.43111C15.8309 7.44393 16.1177 8.58426 16.1177 9.84498C16.1177 11.1057 15.8381 12.2531 15.2717 13.2872ZM14.6264 1.28906C13.1423 0.43205 11.4932 0 9.67925 0C7.86528 0 6.24491 0.43205 4.7751 1.28906C3.30529 2.14606 2.13661 3.33595 1.2834 4.84457C0.430195 6.35318 0 8.02471 0 9.85205C0 11.6794 0.430195 13.3792 1.2834 14.8879C2.13661 16.3965 3.29812 17.5864 4.7751 18.4505C6.24491 19.3216 7.87962 19.7537 9.67925 19.7537C11.4789 19.7537 13.1423 19.3216 14.6264 18.4505C16.1106 17.5793 17.2721 16.3965 18.1181 14.8879C18.9641 13.3792 19.3872 11.7006 19.3872 9.85205C19.3872 8.00346 18.9641 6.35318 18.1181 4.84457C17.2721 3.33595 16.1106 2.15315 14.6264 1.28906Z"
                     fill="#262A39" />
@@ -46,7 +47,8 @@
         </div>
         <!--container menu box -->
         <div class="menu-box">
-            {% render 'menu-burger' %}
+            <div class="line line1"></div>
+            <div class="line line2"></div>
         </div>
     </div>
 </div>
@@ -201,7 +203,35 @@
 filter: blur(40px);
 }
 .fill{
-    fill: rgba(227, 219, 210, 1);
+fill: rgba(227, 219, 210, 1);
+}
+
+
+.menu-box .line {
+position: absolute;
+width: 14px;
+height: 1px;
+background-color: white;
+transition: all 0.3s ease-in-out;
+}
+
+.menu-box .line1 {
+transform: translateY(-3px);
+}
+
+.menu-box .line2 {
+transform: translateY(3px);
+}
+
+
+.menu-box.active .line1 {
+transform: rotate(45deg);
+background-color: black;
+}
+
+.menu-box.active .line2 {
+transform: rotate(-45deg);
+background-color: black;
 }
 {% endstyle %}
 
@@ -257,16 +287,17 @@ filter: blur(40px);
         oniwinesLogoPath.forEach((path) => {
             path.classList.add('transition-all', 'duration-200', 'ease-linear');
         })
-    
+
 
         menuButton.addEventListener('click', () => {
             menuButton.classList.toggle('bg-(--beige-menu)');
             navigationContainer.classList.toggle('hidden');
             document.body.classList.toggle('no-scroll');
             mainContent.classList.toggle('main-blur');
+            menuButton.classList.toggle('active')
             oniwinesLogoPath.forEach((path) => {
-            path.classList.toggle('fill');
-        })
+                path.classList.toggle('fill');
+            })
         });
 
 
