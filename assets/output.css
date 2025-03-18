@@ -202,12 +202,6 @@
   .top-1\/2 {
     top: calc(1/2 * 100%);
   }
-  .top-\[10\%\] {
-    top: 10%;
-  }
-  .top-\[20\%\] {
-    top: 20%;
-  }
   .top-\[30\%\] {
     top: 30%;
   }
@@ -340,9 +334,6 @@
   .h-\[56px\] {
     height: 56px;
   }
-  .h-\[60px\] {
-    height: 60px;
-  }
   .h-\[65px\] {
     height: 65px;
   }
@@ -361,9 +352,6 @@
   .h-\[150px\] {
     height: 150px;
   }
-  .h-\[200px\] {
-    height: 200px;
-  }
   .h-\[381px\] {
     height: 381px;
   }
@@ -378,9 +366,6 @@
   }
   .h-auto {
     height: auto;
-  }
-  .h-dvh {
-    height: 100dvh;
   }
   .h-full {
     height: 100%;
@@ -400,23 +385,14 @@
   .max-h-\[170px\] {
     max-height: 170px;
   }
-  .max-h-\[200px\] {
-    max-height: 200px;
-  }
   .min-h-\[500px\] {
     min-height: 500px;
-  }
-  .min-h-dvh {
-    min-height: 100dvh;
   }
   .min-h-lvh {
     min-height: 100lvh;
   }
   .min-h-screen {
     min-height: 100vh;
-  }
-  .min-h-svh {
-    min-height: 100svh;
   }
   .w-1 {
     width: calc(var(--spacing) * 1);
@@ -427,9 +403,6 @@
   .w-\[50px\] {
     width: 50px;
   }
-  .w-\[60px\] {
-    width: 60px;
-  }
   .w-\[65px\] {
     width: 65px;
   }
@@ -439,17 +412,11 @@
   .w-\[80px\] {
     width: 80px;
   }
-  .w-\[100px\] {
-    width: 100px;
-  }
   .w-\[120px\] {
     width: 120px;
   }
   .w-\[130px\] {
     width: 130px;
-  }
-  .w-\[150px\] {
-    width: 150px;
   }
   .w-\[157px\] {
     width: 157px;
@@ -519,18 +486,6 @@
   }
   .-translate-y-1\/2 {
     --tw-translate-y: calc(calc(1/2 * 100%) * -1);
-    translate: var(--tw-translate-x) var(--tw-translate-y);
-  }
-  .-translate-y-\[-1000px\] {
-    --tw-translate-y: calc(-1000px * -1);
-    translate: var(--tw-translate-x) var(--tw-translate-y);
-  }
-  .-translate-y-\[20\%\] {
-    --tw-translate-y: calc(20% * -1);
-    translate: var(--tw-translate-x) var(--tw-translate-y);
-  }
-  .-translate-y-\[1000px\] {
-    --tw-translate-y: calc(1000px * -1);
     translate: var(--tw-translate-x) var(--tw-translate-y);
   }
   .rotate-\[90deg\] {
@@ -833,6 +788,12 @@
   .text-center {
     text-align: center;
   }
+  .indent-5 {
+    text-indent: calc(var(--spacing) * 5);
+  }
+  .indent-10 {
+    text-indent: calc(var(--spacing) * 10);
+  }
   .font-\(family-name\:--main-title-mobile-font-family\) {
     font-family: var(--main-title-mobile-font-family);
   }
@@ -1108,11 +1069,6 @@
   .lg\:top-\[20\%\] {
     @media (width >= 64rem) {
       top: 20%;
-    }
-  }
-  .lg\:top-\[30\%\] {
-    @media (width >= 64rem) {
-      top: 30%;
     }
   }
   .lg\:top-\[772px\] {
