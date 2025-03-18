@@ -1007,6 +1007,13 @@
       }
     }
   }
+  .group-hover\:text-\(--orange-color\) {
+    &:is(:where(.group):hover *) {
+      @media (hover: hover) {
+        color: var(--orange-color);
+      }
+    }
+  }
   .group-hover\:opacity-100 {
     &:is(:where(.group):hover *) {
       @media (hover: hover) {
