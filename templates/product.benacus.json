@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "product-main-title": {
@@ -37,14 +46,18 @@
         "canteen_text_YdejVx"
       ],
       "settings": {
-        "canteen_main_logo": "shopify:\/\/shop_images\/Benacus-logo.12eee59b_1-removebg-preview.png"
+        "canteen_main_logo": "shopify://shop_images/Benacus-LogoBlack.svg",
+        "margin_desktop_section": 60,
+        "margin_mobile_section": 30
       }
     },
     "video-container": {
       "type": "video-container",
       "settings": {
-        "video_source": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/a700a6e9af1e4acd9fbeb045fc59915b.mp4",
-        "banner_image": "shopify:\/\/shop_images\/4613b48dee07f2a9abbbb9436c22409f.png",
+        "video_source": "https://cdn.shopify.com/videos/c/o/v/a700a6e9af1e4acd9fbeb045fc59915b.mp4",
+        "banner_image": "shopify://shop_images/4613b48dee07f2a9abbbb9436c22409f.png",
+        "margin_desktop_section": 60,
+        "margin_mobile_section": 30,
         "show_media_video": "hidden",
         "show_media_image": "block"
       }
@@ -73,7 +86,10 @@
         ".main-title {font-size: 40px !important; white-space: normal; padding-left: 20px; padding-right: 20px;}",
         "@media (min-width: 1024px) {.main-title {font-size: 96px !important; }}"
       ],
-      "settings": {}
+      "settings": {
+        "margin_desktop_section": 60,
+        "margin_mobile_section": 30
+      }
     },
     "canteen_slider_UrzhME": {
       "type": "canteen-slider",
@@ -81,7 +97,7 @@
         "canteen_slider_7RUpTq": {
           "type": "canteen_slider",
           "settings": {
-            "canteen_slider_image": "shopify:\/\/shop_images\/1994a2ae5f6a90854c47603a9e8f941f.jpg",
+            "canteen_slider_image": "shopify://shop_images/1994a2ae5f6a90854c47603a9e8f941f.jpg",
             "is_label": false,
             "label_text": ""
           }
@@ -89,7 +105,7 @@
         "canteen_slider_fpxP4P": {
           "type": "canteen_slider",
           "settings": {
-            "canteen_slider_image": "shopify:\/\/shop_images\/1e854f624b54c50aba4c582a8b9eef82.jpg",
+            "canteen_slider_image": "shopify://shop_images/1e854f624b54c50aba4c582a8b9eef82.jpg",
             "is_label": false,
             "label_text": ""
           }
@@ -99,7 +115,10 @@
         "canteen_slider_7RUpTq",
         "canteen_slider_fpxP4P"
       ],
-      "settings": {}
+      "settings": {
+        "margin_desktop_section": 60,
+        "margin_mobile_section": 30
+      }
     },
     "canteen_information_CX7dQw": {
       "type": "canteen-information",
@@ -121,7 +140,10 @@
       "block_order": [
         "block_text_Qz3D4c"
       ],
-      "settings": {}
+      "settings": {
+        "margin_desktop_section": 60,
+        "margin_mobile_section": 30
+      }
     },
     "product-slider": {
       "type": "product-slider",
@@ -129,7 +151,9 @@
         "main_title_left": "",
         "main_title_right": "",
         "is_stroke_left": false,
-        "is_stroke_right": true
+        "is_stroke_right": true,
+        "margin_desktop_section": 60,
+        "margin_mobile_section": 30
       }
     }
   },
