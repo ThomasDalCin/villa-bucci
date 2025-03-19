@@ -26,12 +26,55 @@
 
 <body>
   {% section 'navbar' %}
-  
+
   <main role="main">
     {{ content_for_layout }}
   </main>
 
   {% section 'footer' %}
+
+
+  <!--gsap script for sections-->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const mainContent = document.querySelector('main');
+      const allSections = mainContent.querySelectorAll('.shopify-section');
+      gsap.registerPlugin(ScrollTrigger);
+
+      allSections.forEach((section, index) => {
+        if (index != 0) {
+          gsap.fromTo(
+            section,
+            {y: 100, opacity: 0.8},
+            {
+              y: 0,
+              duration: 0.5,
+              opacity: 1,
+              ease: "power2.inOut",
+              scrollTrigger: {
+                trigger: section,
+                start: "top-=600 center",
+                end: "top center",
+                scrub: 1,
+              }
+            }
+          );
+        } else {
+          gsap.fromTo(
+            section,
+            {opacity: 0, y: 200},
+            {
+              opacity: 1,
+              duration: 1,
+              y: 0,
+              ease: "power2.inOut",
+            }
+          )
+        }
+      });
+    });
+  </script>
+
 </body>
 
 </html>
