@@ -186,6 +186,15 @@
   
     const scrollableContent = containerCanteenItems.scrollWidth - containerCanteenItems.clientWidth;
     const valueToScroll = containerRect.width;
+    
+
+    function startPosition(){
+      containerCanteenItems.scrollTo({
+        left: 0
+      })
+    }
+
+    startPosition();
   
     let scrollValue = valueToScroll;
   
