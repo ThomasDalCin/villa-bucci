@@ -60,6 +60,7 @@
             }
           );
         } else {
+          const mainLogo = section.querySelector('.main-logo');
           gsap.fromTo(
             section,
             {opacity: 0, y: 100},
@@ -69,6 +70,11 @@
               y: 0,
               ease: "power2.inOut",
             }
+          )
+          gsap.fromTo(
+            mainLogo,
+            {scale: 0.6, opacity: 0},
+            {scale: 1, opacity: 1, duration: 1, ease: "power2.inOut" }
           )
         }
       });

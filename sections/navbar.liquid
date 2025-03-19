@@ -393,5 +393,20 @@ background-color: black;
             });
         });
 
+        //handle navigation during scroll;
+        const navigation = document.querySelector('.navigation');
+        let scrollTimeout;
+
+        window.addEventListener('scroll', () => {
+            navigation.style.top = '-100px';
+
+            clearTimeout(scrollTimeout);
+
+            scrollTimeout = setTimeout(() => {
+                navigation.style.top = '0px';
+            }, 100)
+        })
+
+
     })
 </script>
