@@ -57,19 +57,19 @@
                     {% if pageCanteenLogoWhite %}
                       <div class="page-logo w-auto h-auto max-w-[81px] max-h-[69px] absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
                         <img
-                          class="w-full h-full object-center object-cover opacity-0 group-hover:opacity-100 transition-all duration-75 ease-linear"
+                          class="w-full h-full object-center object-cover opacity-0 group-hover:opacity-100 transition-all duration-200 ease-in"
                           src="{{ pageCanteenLogoWhite | img_url: 'master' }}"
                           alt="{{ pageCanteenLogoWhite.alt }}">
                       </div>
                     <!--div like border-->
-                    <div class="w-full h-full absolute left-0 top-0 right-0 z-10 rounded-[8px] border-[11px] border-transparent transition-all duration-100 ease-linear group-hover:border-(--beige-light)"></div>
+                    <div class="w-full h-full absolute left-0 top-0 right-0 z-10 rounded-[8px] border-[11px] border-transparent transition-all duration-200 ease-in group-hover:border-(--beige-light)"></div>
 
                     {% endif %}
                   </div>
                   <!-- page title -->
                   <div class="w-full h-auto flex flex-row justify-between items-center">
                     <p class="text-(--beige-light)">{{ pageTitleCustom | upcase }}</p>
-                    <div class="arrow-canteen-box w-auto h-auto text-(--beige-light) opacity-0 transition-all duration-200 ease-linear group-hover:opacity-100">
+                    <div class="arrow-canteen-box w-auto h-auto text-(--beige-light) opacity-0 transition-all duration-200 ease-in group-hover:opacity-100">
                       {% render 'arrow-up' %}
                     </div>
                   </div>
