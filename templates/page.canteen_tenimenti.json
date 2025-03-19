@@ -142,8 +142,8 @@
             "is_stroke_text": false,
             "additional_text": "",
             "color_text": "#d39278",
-            "padding_left_text_title": 40,
-            "padding_left_paragraph": 30,
+            "padding_left_text_title": 60,
+            "padding_left_paragraph": 70,
             "is_padding_text": true
           }
         },
