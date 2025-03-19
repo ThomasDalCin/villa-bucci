@@ -57,6 +57,23 @@
         return valueToScroll
       }
     }
+
+    const matchMedia = gsap.matchMedia();
+
+    matchMedia.add("(max-width:767px)"), () => {
+      scrollElements.forEach((el, index) => {
+      gsap.to(el, {
+        x: valueToScroll,
+        ease: "power2.inOut",
+        scrollTrigger: {
+          trigger: el.parentElement,
+          start: "top center",
+          end: "bottom+=100px center",
+          scrub: 1
+        }
+      });
+    });
+    }
   
     scrollElements.forEach((el, index) => {
       const direction = (index % 2 === 0) ? -1 : 1;
@@ -74,6 +91,7 @@
         }
       });
     });
+
   });
 </script>
 
