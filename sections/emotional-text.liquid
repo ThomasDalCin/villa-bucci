@@ -2,7 +2,7 @@
   {% for block in section.blocks %}
   {% assign indexModule = forloop.index | modulo: 2 %}
   {% if block.type == "emotional_text" %}
-  <div class="scroll-trigger w-auto h-auto overflow-x-auto overflow-y-hidden">
+  <div class="scroll-trigger w-auto h-auto overflow-x-auto py-2.5 overflow-y-hidden">
     <h2
       class="scroll-element font-(family-name:--main-title-mobile-font-family) text-[128px] leading-[90%] tracking-[1.02px] lg:text-[256px] lg:leading-[100%] text-nowrap w-auto"
       style="
@@ -56,17 +56,18 @@ margin-bottom: {{ section.settings.margin_mobile_section }}px;
       const scrollWidth = trigger.scrollWidth;
       const valueToScroll = scrollWidth - clientWidthValue;
       if (valueToScroll !== 0) {
-        return valueToScroll;
+        return valueToScroll
       }
     }
 
-    const matchMedia = gsap.matchMedia();
+    scrollElements.forEach((el, index) => {
+      const direction = (index % 2 === 0) ? -1 : 1;
+      const windowSize = window.innerWidth;
+      const valueToScroll = getValueToScroll(index);
 
-    matchMedia.add("(max-width:767px)", () => {
-      scrollElements.forEach((el, index) => {
-        const valueToScroll = getValueToScroll(index);
+      if (windowSize <= 767) {
         gsap.to(el, {
-          x: valueToScroll,
+          x: -valueToScroll,
           ease: "power2.inOut",
           scrollTrigger: {
             trigger: el.parentElement,
@@ -75,27 +76,22 @@ margin-bottom: {{ section.settings.margin_mobile_section }}px;
             scrub: 1
           }
         });
-      });
+      } else {
+        gsap.to(el, {
+          x: valueToScroll * direction,
+          ease: "power2.inOut",
+          scrollTrigger: {
+            trigger: el.parentElement,
+            start: "top center",
+            end: "bottom+=100px center",
+            scrub: 1
+          }
+        });
+      }
     });
 
-    scrollElements.forEach((el, index) => {
-      const direction = (index % 2 === 0) ? -1 : 1;
-      const valueToScroll = getValueToScroll(index);
-
-      gsap.to(el, {
-        x: valueToScroll * direction,
-        ease: "power2.inOut",
-        scrollTrigger: {
-          trigger: el.parentElement,
-          start: "top center",
-          end: "bottom+=100px center",
-          scrub: 1
-        }
-      });
-    });
 
   });
-
 </script>
 
 
