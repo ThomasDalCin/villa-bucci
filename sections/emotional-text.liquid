@@ -1,9 +1,11 @@
 <div class="text-wrapper w-full h-auto overflow-hidden">
   {% for block in section.blocks %}
-    {% assign indexModule = forloop.index | modulo: 2 %}
-    {% if block.type == "emotional_text" %}
-      <div class="scroll-trigger w-auto h-auto overflow-x-auto overflow-y-hidden">
-        <h2 class="scroll-element font-(family-name:--main-title-mobile-font-family) text-[128px] leading-[90%] tracking-[1.02px] lg:text-[256px] lg:leading-[100%] text-nowrap w-auto" style="
+  {% assign indexModule = forloop.index | modulo: 2 %}
+  {% if block.type == "emotional_text" %}
+  <div class="scroll-trigger w-auto h-auto overflow-x-auto overflow-y-hidden">
+    <h2
+      class="scroll-element font-(family-name:--main-title-mobile-font-family) text-[128px] leading-[90%] tracking-[1.02px] lg:text-[256px] lg:leading-[100%] text-nowrap w-auto"
+      style="
             {% if block.settings.is_stroke_text %}
                color: transparent; 
                -webkit-text-stroke-width: 1.5px;
@@ -17,69 +19,69 @@
                text-align: right;
             {% endif %}
          ">
-          {{ block.settings.animation_scrolling_text | upcase }}
-        </h2>
-      </div>
-    {% endif %}
+      {{ block.settings.animation_scrolling_text | upcase }}
+    </h2>
+  </div>
+  {% endif %}
   {% endfor %}
 </div>
 
 
 
 {% style %}
-    .text-wrapper {
-    margin-top: {{ section.settings.margin_desktop_section }}px;
-    margin-bottom: {{ section.settings.margin_desktop_section }}px;
-  }
+.text-wrapper {
+margin-top: {{ section.settings.margin_desktop_section }}px;
+margin-bottom: {{ section.settings.margin_desktop_section }}px;
+}
 
-  @media (max-width: 480px) {
-    .text-wrapper {
-      margin-top: {{ section.settings.margin_mobile_section }}px;
-      margin-bottom: {{ section.settings.margin_mobile_section }}px;
-    }
-  }
+@media (max-width: 480px) {
+.text-wrapper {
+margin-top: {{ section.settings.margin_mobile_section }}px;
+margin-bottom: {{ section.settings.margin_mobile_section }}px;
+}
+}
 {% endstyle %}
 
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-  
+
     gsap.registerPlugin(ScrollTrigger);
     const scrollElements = document.querySelectorAll('.scroll-element');
     const scrollTrigger = document.querySelectorAll('.scroll-trigger');
-  
+
     const getValueToScroll = (index) => {
       const trigger = scrollTrigger[index];
       const clientWidthValue = trigger.clientWidth;
       const scrollWidth = trigger.scrollWidth;
       const valueToScroll = scrollWidth - clientWidthValue;
       if (valueToScroll !== 0) {
-        return valueToScroll
+        return valueToScroll;
       }
     }
 
     const matchMedia = gsap.matchMedia();
 
-    matchMedia.add("(max-width:767px)"), () => {
+    matchMedia.add("(max-width:767px)", () => {
       scrollElements.forEach((el, index) => {
-      gsap.to(el, {
-        x: valueToScroll,
-        ease: "power2.inOut",
-        scrollTrigger: {
-          trigger: el.parentElement,
-          start: "top center",
-          end: "bottom+=100px center",
-          scrub: 1
-        }
+        const valueToScroll = getValueToScroll(index);
+        gsap.to(el, {
+          x: valueToScroll,
+          ease: "power2.inOut",
+          scrollTrigger: {
+            trigger: el.parentElement,
+            start: "top center",
+            end: "bottom+=100px center",
+            scrub: 1
+          }
+        });
       });
     });
-    }
-  
+
     scrollElements.forEach((el, index) => {
       const direction = (index % 2 === 0) ? -1 : 1;
       const valueToScroll = getValueToScroll(index);
-      console.log(valueToScroll);
-  
+
       gsap.to(el, {
         x: valueToScroll * direction,
         ease: "power2.inOut",
@@ -93,49 +95,50 @@
     });
 
   });
+
 </script>
 
 
 {% schema %}
-  {
-    "name": "emotional_text_section",
-    "settings": [
-      {
-        "type": "range",
-        "id": "margin_desktop_section",
-        "unit": "px",
-        "min": 0,
-        "max": 100,
-        "step": 10,
-        "default": 60,
-        "label": "Section distance top & bottom on desktop"
-      }, {
-        "type": "range",
-        "id": "margin_mobile_section",
-        "unit": "px",
-        "min": 0,
-        "max": 100,
-        "step": 10,
-        "default": 30,
-        "label": "Section distance top & bottom on mobile"
-      }
-    ],
-    "blocks": [
-      {
-        "type": "emotional_text",
-        "name": "emotional_text",
-        "settings": [
-          {
-            "type": "text",
-            "id": "animation_scrolling_text",
-            "label": "Scrolling text"
-          }, {
-            "type": "checkbox",
-            "id": "is_stroke_text",
-            "label": "Is scrolling text stroke"
-          }
-        ]
-      }
-    ]
-  }
+{
+"name": "emotional_text_section",
+"settings": [
+{
+"type": "range",
+"id": "margin_desktop_section",
+"unit": "px",
+"min": 0,
+"max": 100,
+"step": 10,
+"default": 60,
+"label": "Section distance top & bottom on desktop"
+}, {
+"type": "range",
+"id": "margin_mobile_section",
+"unit": "px",
+"min": 0,
+"max": 100,
+"step": 10,
+"default": 30,
+"label": "Section distance top & bottom on mobile"
+}
+],
+"blocks": [
+{
+"type": "emotional_text",
+"name": "emotional_text",
+"settings": [
+{
+"type": "text",
+"id": "animation_scrolling_text",
+"label": "Scrolling text"
+}, {
+"type": "checkbox",
+"id": "is_stroke_text",
+"label": "Is scrolling text stroke"
+}
+]
+}
+]
+}
 {% endschema %}
