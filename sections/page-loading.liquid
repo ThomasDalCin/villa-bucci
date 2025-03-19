@@ -1,11 +1,11 @@
 <!-- page loading section with video -->
-<div class="w-full h-lvh relative z-50">
+<div class="w-full h-svh relative z-50">
 
   <!-- wrapper container main elements -->
   <div class="loading-wrapper w-full transform transition-all duration-500 ease-[cubic-bezier(.06,.86,.78,.22)]">
 
     <!-- container video -->
-    <div class="section-content video-container w-full h-lvh flex flex-col items-center justify-center relative">
+    <div class="section-content video-container w-full h-svh flex flex-col items-center justify-center relative">
       {% for index in (1..263) %}
       {% if index < 10 %} <img
         class="frame absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 object-cover w-[500px] h-[400px] lg:object-contain opacity-0 lg:w-auto lg:h-auto"
@@ -22,7 +22,7 @@
     </div>
 
     <!-- home step text layout -->
-    <div class="section-content floating-div-target w-full h-lvh relative first-section">
+    <div class="section-content floating-div-target w-full h-svh relative first-section">
 
       <!-- floating div -->
       <div
@@ -57,11 +57,11 @@
     </div>
 
     <!-- content clip path + three -->
-    <div class="w-full h-lvh releative flex flex-col items-start justify-start overflow-y-scroll snap-y snap-mandatory">
+    <div class="w-full h-svh releative flex flex-col items-start justify-start overflow-y-scroll snap-y snap-mandatory">
 
       <!-- container clip-path -->
       <div
-        class="section-content w-full h-lvh min-h-lvh overflow-hidden relative flex items-center justify-center snap-start">
+        class="section-content w-full h-svh min-h-svh overflow-hidden relative flex items-center justify-center snap-start">
         <!-- clip path content -->
         <div class="clip-path-container w-full h-full overflow-hidde relative rounded-[8px]"
           style="clip-path: polygon(20% 20%, 80% 20%, 80% 80%, 20% 80%);">
@@ -78,7 +78,7 @@
       </div>
 
       <!-- contain three js scene -->
-      <div class="canvas-container w-full h-lvh relative z-5 snap-start">
+      <div class="canvas-container w-full h-svh relative z-5 snap-start">
 
         <canvas id="canvas" class="w-full h-full">
           <!-- Three.js content -->
@@ -93,9 +93,9 @@
         {% endfor %}
         {% assign counter = counter | plus: 1 | times: 100 %}
 
-        <div class="outer-container w-full h-[{{ counter }}lvh] absolute left-0 top-0 right-0">
-          <div class="sticky-container w-full h-lvh overflow-hidden relative">
-            <div class="container-sections w-full h-lvh overflow-y-scroll snap-mandatory snap-y">
+        <div class="outer-container w-full h-[{{ counter }}svh] absolute left-0 top-0 right-0">
+          <div class="sticky-container w-full h-svh overflow-hidden relative">
+            <div class="container-sections w-full h-svh overflow-y-scroll snap-mandatory snap-y">
 
               {% assign customOrder = "Tenimenti Leone,Podere Guardia Grande,La Giuva,Villa Bucci" | split: "," %}
 
@@ -246,7 +246,7 @@
     console.log(percentValue);
 
 
-    loadingWrapper.classList.add(`h-[${sectionsContainer.length * 100}lvh]`);
+    loadingWrapper.classList.add(`h-[${sectionsContainer.length * 100}svh]`);
     document.body.classList.add('no-scroll');
 
 
