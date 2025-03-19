@@ -7,14 +7,231 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
-{
+ {
   "sections": {
-    "custom": {
-      "type": "custom",
-      "settings": {}
+    "canteen-main-text": {
+      "type": "canteen-main-text",
+      "blocks": {
+        "canteen_text_ArXj4W": {
+          "type": "canteen_text",
+          "settings": {
+            "canteen_text": "lazio",
+            "is_stroke": false,
+            "canteen_text_color": "#d39278",
+            "canteen_text_direction": "justify-start"
+          }
+        },
+        "canteen_text_RNKVfd": {
+          "type": "canteen_text",
+          "settings": {
+            "canteen_text": "colli",
+            "is_stroke": true,
+            "canteen_text_color": "#d39278",
+            "canteen_text_direction": "justify-end"
+          }
+        },
+        "canteen_text_BNVVKU": {
+          "type": "canteen_text",
+          "settings": {
+            "canteen_text": "albani",
+            "is_stroke": true,
+            "canteen_text_color": "#d39278",
+            "canteen_text_direction": "justify-center"
+          }
+        }
+      },
+      "block_order": [
+        "canteen_text_ArXj4W",
+        "canteen_text_RNKVfd",
+        "canteen_text_BNVVKU"
+      ],
+      "settings": {
+        "canteen_main_logo": "shopify://shop_images/TenimentiLeone-LogoBlack.svg",
+        "margin_desktop_section": 60,
+        "margin_mobile_section": 30
+      }
+    },
+    "video-content": {
+      "type": "video-container",
+      "settings": {
+        "video_source": "https://cdn.shopify.com/videos/c/o/v/a700a6e9af1e4acd9fbeb045fc59915b.mp4",
+        "banner_image": "shopify://shop_images/35b62d67b4f093fcec39d0ca24c24ebc.jpg",
+        "margin_desktop_section": 60,
+        "margin_mobile_section": 30,
+        "show_media_video": "hidden",
+        "show_media_image": "block"
+      }
+    },
+    "canteen-story-text": {
+      "type": "canteen-story-text",
+      "blocks": {
+        "numbers_story_box_jB7p8C": {
+          "type": "numbers_story_box",
+          "settings": {
+            "number_increment_text": "1700",
+            "story_text": "Dal 1700 Villa Bucci si dedica all’ agricoltura e  alla produzione di vini.",
+            "is_stroke_number": true
+          }
+        },
+        "numbers_story_box_7KVhUV": {
+          "type": "numbers_story_box",
+          "settings": {
+            "number_increment_text": "350",
+            "story_text": "Dal 1700 Villa Bucci si dedica all’ agricoltura e  alla produzione di vini.",
+            "is_stroke_number": true
+          }
+        },
+        "numbers_story_box_jH46kQ": {
+          "type": "numbers_story_box",
+          "settings": {
+            "number_increment_text": "2021",
+            "story_text": "Dal 1700 Villa Bucci si dedica all’ agricoltura e  alla produzione di vini.",
+            "is_stroke_number": true
+          }
+        }
+      },
+      "block_order": [
+        "numbers_story_box_jB7p8C",
+        "numbers_story_box_7KVhUV",
+        "numbers_story_box_jH46kQ"
+      ],
+      "settings": {
+        "main_story_text": "",
+        "main_story_text_color": "#d39278",
+        "margin_desktop_section": 60,
+        "margin_mobile_section": 30
+      }
+    },
+    "canteen_slider": {
+      "type": "canteen-slider",
+      "blocks": {
+        "canteen_slider_EnAEaD": {
+          "type": "canteen_slider",
+          "settings": {
+            "canteen_slider_image": "shopify://shop_images/0f966f3074da6c9e117c9586db7c4043.jpg",
+            "is_label": true,
+            "label_text": ""
+          }
+        },
+        "canteen_slider_GihFHE": {
+          "type": "canteen_slider",
+          "settings": {
+            "canteen_slider_image": "shopify://shop_images/bb7a7584399a9ae805b350ac1e69355b.jpg",
+            "is_label": true,
+            "label_text": ""
+          }
+        }
+      },
+      "block_order": [
+        "canteen_slider_EnAEaD",
+        "canteen_slider_GihFHE"
+      ],
+      "settings": {
+        "margin_desktop_section": 60,
+        "margin_mobile_section": 30
+      }
+    },
+    "canteen-information": {
+      "type": "canteen-information",
+      "blocks": {
+        "block_text_qEn6X8": {
+          "type": "block_text",
+          "settings": {
+            "main_text": "l’azienda",
+            "paragraph_text": "L’azienda agricola Bucci, situata in territorio marchigiano, si dedica all’agricoltura e alla produzione di vini d’alta qualità dal 1700. Con una superficie totale di oltre 350 ettari dediti alla coltivazione, 25 ettari sono ricoperte da vigneti, tra cui uve rosse Montepulciano e Sangiovese.",
+            "is_stroke_text": false,
+            "additional_text": "",
+            "color_text": "#d39278",
+            "padding_left_text_title": 60,
+            "padding_left_paragraph": 70,
+            "is_padding_text": true
+          }
+        },
+        "block_text_cF3Jhw": {
+          "type": "block_text",
+          "settings": {
+            "main_text": "i prodotti",
+            "paragraph_text": "Da oltre 20 anni Villa Bucci si dedica ad una coltura naturale, con grande attenzione alla salvaguardia del territorio circostante sia nella produzione dei loro vini tradizionali, sia nella produzione dei 20/25 quintali di olio d’oliva extravergine prodotti all’anno dagli oliveti di loro proprietà.",
+            "is_stroke_text": true,
+            "additional_text": "",
+            "color_text": "#d39278",
+            "padding_left_text_title": 0,
+            "padding_left_paragraph": 20,
+            "is_padding_text": true
+          }
+        }
+      },
+      "block_order": [
+        "block_text_qEn6X8",
+        "block_text_cF3Jhw"
+      ],
+      "custom_css": [
+        "@media (min-width: 1024px) {.main-title {font-size: 64px; }}"
+      ],
+      "settings": {
+        "margin_desktop_section": 60,
+        "margin_mobile_section": 30
+      }
+    },
+    "canteen_information_qXgxjz": {
+      "type": "canteen-information",
+      "blocks": {
+        "block_text_f8Fb7E": {
+          "type": "block_text",
+          "settings": {
+            "main_text": "cosa rappresenta",
+            "paragraph_text": "Il Verdicchio di Villa Bucci è il capolavoro di Ampelio Bucci, un visionario che, con passione e dedizione, ha elevato questo vino all'eccellenza assoluta. Ogni calice racconta la sua instancabile ricerca della perfezione, incarnando la tradizione e l'anima delle Marche in una forma pura e raffinata. Per noi è un immenso onore poter raccogliere questa preziosa eredità.",
+            "is_stroke_text": false,
+            "additional_text": "per noi",
+            "color_text": "#d39278",
+            "padding_left_text_title": 60,
+            "padding_left_paragraph": 70,
+            "is_padding_text": true
+          }
+        }
+      },
+      "block_order": [
+        "block_text_f8Fb7E"
+      ],
+      "custom_css": [
+        "@media (min-width: 1024px) {.main-title {font-size: 64px; }}"
+      ],
+      "settings": {
+        "margin_desktop_section": 60,
+        "margin_mobile_section": 30
+      }
+    },
+    "canteen_showcase": {
+      "type": "canteen-showcase-slider",
+      "settings": {
+        "main_section_title": "",
+        "main_stroke_section_title": "",
+        "main_title_color": "#d39278",
+        "main_card_bg_color_default": "#d39278",
+        "margin_desktop_section": 60,
+        "margin_mobile_section": 30
+      }
+    },
+    "canteen_slider_id": {
+      "type": "canteen-slideer-ID",
+      "settings": {
+        "main_title_left": "",
+        "main_title_right": "",
+        "is_stroke_left": false,
+        "is_stroke_right": true,
+        "margin_desktop_section": 10,
+        "margin_mobile_section": 10
+      }
     }
   },
   "order": [
-    "custom"
+    "canteen-main-text",
+    "video-content",
+    "canteen-story-text",
+    "canteen_slider",
+    "canteen-information",
+    "canteen_information_qXgxjz",
+    "canteen_showcase",
+    "canteen_slider_id"
   ]
 }
