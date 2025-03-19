@@ -76,7 +76,7 @@
         "numbers_story_box_7KVhUV": {
           "type": "numbers_story_box",
           "settings": {
-            "number_increment_text": "350",
+            "number_increment_text": "4",
             "story_text": "Dal 1700 Villa Bucci si dedica all’ agricoltura e  alla produzione di vini.",
             "is_stroke_number": true
           }
@@ -84,7 +84,7 @@
         "numbers_story_box_jH46kQ": {
           "type": "numbers_story_box",
           "settings": {
-            "number_increment_text": "2021",
+            "number_increment_text": "400",
             "story_text": "Dal 1700 Villa Bucci si dedica all’ agricoltura e  alla produzione di vini.",
             "is_stroke_number": true
           }
