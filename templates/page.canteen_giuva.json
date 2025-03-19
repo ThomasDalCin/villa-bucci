@@ -68,7 +68,7 @@
         "numbers_story_box_jB7p8C": {
           "type": "numbers_story_box",
           "settings": {
-            "number_increment_text": "1700",
+            "number_increment_text": "2023",
             "story_text": "Dal 1700 Villa Bucci si dedica all’ agricoltura e  alla produzione di vini.",
             "is_stroke_number": true
           }
@@ -96,8 +96,8 @@
         "numbers_story_box_jH46kQ"
       ],
       "settings": {
-        "main_story_text": "",
-        "main_story_text_color": "#d39278",
+        "main_story_text": "vini autoctoni che raccontano una storia nuova",
+        "main_story_text_color": "#da261a",
         "margin_desktop_section": 60,
         "margin_mobile_section": 30
       }
