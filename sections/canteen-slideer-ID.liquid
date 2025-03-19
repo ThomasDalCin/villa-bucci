@@ -62,7 +62,7 @@
                           alt="{{ pageCanteenLogoWhite.alt }}">
                       </div>
                     <!--div like border-->
-                    <div class="w-full h-full absolute left-0 top-0 right-0 z-10 rounded-[8px] border-[11px] border-transparent transition-all duration-200 ease-in group-hover:border-(--beige-light)"></div>
+                    <div class="div-border w-full h-full absolute left-0 top-0 right-0 z-10 rounded-[8px] border-[11px] border-transparent transition-all duration-200 ease-in group-hover:border-(--beige-light)"></div>
 
                     {% endif %}
                   </div>
@@ -157,9 +157,17 @@
   
         const classesToAdd = ["border", "border-(--beige-light)", "border-[11px]"];
         const pageImage = item.querySelector('.page-image');
-  
+        const pageLogo = item.querySelector('.page-logo').querySelector('img');
+        const divBorder = item.querySelector('.div-border');
+      
+        pageLogo.classList.add('opacity-100');
         pageImage.style.filter = "brightness(70%)";
+        divBorder.classList.remove('border-transparent');
+        divBorder.classList.add('border-(--beige-light)');
         elementToMove = canteenItemContainer[index];
+        item.addEventListener('click', (e) => {
+          e.preventDefault();
+        });
   
       }
     });
