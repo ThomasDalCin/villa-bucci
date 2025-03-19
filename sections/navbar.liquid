@@ -167,7 +167,7 @@
                 <div
                     class="w-auto h-auto flex flex-row items-center justify-start gap-x-5 lg:absolute lg:top-1/2 lg:left-1/2 lg:-translate-x-1/2 lg:-translate-y-1/2">
                     {% for locale in shop.published_locales %}
-                    <button class="language-button w-auto h-auto text-[#E3DBD2] text-[12px]" type="button" tabindex="0"
+                    <button class="language-button w-auto h-auto text-[#E3DBD2] text-[12px] cursor-pointer" type="button" tabindex="0"
                         data-locale-code="{{ locale.iso_code }}">
                         {% case locale.endonym_name %}
                         {% when "Italiano" %} IT
