@@ -1083,6 +1083,11 @@
       top: 20%;
     }
   }
+  .lg\:top-\[30\%\] {
+    @media (width >= 64rem) {
+      top: 30%;
+    }
+  }
   .lg\:top-\[35\%\] {
     @media (width >= 64rem) {
       top: 35%;
