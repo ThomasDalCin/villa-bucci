@@ -312,16 +312,6 @@ background-color: black;
         const containersLinks = document.querySelectorAll('[data-child-link]');
         let isActive = null;
 
-        function checkWindowSize() {
-            const windowSize = window.innerWidth;
-
-            if (windowSize <= 1024) {
-                handleClickOnLinks()
-            }
-        }
-
-
-        window.addEventListener('resize', checkWindowSize)
 
         const handleClickOnLinks = () => {
             targetLinks.forEach((target, index) => {
@@ -362,7 +352,8 @@ background-color: black;
             });
         }
 
-        checkWindowSize();
+        handleClickOnLinks();
+
 
         // Display menu item active on page load;
         const path = window.location.pathname;
