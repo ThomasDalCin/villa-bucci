@@ -141,7 +141,7 @@
             "paragraph_text": "L’azienda agricola Bucci, situata in territorio marchigiano, si dedica all’agricoltura e alla produzione di vini d’alta qualità dal 1700. Con una superficie totale di oltre 350 ettari dediti alla coltivazione, 25 ettari sono ricoperte da vigneti, tra cui uve rosse Montepulciano e Sangiovese.",
             "is_stroke_text": false,
             "additional_text": "",
-            "color_text": "#d39278",
+            "color_text": "#da261a",
             "padding_left_text_title": 60,
             "padding_left_paragraph": 70,
             "is_padding_text": true
@@ -154,7 +154,7 @@
             "paragraph_text": "Da oltre 20 anni Villa Bucci si dedica ad una coltura naturale, con grande attenzione alla salvaguardia del territorio circostante sia nella produzione dei loro vini tradizionali, sia nella produzione dei 20/25 quintali di olio d’oliva extravergine prodotti all’anno dagli oliveti di loro proprietà.",
             "is_stroke_text": true,
             "additional_text": "",
-            "color_text": "#d39278",
+            "color_text": "#da261a",
             "padding_left_text_title": 0,
             "padding_left_paragraph": 20,
             "is_padding_text": true
@@ -183,7 +183,7 @@
             "paragraph_text": "Il Verdicchio di Villa Bucci è il capolavoro di Ampelio Bucci, un visionario che, con passione e dedizione, ha elevato questo vino all'eccellenza assoluta. Ogni calice racconta la sua instancabile ricerca della perfezione, incarnando la tradizione e l'anima delle Marche in una forma pura e raffinata. Per noi è un immenso onore poter raccogliere questa preziosa eredità.",
             "is_stroke_text": false,
             "additional_text": "per noi",
-            "color_text": "#d39278",
+            "color_text": "#da261a",
             "padding_left_text_title": 60,
             "padding_left_paragraph": 70,
             "is_padding_text": true
@@ -206,7 +206,7 @@
       "settings": {
         "main_section_title": "",
         "main_stroke_section_title": "",
-        "main_title_color": "#d39278",
+        "main_title_color": "#da261a",
         "main_card_bg_color_default": "#d39278",
         "margin_desktop_section": 60,
         "margin_mobile_section": 30
