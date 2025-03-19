@@ -194,8 +194,8 @@
             "is_stroke_text": false,
             "additional_text": "Per noi",
             "color_text": "#c8a758",
-            "padding_left_text_title": 50,
-            "padding_left_paragraph": 60,
+            "padding_left_text_title": 60,
+            "padding_left_paragraph": 70,
             "is_padding_text": true
           }
         }
