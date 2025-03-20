@@ -1,9 +1,10 @@
 <!-- columns layout section -->
 <div class="w-full h-auto lg:pt-[240px]">
   <!-- columns container -->
-  <div class="w-full h-auto flex lg:flex-row lg:items-start lg:justify-between lg:px-[170px] lg:gap-x-[270px]">
+  <div class="w-full h-auto flex lg:{{ section.settings.direction_layout }} lg:items-start lg:justify-between lg:px-[170px] lg:gap-x-[270px]">
+
     <!-- column first -->
-    <div class="w-auto h-auto">
+    <div class="w-auto h-auto flex flex-col items-start justify-start lg:gap-y-[315px]">
       <!-- container block text -->
       <div class="w-auto h-auto flex flex-col items-start justify-center lg:max-w-[600px] lg:gap-y-10">
         <div class="w-auto h-auto flex flex-col items-start justify-center">
@@ -21,12 +22,23 @@
                         e argilloso dona ai vini una struttura complessa e una mineralità unica." }}</p>
         </div>
       </div>
+      <!--container image-->
+      <div class="lg:w-[240px] lg:h-[300px]">
+        <img
+          class="w-full h-full object-cover object-center"
+          src="{{ section.settings.first_column_image |  img_url: 'master' }}"
+          alt="{{ section.settings.first_column_image.alt }}">
+      </div>
     </div>
+
     <!-- second column -->
     <div class="w-full h-auto flex flex-col items-start justify-start lg:gap-y-[199px]">
       <!-- container image -->
       <div class="w-full lg:h-[825px]">
-        <img class="w-full h-full object-cover object-center" src="{{ section.settings.second_column_image |  img_url: 'master' }}" alt="{{ section.settings.second_column_image.alt }}">
+        <img
+          class="w-full h-full object-cover object-center"
+          src="{{ section.settings.second_column_image |  img_url: 'master' }}"
+          alt="{{ section.settings.second_column_image.alt }}">
       </div>
       <!-- container box text -->
       <div class="w-full h-auto flex flex-col items-start justify-start lg:max-w-[439px] gap-y-3">
@@ -51,7 +63,8 @@
         "type": "text",
         "id": "section_main_title",
         "label": "Section main title"
-      }, {
+      },
+      {
         "type": "text",
         "id": "italic_style_text_column_first",
         "label": "Italic First Column Style Text"
@@ -62,11 +75,15 @@
         "label": "Big Image"
       },
       {
+        "type": "image_picker",
+        "id": "first_column_image",
+        "label": "Small Image"
+      },
+      {
         "type": "text",
         "id": "defautl_style_text_column_first",
         "label": "Default First Column Style Text"
-      },
-      {
+      }, {
         "type": "text",
         "id": "italic_style_text_column_second",
         "label": "Italic Second Column Style Text"
@@ -74,6 +91,20 @@
         "type": "text",
         "id": "defautl_style_text_column_second",
         "label": "Default Second Column Style Text"
+      }, {
+        "type": "select",
+        "id": "direction_layout",
+        "label": "Direction columns",
+        "default": "flex-row",
+        "options": [
+          {
+            "value": "flex-row",
+            "label": "row"
+          }, {
+            "value": "flex-row-reverse",
+            "label": "row reverse"
+          }
+        ]
       }
     ]
   }

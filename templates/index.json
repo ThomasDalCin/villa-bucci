@@ -1,12 +1,3 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
     "hero": {
@@ -36,11 +27,7 @@
       "settings": {
         "section_main_title": "",
         "italic_style_text_column_first": "",
-<<<<<<< HEAD
-        "second_column_image": "shopify:\/\/shop_images\/Rectangle_76.jpg",
-=======
         "second_column_image": "shopify://shop_images/Rectangle_76.jpg",
->>>>>>> 8b27b30a1ef4a8f19369a550857a609eecf0af5a
         "defautl_style_text_column_first": "",
         "italic_style_text_column_second": "",
         "defautl_style_text_column_second": ""
