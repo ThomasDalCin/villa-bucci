@@ -24,7 +24,14 @@
     },
     "columns-layout": {
       "type": "columns-layout",
-      "settings": {}
+      "settings": {
+        "section_main_title": "",
+        "italic_style_text_column_first": "",
+        "second_column_image": "shopify:\/\/shop_images\/Rectangle_76.jpg",
+        "defautl_style_text_column_first": "",
+        "italic_style_text_column_second": "",
+        "defautl_style_text_column_second": ""
+      }
     }
   },
   "order": [
