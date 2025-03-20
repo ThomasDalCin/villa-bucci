@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "canteen-main-text": {
@@ -6,38 +15,28 @@
         "canteen_text_ArXj4W": {
           "type": "canteen_text",
           "settings": {
-            "canteen_text": "veneto",
+            "canteen_text": "sardegna",
             "is_stroke": false,
-            "canteen_text_color": "#da261a",
+            "canteen_text_color": "#4461b8",
             "canteen_text_direction": "justify-start"
           }
         },
         "canteen_text_RNKVfd": {
           "type": "canteen_text",
           "settings": {
-            "canteen_text": "valpo",
+            "canteen_text": "alghero",
             "is_stroke": true,
-            "canteen_text_color": "#da261a",
+            "canteen_text_color": "#4461b8",
             "canteen_text_direction": "justify-end"
-          }
-        },
-        "canteen_text_BNVVKU": {
-          "type": "canteen_text",
-          "settings": {
-            "canteen_text": "licella",
-            "is_stroke": true,
-            "canteen_text_color": "#da261a",
-            "canteen_text_direction": "justify-center"
           }
         }
       },
       "block_order": [
         "canteen_text_ArXj4W",
-        "canteen_text_RNKVfd",
-        "canteen_text_BNVVKU"
+        "canteen_text_RNKVfd"
       ],
       "settings": {
-        "canteen_main_logo": "shopify://shop_images/LaGiuva-LogoBlack.svg",
+        "canteen_main_logo": "shopify://shop_images/PodereGuardiaGrande-LogoBlack.svg",
         "margin_desktop_section": 60,
         "margin_mobile_section": 30
       }
@@ -46,7 +45,7 @@
       "type": "video-container",
       "settings": {
         "video_source": "https://cdn.shopify.com/videos/c/o/v/a700a6e9af1e4acd9fbeb045fc59915b.mp4",
-        "banner_image": "shopify://shop_images/1c74786af2f6e4cd3f24a5c7695337c6.png",
+        "banner_image": "shopify://shop_images/d1d923915a6e4010c90b3a0fb9597621.jpg",
         "margin_desktop_section": 60,
         "margin_mobile_section": 30,
         "show_media_video": "hidden",
@@ -59,7 +58,7 @@
         "numbers_story_box_jB7p8C": {
           "type": "numbers_story_box",
           "settings": {
-            "number_increment_text": "2023",
+            "number_increment_text": "25",
             "story_text": "Dal 1700 Villa Bucci si dedica all’ agricoltura e  alla produzione di vini.",
             "is_stroke_number": true
           }
@@ -67,7 +66,7 @@
         "numbers_story_box_7KVhUV": {
           "type": "numbers_story_box",
           "settings": {
-            "number_increment_text": "4",
+            "number_increment_text": "3",
             "story_text": "Dal 1700 Villa Bucci si dedica all’ agricoltura e  alla produzione di vini.",
             "is_stroke_number": true
           }
@@ -75,7 +74,7 @@
         "numbers_story_box_jH46kQ": {
           "type": "numbers_story_box",
           "settings": {
-            "number_increment_text": "400",
+            "number_increment_text": "130",
             "story_text": "Dal 1700 Villa Bucci si dedica all’ agricoltura e  alla produzione di vini.",
             "is_stroke_number": true
           }
@@ -87,8 +86,8 @@
         "numbers_story_box_jH46kQ"
       ],
       "settings": {
-        "main_story_text": "vini autoctoni che raccontano una storia nuova",
-        "main_story_text_color": "#da261a",
+        "main_story_text": "IL LUOGO PERFETTO PER ESPLORARE L’ESSENZADELLA SARDEGNA",
+        "main_story_text_color": "#4461b8",
         "margin_desktop_section": 60,
         "margin_mobile_section": 30
       }
