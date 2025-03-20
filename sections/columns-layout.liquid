@@ -26,7 +26,7 @@
     <div class="w-full h-auto flex flex-col items-start justify-start lg:gap-y-[199px]">
       <!-- container image -->
       <div class="w-full lg:h-[825px]">
-        <img src="{{ section.settings.second_column_image |  img_url: 'master' }}" alt="{{ section.settings.second_column_image.alt }}">
+        <img class="w-full h-full object-cover object-center" src="{{ section.settings.second_column_image |  img_url: 'master' }}" alt="{{ section.settings.second_column_image.alt }}">
       </div>
       <!-- container box text -->
       <div class="w-full h-auto flex flex-col items-start justify-start lg:max-w-[439px] gap-y-3">
