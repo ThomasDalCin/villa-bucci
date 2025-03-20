@@ -196,8 +196,8 @@
       "settings": {
         "main_section_title": "",
         "main_stroke_section_title": "",
-        "main_title_color": "#da261a",
-        "main_card_bg_color_default": "#646464",
+        "main_title_color": "#4461b8",
+        "main_card_bg_color_default": "#4461b8",
         "margin_desktop_section": 60,
         "margin_mobile_section": 30
       }
