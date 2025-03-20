@@ -34,53 +34,6 @@
   {% section 'footer' %}
 
 
-  <!--gsap script for sections-->
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const mainContent = document.querySelector('main');
-      const allSections = mainContent.querySelectorAll('.shopify-section');
-      gsap.registerPlugin(ScrollTrigger);
-
-      allSections.forEach((section, index) => {
-        if (index != 0) {
-          gsap.fromTo(
-            section,
-            {y: 100, opacity: 0.8},
-            {
-              y: 0,
-              duration: 0.5,
-              opacity: 1,
-              ease: "power2.inOut",
-              scrollTrigger: {
-                trigger: section,
-                start: "top-=600 center",
-                end: "top center",
-                scrub: 1,
-              }
-            }
-          );
-        } else {
-          const mainLogo = section.querySelector('.main-logo');
-          gsap.fromTo(
-            section,
-            {opacity: 0, y: 100},
-            {
-              opacity: 1,
-              duration: 1,
-              y: 0,
-              ease: "power2.inOut",
-            }
-          )
-          gsap.fromTo(
-            mainLogo,
-            {scale: 0.6, opacity: 0},
-            {scale: 1, opacity: 1, duration: 1, ease: "power2.inOut" }
-          )
-        }
-      });
-    });
-  </script>
-
 </body>
 
 </html>
