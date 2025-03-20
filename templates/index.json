@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "hero": {
@@ -28,9 +37,11 @@
         "section_main_title": "",
         "italic_style_text_column_first": "",
         "second_column_image": "shopify://shop_images/Rectangle_76.jpg",
+        "first_column_image": "shopify://shop_images/237787ff11d965cce37d3dab4311f343.jpg",
         "defautl_style_text_column_first": "",
         "italic_style_text_column_second": "",
-        "defautl_style_text_column_second": ""
+        "defautl_style_text_column_second": "",
+        "direction_layout": "flex-row"
       }
     }
   },
