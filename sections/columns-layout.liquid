@@ -1,7 +1,7 @@
 <!-- columns layout section -->
 <div class="w-full h-auto lg:pt-[240px]">
   <!-- columns container -->
-  <div class="w-full h-auto flex lg:{{ section.settings.direction_layout }} lg:items-start lg:justify-between lg:px-[170px] lg:gap-x-[270px]">
+  <div class="w-full h-auto flex flex-direction lg:items-start lg:justify-between lg:px-[170px] lg:gap-x-[270px]">
 
     <!-- column first -->
     <div class="w-auto h-auto flex flex-col items-start justify-start lg:gap-y-[315px]">
@@ -22,19 +22,21 @@
                         e argilloso dona ai vini una struttura complessa e una mineralità unica." }}</p>
         </div>
       </div>
-      <!--container image-->
-      <div class="lg:w-[240px] lg:h-[300px]">
-        <img
-          class="w-full h-full object-cover object-center"
-          src="{{ section.settings.first_column_image |  img_url: 'master' }}"
-          alt="{{ section.settings.first_column_image.alt }}">
+      <!-- container image -->
+      <div class="w-full h-auto flex flex-row items-start justify-end">
+        <div class="lg:w-[240px] lg:h-[300px]">
+          <img
+            class="w-full h-full object-cover object-center"
+            src="{{ section.settings.first_column_image |  img_url: 'master' }}"
+            alt="{{ section.settings.first_column_image.alt }}">
+        </div>
       </div>
     </div>
 
     <!-- second column -->
     <div class="w-full h-auto flex flex-col items-start justify-start lg:gap-y-[199px]">
       <!-- container image -->
-      <div class="w-full lg:h-[825px]">
+      <div class="w-[525px] lg:h-[825px]">
         <img
           class="w-full h-full object-cover object-center"
           src="{{ section.settings.second_column_image |  img_url: 'master' }}"
@@ -54,6 +56,15 @@
     </div>
   </div>
 </div>
+
+{% style %}
+    @media screen and (min-width: 1024px) {
+      .flex-direction {
+        flex-direction: {{ section.settings.direction_layout }};
+      }
+    }
+  {% endstyle %}
+
 
 {% schema %}
   {
@@ -78,10 +89,9 @@
         "type": "image_picker",
         "id": "first_column_image",
         "label": "Small Image"
-      },
-      {
+      }, {
         "type": "text",
-        "id": "defautl_style_text_column_first",
+        "id": "default_style_text_column_first",
         "label": "Default First Column Style Text"
       }, {
         "type": "text",
@@ -89,23 +99,39 @@
         "label": "Italic Second Column Style Text"
       }, {
         "type": "text",
-        "id": "defautl_style_text_column_second",
+        "id": "default_style_text_column_second",
         "label": "Default Second Column Style Text"
       }, {
         "type": "select",
         "id": "direction_layout",
-        "label": "Direction columns",
-        "default": "flex-row",
+        "label": "Direzione delle colonne",
         "options": [
           {
-            "value": "flex-row",
-            "label": "row"
+            "value": "row",
+            "label": "Riga"
           }, {
-            "value": "flex-row-reverse",
-            "label": "row reverse"
+            "value": "row-reverse",
+            "label": "Riga inversa"
           }
-        ]
+        ],
+        "default": "row"
       }
-    ]
+    ],
+    "presets": [
+    {
+      "name": "Default Canteen Layout",
+      "category": "Custom",
+      "settings": {
+        "section_main_title": "Welcome to Our Canteen",
+        "italic_style_text_column_first": "Enjoy our special menu in an elegant setting.",
+        "second_column_image": "shopify://shop_images/second-column-image.jpg",
+        "first_column_image": "shopify://shop_images/first-column-image.jpg",
+        "default_style_text_column_first": "Here is our featured dish of the day.",
+        "italic_style_text_column_second": "Fresh ingredients from local suppliers.",
+        "default_style_text_column_second": "Healthy, delicious, and affordable meals.",
+        "direction_layout": "row"
+      }
+    }
+  ]
   }
 {% endschema %}
