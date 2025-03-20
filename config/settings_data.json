@@ -1,4 +1,3 @@
-
 {
   "current": {
     "logo_width": 90,
@@ -166,28 +165,6 @@
           "button_label": "#334fb4",
           "secondary_button_label": "#ffffff",
           "shadow": "#121212"
-        }
-      }
-    },
-    "sections": {
-      "navbar": {
-        "type": "navbar",
-        "settings": {}
-      },
-      "footer": {
-        "type": "footer",
-        "settings": {
-          "oniverse_main_logo": "shopify://shop_images/Oniwines_61cb6c87-e334-41a7-80e1-ba89a06c8403.svg",
-          "footer_bg_color": "#262a39",
-          "cookie_text": "PREFERENZE COOKIE",
-          "cookie_link": "",
-          "privacy_text": "PRIVACY",
-          "privacy_link": "",
-          "credits_text": "CREDITS",
-          "credits_link": "",
-          "company_info": "oniwines | P.IVA 00000000000 | mail@oniwines.it",
-          "brand_name": "ONIVERSE",
-          "brand_link": ""
         }
       }
     },

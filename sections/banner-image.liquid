@@ -1,0 +1,31 @@
+<!-- banner static image -->
+<div class="w-full h-auto">
+  <!-- container static image -->
+  <div class="w-full lg:h-[1080px]">
+    <div class="w-full h-full">
+      <img class="w-full h-full object-cover object-center" src="{{ section.settings.static_image |  img_url: 'master' }}" alt="{{ section.settings.static_image.alt }}">
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "banner_image",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "static_image",
+        "label": "Banner Image"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Default Banner",
+        "category": "Custom",
+        "settings": {
+            "static_image":"shopify:\/\/shop_images\/c3c9046e37bf6285b3ee24ebdb94f06d.jpg"
+        }
+      }
+    ]
+  }
+{% endschema %}

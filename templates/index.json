@@ -1,17 +1,36 @@
-
 {
   "sections": {
-    "page-loading": {
-      "type": "page-loading",
+    "hero": {
+      "type": "hero",
       "settings": {
-        "first_step_title": "",
-        "cta_text": "",
-        "custom_settings_text": "",
-        "active_logo_circle": false
+        "hero_banner_image": "shopify:\/\/shop_images\/f9d3a491f278e3184ee5b3ca78d53848.png",
+        "hero_text": "",
+        "hero_subheading_text": ""
       }
+    },
+    "canteen_info": {
+      "type": "centering-text-info",
+      "settings": {
+        "section_main_title": "",
+        "italic_style_text": "",
+        "default_style_text": ""
+      }
+    },
+    "banner_image": {
+      "type": "banner-image",
+      "settings": {
+        "static_image": "shopify:\/\/shop_images\/c3c9046e37bf6285b3ee24ebdb94f06d.jpg"
+      }
+    },
+    "columns-layout": {
+      "type": "columns-layout",
+      "settings": {}
     }
   },
   "order": [
-    "page-loading"
+    "hero",
+    "canteen_info",
+    "banner_image",
+    "columns-layout"
   ]
 }
