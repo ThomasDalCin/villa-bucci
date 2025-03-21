@@ -2,7 +2,7 @@
 <div class="w-[10vw] h--full fixed left-0 top-0 bottom-0 z-20 bg-white flex flex-col items-center justify-between px-[38px] py-10">
    <!--container logo-->
    <div class="w-full h-auto flex items-center justify-center">
-      <img class="w-full h-full object-center object-cover" src="{{ section.settings.logo_canteen |  img_url: 'master' }}" alt="{{ section.settings.logo_canteen.alt }}">
+      <img class="w-[104px] h-[70px] object-center object-contain" src="{{ section.settings.logo_canteen |  img_url: 'master' }}" alt="{{ section.settings.logo_canteen.alt }}">
    </div>
 
    <!--container menu-->
@@ -13,6 +13,22 @@
     <div class="w-auto h-auto">
         {% render 'circle-menu-red' %}
     </div>
+   </div>
+
+   <!--scroll-down-container-->
+   <div class="w-full h-auto flex items-center justify-center">
+      <div class="w-auto h-auto flex flex-col items-center justify-start gap-y-[62px] relative">
+        <div class="w-auto h-auto mb-10">
+            <p class="text-[12px] tracking-[0.12px] -rotate-90 w-[123px] min-w-[123px]">{{ section.settings.scroll_explore_text |  default: "Scroll to Explore" }}</p>
+        </div>
+        <div class="w-auto h-auto absolute left-1/2 top-1/2 -translate-1/2 -translate-y-1/2">
+            {% render 'scroll-explore' %}
+        </div>
+
+        <div class="w-auto h-auto">
+            {% render 'line-menu' %}
+        </div>
+      </div>
    </div>
 </div>
 
