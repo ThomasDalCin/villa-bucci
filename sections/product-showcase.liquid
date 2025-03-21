@@ -1,0 +1,161 @@
+<!--product-showcase slider-->
+<div class="w-full h-auto flex flex-col items-start justify-center lg:gap-y-[265px]">
+
+    <div class="w-full h-auto flex flex-col items-center justify-center">
+        <h2 class="lg:text-[80px] lg:leading-[100px] lg:tracking-[-1.2px]"> {{ section.settings.section_main_title |
+            default: "I nostri vini" | upcase }}</h2>
+        <p class="text-[16px] leading-[28px] tracking-[0.2px] text-center lg:w-[600px] lg:max-w-[600px]"> {{
+            section.settings.section_heading_text | default: "I
+            vini di Villa Bucci sono il frutto di una sapiente lavorazione artigianale e di un terroir unico.Scopri
+            le nostre etichette:" }}</p>
+    </div>
+
+    <div class="w-full h-auto lg:px-[100px] flex flex-row items-center justify-start relative lg:min-h-[900px] lg:gap-x-[100px]">
+        <!--container product info-->
+
+        <div class="w-full h-full flex flex-1 flex-col items-start justify-center gap-y-16">
+            <div class="w-full h-auto flex flex-col items-start justify-center gap-y-8 relative">
+                {% for product in collections.all.products %}
+                <h2
+                    class="product-title lg:text-[80px] lg:leading-[100px] lg:tracking-[-1.2px] opacity-0 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+                    {{
+                    product.title
+                    | upcase }}</h2>
+                {% endfor %}
+                <p class="produdct-subtitle text-[14px] leading-[28px] tracking-[0.2px] uppercase"></p>
+            </div>
+        </div>
+
+        <!--container svg-->
+        <div class="w-auto h-full flex flex-col items-center justify-end">
+            {% render 'vertical-divider' %}
+        </div>
+
+        <!--container product -->
+        <div class="w-full h-full flex flex-1 flex-col items-center justify-center relative overflow-x-hidden">
+            <div class="bg-rect lg:w-full lg:h-[797px] bg-[#FFF3D8] absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"></div>
+            <div class="slider-products-container w-full h-full overflow-x-auto flex flex-row items-center justify-start relative z-20">
+            {% for product in collections.all.products %}
+            <div class="product w-full min-w-full h-[980px] opacity-0" data-product="{{ forloop.index0 }}">
+                <img class="w-full h-full object-center object-contain"
+                    src="{{ product.featured_image |  img_url: 'master' }}" alt="">
+            </div>
+            {% endfor %}
+        </div>
+
+
+        <!-- arrow-content -->
+        <div class="w-auto h-[40px] absolute bottom-0 left-0 flex flex-row items-start justify-center gap-x-2.5 z-20">
+            <div class="w-auto h-full arrow-left flex items-center justify-center cursor-pointer arrow-product-left">
+                {% render 'arrow-left' %}
+            </div>
+            <div class="w-auto h-full arrow-right flex items-center justify-center cursor-pointer arrow-product-right">
+                {% render 'arrow-right' %}
+            </div>
+        </div>
+
+    </div>
+
+
+</div>
+
+
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const products = document.querySelectorAll('.product');
+        const productTitles = document.querySelectorAll('.product-title');
+        const arrowProductRight = document.querySelector('.arrow-product-right');
+        const arrowProductLeft = document.querySelector('.arrow-product-left');
+        const sliderContainerProduct = document.querySelector('.slider-products-container');
+
+        let currentProduct = 0;
+        const productWidth = products[0].offsetWidth;
+
+        // Funzione per muoversi al prodotto successivo o precedente
+        const moveToNextProduct = (index) => {
+            // Gestisce il loop circolare (avanzamento e ritorno ai limiti)
+            const currentIndex = (index + products.length) % products.length;
+            const targetPosition = productWidth * currentIndex;
+            console.log(targetPosition);
+
+            sliderContainerProduct.scrollTo({
+                left: targetPosition,
+                behavior: 'smooth'
+            });
+
+            // Animazione dei prodotti
+            products.forEach((product, index) => {
+                if (index === currentIndex) {
+                    gsapAddAnim(product);
+                } else {
+                    gsapRemoveAnim(product);
+                }
+            });
+
+            // Animazione dei titoli dei prodotti
+            productTitles.forEach((title, index) => {
+                if (index === currentIndex) {
+                    gsapAddAnim(title);
+                } else {
+                    gsapRemoveAnim(title);
+                }
+            });
+
+            // Aggiornamento dell'indice corrente
+            currentProduct = currentIndex;
+        };
+
+        // Funzione per gestire il ciclo con l'arrow destra
+        arrowProductRight.addEventListener('click', () => {
+            moveToNextProduct(currentProduct + 1); // Vai al prossimo prodotto
+        });
+
+        // Funzione per gestire il ciclo con l'arrow sinistra
+        arrowProductLeft.addEventListener('click', () => {
+            moveToNextProduct(currentProduct - 1); // Vai al prodotto precedente
+        });
+
+        // Inizializzazione al primo prodotto
+        moveToNextProduct(currentProduct);
+
+        function gsapAddAnim(el) {
+            gsap.to(el, {
+                opacity: 1,
+                scale: 1,
+                duration: 0.5,
+                ease: "power2.inOut"
+            });
+        }
+
+        function gsapRemoveAnim(el) {
+            gsap.to(el, {
+                opacity: 0,
+                scale: 0.9,
+                duration: 0.3,
+                ease: "power2.inOut"
+            });
+        }
+    });
+
+</script>
+
+
+{% schema %}
+{
+"name": "product-showcase",
+"settings": [
+{
+"type": "text",
+"id": "section_main_title",
+"label": "Section main title"
+},
+{
+"type": "text",
+"id": "section_heading_text",
+"label": "Section subheading text title"
+}
+]
+}
+{% endschema %}

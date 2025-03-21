@@ -127,6 +127,12 @@
       "settings": {
         "static_image": "shopify://shop_images/c3c9046e37bf6285b3ee24ebdb94f06d.jpg"
       }
+    },
+    "product-showcase": {
+      "type": "product-showcase",
+      "settings": {
+
+      }
     }
   },
   "order": [
@@ -139,6 +145,7 @@
     "slider",
     "box-text",
     "banner_image_mKwLDU",
-    "columns_layout_jJBVKC"
+    "columns_layout_jJBVKC",
+    "product-showcase"
   ]
 }
