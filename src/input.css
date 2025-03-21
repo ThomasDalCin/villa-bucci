@@ -130,11 +130,4 @@
     -webkit-text-stroke-width: 0.6px;
     -webkit-text-stroke-color: #E3DBD2;
   }
-
-  @media (min-width: 1024px) {
-    body{
-      font-size: 20px;
-      line-height: 120%;
-    }
- }
 }

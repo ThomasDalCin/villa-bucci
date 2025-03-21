@@ -113,6 +113,10 @@
         "default_style_text_column_second": "Healthy, delicious, and affordable meals.",
         "direction_layout": "row-reverse"
       }
+    },
+    "box-text": {
+      "type": "box-text",
+      "settings": {}
     }
   },
   "order": [
@@ -123,6 +127,7 @@
     "banner_image_zQzejQ",
     "centering_text_info_CgqG9M",
     "slider",
-    "columns_layout_jJBVKC"
+    "columns_layout_jJBVKC",
+    "box-text"
   ]
 }
