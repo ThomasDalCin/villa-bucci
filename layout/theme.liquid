@@ -24,8 +24,15 @@
 
 </head>
 
-<body>
+{% style %}
+  main{
+    width: 100%;
+    padding-left: 10vw;
+  }
+{% endstyle %}
 
+<body>
+  {% section 'navbar' %}
 
   <main role="main">
     {{ content_for_layout }}

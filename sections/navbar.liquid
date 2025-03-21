@@ -1,0 +1,30 @@
+<!--navbar -->
+<div class="w-[10vw] h--full fixed left-0 top-0 bottom-0 z-20 bg-white flex flex-col items-center justify-between px-[38px] py-10">
+   <!--container logo-->
+   <div class="w-full h-auto flex items-center justify-center">
+      <img class="w-full h-full object-center object-cover" src="{{ section.settings.logo_canteen }}" alt="{{ section.settings.logo_canteen.alt }}">
+   </div>
+
+   <!--container menu-->
+   <div class="w-full h-auto flex items-center justify-center relative">
+    <div class="w-auto h-auto absolute left-1/2 top-1/2 -translate-1/2 -translate-y-1/2 z-0">
+    
+    </div>
+    <div class="w-auto h-auto">
+        {% render 'circle-menu-red' %}
+    </div>
+   </div>
+</div>
+
+{% schema %}
+{
+    "name": "navbar-settings",
+    "settings": [
+        {
+        "type": "image_picker",
+        "id": "logo_canteen",
+        "label": "Logo Canteen"
+      },
+        ]
+}
+{% endschema %}
