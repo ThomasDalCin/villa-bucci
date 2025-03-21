@@ -1,9 +1,18 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "hero": {
       "type": "hero",
       "settings": {
-        "hero_banner_image": "shopify:\/\/shop_images\/f9d3a491f278e3184ee5b3ca78d53848.png",
+        "hero_banner_image": "shopify://shop_images/f9d3a491f278e3184ee5b3ca78d53848.png",
         "hero_text": "",
         "hero_subheading_text": ""
       }
@@ -19,7 +28,7 @@
     "banner_image": {
       "type": "banner-image",
       "settings": {
-        "static_image": "shopify:\/\/shop_images\/c3c9046e37bf6285b3ee24ebdb94f06d.jpg"
+        "static_image": "shopify://shop_images/c3c9046e37bf6285b3ee24ebdb94f06d.jpg"
       }
     },
     "columns-layout": {
@@ -27,8 +36,8 @@
       "settings": {
         "section_main_title": "",
         "italic_style_text_column_first": "",
-        "second_column_image": "shopify:\/\/shop_images\/Rectangle_76.jpg",
-        "first_column_image": "shopify:\/\/shop_images\/237787ff11d965cce37d3dab4311f343.jpg",
+        "second_column_image": "shopify://shop_images/Rectangle_76.jpg",
+        "first_column_image": "shopify://shop_images/237787ff11d965cce37d3dab4311f343.jpg",
         "default_style_text_column_first": "",
         "italic_style_text_column_second": "",
         "default_style_text_column_second": "",
@@ -38,7 +47,7 @@
     "banner_image_zQzejQ": {
       "type": "banner-image",
       "settings": {
-        "static_image": "shopify:\/\/shop_images\/c3c9046e37bf6285b3ee24ebdb94f06d.jpg"
+        "static_image": "shopify://shop_images/c3c9046e37bf6285b3ee24ebdb94f06d.jpg"
       }
     },
     "centering_text_info_CgqG9M": {
@@ -55,31 +64,31 @@
         "slider_item_gbqxVw": {
           "type": "slider-item",
           "settings": {
-            "slider_image": "shopify:\/\/shop_images\/c3c9046e37bf6285b3ee24ebdb94f06d.jpg"
+            "slider_image": "shopify://shop_images/c3c9046e37bf6285b3ee24ebdb94f06d.jpg"
           }
         },
         "slider_item_Ty6iWj": {
           "type": "slider-item",
           "settings": {
-            "slider_image": "shopify:\/\/shop_images\/84376a55513965a9a054e10d1872a22b.jpg"
+            "slider_image": "shopify://shop_images/84376a55513965a9a054e10d1872a22b.jpg"
           }
         },
         "slider_item_MmAcEw": {
           "type": "slider-item",
           "settings": {
-            "slider_image": "shopify:\/\/shop_images\/237787ff11d965cce37d3dab4311f343.jpg"
+            "slider_image": "shopify://shop_images/237787ff11d965cce37d3dab4311f343.jpg"
           }
         },
         "slider_item_ViWCfB": {
           "type": "slider-item",
           "settings": {
-            "slider_image": "shopify:\/\/shop_images\/f9d3a491f278e3184ee5b3ca78d53848.png"
+            "slider_image": "shopify://shop_images/f9d3a491f278e3184ee5b3ca78d53848.png"
           }
         },
         "slider_item_6Ezq4b": {
           "type": "slider-item",
           "settings": {
-            "slider_image": "shopify:\/\/shop_images\/237787ff11d965cce37d3dab4311f343.jpg"
+            "slider_image": "shopify://shop_images/237787ff11d965cce37d3dab4311f343.jpg"
           }
         }
       },
@@ -91,6 +100,19 @@
         "slider_item_6Ezq4b"
       ],
       "settings": {}
+    },
+    "columns_layout_jJBVKC": {
+      "type": "columns-layout",
+      "settings": {
+        "section_main_title": "Welcome to Our Canteen",
+        "italic_style_text_column_first": "Enjoy our special menu in an elegant setting.",
+        "second_column_image": "shopify://shop_images/921c1cda253ca29c3ec9fe981ed1d289.jpg",
+        "first_column_image": "shopify://shop_images/Rectangle_16.jpg",
+        "default_style_text_column_first": "Here is our featured dish of the day.",
+        "italic_style_text_column_second": "Fresh ingredients from local suppliers.",
+        "default_style_text_column_second": "Healthy, delicious, and affordable meals.",
+        "direction_layout": "row-reverse"
+      }
     }
   },
   "order": [
@@ -100,6 +122,7 @@
     "columns-layout",
     "banner_image_zQzejQ",
     "centering_text_info_CgqG9M",
-    "slider"
+    "slider",
+    "columns_layout_jJBVKC"
   ]
 }
