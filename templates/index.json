@@ -1,18 +1,9 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
     "hero": {
       "type": "hero",
       "settings": {
-        "hero_banner_image": "shopify://shop_images/f9d3a491f278e3184ee5b3ca78d53848.png",
+        "hero_banner_image": "shopify:\/\/shop_images\/f9d3a491f278e3184ee5b3ca78d53848.png",
         "hero_text": "",
         "hero_subheading_text": ""
       }
@@ -28,7 +19,7 @@
     "banner_image": {
       "type": "banner-image",
       "settings": {
-        "static_image": "shopify://shop_images/c3c9046e37bf6285b3ee24ebdb94f06d.jpg"
+        "static_image": "shopify:\/\/shop_images\/c3c9046e37bf6285b3ee24ebdb94f06d.jpg"
       }
     },
     "columns-layout": {
@@ -36,12 +27,18 @@
       "settings": {
         "section_main_title": "",
         "italic_style_text_column_first": "",
-        "second_column_image": "shopify://shop_images/Rectangle_76.jpg",
-        "first_column_image": "shopify://shop_images/237787ff11d965cce37d3dab4311f343.jpg",
+        "second_column_image": "shopify:\/\/shop_images\/Rectangle_76.jpg",
+        "first_column_image": "shopify:\/\/shop_images\/237787ff11d965cce37d3dab4311f343.jpg",
         "default_style_text_column_first": "",
         "italic_style_text_column_second": "",
         "default_style_text_column_second": "",
         "direction_layout": "flex-row"
+      }
+    },
+    "banner_image_zQzejQ": {
+      "type": "banner-image",
+      "settings": {
+        "static_image": "shopify:\/\/shop_images\/c3c9046e37bf6285b3ee24ebdb94f06d.jpg"
       }
     },
     "centering_text_info_CgqG9M": {
@@ -52,11 +49,48 @@
         "default_style_text": "Fondata nel 1987, la tenuta si distingue per la produzione di vini d’eccellenza, tra cui il Verdicchio dei Castelli di Jesi e il Rosso Piceno, autentiche espressioni del terroir marchigiano e della qualità dei vini bianchi e rossi di questa regione."
       }
     },
-    "banner_image_zQzejQ": {
-      "type": "banner-image",
-      "settings": {
-        "static_image": "shopify://shop_images/c3c9046e37bf6285b3ee24ebdb94f06d.jpg"
-      }
+    "slider": {
+      "type": "slider",
+      "blocks": {
+        "slider_item_gbqxVw": {
+          "type": "slider-item",
+          "settings": {
+            "slider_image": "shopify:\/\/shop_images\/c3c9046e37bf6285b3ee24ebdb94f06d.jpg"
+          }
+        },
+        "slider_item_Ty6iWj": {
+          "type": "slider-item",
+          "settings": {
+            "slider_image": "shopify:\/\/shop_images\/84376a55513965a9a054e10d1872a22b.jpg"
+          }
+        },
+        "slider_item_MmAcEw": {
+          "type": "slider-item",
+          "settings": {
+            "slider_image": "shopify:\/\/shop_images\/237787ff11d965cce37d3dab4311f343.jpg"
+          }
+        },
+        "slider_item_ViWCfB": {
+          "type": "slider-item",
+          "settings": {
+            "slider_image": "shopify:\/\/shop_images\/f9d3a491f278e3184ee5b3ca78d53848.png"
+          }
+        },
+        "slider_item_6Ezq4b": {
+          "type": "slider-item",
+          "settings": {
+            "slider_image": "shopify:\/\/shop_images\/237787ff11d965cce37d3dab4311f343.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "slider_item_gbqxVw",
+        "slider_item_Ty6iWj",
+        "slider_item_MmAcEw",
+        "slider_item_ViWCfB",
+        "slider_item_6Ezq4b"
+      ],
+      "settings": {}
     }
   },
   "order": [
@@ -65,6 +99,7 @@
     "banner_image",
     "columns-layout",
     "banner_image_zQzejQ",
-    "centering_text_info_CgqG9M"
+    "centering_text_info_CgqG9M",
+    "slider"
   ]
 }
