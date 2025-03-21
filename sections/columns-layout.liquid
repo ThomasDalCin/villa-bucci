@@ -1,21 +1,21 @@
 <!-- columns layout section -->
 <div class="w-full h-auto lg:pt-[240px]">
   <!-- columns container -->
-  <div class="w-full h-auto flex flex-direction lg:items-start lg:justify-between lg:px-[170px] lg:gap-x-[270px]">
+  <div class="w-full h-auto flex flex-direction lg:items-start lg:justify-between lg:p-[100px] lg:gap-x-[100px]">
 
     <!-- column first -->
-    <div class="w-auto h-auto flex flex-col items-start justify-start lg:gap-y-[315px]">
+    <div class="w-auto h-auto flex flex-col items-start justify-start lg:gap-y-[130px]">
       <!-- container block text -->
-      <div class="w-auto h-auto flex flex-col items-start justify-center lg:max-w-[600px] lg:gap-y-10">
+      <div class="w-auto h-auto flex flex-col items-start justify-center lg:gap-y-10">
         <div class="w-auto h-auto flex flex-col items-start justify-center">
-          <h2 class="lg:text-[120px] lg:leading-[100px] lg:tracking-[-1.2px]">
-            {{ section.settings.section_main_title | default: "Nel cuore delle marche" }}
+          <h2 class="lg:text-[80px] lg:leading-[100px] lg:tracking-[-1.2px] lg:w-[600px]">
+            {{ section.settings.section_main_title | default: "Nel cuore delle marche" |  upcase }}
           </h2>
         </div>
         <div class="w-auto h-auto flex flex-col items-start justify-center gap-y-3">
-          <p class="text-[32px] leading-[40px] tracking-[0.32px] italic">{{ section.settings.italic_style_text_column_first | 
- default: "I Castelli di Jesi" }}</p>
-          <p class="text-[20px] leading-[28px] tracking-[0.2px]">{{ section.settings.default_style_text_column_first | default:
+          <h3 class="text-[32px] leading-[40px] tracking-[0.32px] italic">{{ section.settings.italic_style_text_column_first | 
+ default: "I Castelli di Jesi" }}</h3>
+          <p class="text-[20px] leading-[28px] tracking-[0.2px] lg:w-[400px]">{{ section.settings.default_style_text_column_first | default:
  "Da oltre 20 anni Villa Bucci si dedica ad una coltura naturale, con grande attenzione alla
                         salvaguardia del territorio circostante. I nostri vigneti si estendono su dolci colline esposte
                         a un microclima ideale, caratterizzato da giornate soleggiate e notti fresche. Il suolo calcareo
@@ -36,7 +36,7 @@
     <!-- second column -->
     <div class="w-full h-auto flex flex-col items-start justify-start lg:gap-y-[199px]">
       <!-- container image -->
-      <div class="w-[525px] lg:h-[825px]">
+      <div class="lg:w-full lg:h-[625px]">
         <img
           class="w-full h-full object-cover object-center"
           src="{{ section.settings.second_column_image |  img_url: 'master' }}"
@@ -44,8 +44,8 @@
       </div>
       <!-- container box text -->
       <div class="w-full h-auto flex flex-col items-start justify-start lg:max-w-[439px] gap-y-3">
-        <p class="text-[32px] leading-[40px] tracking-[0.32px] italic">{{ section.settings.italic_style_text_column_second | 
- default: "Le nostre uve" }}</p>
+        <h3 class="text-[32px] leading-[40px] tracking-[0.32px] italic">{{ section.settings.italic_style_text_column_second | 
+ default: "Le nostre uve" }}</h3>
         <p class="text-[20px] leading-[28px] tracking-[0.2px]">{{ section.settings.default_style_text_column_second | default:
  "Le nostre uve, molto versatili in vinificazione, rappresentano in modo completo la viticoltura
                     regionale, essendo tipicamente ricche, austere, longeve e per questo con grande potenziale

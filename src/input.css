@@ -2,7 +2,7 @@
 
 :root {
   /* COLORS */
-  --bg-color: #eae3da;
+  --bg-color: #FFFBF2;
   --green-color: #5c634f;
   --green-color-w-opacity: rgba(92, 99, 79, 0.2);
   --orange-color: #e86a58;
@@ -72,14 +72,19 @@
 
 }
 
+@font-face {
+  font-family: 'Romie Trial';
+  src: url('../assets/romie-regular.otf');
+}
+
 /*base settings*/
 @layer base {
   body {
     font-size: 16px;
     line-height: 21.38px;
     font-weight: normal;
-    color: var(--blue-color);
-    font-family: "area-normal", sans-serif;
+    color: black;
+    font-family: "neue-haas-grotesk-text", sans-serif;
     font-weight: 400;
     font-style: normal;
     background-color: var(--bg-color);
@@ -90,7 +95,7 @@
   h3,
   h4,
   a {
-    font-family: "the-seasons", sans-serif;
+    font-family: "Romie Trial", sans-serif;
     font-weight: 400;
     font-style: normal;
   }
@@ -132,19 +137,4 @@
       line-height: 120%;
     }
  }
-}
-
-/* Component */
-@layer components {
-  .cta-orange {
-    @apply w-auto min-w-[191px] h-auto min-h-[48px] border border-transparent rounded-[18px] bg-(--orange-color) shadow-(--main-box-shadow) backdrop-blur-xs flex flex-row items-center justify-between px-6 py-3 cursor-pointer;
-  }
-
-  .product-card-layout {
-    @apply w-[540px] h-[790px] rounded-[14px] outline outline-offset-4 relative bg-(--gold-color-w-opacity);
-  }
-
-  .menu-box {
-    @apply w-[48px] h-[48px] rounded-[18px] border border-transparent shadow-(--main-box-shadow) flex flex-col items-center justify-center bg-(--blue-color-w-opacity) cursor-pointer;
-  }
 }
