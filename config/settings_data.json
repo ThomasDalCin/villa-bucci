@@ -177,6 +177,14 @@
         }
       }
     },
+    "sections": {
+      "navbar": {
+        "type": "navbar",
+        "settings": {
+          "logo_canteen": "shopify://shop_images/villa_bucci_logo_1.svg"
+        }
+      }
+    },
     "content_for_index": []
   },
   "presets": {
