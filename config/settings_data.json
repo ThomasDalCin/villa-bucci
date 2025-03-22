@@ -183,6 +183,49 @@
         "settings": {
           "logo_canteen": "shopify://shop_images/villa_bucci_logo_1.svg"
         }
+      },
+      "footer": {
+        "type": "footer",
+        "blocks": {
+          "block_footer_info_FitidT": {
+            "type": "block_footer_info",
+            "settings": {
+              "box_title": "Contatti",
+              "box_text": "Via Cona, 30-60010  Ostra Vetere (AN)\nbucciwines@villabucci.com"
+            }
+          },
+          "block_footer_info_RNT4dm": {
+            "type": "block_footer_info",
+            "settings": {
+              "box_title": "Dati societari",
+              "box_text": "Azienda Agricola F.lli Bucci P.IVA 00920070422 C.F. 00170290423"
+            }
+          },
+          "block_footer_info_Qxh93J": {
+            "type": "block_footer_info",
+            "settings": {
+              "box_title": "Network",
+              "box_text": "Instagram Facebook\nLinkedin"
+            }
+          },
+          "block_footer_info_dX8AaG": {
+            "type": "block_footer_info",
+            "settings": {
+              "box_title": "Legals",
+              "box_text": "Privacy Policy Cookies Credits"
+            }
+          }
+        },
+        "block_order": [
+          "block_footer_info_FitidT",
+          "block_footer_info_RNT4dm",
+          "block_footer_info_Qxh93J",
+          "block_footer_info_dX8AaG"
+        ],
+        "settings": {
+          "main_title": "",
+          "email_text": ""
+        }
       }
     },
     "content_for_index": []
