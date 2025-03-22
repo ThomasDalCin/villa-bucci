@@ -1,7 +1,7 @@
 <!-- columns layout section -->
 <div class="w-full h-auto lg:pt-[240px]">
   <!-- columns container -->
-  <div class="w-full h-auto flex flex-direction lg:items-start lg:justify-between lg:p-[100px] lg:gap-x-[100px]">
+  <div class="w-full h-auto flex lg:items-start lg:justify-between lg:p-[100px] lg:gap-x-[100px]" style="flex-direction: {{ section.settings.direction_layout }};";>
 
     <!-- column first -->
     <div class="w-auto h-auto flex flex-col items-start justify-start lg:gap-y-[130px]">
@@ -57,13 +57,7 @@
   </div>
 </div>
 
-{% style %}
-    @media screen and (min-width: 1024px) {
-      .flex-direction {
-        flex-direction: {{ section.settings.direction_layout }};
-      }
-    }
-  {% endstyle %}
+
 
 
 {% schema %}
