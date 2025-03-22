@@ -25,57 +25,64 @@
         {% render 'line-right-footer' %}
       </div>
       <div class="w-full lg:h-[380px] lg:max-h-[380px] flex flex-row items-center justify-start relative">
+        <!--container logo-->
+        <div class="w-[91px] h-[60px] absolute left-1/2 translate-x-1/2 top-7">
+          <img class="w-full h-full object-center object-contain" src="{{ section.settings.footer_logo |  img_url: 'master' }}" alt="{{ section.settings.footer_logo.alt }}">
+        </div>
         {% assign block_count = 0 %}
-        
+
         <div class="flex-1 h-full flex-row flex items-center justify-center">
-          <div class="w-auto h-auto flex flex-row items-center justify-center gap-x-10">
+          <div class="w-auto h-auto flex flex-row items-start justify-center lg:gap-x-12 lg:min-h-[200px]">
             {% for block in section.blocks %}
               {% if block.type == 'block_footer_info' %}
                 {% assign block_count = block_count | plus: 1 %}
-                
                 {% if block_count <= 2 %}
-                  <div class="w-auto h-auto flex flex-col items-start justify-center gap-y-4">
-                    <p class="text-[16px] leading-[24px] tracking-[0.12px] text-center" style="color: rgba(0, 0, 0, 0.40);">
+                  <div class="w-auto h-auto flex flex-col items-start justify-start">
+                    <div class="w-auto h-auto flex flex-col items-start justify-center gap-y-4 lg:max-w-[200px]">
+                      <p class="text-[16px] leading-[24px] tracking-[0.12px] text-center" style="color: rgba(0, 0, 0, 0.40);">
                         {{ block.settings.box_title }}
-                    </p>
-                    <p class="text-[16px] leading-[24px] tracking-[0.12px]">
+                      </p>
+                      <p class="text-[16px] leading-[24px] tracking-[0.12px]">
                         {{ block.settings.box_text }}
-                    </p>
+                      </p>
+                    </div>
                   </div>
                 {% endif %}
               {% endif %}
             {% endfor %}
           </div>
         </div>
-      
+
         <div class="flex-1 h-full flex-row flex items-center justify-center">
-          <div class="w-auto h-auto flex flex-row items-center justify-center gap-x-10">
+          <div class="w-auto h-auto flex flex-row items-start justify-center lg:gap-x-12 lg:min-h-[200px]">
             {% assign block_count = 0 %}
             {% for block in section.blocks %}
               {% if block.type == 'block_footer_info' %}
                 {% assign block_count = block_count | plus: 1 %}
-                
+
                 {% if block_count > 2 and block_count <= 4 %}
-                  <div class="w-auto h-auto flex flex-col items-start justify-center gap-y-4">
-                    <p class="text-[16px] leading-[24px] tracking-[0.12px] text-center" style="color: rgba(0, 0, 0, 0.40);">
-                        {{ block.settings.box_title }}
-                    </p>
-                    <p class="text-[16px] leading-[24px] tracking-[0.12px]">
-                        {{ block.settings.box_text }}
-                    </p>
-                  </div>
+                    <div class="w-auto h-auto flex flex-col items-start justify-start">
+                        <div class="w-auto h-auto flex flex-col items-start justify-center gap-y-4 lg:max-w-[200px]">
+                          <p class="text-[16px] leading-[24px] tracking-[0.12px] text-center" style="color: rgba(0, 0, 0, 0.40);">
+                            {{ block.settings.box_title }}
+                          </p>
+                          <p class="text-[16px] leading-[24px] tracking-[0.12px]">
+                            {{ block.settings.box_text }}
+                          </p>
+                        </div>
+                      </div>
                 {% endif %}
               {% endif %}
             {% endfor %}
           </div>
         </div>
-      
+
         <!-- line footer center svg -->
         <div class="w-auto h-auto absolute left-1/2 -translate-x-1/2 bottom-0 rotate-full">
           {% render 'line-center-footer' %}
         </div>
       </div>
-      
+
     </div>
   </div>
 </div>
@@ -102,6 +109,11 @@
         "type": "text",
         "id": "email_text",
         "label": "Email"
+      },
+      {
+        "type": "image_picker",
+        "id": "footer_logo",
+        "label": "Canteen Logo"
       }
     ],
     "blocks": [
