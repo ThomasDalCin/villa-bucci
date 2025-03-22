@@ -224,7 +224,8 @@
         ],
         "settings": {
           "main_title": "",
-          "email_text": ""
+          "email_text": "",
+          "footer_logo": "shopify://shop_images/villa_bucci_logo_1.svg"
         }
       }
     },
