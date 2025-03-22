@@ -3,57 +3,101 @@
   <div class="w-full flex flex-col items-center justify-center lg:h-[816px]">
     <!-- box text content -->
     <div class="w auto h-auto flex flex-col items-center justify-center gap-y-10">
+      {% for block in section.blocks %}
 
-      <div class="w-auto h-auto flex items-center justify-center">
-        <h2 class="lg:text-[120px] lg:leading-[100px] lg:tracking-[-1.2px]">
-          {{ section.settings.section_main_title | default: "Dal 1987" |  upcase }}
-        </h2>
-      </div>
+        {% if block.type == "canteen_info" %}
 
-      <div class="w-auto max-w-[900px] h-auto flex flex-col items-ceter justify-center gap-y-3">
-        <h3 class="text-[32px] leading-[40px] tracking-[0.32px] italic text-center">{{ section.settings.italic_style_text | 
- default: "Villa Bucci è un autentico simbolo nella storia del Verdicchio, un nome che incarna oltre
-                    tre secoli di tradizione vinicola." }}</h3>
-                    <div class="w-full h-auto flex items-center justify-center">
-                      <p class="text-[16px] leading-[28px] tracking-[0.2px] text-center lg:max-w-[698px]">{{ section.settings.default_style_text | default:
-                        "Fondata nel 1987, la tenuta si distingue per la produzione di vini d’eccellenza, tra cui il
-                                           Verdicchio dei Castelli di Jesi e il Rosso Piceno, autentiche espressioni del terroir marchigiano e
-                                           della qualità dei vini bianchi e rossi di questa regione." }}</p>
-                    </div>
-      </div>
+          {% if block.settings.section_main_small_title and block.settings.section_main_small_title_visibility %}
+            <p class="text-[12px] tracking-[0.12px] text-center uppercase">{{ block.settings.section_main_small_title | default: "small title" }}</p>
+          {% endif %}
 
+          <div class="w-auto h-auto flex items-center justify-center">
+            <h2 class="lg:text-[120px] lg:leading-[100px] lg:tracking-[-1.2px]">
+              {{ block.settings.section_main_title | default: "Dal 1987" | upcase }}
+            </h2>
+          </div>
+
+          <div class="w-auto max-w-[900px] h-auto flex flex-col items-ceter justify-center gap-y-3">
+
+            {% if block.settings.show_subheading %}
+              <h3 class="text-[32px] leading-[40px] tracking-[0.32px] italic text-center">{{ block.settings.italic_style_text | default: "Villa Bucci è un autentico simbolo nella storia del Verdicchio, un nome che incarna oltre tre secoli di tradizione vinicola." }}</h3>
+            {% endif %}
+
+            <div class="w-full h-auto flex items-center justify-center">
+              <p class="text-[16px] leading-[28px] tracking-[0.2px] text-center lg:max-w-[698px]">{{ block.settings.default_style_text | default: "Fondata nel 1987, la tenuta si distingue per la produzione di vini d’eccellenza, tra cui il Verdicchio dei Castelli di Jesi e il Rosso Piceno, autentiche espressioni del terroir marchigiano e della qualità dei vini bianchi e rossi di questa regione." }}</p>
+            </div>
+          </div>
+
+        {% endif %}
+
+      {% endfor %}
     </div>
   </div>
 </div>
 
 {% schema %}
-  {
-    "name": "canteen_info",
-    "settings": [
-      {
-        "type": "text",
-        "id": "section_main_title",
-        "label": "Section main title"
-      }, {
-        "type": "text",
-        "id": "italic_style_text",
-        "label": "Italic Style Text"
-      }, {
-        "type": "text",
-        "id": "default_style_text",
-        "label": "Default Style Text"
-      }
-    ],
-    "presets": [
-      {
-        "name": "Canteen Info",
-        "category": "Custom",
-        "settings": {
-          "section_main_title": "Dal 1987",
-          "italic_style_text": "Villa Bucci è un autentico simbolo nella storia del Verdicchio, un nome che incarna oltre tre secoli di tradizione vinicola.",
-          "default_style_text": "Fondata nel 1987, la tenuta si distingue per la produzione di vini d’eccellenza, tra cui il Verdicchio dei Castelli di Jesi e il Rosso Piceno, autentiche espressioni del terroir marchigiano e della qualità dei vini bianchi e rossi di questa regione."
+{
+  "name": "canteen_text_info",
+  "settings": [],
+  "blocks": [
+    {
+      "name": "Canteen Info Block",
+      "type": "canteen_info",
+      "settings": [
+        {
+          "type": "text",
+          "id": "section_main_small_title",
+          "label": "Section small main title"
+        },
+        {
+          "type": "checkbox",
+          "id": "section_main_small_title_visibility",
+          "label": "Visibility small main title",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "section_main_title",
+          "label": "Section main title"
+        },
+        {
+          "type": "text",
+          "id": "italic_style_text",
+          "label": "Italic Style Text"
+        },
+        {
+          "type": "text",
+          "id": "default_style_text",
+          "label": "Default Style Text"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_subheading",
+          "label": "Visibility italic style text",
+          "default": true
         }
-      }
-    ]
-  }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "default canteen text info",
+      "category": "Custom",
+      "blocks": [
+        {  
+          "type": "canteen_info",
+          "settings": {
+            "section_main_small_title": "Small title",
+            "section_main_small_title_visibility": true,
+            "section_main_title": "Dal 1987",
+            "italic_style_text": "Villa Bucci è un autentico simbolo nella storia del Verdicchio, un nome che incarna oltre tre secoli di tradizione vinicola.",
+            "default_style_text": "Fondata nel 1987, la tenuta si distingue per la produzione di vini d’eccellenza, tra cui il Verdicchio dei Castelli di Jesi e il Rosso Piceno, autentiche espressioni del terroir marchigiano e della qualità dei vini bianchi e rossi di questa regione.",
+            "show_subheading": true
+          }
+        }
+      ]
+    }
+  ]
+}
+
 {% endschema %}

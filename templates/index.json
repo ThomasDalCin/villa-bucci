@@ -1,12 +1,3 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
     "hero": {
@@ -48,14 +39,6 @@
       "type": "banner-image",
       "settings": {
         "static_image": "shopify://shop_images/c3c9046e37bf6285b3ee24ebdb94f06d.jpg"
-      }
-    },
-    "centering_text_info_CgqG9M": {
-      "type": "centering-text-info",
-      "settings": {
-        "section_main_title": "Dal 1987",
-        "italic_style_text": "Villa Bucci è un autentico simbolo nella storia del Verdicchio, un nome che incarna oltre tre secoli di tradizione vinicola.",
-        "default_style_text": "Fondata nel 1987, la tenuta si distingue per la produzione di vini d’eccellenza, tra cui il Verdicchio dei Castelli di Jesi e il Rosso Piceno, autentiche espressioni del terroir marchigiano e della qualità dei vini bianchi e rossi di questa regione."
       }
     },
     "slider": {
@@ -141,7 +124,6 @@
     "banner_image",
     "columns-layout",
     "banner_image_zQzejQ",
-    "centering_text_info_CgqG9M",
     "slider",
     "box-text",
     "banner_image_mKwLDU",

@@ -73,9 +73,7 @@
         let currentProduct = 0;
         const productWidth = products[0].offsetWidth;
 
-        // Funzione per muoversi al prodotto successivo o precedente
         const moveToNextProduct = (index) => {
-            // Gestisce il loop circolare (avanzamento e ritorno ai limiti)
             const currentIndex = (index + products.length) % products.length;
             const targetPosition = productWidth * currentIndex;
             console.log(targetPosition);
@@ -85,7 +83,6 @@
                 behavior: 'smooth'
             });
 
-            // Animazione dei prodotti
             products.forEach((product, index) => {
                 if (index === currentIndex) {
                     gsapAddAnim(product);
@@ -94,7 +91,6 @@
                 }
             });
 
-            // Animazione dei titoli dei prodotti
             productTitles.forEach((title, index) => {
                 if (index === currentIndex) {
                     gsapAddAnim(title);
@@ -103,21 +99,17 @@
                 }
             });
 
-            // Aggiornamento dell'indice corrente
             currentProduct = currentIndex;
         };
 
-        // Funzione per gestire il ciclo con l'arrow destra
         arrowProductRight.addEventListener('click', () => {
-            moveToNextProduct(currentProduct + 1); // Vai al prossimo prodotto
+            moveToNextProduct(currentProduct + 1); 
         });
 
-        // Funzione per gestire il ciclo con l'arrow sinistra
         arrowProductLeft.addEventListener('click', () => {
-            moveToNextProduct(currentProduct - 1); // Vai al prodotto precedente
+            moveToNextProduct(currentProduct - 1);
         });
 
-        // Inizializzazione al primo prodotto
         moveToNextProduct(currentProduct);
 
         function gsapAddAnim(el) {
