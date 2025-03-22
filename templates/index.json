@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "hero": {
@@ -10,11 +19,23 @@
     },
     "canteen_info": {
       "type": "centering-text-info",
-      "settings": {
-        "section_main_title": "",
-        "italic_style_text": "",
-        "default_style_text": ""
-      }
+      "blocks": {
+        "canteen_info_B4mRR6": {
+          "type": "canteen_info",
+          "settings": {
+            "section_main_small_title": "",
+            "section_main_small_title_visibility": true,
+            "section_main_title": "",
+            "italic_style_text": "",
+            "default_style_text": "",
+            "show_subheading": true
+          }
+        }
+      },
+      "block_order": [
+        "canteen_info_B4mRR6"
+      ],
+      "settings": {}
     },
     "banner_image": {
       "type": "banner-image",
@@ -33,12 +54,6 @@
         "italic_style_text_column_second": "",
         "default_style_text_column_second": "",
         "direction_layout": "flex-row"
-      }
-    },
-    "banner_image_zQzejQ": {
-      "type": "banner-image",
-      "settings": {
-        "static_image": "shopify://shop_images/c3c9046e37bf6285b3ee24ebdb94f06d.jpg"
       }
     },
     "slider": {
@@ -86,10 +101,12 @@
     },
     "box-text": {
       "type": "box-text",
+      "settings": {}
+    },
+    "banner_image_mKwLDU": {
+      "type": "banner-image",
       "settings": {
-        "section_main_title": "",
-        "italic_style_text": "",
-        "efault_style_text": ""
+        "static_image": "shopify://shop_images/c3c9046e37bf6285b3ee24ebdb94f06d.jpg"
       }
     },
     "columns_layout_jJBVKC": {
@@ -105,17 +122,32 @@
         "direction_layout": "row-reverse"
       }
     },
-    "banner_image_mKwLDU": {
-      "type": "banner-image",
-      "settings": {
-        "static_image": "shopify://shop_images/c3c9046e37bf6285b3ee24ebdb94f06d.jpg"
-      }
-    },
     "product-showcase": {
       "type": "product-showcase",
       "settings": {
-
+        "section_main_title": "",
+        "section_heading_text": ""
       }
+    },
+    "centering_text_info_RwEn9A": {
+      "type": "centering-text-info",
+      "blocks": {
+        "canteen_info_E8HGTE": {
+          "type": "canteen_info",
+          "settings": {
+            "section_main_small_title": "il libro",
+            "section_main_small_title_visibility": true,
+            "section_main_title": "Un’eredità  di famiglia.",
+            "italic_style_text": "",
+            "default_style_text": "color: #000;text-align: center;font-family: \"Neue Haas Grotesk Text Pro\";font-size: 20px;font-style: normal;font-weight: 400;line-height: 30px; /* 150% */letter-spacing: 0.2px;",
+            "show_subheading": false
+          }
+        }
+      },
+      "block_order": [
+        "canteen_info_E8HGTE"
+      ],
+      "settings": {}
     }
   },
   "order": [
@@ -123,11 +155,11 @@
     "canteen_info",
     "banner_image",
     "columns-layout",
-    "banner_image_zQzejQ",
     "slider",
     "box-text",
     "banner_image_mKwLDU",
     "columns_layout_jJBVKC",
-    "product-showcase"
+    "product-showcase",
+    "centering_text_info_RwEn9A"
   ]
 }
