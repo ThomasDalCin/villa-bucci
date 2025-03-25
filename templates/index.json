@@ -115,7 +115,7 @@
       "type": "columns-layout",
       "custom_css": [
         "@media screen and(max-width:767px) {.second-column {flex-direction: column-reverse; }}",
-        "@media screen and(min-width:1024px) {.second-column {flex-direction: row-reverse; }}",
+        "@media screen and (min-width:1024px){.second-column, .first-column{flex-direction: row-reverse }}",
         ".container-small-image {justify-content: flex-end;}"
       ],
       "settings": {
