@@ -1,196 +1,102 @@
-<!-- columns layout section -->
-<div class="columns-container w-full h-auto lg:py-[140px]">
-  <!-- columns container -->
-  <div
-    class="columns-content w-full h-auto flex flex-col gap-y-[50px] lg:gap-y-0 lg:items-start lg:justify-between"
-    style="flex-direction:{{ section.settings.direction_layout }};">
-
-    <!-- column first -->
-    <div class="column-first w-auto h-auto flex flex-col items-start justify-start gap-y-[52px] lg:gap-y-0 lg:flex-1">
-      <!-- container block text -->
-      <div class="w-auto h-auto flex flex-col items-start justify-center p-12 gap-y-5 lg:gap-y-10">
-        <div class="w-auto h-auto flex flex-col items-start justify-center">
-          <h2 class="main-title text-[36px] leading-[40px] tracking-[-0.36px] text-center lg:text-left lg:text-[80px] lg:leading-[100px] lg:tracking-[-1.2px]">
-            {{ section.settings.section_main_title | default: "Nel cuore delle marche" | upcase }}
-          </h2>
+<div class="w-full h-auto px-8 py-[100px]">
+  <div class="w-full h-auto flex flex-col items-start justify-center gap-y-[50px]">
+    <div class="w-full h-auto flex flex-col items-start justify-center gap-y-[100px]">
+      <div class="w-full h-auto flex flex-col items-start justify-center gap-y-5">
+        <div class="w-full h-auto flex items-center justify-center">
+          <h2 class="text-[36px] leading-[40px] tracking-[-0.36px] uppercase lg:text-[80px] lg:leading-[100px] lg:tracking-[-1.2px]">{{ section.settings.main_title |  upcase |  default: "nel cuore delle marche" }}</h2>
         </div>
-        <div class="w-auto h-auto flex flex-col items-center justify-center gap-y-5 lg:items-startgap-y-5 lg:gap-y-3">
-          <h3 class="text-[32px] leading-[40px] tracking-[0.32px] italic">{{ section.settings.italic_style_text_column_first | 
- default: "I Castelli di Jesi" }}</h3>
-          <p class="transform-width-text text-[16px] leading-[28px] tracking-[0.2px]">{{ section.settings.default_style_text_column_first | 
- default:
- "Da oltre 20 anni Villa Bucci si dedica ad una coltura naturale, con grande attenzione alla
-            salvaguardia del territorio circostante. I nostri vigneti si estendono su dolci colline esposte
-            a un microclima ideale, caratterizzato da giornate soleggiate e notti fresche. Il suolo calcareo
-            e argilloso dona ai vini una struttura complessa e una mineralità unica." }}</p>
+        <div class="w-auto h-auto flex flex-col items-start justify-center gap-y-5">
+          <h2 class="text-[24px] leading-[32px] tracking-[-0.24px] italic lg:text-[80px] lg:leading-[100px] lg:tracking-[-1.2px]">{{ section.settings.italic_title |  default: "I Castelli di Jesi" }}</h2>
+          <p class="text-[16px] leading-[28px] tracking-[0.16px] lg:text-[20px]">{{ section.settings.paragraph_text |  default: "La storia di un passaggio di consegne che unisce due famiglie, con la promessa di continuare a far risplendere una delle eccellenze vinicole italiane." }}</p>
         </div>
       </div>
-      <!-- container image -->
-      <div class="w-full h-auto flex flex-col items-center justify-center lg:flex-row lg:items-start lg:justify-end">
-        <div class="container-small-image w-full min-h-[494px] px-8 lg:w-[240px] lg:h-[300px]">
-          <img
-            class="w-full h-full object-cover object-center"
-            src="{{ section.settings.first_column_image |  img_url: 'master' }}"
-            alt="{{ section.settings.first_column_image.alt }}">
+      <!--container image-->
+      <div class="w-full h-auto">
+        <div class="w-full h-[494px]">
+          <img class="w-full h-full object-center object-cover"
+            src="{{ section.settings.big_image | img_url: 'master' }}" alt="{{ section.settings.big_image.alt }}">
         </div>
       </div>
     </div>
 
-    <!-- second column -->
-    <div class="second-column w-full h-auto flex flex-col items-center justify-start lg:items-start gap-y-[100px] lg:flex-1 lg:gap-y-[199px]">
-      <!-- container image -->
-      <div class="container-main-image  flex flex-col items-start justify-center px-14 w-full h-[325px]">
-        <img
-          class="w-full h-full object-cover object-center"
-          src="{{ section.settings.second_column_image |  img_url: 'master' }}"
-          alt="{{ section.settings.second_column_image.alt }}">
+    <div class="w-full h-auto flex flex-col items-start justify-center gap-y-[100px]">
+      <!--container image-->
+      <div class="w-full h-auto flex items-center justify-center">
+        <div class="w-[260px] h-[325px]">
+          <div class="w-full h-full">
+            <img class="w-full h-full object-center object-cover"
+              src="{{ section.settings.small_image | img_url: 'master' }}" alt="{{ section.settings.small_image.alt }}">
+          </div>
+        </div>
       </div>
-      <!-- container box text -->
-      <div class="w-full h-auto flex flex-col items-start justify-start px-8 gap-y-3">
-        <h3 class="text-[32px] leading-[40px] tracking-[0.32px] italic">{{ section.settings.italic_style_text_column_second | 
- default: "Le nostre uve" }}</h3>
-        <p class="text-[16px] leading-[28px] tracking-[0.2px] transform-width-text">{{ section.settings.default_style_text_column_second | 
- default:
- "Le nostre uve, molto versatili in vinificazione, rappresentano in modo completo la viticoltura
-          regionale, essendo tipicamente ricche, austere, longeve e per questo con grande potenziale
-          d’invecchiamento. Ogni vite viene coltivata con cura artigianale, rispettando l’equilibrio naturale
-          dell’ecosistema." }}</p>
+      <div class="w-full h-auto flex flex-col items-start justify-center gap-y-5">
+        <div class="w-full h-auto flex items-center justify-center">
+          <h2 class="text-[24px] leading-[32px] tracking-[-0.24px] italic lg:text-[80px] lg:leading-[100px] lg:tracking-[-1.2px]">{{ section.settings.small_title |  default: "Le nostre uve" }}</h2>
+        </div>
+        <div class="w-auto h-auto flex flex-col items-start justify-center gap-y-5">
+          <p class="text-[16px] leading-[28px] tracking-[0.16px] lg:text-[20px]">{{ section.settings.paragraph_second_text |  default: "Le nostre uve, molto versatili in vinificazione, rappresentano in modo completo la viticoltura regionale, essendo tipicamente ricche, austere, longeve e per questo con grande potenziale d’invecchiamento. Ogni vite viene coltivata con cura artigianale, rispettando l’equilibrio naturale dell’ecosistema." }}</p>
+        </div>
       </div>
-
     </div>
   </div>
 </div>
 
-{% style %}
-  /* .column-first,
-  .second-column,
-  .columns-container {
-    container-type: inline-size;
-  }
-
-  @container(min-width: 350px) and (max-width: 399px) {
-    .container-main-image {
-      height: 470px;
-      width: 100%;
-    }
-
-    .main-title {
-      font-size: 60px;
-      line-height: 80px;
-    }
-  }
-
-  
-  @container(min-width: 400px) {
-    .container-main-image {
-      height: 825px;
-      width: 523px;
-    }
-
-    .main-title {
-      font-size: 80px;
-      line-height: 100%
-    }
-
-    .transform-width-text{
-      width: 435px;
-    }
-  }
-
-  @container (min-width: 900px) and (max-width: 1024px) {
-    .columns-content {
-      column-gap: 80px;
-      padding: 80px;
-    }
-
-    .column-first{
-      row-gap: 130px;
-    }
-
-  }
-
-  @container (min-width: 1025px){
-    .columns-content {
-      column-gap: 100px;
-      padding: 100px;
-    }
-
-    .column-first{
-      row-gap: 315px;
-    }
-
-
-  } */
-
-{% endstyle %}
-
 
 {% schema %}
   {
-    "name": "canteen_info",
+    "name": "column_layouts",
     "settings": [
       {
         "type": "text",
-        "id": "section_main_title",
-        "label": "Section main title"
+        "label": "Main Title",
+        "id": "main_title"
       },
       {
         "type": "text",
-        "id": "italic_style_text_column_first",
-        "label": "Italic First Column Style Text"
+        "label": "Italic Title",
+        "id": "italic_title"
+      },
+      {
+        "type": "textarea",
+        "label": "Paragraph Text",
+        "id": "paragraph_text"
       },
       {
         "type": "image_picker",
-        "id": "second_column_image",
-        "label": "Big Image"
+        "label": "Big Image",
+        "id": "big_image"
+      },
+      {
+        "type": "text",
+        "label": "Small Title",
+        "id": "small_title"
+      },
+      {
+        "type": "textarea",
+        "label": "Second Paragraph Text",
+        "id": "paragraph_second_text"
       },
       {
         "type": "image_picker",
-        "id": "first_column_image",
-        "label": "Small Image"
-      }, {
-        "type": "text",
-        "id": "default_style_text_column_first",
-        "label": "Default First Column Style Text"
-      }, {
-        "type": "text",
-        "id": "italic_style_text_column_second",
-        "label": "Italic Second Column Style Text"
-      }, {
-        "type": "text",
-        "id": "default_style_text_column_second",
-        "label": "Default Second Column Style Text"
-      }, {
-        "type": "select",
-        "id": "direction_layout",
-        "label": "Direzione delle colonne",
-        "options": [
-          {
-            "value": "row",
-            "label": "Riga"
-          }, {
-            "value": "row-reverse",
-            "label": "Riga inversa"
-          }
-        ],
-        "default": "row"
+        "label": "Small Image",
+        "id": "small_image"
       }
     ],
     "presets": [
-      {
-        "name": "Default Canteen Layout",
-        "category": "Custom",
-        "settings": {
-          "section_main_title": "Welcome to Our Canteen",
-          "italic_style_text_column_first": "Enjoy our special menu in an elegant setting.",
-          "second_column_image": "shopify://shop_images/second-column-image.jpg",
-          "first_column_image": "shopify://shop_images/first-column-image.jpg",
-          "default_style_text_column_first": "Here is our featured dish of the day.",
-          "italic_style_text_column_second": "Fresh ingredients from local suppliers.",
-          "default_style_text_column_second": "Healthy, delicious, and affordable meals.",
-          "direction_layout": "row"
-        }
+    {
+      "name": "Default Layout",
+      "category": "Custom",
+      "settings": {
+        "main_title": "nel cuore delle marche",
+        "italic_title": "Castelli di Jesi",
+        "paragraph_text": "La storia di un passaggio di consegne che unisce due famiglie, con la promessa di continuare a far risplendere una delle eccellenze vinicole italiane.",
+        "big_image": "shopify://shop_images/237787ff11d965cce37d3dab4311f343.jpg",
+        "small_title": "Le nostre uve",
+        "paragraph_second_text": "Le nostre uve, molto versatili in vinificazione, rappresentano in modo completo la viticoltura regionale, essendo tipicamente ricche, austere, longeve e per questo con grande potenziale d’invecchiamento. Ogni vite viene coltivata con cura artigianale, rispettando l’equilibrio naturale dell’ecosistema.",
+        "small_image": "shopify://shop_images/237787ff11d965cce37d3dab4311f343.jpg"
       }
-    ]
+    }
+  ]
   }
-{% endschema %}
+  {% endschema %}
+  
