@@ -783,6 +783,21 @@
       display: flex;
     }
   }
+  .lg\:h-\[60vh\] {
+    @media (width >= 64rem) {
+      height: 60vh;
+    }
+  }
+  .lg\:h-\[70vh\] {
+    @media (width >= 64rem) {
+      height: 70vh;
+    }
+  }
+  .lg\:h-\[80vh\] {
+    @media (width >= 64rem) {
+      height: 80vh;
+    }
+  }
   .lg\:h-\[300px\] {
     @media (width >= 64rem) {
       height: 300px;
@@ -811,6 +826,11 @@
   .lg\:h-\[816px\] {
     @media (width >= 64rem) {
       height: 816px;
+    }
+  }
+  .lg\:h-\[825px\] {
+    @media (width >= 64rem) {
+      height: 825px;
     }
   }
   .lg\:h-\[856px\] {
@@ -868,6 +888,16 @@
       width: 10vw;
     }
   }
+  .lg\:w-\[30vw\] {
+    @media (width >= 64rem) {
+      width: 30vw;
+    }
+  }
+  .lg\:w-\[40vw\] {
+    @media (width >= 64rem) {
+      width: 40vw;
+    }
+  }
   .lg\:w-\[240px\] {
     @media (width >= 64rem) {
       width: 240px;
@@ -876,6 +906,11 @@
   .lg\:w-\[400px\] {
     @media (width >= 64rem) {
       width: 400px;
+    }
+  }
+  .lg\:w-\[523px\] {
+    @media (width >= 64rem) {
+      width: 523px;
     }
   }
   .lg\:w-\[600px\] {
@@ -980,6 +1015,11 @@
       column-gap: calc(var(--spacing) * 12);
     }
   }
+  .lg\:gap-x-\[10vw\] {
+    @media (width >= 64rem) {
+      column-gap: 10vw;
+    }
+  }
   .lg\:gap-x-\[100px\] {
     @media (width >= 64rem) {
       column-gap: 100px;
@@ -1023,6 +1063,16 @@
   .lg\:p-\[100px\] {
     @media (width >= 64rem) {
       padding: 100px;
+    }
+  }
+  .lg\:px-0 {
+    @media (width >= 64rem) {
+      padding-inline: calc(var(--spacing) * 0);
+    }
+  }
+  .lg\:px-\[10vw\] {
+    @media (width >= 64rem) {
+      padding-inline: 10vw;
     }
   }
   .lg\:px-\[38px\] {
@@ -1070,6 +1120,11 @@
       text-align: left;
     }
   }
+  .lg\:text-\[5vw\] {
+    @media (width >= 64rem) {
+      font-size: 5vw;
+    }
+  }
   .lg\:text-\[20px\] {
     @media (width >= 64rem) {
       font-size: 20px;
@@ -1098,6 +1153,12 @@
   .lg\:text-\[120px\] {
     @media (width >= 64rem) {
       font-size: 120px;
+    }
+  }
+  .lg\:leading-\[5vw\] {
+    @media (width >= 64rem) {
+      --tw-leading: 5vw;
+      line-height: 5vw;
     }
   }
   .lg\:leading-\[28px\] {
@@ -1158,6 +1219,12 @@
     @media (width >= 64rem) {
       --tw-tracking: 0.32px;
       letter-spacing: 0.32px;
+    }
+  }
+  .lg\:tracking-\[0\.32x\] {
+    @media (width >= 64rem) {
+      --tw-tracking: 0.32x;
+      letter-spacing: 0.32x;
     }
   }
 }
