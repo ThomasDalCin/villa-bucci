@@ -114,7 +114,7 @@
     "columns_layout_jJBVKC": {
       "type": "columns-layout",
       "custom_css": [
-        ".second-column {flex-direction: column-reverse;}",
+        "@media screen and(max-width:767px){.second-column {flex-direction: column-reverse;}}",
         ".container-small-image {justify-content: flex-end;}"
       ],
       "settings": {
