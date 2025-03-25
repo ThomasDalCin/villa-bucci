@@ -114,11 +114,13 @@
     "columns_layout_jJBVKC": {
       "type": "columns-layout",
       "settings": {
-        "main_title": "",
-        "italic_title": "",
-        "paragraph_text": "",
-        "small_title": "",
-        "paragraph_second_text": ""
+        "main_title": "LE PERSONE CHE FANNO VILLA BUCCI",
+        "italic_title": "Nuovi orizzonti, stesse persone",
+        "paragraph_text": "Ampelio Bucci, storico proprietario, accompagna la sua creazione verso il futuro, affidandone la guida a Federico Veronesi. A sostenere questa transizione c’è il team di sempre, le persone che, con passione e dedizione, hanno affiancato Ampelio nella creazione di un vino diventato icona. Una nuova pagina che si apre nel segno della continuità, dell’eccellenza e della tradizione.",
+        "big_image": "shopify://shop_images/921c1cda253ca29c3ec9fe981ed1d289.jpg",
+        "small_title": "L’importanza del team",
+        "paragraph_second_text": "È la passione di chi lavora ogni giorno in cantina a fare la differenza, trasformando un semplice grappolo d’uva in un’emozione da condividere.",
+        "small_image": "shopify://shop_images/Rectangle_16.jpg"
       }
     },
     "product-showcase": {
