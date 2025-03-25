@@ -113,6 +113,9 @@
     },
     "columns_layout_jJBVKC": {
       "type": "columns-layout",
+      "custom_css": [
+        ".second-column{flex-direction: column-reverse}"
+      ],
       "settings": {
         "main_title": "LE PERSONE CHE FANNO VILLA BUCCI",
         "italic_title": "Nuovi orizzonti, stesse persone",
