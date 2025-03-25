@@ -115,7 +115,7 @@
       "type": "columns-layout",
       "custom_css": [
         ".second-column {flex-direction: column-reverse;}",
-        ".container-small-image {justify-content: flex-end}"
+        ".container-small-image {justify-content: flex-end;}"
       ],
       "settings": {
         "main_title": "LE PERSONE CHE FANNO VILLA BUCCI",
@@ -152,7 +152,9 @@
       "block_order": [
         "canteen_info_E8HGTE"
       ],
-      "settings": {}
+      "settings": {
+        "poster_img": "shopify://shop_images/9786cbf4654b2d0a30fa8abd393a988a.jpg"
+      }
     }
   },
   "order": [
