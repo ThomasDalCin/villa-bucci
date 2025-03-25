@@ -1,20 +1,20 @@
 <!--product-showcase slider-->
-<div class="w-full h-auto flex flex-col items-start justify-center relative px-8 py-[100px] gap-y-20 lg:gap-y-[265px]">
+<div class="w-full h-auto flex flex-col items-start justify-center relative px-8 py-[100px] gap-y-20 lg:gap-y-[265px] lg:px-[5vw]">
 
     <div class="w-full h-auto flex flex-col items-center justify-center gap-y-5 lg:gap-y-10">
         <h2 class="text-[60px] leading-[60px] tracking-[-0.6px] lg:text-[80px] text-center lg:leading-[100px] lg:tracking-[-1.2px]"> {{ section.settings.section_main_title | default: "I nostri vini" | upcase }}</h2>
         <p class="text-[16px] leading-[28px] tracking-[0.2px] text-center lg:text-[20px] lg:leading-[28px] lg:w-[600px] lg:max-w-[600px]"> {{ section.settings.section_heading_text | default: "I vini di Villa Bucci sono il frutto di una sapiente lavorazione artigianale e di un terroir unico.Scopri le nostre etichette:" }}</p>
     </div>
 
-    <div class="w-full h-auto flex flex-col items-center justify-start relative gap-y-[50px] lg:flex-row lg:px-[100px] lg:min-h-[900px] lg:gap-x-[100px]">
+    <div class="w-full h-auto flex flex-col items-center justify-start relative gap-y-[50px] lg:flex-row-reverse lg:gap-x-[5vw] lg:min-h-[900px]">
 
         <!--container product -->
-        <div class="w-full h-[454px] flex flex-col items-center justify-center relative overflow-x-hidden lg:flex-1 lg:h-[797px]">
-            <div class="bg-rect w-full h-full bg-[#FFF3D8] absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"></div>
+        <div class="w-full h-[454px] flex flex-col items-center justify-center relative overflow-x-hidden lg:h-[797px]">
+            <div class="bg-rect w-full h-full bg-[#FFF3D8] absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 lg:h-[80vh]"></div>
 
             <div class="slider-products-container w-full h-full overflow-x-auto flex flex-row items-center justify-start relative z-20">
                     {% for product in collections.all.products %}
-                    <div class="product w-full min-w-full h-[496px] flex flex-col items-center justify-center opacity-0 lg:h-[980px]"
+                    <div class="product w-full min-w-full h-[496px] flex flex-col items-center justify-center opacity-0 lg:h-[80vh]"
                         data-product="{{ forloop.index0 }}">
                         <img class="w-[172px] h-[496px] lg:w-full lg:h-full object-center object-contain"
                             src="{{ product.featured_image |  img_url: 'master' }}" alt="">
@@ -29,12 +29,12 @@
         </div>
 
         <!--container info products-->
-        <div class="w-full h-auto flex flex-col items-start justify-center">
+        <div class="w-full h-auto flex flex-col items-start justify-center lg:overflow-hidden">
             <div class="slider-product-titles w-full h-auto overflow-x-auto flex flex-row items-center justify-start">
                 {% for product in collections.all.products %}
                     {% assign productReserve = product.metafields.custom.product_reserve.value %}
                     <div class="w-full h-auto min-w-full flex flex-col items-center justify-center">
-                        <h2 class="product-title text-[36px] leading-[40px] tracking-[-0.36px] text-center lg:text-[80px] lg:leading-[100px] lg:tracking-[-1.2px]">{{ product.title |  upcase }}</h2>
+                        <h2 class="product-title text-[36px] leading-[40px] tracking-[-0.36px] text-center lg:text-[5vw] lg:leading-[5vw] lg:tracking-[-1.2px]">{{ product.title |  upcase }}</h2>
                         <p class="produdct-subtitle text-[14px] leading-[28px] tracking-[0.2px] uppercase">{{ productReserve |  upcase }}</p>
                     </div>
                 {% endfor %}

@@ -1,18 +1,18 @@
 <!-- centering text info canteen -->
 <div class="w-full h-auto">
-  <div class="w-full flex flex-col items-center justify-center px-8 py-[100px] h-auto min-h-[679px] gap-y-16 lg:px-0 lg:min-h-[816px]">
+  <div class="w-full flex flex-col items-center justify-center px-8 py-[100px] h-auto min-h-[679px] gap-y-16 lg:px-[10vw] lg:min-h-[816px] lg:flex-row lg:gap-x-[10vw] lg:items-center lg:justify-start">
 
     <!--box image -->
     {% if section.settings.poster_img %}
       <div class="w-full h-auto flex flex-col items-start justify-center">
-        <div class="w-full h-[493px]">
+        <div class="w-full h-[493px] lg:w-[40vw] lg:h-[85vh]">
           <img class="w-full h-full object-center object-cover" src="{{ section.settings.poster_img |  img_url: 'master' }}" alt="{{ section.settings.poster_img.alt }}">
         </div>
       </div>  
     {% endif %}
 
     <!-- box text content -->
-    <div class="w-full h-auto flex flex-col items-center justify-center gap-y-8 lg:gap-y-10 lg:w-auto">
+    <div class="w-full h-auto flex flex-col items-center justify-center gap-y-8 lg:gap-y-10">
       {% for block in section.blocks %}
 
         {% if block.type == "canteen_info" %}
@@ -22,12 +22,12 @@
           {% endif %}
 
           <div class="w-full h-auto flex items-center justify-center lg:w-auto">
-            <h2 class="text-[60px] leading-[60px] tracking-[-0.6px] lg:text-[120px] lg:leading-[100px] lg:tracking-[-1.2px]">
+            <h2 class="text-[60px] leading-[60px] tracking-[-0.6px] lg:text-[5vw] lg:leading-[5vw] lg:tracking-[-0.8px]">
               {{ block.settings.section_main_title | default: "Dal 1987" | upcase }}
             </h2>
           </div>
 
-          <div class="w-full h-auto flex flex-col items-ceter justify-center gap-y-4 lg:gap-y-8 lg:w-[900px]">
+          <div class="w-full h-auto flex flex-col items-ceter justify-center gap-y-4 lg:gap-y-8">
 
             {% if block.settings.show_subheading %}
               <h3 class="text-[24px] leading-[32px] italic text-center lg:text-[32px] lg:leading-[40px] lg:tracking-[0.32px]">{{ block.settings.italic_style_text | default: "Villa Bucci è un autentico simbolo nella storia del Verdicchio, un nome che incarna oltre tre secoli di tradizione vinicola." }}</h3>

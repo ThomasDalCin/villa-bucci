@@ -793,9 +793,19 @@
       height: 70vh;
     }
   }
+  .lg\:h-\[75vh\] {
+    @media (width >= 64rem) {
+      height: 75vh;
+    }
+  }
   .lg\:h-\[80vh\] {
     @media (width >= 64rem) {
       height: 80vh;
+    }
+  }
+  .lg\:h-\[85vh\] {
+    @media (width >= 64rem) {
+      height: 85vh;
     }
   }
   .lg\:h-\[300px\] {
@@ -891,6 +901,11 @@
   .lg\:w-\[30vw\] {
     @media (width >= 64rem) {
       width: 30vw;
+    }
+  }
+  .lg\:w-\[35vw\] {
+    @media (width >= 64rem) {
+      width: 35vw;
     }
   }
   .lg\:w-\[40vw\] {
@@ -1020,6 +1035,11 @@
       column-gap: calc(var(--spacing) * 12);
     }
   }
+  .lg\:gap-x-\[5vw\] {
+    @media (width >= 64rem) {
+      column-gap: 5vw;
+    }
+  }
   .lg\:gap-x-\[10vw\] {
     @media (width >= 64rem) {
       column-gap: 10vw;
@@ -1065,6 +1085,11 @@
       row-gap: 265px;
     }
   }
+  .lg\:overflow-hidden {
+    @media (width >= 64rem) {
+      overflow: hidden;
+    }
+  }
   .lg\:p-\[100px\] {
     @media (width >= 64rem) {
       padding: 100px;
@@ -1073,6 +1098,11 @@
   .lg\:px-0 {
     @media (width >= 64rem) {
       padding-inline: calc(var(--spacing) * 0);
+    }
+  }
+  .lg\:px-\[5vw\] {
+    @media (width >= 64rem) {
+      padding-inline: 5vw;
     }
   }
   .lg\:px-\[10vw\] {
@@ -1164,6 +1194,12 @@
     @media (width >= 64rem) {
       --tw-leading: 5vw;
       line-height: 5vw;
+    }
+  }
+  .lg\:leading-\[8px\] {
+    @media (width >= 64rem) {
+      --tw-leading: 8px;
+      line-height: 8px;
     }
   }
   .lg\:leading-\[28px\] {
