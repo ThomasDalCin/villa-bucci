@@ -14,7 +14,10 @@
       "settings": {
         "hero_banner_image": "shopify://shop_images/f9d3a491f278e3184ee5b3ca78d53848.png",
         "hero_text": "",
-        "hero_subheading_text": ""
+        "hero_subheading_text": "",
+        "hero_banner_video": "",
+        "show_media_video": "hidden",
+        "show_media_image": "block"
       }
     },
     "canteen_info": {
@@ -46,14 +49,13 @@
     "columns-layout": {
       "type": "columns-layout",
       "settings": {
-        "section_main_title": "",
-        "italic_style_text_column_first": "",
-        "second_column_image": "shopify://shop_images/Rectangle_76.jpg",
-        "first_column_image": "shopify://shop_images/237787ff11d965cce37d3dab4311f343.jpg",
-        "default_style_text_column_first": "",
-        "italic_style_text_column_second": "",
-        "default_style_text_column_second": "",
-        "direction_layout": "flex-row"
+        "main_title": "",
+        "italic_title": "",
+        "paragraph_text": "",
+        "big_image": "shopify://shop_images/Rectangle_76.jpg",
+        "small_title": "",
+        "paragraph_second_text": "",
+        "small_image": "shopify://shop_images/237787ff11d965cce37d3dab4311f343.jpg"
       }
     },
     "slider": {
@@ -112,14 +114,11 @@
     "columns_layout_jJBVKC": {
       "type": "columns-layout",
       "settings": {
-        "section_main_title": "Welcome to Our Canteen",
-        "italic_style_text_column_first": "Enjoy our special menu in an elegant setting.",
-        "second_column_image": "shopify://shop_images/921c1cda253ca29c3ec9fe981ed1d289.jpg",
-        "first_column_image": "shopify://shop_images/Rectangle_16.jpg",
-        "default_style_text_column_first": "Here is our featured dish of the day.",
-        "italic_style_text_column_second": "Fresh ingredients from local suppliers.",
-        "default_style_text_column_second": "Healthy, delicious, and affordable meals.",
-        "direction_layout": "row-reverse"
+        "main_title": "",
+        "italic_title": "",
+        "paragraph_text": "",
+        "small_title": "",
+        "paragraph_second_text": ""
       }
     },
     "product-showcase": {
