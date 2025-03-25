@@ -114,7 +114,8 @@
     "columns_layout_jJBVKC": {
       "type": "columns-layout",
       "custom_css": [
-        ".second-column{flex-direction: column-reverse}"
+        ".second-column {flex-direction: column-reverse;}",
+        ".container-small-image {justify-content: flex-end}"
       ],
       "settings": {
         "main_title": "LE PERSONE CHE FANNO VILLA BUCCI",
