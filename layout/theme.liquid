@@ -26,9 +26,11 @@
 </head>
 
 {% style %}
-  main{
+  @media screen and (min-width:1024px){
+    main{
     width: 100%;
     padding-left: 10vw;
+  }
   }
 {% endstyle %}
 
@@ -40,8 +42,6 @@
     {{ content_for_layout }}
     {% section 'footer' %}
   </main>
-
-
 
 
 </body>

@@ -5,24 +5,21 @@
     <!-- container hero banner image -->
     <div class="w-full h-full left-0 top-0 right-0 z-0">
       <div class="w-full h-full">
-        <img
-          class="w-full h-full object-cover object-center"
-          src="{{ section.settings.hero_banner_image |  img_url: 'master' }}"
-          alt="{{ section.settings.hero_banner_image.alt }}">
+        <video class="w-full h-full object-cover object-center {{ section.settings.show_media_video }}" src="{{ section.settings.hero_banner_video }}" muted autoplay loop playisinline></video>
+        <img class="w-full h-full object-cover object-center {{ section.settings.show_media_image }}" src="{{ section.settings.hero_banner_image |  img_url: 'master' }}" alt="{{ section.settings.hero_banner_image.alt }}">
       </div>
     </div>
     <!-- container hero banner overlay -->
     <div class="w-full h-full absolute left-0 top-0 right-0 z-10" style="background: linear-gradient(357deg, rgba(3, 3, 3, 0.60) 13.43%, rgba(0, 0, 0, 0.60) 22.05%, rgba(0, 0, 0, 0.00) 51.29%);"></div>
     <!-- container hero banner text -->
     <div class="w-full h-full absolute top-0 left-0 right-0 flex items-end justify-center z-20">
-      <div class="w-full h-auto flex flex-col items-start justify-center lg:pl-16 lg:pb-9">
+      <div class="w-full h-auto flex flex-col items-start justify-center pl-5 pb-5 lg:pl-16 lg:pb-9">
         <!-- hero text -->
-        <h1 class="lg:text-[100px] lg:leading-[100px] lg:tracking-[-1px] text-white">{{ section.settings.hero_text | default: "Villa Bucci" }}</p>
+        <h1 class="text-[46px] leading-[50px] tracking-[-0.46px] lg:text-[100px] text-white lg:leading-[100px] lg:tracking-[-1px]">{{ section.settings.hero_text | default: "Villa Bucci" }}</p>
         <!-- hero subheading text -->
-        <h2 class="lg:text-[100px] lg:leading-[100px] lg:tracking-[-1px] text-white italic">{{ section.settings.hero_subheading_text | default: "Storia di un capolavoro italiano" }}</p>
+        <h2 class="text-[46px] leading-[50px] tracking-[-0.46px] lg:text-[100px] text-white italic lg:leading-[100px] lg:tracking-[-1px]">{{ section.settings.hero_subheading_text | default: "Storia di un capolavoro italiano" }}</p>
       </div>
     </div>
-
   </div>
 </div>
 
@@ -42,6 +39,41 @@
         "type": "text",
         "id": "hero_subheading_text",
         "label": "Hero Subheading Italic Text"
+      },{
+        "type": "url",
+        "id": "hero_banner_video",
+        "label": "Hero Banner Videro Source"
+      },
+      {
+        "type": "select",
+        "default": "block",
+        "id": "show_media_video",
+        "label": "Show media video",
+        "options": [
+          {
+            "value": "hidden",
+            "label": "Hide"
+          }, {
+            "value": "block",
+            "label": "Show"
+          }
+
+        ]
+      }, {
+        "type": "select",
+        "default": "hidden",
+        "id": "show_media_image",
+        "label": "Show media image",
+        "options": [
+          {
+            "value": "hidden",
+            "label": "Hide"
+          }, {
+            "value": "block",
+            "label": "Show"
+
+          }
+        ]
       }
     ]
   }

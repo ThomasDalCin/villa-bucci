@@ -2,10 +2,10 @@
 <div class="w-full h-auto relative overflow-x-hidden">
 
   <!-- slider-gallery-container -->
-  <div class="slider-container overflow-x-auto w-full h-auto pt-[72px] relative lg:h-[856px]">
+  <div class="slider-container overflow-x-auto w-full relative h-[240px] lg:pt-[72px] lg:h-[856px]">
 
     <!--container-counter-->
-    <div class="w-[46px] h-[53px] absolute right-[20%] top-0 flex flex-col items-center justify-center z-20">
+    <div class="w-[46px] h-[53px] absolute left-1/2 -translate-x-1/2 bottom-0 lg:right-[20%] lg:top-0 flex flex-col items-center justify-center z-20">
       <!--container svg line-->
       <div class="w-auto h-auto absolute left-1/2 top-1/2 -translate-1/2 -translate-y-1/2">
         {% render 'line' %}
@@ -21,7 +21,7 @@
     </div>
 
     <!-- arrow-content -->
-    <div class="w-auto h-[40px] absolute bottom-0 right-[20%] flex flex-row items-start justify-center gap-x-2.5 z-20">
+    <div class="w-full h-[40px] absolute bottom-0 left-0 right-0 flex flex-row items-start justify-between px-8 gap-x-2.5 z-20 lg:w-auto lg:right-[20%] lg:justify-center">
       <div class="w-auto h-full arrow-left flex items-center justify-center cursor-pointer">
         {% render 'arrow-left' %}
       </div>
@@ -31,11 +31,11 @@
     </div>
 
     <div
-      class="slides-container w-full overflow-x-auto relative flex flex-row items-start gap-x-3 justify-start lg:h-[684px]">
+      class="slides-container w-full overflow-x-auto relative flex flex-row items-start gap-x-3 justify-start h-[170px] lg:h-[684px]">
       {% for block in section.blocks %}
       {% if block.type == "slider-item" %}
       <div
-        class="slider-item w-auto h-auto lg:w-[1224px] lg:min-w-[1224px] lg:h-full transition-all duration-200 ease-in"
+        class="slider-item w-[265px] h-full min-w-[265px] transition-all duration-200 ease-in lg:w-[1224px] lg:min-w-[1224px]"
         data-item="{{ forloop.index0 }}">
         <img class="w-full h-full object-cover object-center"
           src="{{ block.settings.slider_image |  img_url: 'master' }}" alt="{{ block.settings.slider_image.alt }}">
