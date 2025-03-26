@@ -1,44 +1,40 @@
 <!-- section slider -->
-<div class="w-full h-auto relative overflow-x-hidden">
+<div class="w-full h-auto relative overflow-x-hidden" id="slider-{{ section.id }}">
 
   <!-- slider-gallery-container -->
   <div class="slider-container overflow-x-hidden w-full relative h-[240px] lg:pt-[72px] lg:h-[856px]">
 
-    <!--container-counter-->
-    <div class="w-[46px] h-[53px] absolute left-1/2 -translate-x-1/2 bottom-0 lg:right-[20vw] lg:top-0 lg:bottom-auto lg:-translate-x-0 flex flex-col items-center justify-center z-20">
-      <!--container svg line-->
-      <div class="w-auto h-auto absolute left-1/2 top-1/2 -translate-1/2 -translate-y-1/2">
+    <!-- container-counter -->
+    <div class="w-[46px] h-[53px] absolute left-1/2 -translate-x-1/2 bottom-0 lg:right-[20vw] lg:top-0 lg:bottom-auto lg:-translate-x-0 flex flex-col items-center justify-center z-20" id="counter-container-{{ section.id }}">
+      <!-- container svg line -->
+      <div class="w-auto h-auto absolute left-1/2 top-1/2 -translate-1/2 -translate-y-1/2" id="line-{{ section.id }}">
         {% render 'line' %}
       </div>
       <div class="w-full h-full flex flex-col items-start justify-between">
         <div class="w-full h-auto flex items-center justify-start">
-          <p class="counter-text"></p>
+          <p class="counter-text" id="counter-text-{{ section.id }}"></p>
         </div>
         <div class="w-full h-auto flex items-center justify-end">
-          <p class="counter-total text-right"></p>
+          <p class="counter-total text-right" id="counter-total-{{ section.id }}"></p>
         </div>
       </div>
     </div>
 
     <!-- arrow-content -->
     <div class="w-full h-[40px] absolute bottom-0 left-0 right-0 flex flex-row items-start justify-between px-8 gap-x-2.5 z-20 lg:w-auto lg:px-0 lg:left-auto lg:right-[20vw] lg:justify-end">
-      <div class="w-auto h-full arrow-left flex items-center justify-center cursor-pointer">
+      <div class="w-auto h-full arrow-left flex items-center justify-center cursor-pointer" id="arrow-left-{{ section.id }}">
         {% render 'arrow-left' %}
       </div>
-      <div class="w-auto h-full arrow-right flex items-center justify-center cursor-pointer">
+      <div class="w-auto h-full arrow-right flex items-center justify-center cursor-pointer" id="arrow-right-{{ section.id }}">
         {% render 'arrow-right' %}
       </div>
     </div>
 
-    <div
-      class="slides-container w-full overflow-x-hidden relative flex flex-row items-start gap-x-3 justify-start h-[170px] lg:h-[684px]">
+    <div class="slides-container w-full overflow-x-hidden relative flex flex-row items-start gap-x-3 justify-start h-[170px] lg:h-[684px]" id="slides-container-{{ section.id }}">
       {% for block in section.blocks %}
       {% if block.type == "slider-item" %}
-      <div
-        class="slider-item w-[265px] h-full min-w-[265px] transition-all duration-200 ease-in lg:w-[1224px] lg:min-w-[1224px]"
-        data-item="{{ forloop.index0 }}">
-        <img class="w-full h-full object-cover object-center"
-          src="{{ block.settings.slider_image |  img_url: 'master' }}" alt="{{ block.settings.slider_image.alt }}">
+      <div class="slider-item w-[265px] h-full min-w-[265px] transition-all duration-200 ease-in lg:w-[1224px] lg:min-w-[1224px]" data-item="{{ forloop.index0 }}" id="slider-item-{{ section.id }}-{{ forloop.index0 }}">
+        <img class="w-full h-full object-cover object-center" src="{{ block.settings.slider_image | img_url: 'master' }}" alt="{{ block.settings.slider_image.alt }}">
       </div>
       {% endif %}
       {% endfor %}
@@ -48,18 +44,23 @@
 
 </div>
 
+
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    const sliderContainer = document.querySelector('.slides-container');
-    const sliderItems = document.querySelectorAll('.slider-item');
-    const arrowLeft = document.querySelector('.arrow-left');
-    const arrowRight = document.querySelector('.arrow-right');
-    const counterSlider = document.querySelector('.counter-text');
-    const counterTotalItems = document.querySelector('.counter-total');
+    // Get the unique section ID from the HTML element
+    const sectionId = "{{ section.id }}";
+
+    // Select the elements for this specific section
+    const sliderContainer = document.querySelector(`#slides-container-${sectionId}`);
+    const sliderItems = document.querySelectorAll(`#slider-${sectionId} .slider-item`);
+    const arrowLeft = document.querySelector(`#arrow-left-${sectionId}`);
+    const arrowRight = document.querySelector(`#arrow-right-${sectionId}`);
+    const counterSlider = document.querySelector(`#counter-text-${sectionId}`);
+    const counterTotalItems = document.querySelector(`#counter-total-${sectionId}`);
 
     const itemWidth = sliderItems[0].offsetWidth;
 
-    let currentIndex = 2;
+    let currentIndex = 2; // Default starting index
     const moveSliderToIndex = (index) => {
       const offsetValue = 90;
       index = (index + sliderItems.length) % sliderItems.length;
