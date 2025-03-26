@@ -128,6 +128,49 @@
         "small_image": "shopify://shop_images/Rectangle_16.jpg"
       }
     },
+    "slider_tRxt7j": {
+      "type": "slider",
+      "blocks": {
+        "slider_item_GfcDBV": {
+          "type": "slider-item",
+          "settings": {
+            "slider_image": "shopify://shop_images/85637a6ea933867d64bb1ec98dfad67c.jpg"
+          }
+        },
+        "slider_item_BG6QwL": {
+          "type": "slider-item",
+          "settings": {
+            "slider_image": "shopify://shop_images/90ab2cd1d7968f5ae7fab73326c1ff80.jpg"
+          }
+        },
+        "slider_item_dX7PiM": {
+          "type": "slider-item",
+          "settings": {
+            "slider_image": "shopify://shop_images/14990b6bc06892ac2fb2ecc1ee330089.jpg"
+          }
+        },
+        "slider_item_WMpiNM": {
+          "type": "slider-item",
+          "settings": {
+            "slider_image": "shopify://shop_images/f9d3a491f278e3184ee5b3ca78d53848.png"
+          }
+        },
+        "slider_item_payTrg": {
+          "type": "slider-item",
+          "settings": {
+            "slider_image": "shopify://shop_images/237787ff11d965cce37d3dab4311f343.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "slider_item_GfcDBV",
+        "slider_item_BG6QwL",
+        "slider_item_dX7PiM",
+        "slider_item_WMpiNM",
+        "slider_item_payTrg"
+      ],
+      "settings": {}
+    },
     "product-showcase": {
       "type": "product-showcase",
       "settings": {
@@ -154,7 +197,7 @@
         "canteen_info_69PwDQ"
       ],
       "custom_css": [
-        "@media screen and (min-width: 1024px) {h2 {font-size: 5vw !important; line-height: 5vw !important; } h3 {display: none !important; } p{text-align: left; }}"
+        "@media screen and (min-width: 1024px) {h2 {font-size: 5vw !important; line-height: 5vw !important; } h3 {display: none !important; } p {text-align: left; }}"
       ],
       "settings": {
         "poster_img": "shopify://shop_images/9786cbf4654b2d0a30fa8abd393a988a.jpg"
@@ -170,6 +213,7 @@
     "box-text",
     "banner_image_mKwLDU",
     "columns_layout_jJBVKC",
+    "slider_tRxt7j",
     "product-showcase",
     "centering_text_info_RwEn9A"
   ]
