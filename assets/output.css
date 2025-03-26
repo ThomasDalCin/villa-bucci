@@ -956,6 +956,11 @@
       overflow: hidden;
     }
   }
+  .lg\:object-contain {
+    @media (width >= 64rem) {
+      object-fit: contain;
+    }
+  }
   .lg\:object-cover {
     @media (width >= 64rem) {
       object-fit: cover;
