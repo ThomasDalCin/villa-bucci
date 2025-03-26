@@ -18,7 +18,7 @@
         {% for product in collections.all.products %}
           <div class="product w-full min-w-full h-[496px] flex flex-col items-center justify-center opacity-0 lg:h-full" data-product="{{ forloop.index0 }}">
             <img
-              class="w-[172px] h-[496px] lg:w-full lg:h-full object-center object-contain"
+              class="w-[172px] h-[496px] lg:w-full lg:h-full object-center object-contain lg:object-cover"
               src="{{ product.featured_image |  img_url: 'master' }}"
               alt="">
           </div>
