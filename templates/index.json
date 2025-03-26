@@ -115,7 +115,7 @@
       "type": "columns-layout",
       "custom_css": [
         "@media screen and(max-width:767px) {.second-column {flex-direction: column-reverse; }}",
-        "@media screen and (min-width:1024px){.second-column, .first-column{flex-direction: row-reverse }}",
+        "@media screen and (min-width: 1024px) {.second-column, .first-column {flex-direction: row-reverse; }}",
         ".container-small-image {justify-content: flex-end;}"
       ],
       "settings": {
@@ -138,20 +138,23 @@
     "centering_text_info_RwEn9A": {
       "type": "centering-text-info",
       "blocks": {
-        "canteen_info_E8HGTE": {
+        "canteen_info_69PwDQ": {
           "type": "canteen_info",
           "settings": {
-            "section_main_small_title": "il libro",
+            "section_main_small_title": "",
             "section_main_small_title_visibility": true,
-            "section_main_title": "Un’eredità  di famiglia.",
+            "section_main_title": "",
             "italic_style_text": "",
-            "default_style_text": "La storia di un passaggio di consegne che unisce due famiglie, con la promessa di continuare a far risplendere una delle eccellenze vinicole italiane.",
-            "show_subheading": false
+            "default_style_text": "",
+            "show_subheading": true
           }
         }
       },
       "block_order": [
-        "canteen_info_E8HGTE"
+        "canteen_info_69PwDQ"
+      ],
+      "custom_css": [
+        "@media screen and(min-width:1024px){h2{font-size: 5vw; line-height: 5vw; }}"
       ],
       "settings": {
         "poster_img": "shopify://shop_images/9786cbf4654b2d0a30fa8abd393a988a.jpg"
