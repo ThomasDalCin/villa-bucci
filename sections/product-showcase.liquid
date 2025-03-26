@@ -33,7 +33,7 @@
 
     <!-- container info products -->
     <div class="w-full h-auto flex flex-col items-start justify-center lg:overflow-hidden">
-      <div class="slider-product-titles w-full h-auto overflow-x-auto flex flex-row items-center justify-start overflow-x-hidden">
+      <div class="slider-product-titles w-full h-auto flex flex-row items-center justify-start overflow-x-hidden">
         {% for product in collections.all.products %}
           {% assign productReserve = product.metafields.custom.product_reserve.value %}
           <div class="w-full h-auto min-w-full flex flex-col items-center justify-center lg:gap-y-[3vw] lg:items-start">
