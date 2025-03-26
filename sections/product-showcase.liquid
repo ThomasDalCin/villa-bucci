@@ -9,12 +9,12 @@
     <div class="w-full h-auto flex flex-col items-center justify-start relative gap-y-[50px] lg:flex-row-reverse lg:gap-x-[3vw] lg:min-h-[90vh]">
 
         <!--container product -->
-        <div class="w-full h-[454px] flex flex-col items-center justify-center relative overflow-x-hidden lg:h-[82vh]">
-            <div class="bg-rect w-full h-full bg-[#FFF3D8] absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 lg:h-[80vh]"></div>
+        <div class="w-full h-[454px] flex flex-col items-center justify-center relative lg:h-[82vh]">
+            <div class="bg-rect w-full h-full bg-[#FFF3D8] absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-0"></div>
 
-            <div class="slider-products-container w-full h-full overflow-x-auto flex flex-row items-center justify-start relative z-20">
+            <div class="slider-products-container absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-[496px] overflow-x-auto flex flex-row items-center justify-start z-20 lg:h-[90vh]">
                     {% for product in collections.all.products %}
-                    <div class="product w-full min-w-full h-[496px] flex flex-col items-center justify-center opacity-0 lg:h-[80vh]"
+                    <div class="product w-full min-w-full h-[496px] flex flex-col items-center justify-center opacity-0 lg:h-full"
                         data-product="{{ forloop.index0 }}">
                         <img class="w-[172px] h-[496px] lg:w-full lg:h-full object-center object-contain"
                             src="{{ product.featured_image |  img_url: 'master' }}" alt="">
@@ -60,68 +60,82 @@
 
 
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const products = document.querySelectorAll('.product');
-            const productTitles = document.querySelectorAll('.product-title');
-            const arrowProductRight = document.querySelector('.arrow-product-right');
-            const arrowProductLeft = document.querySelector('.arrow-product-left');
-            const sliderContainerProduct = document.querySelector('.slider-products-container');
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const products = document.querySelectorAll('.product');
+        const productTitles = document.querySelectorAll('.product-title');
+        const arrowProductRight = document.querySelector('.arrow-product-right');
+        const arrowProductLeft = document.querySelector('.arrow-product-left');
+        const sliderContainerProduct = document.querySelector('.slider-products-container');
+        const sliderProductTitles = document.querySelector('.slider-product-titles');
 
-            let currentProduct = 0;
-            const productWidth = products[0].offsetWidth;
+        let currentProduct = 0;
+        const productWidth = products[0].offsetWidth;
+        const titleWidth = productTitles[0].offsetWidth;
 
-            const moveToNextProduct = (index) => {
-                const currentIndex = (index + products.length) % products.length;
-                const targetPosition = productWidth * currentIndex;
-                console.log(targetPosition);
+        const moveToNextProduct = (index) => {
+            const currentIndex = (index + products.length) % products.length;
+            const targetPosition = productWidth * currentIndex;
 
-                sliderContainerProduct.scrollTo({
-                    left: targetPosition,
-                    behavior: 'smooth'
-                });
-
-                products.forEach((product, index) => {
-                    if (index === currentIndex) {
-                        gsapAddAnim(product);
-                    } else {
-                        gsapRemoveAnim(product);
-                    }
-                });
-
-                currentProduct = currentIndex;
-            };
-
-            arrowProductRight.addEventListener('click', () => {
-                moveToNextProduct(currentProduct + 1);
+            sliderContainerProduct.scrollTo({
+                left: targetPosition,
+                behavior: 'smooth'
             });
 
-            arrowProductLeft.addEventListener('click', () => {
-                moveToNextProduct(currentProduct - 1);
+            sliderProductTitles.scrollTo({
+                left: titleWidth * currentIndex,
+                behavior: 'smooth'
             });
 
-            moveToNextProduct(currentProduct);
+            products.forEach((product, index) => {
+                if (index === currentIndex) {
+                    gsapAddAnim(product);
+                } else {
+                    gsapRemoveAnim(product);
+                }
+            });
 
-            function gsapAddAnim(el) {
-                gsap.to(el, {
-                    opacity: 1,
-                    scale: 1,
-                    duration: 0.5,
-                    ease: "power2.inOut"
-                });
-            }
+            productTitles.forEach((title, index) => {
+                if (index === currentIndex) {
+                    gsapAddAnim(title);
+                } else {
+                    gsapRemoveAnim(title);
+                }
+            });
 
-            function gsapRemoveAnim(el) {
-                gsap.to(el, {
-                    opacity: 0,
-                    scale: 0.9,
-                    duration: 0.3,
-                    ease: "power2.inOut"
-                });
-            }
+            currentProduct = currentIndex;
+        };
+
+        arrowProductRight.addEventListener('click', () => {
+            moveToNextProduct(currentProduct + 1);
         });
 
-    </script>
+        arrowProductLeft.addEventListener('click', () => {
+            moveToNextProduct(currentProduct - 1);
+        });
+
+        moveToNextProduct(currentProduct);
+
+        function gsapAddAnim(el) {
+            gsap.to(el, {
+                opacity: 1,
+                scale: 1,
+                duration: 0.5,
+                ease: "power2.inOut"
+            });
+        }
+
+        function gsapRemoveAnim(el) {
+            gsap.to(el, {
+                opacity: 0,
+                scale: 0.9,
+                duration: 0.3,
+                ease: "power2.inOut"
+            });
+        }
+    });
+</script>
+
 
 
     {% schema %}
