@@ -141,11 +141,11 @@
         "canteen_info_69PwDQ": {
           "type": "canteen_info",
           "settings": {
-            "section_main_small_title": "",
+            "section_main_small_title": "il libro",
             "section_main_small_title_visibility": true,
-            "section_main_title": "",
+            "section_main_title": "Un’eredità  di famiglia.",
             "italic_style_text": "",
-            "default_style_text": "",
+            "default_style_text": "La storia di un passaggio di consegne che unisce due famiglie, con la promessa di continuare a far risplendere una delle eccellenze vinicole italiane.",
             "show_subheading": true
           }
         }
@@ -154,7 +154,7 @@
         "canteen_info_69PwDQ"
       ],
       "custom_css": [
-        "@media screen and(min-width:1024px){h2{font-size: 5vw; line-height: 5vw; }}"
+        "@media screen and(min-width:1024px) {h2 {font-size: 5vw; line-height: 5vw; }}"
       ],
       "settings": {
         "poster_img": "shopify://shop_images/9786cbf4654b2d0a30fa8abd393a988a.jpg"
