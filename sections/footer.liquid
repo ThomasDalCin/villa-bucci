@@ -1,14 +1,14 @@
 <!-- footer section -->
 <div class="w-full h-auto">
 
-  <div class="w-full flex flex-col items-start justify-start lg:h-[1141px]">
+  <div class="w-full h-auto flex flex-col items-start justify-start">
 
-    <div class="w-full flex flex-col items-center justify-center py-16 lg:h-[641px] lg:max-h-[641px]">
+    <div class="w-full flex flex-col items-center justify-center py-16 lg:py-[24vh]">
 
       <div class="w-auto h-auto flex flex-col items-center justify-start gap-y-5 lg:gap-y-0">
-        <h2 class="text-[36px] leading-[40px] tracking-[-0.36px] lg:text-[80px] lg:leading-[80px] lg:tracking-[-0.8px] uppercase">{{ section.settings.main_title | default: "Contatti" }}</h2>
+        <h2 class="text-[36px] leading-[40px] tracking-[-0.36px] lg:text-[8vw] lg:leading-[8vw] lg:tracking-[-0.8px] uppercase">{{ section.settings.main_title | default: "Contatti" }}</h2>
         <a href="mailto:bucciwines@villabucci.com">
-          <h2 class="text-[24px] leading-[32px] tracking-[-0.24px] lg:text-[60px] lg:leading-[80px] lg:tracking-[-0.6px] italic text-[#FF4A4A] text-decoration">
+          <h2 class="text-[24px] leading-[32px] tracking-[-0.24px] lg:text-[6vw] lg:leading-[8vw] lg:tracking-[-0.6px] italic text-[#FF4A4A] text-decoration">
             {{ section.settings.email_text | default: "bucciwines@villabucci.com" }}</h2>
         </a>
       </div>
@@ -24,15 +24,25 @@
 
       <!-- line footer left svg -->
       <div class="w-auto h-auto absolute left-0 top-0">
-        {% render 'line-left-footer' %}
+        <div class="w-auto h-auto hidden lg:block">
+          {% render 'line-left-footer' %}
+        </div>
+        <div class="w-auto h-auto lg:hidden">
+          {% render 'line-left-footer-mobile' %}
+        </div>
       </div>
 
       <!-- line footer right svg -->
       <div class="w-auto h-auto absolute right-0 top-0">
-        {% render 'line-right-footer' %}
+        <div class="w-auto h-auto hidden lg:block">
+          {% render 'line-right-footer' %}
+        </div>
+        <div class="w-auto h-auto lg:hidden">
+          {% render 'line-right-footer-mobile' %}
+        </div>
       </div>
 
-      <div class="w-full h-auto flex flex-col items-start justify-center px-16 pt-[140px] pb-[98px] gap-y-12 lg:h-[380px] lg:max-h-[380px] lg:flex-row lg:items-center lg:justify-start relative">
+      <div class="w-full h-auto flex flex-col items-start justify-center px-16 pt-[140px] pb-[98px] gap-y-12 relative lg:px-[10vw] lg:pb-[80px] lg:pt-[180px] lg:flex-row lg:items-center lg:justify-start lg:gap-x-[10vw]">
 
         <!--container logo-->
         <div class="w-[91px] h-[60px] absolute left-1/2 -translate-x-1/2 top-7">
@@ -42,7 +52,7 @@
         {% assign block_count = 0 %}
 
         <div class="flex flex-col items-start justify-center h-full lg:flex-row lg:flex-1 lg:items-center lg:justify-center">
-          <div class="w-full h-auto flex flex-col items-start justify-center gap-y-12 lg:flex-row lg:items-start lg:justify-center lg:gap-x-12 lg:min-h-[200px]">
+          <div class="w-full h-auto flex flex-col items-start justify-center gap-y-12 lg:flex-row lg:items-start lg:justify-center lg:gap-x-[5vw] lg:min-h-[200px]">
             {% for block in section.blocks %}
               {% if block.type == 'block_footer_info' %}
                 {% assign block_count = block_count | plus: 1 %}
@@ -52,7 +62,7 @@
                       <p class="text-[16px] leading-[24px] tracking-[0.12px] text-center" style="color: rgba(0, 0, 0, 0.40);">
                         {{ block.settings.box_title }}
                       </p>
-                      <p class="text-[16px] leading-[24px] tracking-[0.12px]">
+                      <p class="text-[16px] leading-[24px] tracking-[0.12px] lg:w-[10vw]">
                         {{ block.settings.box_text }}
                       </p>
                     </div>
@@ -76,7 +86,7 @@
                           <p class="text-[16px] leading-[24px] tracking-[0.12px] text-center" style="color: rgba(0, 0, 0, 0.40);">
                             {{ block.settings.box_title }}
                           </p>
-                          <p class="text-[16px] leading-[24px] tracking-[0.12px]">
+                          <p class="text-[16px] leading-[24px] tracking-[0.12px] lg:w-[10vw]">
                             {{ block.settings.box_text }}
                           </p>
                         </div>
