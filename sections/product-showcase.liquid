@@ -63,87 +63,91 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', () => {
-        const products = document.querySelectorAll('.product');
-        const productTitles = document.querySelectorAll('.product-title');
-        const productSubtitles = document.querySelectorAll('.produdct-subtitle');
-        const arrowProductRight = document.querySelector('.arrow-product-right');
-        const arrowProductLeft = document.querySelector('.arrow-product-left');
-        const sliderContainerProduct = document.querySelector('.slider-products-container');
-        const sliderProductTitles = document.querySelector('.slider-product-titles');
-  
-        let currentProduct = 0;
-        const productWidth = products[0].offsetWidth;
-        const titleWidth = productTitles[0].offsetWidth;
-  
-        const moveToNextProduct = (index) => {
-            const currentIndex = (index + products.length) % products.length;
-            const targetPosition = productWidth * currentIndex;
-  
-            sliderContainerProduct.scrollTo({
-                left: targetPosition,
-                behavior: 'smooth'
-            });
-  
-            sliderProductTitles.scrollTo({
-                left: titleWidth * currentIndex,
-                behavior: 'smooth'
-            });
-  
-            products.forEach((product, index) => {
-                if (index === currentIndex) {
-                    gsapAddAnim(product);
-                } else {
-                    gsapRemoveAnim(product);
-                }
-            });
-  
-            productTitles.forEach((title, index) => {
-                if (index === currentIndex) {
-                    gsapAddAnim(title);
-                } else {
-                    gsapRemoveAnim(title);
-                }
-            });
-  
-            productSubtitles.forEach((subtitle, index) => {
-                if (index === currentIndex) {
-                    gsapAddAnim(subtitle);
-                } else {
-                    gsapRemoveAnim(subtitle);
-                }
-            });
-  
-            currentProduct = currentIndex;
-        };
-  
-        arrowProductRight.addEventListener('click', () => {
-            moveToNextProduct(currentProduct + 1);
+    const products = document.querySelectorAll('.product');
+    const productTitles = document.querySelectorAll('.product-title');
+    const productSubtitles = document.querySelectorAll('.produdct-subtitle');
+    const arrowProductRight = document.querySelector('.arrow-product-right');
+    const arrowProductLeft = document.querySelector('.arrow-product-left');
+    const sliderContainerProduct = document.querySelector('.slider-products-container');
+    const sliderProductTitles = document.querySelector('.slider-product-titles');
+
+    let currentProduct = 0;
+    const productWidth = products[0].offsetWidth;
+    const titleWidth = productTitles[0].offsetWidth;
+
+    const moveToNextProduct = (index) => {
+        const currentIndex = (index + products.length) % products.length;
+        const targetPosition = productWidth * currentIndex;
+
+        // Sync the scrolling of both the product images and titles
+        sliderContainerProduct.scrollTo({
+            left: targetPosition,
+            behavior: 'smooth'
         });
-  
-        arrowProductLeft.addEventListener('click', () => {
-            moveToNextProduct(currentProduct - 1);
+
+        // Ensure titles scroll in sync with product images
+        sliderProductTitles.scrollTo({
+            left: targetPosition,
+            behavior: 'smooth'
         });
-  
-        moveToNextProduct(currentProduct);
-  
-        function gsapAddAnim(el) {
-            gsap.to(el, {
-                opacity: 1,
-                scale: 1,
-                duration: 0.8,
-                ease: "power2.inOut"
-            });
-        }
-  
-        function gsapRemoveAnim(el) {
-            gsap.to(el, {
-                opacity: 0,
-                scale: 0.9,
-                duration: 0.1,
-                ease: "power2.inOut"
-            });
-        }
+
+        // Manage opacity and scale for the selected product and titles
+        products.forEach((product, index) => {
+            if (index === currentIndex) {
+                gsapAddAnim(product);
+            } else {
+                gsapRemoveAnim(product);
+            }
+        });
+
+        productTitles.forEach((title, index) => {
+            if (index === currentIndex) {
+                gsapAddAnim(title);
+            } else {
+                gsapRemoveAnim(title);
+            }
+        });
+
+        productSubtitles.forEach((subtitle, index) => {
+            if (index === currentIndex) {
+                gsapAddAnim(subtitle);
+            } else {
+                gsapRemoveAnim(subtitle);
+            }
+        });
+
+        currentProduct = currentIndex;
+    };
+
+    arrowProductRight.addEventListener('click', () => {
+        moveToNextProduct(currentProduct + 1);
     });
+
+    arrowProductLeft.addEventListener('click', () => {
+        moveToNextProduct(currentProduct - 1);
+    });
+
+    moveToNextProduct(currentProduct);
+
+    function gsapAddAnim(el) {
+        gsap.to(el, {
+            opacity: 1,
+            scale: 1,
+            duration: 0.8,
+            ease: "power2.inOut"
+        });
+    }
+
+    function gsapRemoveAnim(el) {
+        gsap.to(el, {
+            opacity: 0,
+            scale: 0.9,
+            duration: 0.1,
+            ease: "power2.inOut"
+        });
+    }
+});
+
 </script>
 
 
