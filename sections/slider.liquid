@@ -1,49 +1,28 @@
-<!-- slider-gallery-container -->
-<div class="w-full h-auto flex flex-col items-start justify-center gap-y-5" id="slider-content-{{ section.id }}">
-  <!-- container-counter -->
-  <div class="w-auto h-auto flex flex-row items-center absolute left-1/2 -translate-x-1/2 bottom-0 lg:-translate-x-0 lg:left-0 lg:static lg:w-full lg:justify-end lg:pr-[20vw]">
-    <div class="counter-content w-[46px] h-[53px] relative" id="counter-container-{{ section.id }}">
+<!-- section slider -->
+<div class="w-full h-auto relative overflow-x-hidden" id="slider-{{ section.id }}">
+  <!-- slider-gallery-container -->
+  <div class="slider-container overflow-x-hidden w-full relative h-[240px] lg:pt-[72px] lg:h-[856px]">
+    <!-- container-counter -->
+    <div
+      class="counter-content w-[46px] h-[53px] absolute left-1/2 -translate-x-1/2 bottom-0 lg:right-[20vw] lg:top-0 lg:bottom-auto lg:-translate-x-0 flex flex-col items-center justify-center z-20"
+      id="counter-container-{{ section.id }}"
+    >
       <!-- container svg line -->
       <div class="w-auto h-auto absolute left-1/2 top-1/2 -translate-1/2 -translate-y-1/2" id="line-{{ section.id }}">
         {% render 'line' %}
       </div>
       <div class="w-full h-full flex flex-col items-start justify-between">
         <div class="w-full h-auto flex items-center justify-start">
-          <p class="counter-text text-white lg:text-[#8B7E70]" id="counter-text-{{ section.id }}"></p>
+          <p class="counter-text" id="counter-text-{{ section.id }}"></p>
         </div>
         <div class="w-full h-auto flex items-center justify-end">
-          <p class="counter-total text-right text-white lg:text-[#8B7E70]" id="counter-total-{{ section.id }}"></p>
+          <p class="counter-total text-right" id="counter-total-{{ section.id }}"></p>
         </div>
       </div>
     </div>
-  </div>
 
-  <div class="slider-container overflow-x-hidden w-full h-auto" id="slider-{{ section.id }}">
-    <div
-      class="slides-container w-full overflow-x-hidden relative flex flex-row items-start gap-x-3 justify-start h-[170px] lg:h-[584px]"
-      id="slides-container-{{ section.id }}"
-    >
-      {% for block in section.blocks %}
-        {% if block.type == 'slider-item' %}
-          <div
-            class="slider-item w-[230px] h-full min-w-[230px] transition-all duration-200 ease-in lg:w-[984px] lg:min-w-[984px]"
-            data-item="{{ forloop.index0 }}"
-            id="slider-item-{{ section.id }}-{{ forloop.index0 }}"
-          >
-            <img
-              class="w-full h-full object-cover object-center"
-              src="{{ block.settings.slider_image | img_url: 'master' }}"
-              alt="{{ block.settings.slider_image.alt }}"
-            >
-          </div>
-        {% endif %}
-      {% endfor %}
-    </div>
-  </div>
-
-  <!-- arrow-content -->
-  <div class="w-full h-auto flex flex-row items-center justify-center mt-8 lg:mt-0 lg:justify-end">
-    <div class="arrow-content w-full h-[40px] flex flex-row justify-between px-8  gap-x-5  lg:w-auto lg:pr-[20vw]">
+    <!-- arrow-content -->
+    <div class="arrow-content w-full h-[40px] absolute bottom-0 left-0 right-0 flex flex-row items-start justify-between px-8 gap-x-2.5 z-20 lg:w-auto lg:px-0 lg:left-auto lg:right-[20vw] lg:justify-end">
       <div
         class="w-auto h-full arrow-left flex items-center justify-center cursor-pointer"
         id="arrow-left-{{ section.id }}"
@@ -56,6 +35,27 @@
       >
         {% render 'arrow-right' %}
       </div>
+    </div>
+
+    <div
+      class="slides-container w-full overflow-x-hidden relative flex flex-row items-start gap-x-3 justify-start h-[170px] lg:h-[684px]"
+      id="slides-container-{{ section.id }}"
+    >
+      {% for block in section.blocks %}
+        {% if block.type == 'slider-item' %}
+          <div
+            class="slider-item w-[265px] h-full min-w-[265px] transition-all duration-200 ease-in lg:w-[1224px] lg:min-w-[1224px]"
+            data-item="{{ forloop.index0 }}"
+            id="slider-item-{{ section.id }}-{{ forloop.index0 }}"
+          >
+            <img
+              class="w-full h-full object-cover object-center"
+              src="{{ block.settings.slider_image | img_url: 'master' }}"
+              alt="{{ block.settings.slider_image.alt }}"
+            >
+          </div>
+        {% endif %}
+      {% endfor %}
     </div>
   </div>
 </div>
