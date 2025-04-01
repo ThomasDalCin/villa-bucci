@@ -20,25 +20,27 @@
 
   <!-- slider-container -->
   <div class="slider-container overflow-x-hidden w-full h-auto" id="slider-{{ section.id }}">
-    <div
-      class="slides-container w-full overflow-x-hidden relative flex flex-row items-start gap-x-3 justify-start h-[170px] lg:h-[584px]"
-      id="slides-container-{{ section.id }}"
-    >
-      {% for block in section.blocks %}
-        {% if block.type == 'slider-item' %}
-          <div
-            class="slider-item w-[230px] h-full min-w-[230px] transition-all duration-200 ease-in lg:w-[984px] lg:min-w-[984px]"
-            data-item="{{ forloop.index0 }}"
-            id="slider-item-{{ section.id }}-{{ forloop.index0 }}"
-          >
-            <img
-              class="w-full h-full object-cover object-center"
-              src="{{ block.settings.slider_image | img_url: 'master' }}"
-              alt="{{ block.settings.slider_image.alt }}"
+    <div class="slider-container overflow-x-hidden w-full h-auto" id="slider-{{ section.id }}">
+      <div
+        class="slides-container w-full overflow-x-hidden relative flex flex-row items-start gap-x-3 justify-start h-[170px] lg:h-[584px]"
+        id="slides-container-{{ section.id }}"
+      >
+        {% for block in section.blocks %}
+          {% if block.type == 'slider-item' %}
+            <div
+              class="slider-item w-[230px] h-full min-w-[230px] transition-all duration-200 ease-in lg:w-[984px] lg:min-w-[984px]"
+              data-item="{{ forloop.index0 }}"
+              id="slider-item-{{ section.id }}-{{ forloop.index0 }}"
             >
-          </div>
-        {% endif %}
-      {% endfor %}
+              <img
+                class="w-full h-full object-cover object-center"
+                src="{{ block.settings.slider_image | img_url: 'master' }}"
+                alt="{{ block.settings.slider_image.alt }}"
+              >
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
     </div>
   </div>
 
