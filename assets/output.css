@@ -428,6 +428,9 @@
   .gap-y-\[100px\] {
     row-gap: 100px;
   }
+  .overflow-hidden {
+    overflow: hidden;
+  }
   .overflow-x-hidden {
     overflow-x: hidden;
   }
