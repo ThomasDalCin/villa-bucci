@@ -61,8 +61,9 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    // Get the unique section ID from the HTML element
     const sectionId = "{{ section.id }}";
+    // Get the unique section ID from the HTML element
+    
     const sliderContainer = document.querySelector(`#slides-container-${sectionId}`);
     const sliderItems = document.querySelectorAll(`#slider-${sectionId} .slider-item`);
     const arrowLeft = document.querySelector(`#arrow-left-${sectionId}`);
@@ -72,35 +73,39 @@
 
     const itemWidth = sliderItems[0].offsetWidth;
 
-    let currentIndex = 2; // Default starting index
-    const moveSliderToIndex = (index) => {
-      const offsetValue = 90;
-      index = (index + sliderItems.length) % sliderItems.length;
-      const targetPosition = itemWidth * index - offsetValue;
+    let currentIndex = 2;
+    
+     const moveSliderToIndex = (index) => {
+    index = (index + sliderItems.length) % sliderItems.length;
+    const targetPosition = itemWidth * index;
+  
+    sliderContainer.scrollTo({
+      left: targetPosition,
+      behavior: 'smooth'
+    });
 
-      sliderContainer.scrollTo({
-        left: targetPosition,
-        behavior: 'smooth'
-      });
-
+    mm.add("(min-width: 1024px)", () => {
       sliderItems.forEach((item) => {
         gsap.to(item, {
-          scale: 0.9,
-          duration: 0.2,
-          ease: "linear" 
+          height: "384px",
+          width: "calc(100% / 2)",
+          duration: 0.1,
+          ease: "linear"
         });
       });
-
+  
       gsap.to(sliderItems[index], {
-        scale: 1,
+        height: "100%",
+        width: "100%",
         duration: 0.5,
         ease: "linear"
       });
+    });
 
-      counterSlider.innerHTML = `${index + 1}`;
-      counterTotalItems.innerHTML = sliderItems.length;
-      currentIndex = index;
-    };
+    counterSlider.innerHTML = `${index + 1}`;
+    counterTotalItems.innerHTML = sliderItems.length;
+    currentIndex = index;
+  };
 
     moveSliderToIndex(currentIndex);
 
