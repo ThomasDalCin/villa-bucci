@@ -103,6 +103,28 @@
     },
     "box-text": {
       "type": "box-text",
+      "blocks": {
+        "box_text_fBkXRb": {
+          "type": "box-text",
+          "settings": {
+            "section_main_title": "Nel cuore delle Marche",
+            "italic_style_text": "<span></span>",
+            "efault_style_text": "La coltura naturale delle viti è nel dna di Villa Bucci. Un gruppo di storici collaboratori della cantina si dedicano, ogni giorno, alla salvaguardia dei vigneti distesi sulle colline a Serra de’ Conti, Montecarotto e Ostra Vetere. Suoli calcarei e argillosi sono ideali per trasferire alla vite caratteristiche che si ritrovano nei vini di Villa Bucci: complessità, eleganza e mineralità.Le brezze marine mitigano le giornate soleggiate mentre al crepuscolo le temperature si stemperano garantendo notti fresche."
+          }
+        },
+        "box_text_rBgmG4": {
+          "type": "box-text",
+          "settings": {
+            "section_main_title": "",
+            "italic_style_text": "",
+            "efault_style_text": ""
+          }
+        }
+      },
+      "block_order": [
+        "box_text_fBkXRb",
+        "box_text_rBgmG4"
+      ],
       "settings": {}
     },
     "banner_image_mKwLDU": {
