@@ -285,6 +285,9 @@
   .h-screen {
     height: 100vh;
   }
+  .h-svh {
+    height: 100svh;
+  }
   .min-h-\[679px\] {
     min-height: 679px;
   }
