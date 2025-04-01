@@ -10,7 +10,7 @@
       <div class="counter-content w-[46px] h-[53px] relative" id="counter-container-{{ section.id }}">
         <!-- container svg line -->
         <div class="w-auto h-auto absolute left-1/2 top-1/2 -translate-1/2 -translate-y-1/2" id="line-{{ section.id }}">
-          {% render 'line-svg' %}
+          {% render 'line' %}
         </div>
         <div class="w-full h-full flex flex-col items-start justify-between">
           <div class="w-full h-auto flex items-center justify-start">
@@ -55,13 +55,13 @@
           class="w-auto h-full arrow-left flex items-center justify-center cursor-pointer"
           id="arrow-left-{{ section.id }}"
         >
-          {% render 'arrow-left-svg' %}
+          {% render 'arrow-left' %}
         </div>
         <div
           class="w-auto h-full arrow-right flex items-center justify-center cursor-pointer"
           id="arrow-right-{{ section.id }}"
         >
-          {% render 'arrow-right-svg' %}
+          {% render 'arrow-right' %}
         </div>
       </div>
     </div>
