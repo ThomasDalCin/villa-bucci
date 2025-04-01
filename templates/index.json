@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "hero": {
@@ -18,10 +27,10 @@
           "type": "canteen_info",
           "settings": {
             "section_main_small_title": "",
-            "section_main_small_title_visibility": true,
-            "section_main_title": "",
-            "italic_style_text": "",
-            "default_style_text": "",
+            "section_main_small_title_visibility": false,
+            "section_main_title": "<span></span>",
+            "italic_style_text": "Villa Bucci è una cantina che oltrepassa il tempo e lo spazio.  Il passato forgiato dalla pionieristica visione di Ampelio Bucci e il presente con l’approccio conservativo di Federico Veronesi prosegue l’evoluzione di Villa Bucci senza cambiare l’armonia che lega vino e natura. ",
+            "default_style_text": "<span></span>",
             "show_subheading": true
           }
         }
@@ -40,12 +49,12 @@
     "columns-layout": {
       "type": "columns-layout",
       "settings": {
-        "main_title": "",
+        "main_title": "Le Origini",
         "italic_title": "",
-        "paragraph_text": "",
+        "paragraph_text": "Le origini\nAmpelio Bucci, marchigiano di Montecarotto, ha saputo valorizzare il Verdicchio dei Castelli di Jesi, vitigno autoctono a bacca bianca, creando Villa Bucci.\nUn progetto enoico visionario per un vino iconico dallo stile inconfondibile riconosciuto nel mondo.<br>\nUna famiglia legata alla terra che ha saputo elevarsi con un progetto di vita intrecciato al fattore umano, motore insostituibile di questo capolavoro italiano. Una storia di agricoltura, di persone e di territorio: sintesi perfetta di quello che ancora oggi si trova nei calici  di Villa Bucci.",
         "big_image": "shopify://shop_images/Rectangle_76.jpg",
-        "small_title": "",
-        "paragraph_second_text": "",
+        "small_title": "Dal 1987",
+        "paragraph_second_text": "La cantina Villa Bucci prende forma nel 1987, a Ostra Vetere, nell’ entroterra marchigiano a pochi chilometri dal Mar Adriatico, vicino a Senigallia. Terra di produzione di vini da vitigni autoctoni quali il Verdicchio dei Castelli di Jesi e il Rosso Piceno, autentica espressione del terroir delle Marche.",
         "small_image": "shopify://shop_images/237787ff11d965cce37d3dab4311f343.jpg"
       }
     },
@@ -94,6 +103,19 @@
     },
     "box-text": {
       "type": "box-text",
+      "blocks": {
+        "box_text_rBgmG4": {
+          "type": "box-text",
+          "settings": {
+            "section_main_title": "",
+            "italic_style_text": "",
+            "efault_style_text": ""
+          }
+        }
+      },
+      "block_order": [
+        "box_text_rBgmG4"
+      ],
       "settings": {}
     },
     "banner_image_mKwLDU": {
@@ -178,11 +200,11 @@
         "canteen_info_69PwDQ": {
           "type": "canteen_info",
           "settings": {
-            "section_main_small_title": "il libro",
+            "section_main_small_title": "Il Libro",
             "section_main_small_title_visibility": true,
-            "section_main_title": "Un’eredità  di famiglia.",
+            "section_main_title": "La storia di Villa Bucci: passato, presente e futuro.",
             "italic_style_text": "",
-            "default_style_text": "La storia di un passaggio di consegne che unisce due famiglie, con la promessa di continuare a far risplendere una delle eccellenze vinicole italiane.",
+            "default_style_text": "Ampelio Bucci voce narrante attraverso le parole scritte da Cinzia Benzi, arricchite dalle immagini storiche e affiancate a quelle inedite di Francesca Brambilla e Serena Serrani, traccia le tappe salienti della creazione di questo iconico vino marchigiano. Un libro che svela il presente e il futuro di Villa Bucci. Dal luglio 2024 è Federico Veronesi a guidare la cantina raccogliendo il testimone di Ampelio. Bere Villa Bucci è riconoscere uno stile di Verdicchio, una trama inconfondibile, proprio come vuole esprimere questo volume edito da Seipersei.",
             "show_subheading": true
           }
         }
