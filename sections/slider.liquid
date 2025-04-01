@@ -65,23 +65,22 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    // Get the unique section ID from the HTML element
-    const sectionId = "{{ section.id }}";
-
-    // Select the elements for this specific section
-    const sliderContainer = document.querySelector(`#slides-container-${sectionId}`);
-    const sliderItems = document.querySelectorAll(`#slider-${sectionId} .slider-item`);
-    const arrowLeft = document.querySelector(`#arrow-left-${sectionId}`);
-    const arrowRight = document.querySelector(`#arrow-right-${sectionId}`);
-    const counterSlider = document.querySelector(`#counter-text-${sectionId}`);
-    const counterTotalItems = document.querySelector(`#counter-total-${sectionId}`);
-    let mm = gsap.matchMedia();
+     const sectionId = "{{ section.id }}";
   
+  const sliderContent = document.querySelector(`#slider-content-${sectionId}`);
+  const sliderContainer = document.querySelector(`#slides-container-${sectionId}`);
+  let sliderItems = document.querySelectorAll(`#slider-${sectionId} .slider-item`);
+  const arrowLeft = document.querySelector(`#arrow-left-${sectionId}`);
+  const arrowRight = document.querySelector(`#arrow-right-${sectionId}`);
+  const counterSlider = document.querySelector(`#counter-text-${sectionId}`);
+  const counterTotalItems = document.querySelector(`#counter-total-${sectionId}`);
+  let mm = gsap.matchMedia();
+  
+  const itemWidth = sliderItems[0].offsetWidth;
+  
+  let currentIndex = 2;
 
-    const itemWidth = sliderItems[0].offsetWidth;
-
-    let currentIndex = 2; // Default starting index
-     const moveSliderToIndex = (index) => {
+  const moveSliderToIndex = (index) => {
     index = (index + sliderItems.length) % sliderItems.length;
     const targetPosition = itemWidth * index;
   
@@ -112,16 +111,15 @@
     counterTotalItems.innerHTML = sliderItems.length;
     currentIndex = index;
   };
-
-    moveSliderToIndex(currentIndex);
-
-    arrowLeft.addEventListener('click', () => {
-      moveSliderToIndex(currentIndex - 1);  
-    });
-
-    arrowRight.addEventListener('click', () => {
-      moveSliderToIndex(currentIndex + 1);
-    });
+  
+  moveSliderToIndex(currentIndex);
+  
+  arrowLeft.addEventListener('click', () => {
+    moveSliderToIndex(currentIndex - 1);  
+  });
+  
+  arrowRight.addEventListener('click', () => {
+    moveSliderToIndex(currentIndex + 1);
   });
 </script>
 
