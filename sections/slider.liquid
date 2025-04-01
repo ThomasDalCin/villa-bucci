@@ -1,11 +1,9 @@
-<!-- section slider -->
-<div class="w-full h-auto relative overflow-x-hidden" id="slider-{{ section.id }}">
+<!-- slider-gallery-container -->
+<div class="w-full h-auto flex flex-col items-start justify-center gap-y-5 relative pb-[100px] lg:pb-0" id="slider-{{ section.id }}">
 
-  <!-- slider-gallery-container -->
-  <div class="slider-container overflow-x-hidden w-full relative h-[240px] lg:pt-[72px] lg:h-[856px]">
-
-    <!-- container-counter -->
-    <div class="counter-content w-[46px] h-[53px] absolute left-1/2 -translate-x-1/2 bottom-0 lg:right-[20vw] lg:top-0 lg:bottom-auto lg:-translate-x-0 flex flex-col items-center justify-center z-20" id="counter-container-{{ section.id }}">
+  <!-- container-counter -->
+  <div class="w-auto h-auto flex flex-row items-center absolute left-1/2 -translate-x-1/2 bottom-0 lg:-translate-x-0 lg:left-0 lg:static lg:w-full lg:justify-end lg:pr-[20vw]">
+    <div class="counter-content w-[46px] h-[53px] relative" id="counter-container-{{ section.id }}">
       <!-- container svg line -->
       <div class="w-auto h-auto absolute left-1/2 top-1/2 -translate-1/2 -translate-y-1/2" id="line-{{ section.id }}">
         {% render 'line' %}
@@ -19,112 +17,119 @@
         </div>
       </div>
     </div>
-
-    <!-- arrow-content -->
-    <div class="arrow-content w-full h-[40px] absolute bottom-0 left-0 right-0 flex flex-row items-start justify-between px-8 gap-x-2.5 z-20 lg:w-auto lg:px-0 lg:left-auto lg:right-[20vw] lg:justify-end">
-      <div class="w-auto h-full arrow-left flex items-center justify-center cursor-pointer" id="arrow-left-{{ section.id }}">
-        {% render 'arrow-left' %}
-      </div>
-      <div class="w-auto h-full arrow-right flex items-center justify-center cursor-pointer" id="arrow-right-{{ section.id }}">
-        {% render 'arrow-right' %}
-      </div>
-    </div>
-
-    <div class="slides-container w-full overflow-x-hidden relative flex flex-row items-start gap-x-3 justify-start h-[170px] lg:h-[684px]" id="slides-container-{{ section.id }}">
-      {% for block in section.blocks %}
-      {% if block.type == "slider-item" %}
-      <div class="slider-item w-[265px] h-full min-w-[265px] transition-all duration-200 ease-in lg:w-[1224px] lg:min-w-[1224px]" data-item="{{ forloop.index0 }}" id="slider-item-{{ section.id }}-{{ forloop.index0 }}">
-        <img class="w-full h-full object-cover object-center" src="{{ block.settings.slider_image | img_url: 'master' }}" alt="{{ block.settings.slider_image.alt }}">
-      </div>
-      {% endif %}
-      {% endfor %}
-    </div>
-
   </div>
 
-</div>
+  <div class="slides-container w-full overflow-x-hidden relative flex flex-row items-start gap-x-3 justify-start h-[170px] lg:h-[584px]" id="slides-container-{{ section.id }}">
+    {% for block in section.blocks %}
+      {% if block.type == 'slider-item' %}
+        <div
+          class="slider-item w-[230px] h-full min-w-[230px] transition-all duration-200 ease-in lg:w-[984px] lg:min-w-[984px]"
+          data-item="{{ forloop.index0 }}"
+          id="slider-item-{{ section.id }}-{{ forloop.index0 }}">
+          <img
+            class="w-full h-full object-cover object-center"
+            src="{{ block.settings.slider_image | img_url: 'master' }}"
+            alt="{{ block.settings.slider_image.alt }}">
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
 
+  <!-- arrow-content -->
+  <div class="arrow-content w-full h-[40px] absolute bottom-0 left-0 right-0 flex flex-row items-start justify-between px-8 gap-x-2.5 z-20 lg:pr-[20vw] lg:static lg:w-full lg:px-0 lg:left-auto lg:right-[20vw] lg:justify-end">
+    <div class="w-auto h-full arrow-left flex items-center justify-center cursor-pointer" id="arrow-left-{{ section.id }}">
+      {% render 'arrow-left' %}
+    </div>
+    <div class="w-auto h-full arrow-right flex items-center justify-center cursor-pointer" id="arrow-right-{{ section.id }}">
+      {% render 'arrow-right' %}
+    </div>
+  </div>
+</div>
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    // Get the unique section ID from the HTML element
     const sectionId = "{{ section.id }}";
-
-    // Select the elements for this specific section
+    // Get the unique section ID from the HTML element
+    
     const sliderContainer = document.querySelector(`#slides-container-${sectionId}`);
     const sliderItems = document.querySelectorAll(`#slider-${sectionId} .slider-item`);
     const arrowLeft = document.querySelector(`#arrow-left-${sectionId}`);
     const arrowRight = document.querySelector(`#arrow-right-${sectionId}`);
     const counterSlider = document.querySelector(`#counter-text-${sectionId}`);
     const counterTotalItems = document.querySelector(`#counter-total-${sectionId}`);
-
+     let mm = gsap.matchMedia();
+  
     const itemWidth = sliderItems[0].offsetWidth;
-
-    let currentIndex = 2; // Default starting index
-    const moveSliderToIndex = (index) => {
-      const offsetValue = 90;
-      index = (index + sliderItems.length) % sliderItems.length;
-      const targetPosition = itemWidth * index - offsetValue;
-
-      sliderContainer.scrollTo({
-        left: targetPosition,
-        behavior: 'smooth'
-      });
-
+  
+    let currentIndex = 2;
+    
+     const moveSliderToIndex = (index) => {
+    index = (index + sliderItems.length) % sliderItems.length;
+    const targetPosition = itemWidth * index;
+  
+    sliderContainer.scrollTo({
+      left: targetPosition,
+      behavior: 'smooth'
+    });
+  
+    mm.add("(min-width: 1024px)", () => {
       sliderItems.forEach((item) => {
         gsap.to(item, {
-          scale: 0.9,
-          duration: 0.2,
-          ease: "linear" 
+          height: "384px",
+          width: "calc(100% / 2)",
+          duration: 0.1,
+          ease: "linear"
         });
       });
-
+  
       gsap.to(sliderItems[index], {
-        scale: 1,
+        height: "100%",
+        width: "100%",
         duration: 0.5,
         ease: "linear"
       });
-
-      counterSlider.innerHTML = `${index + 1}`;
-      counterTotalItems.innerHTML = sliderItems.length;
-      currentIndex = index;
-    };
-
+    });
+  
+    counterSlider.innerHTML = `${index + 1}`;
+    counterTotalItems.innerHTML = sliderItems.length;
+    currentIndex = index;
+  };
+  
     moveSliderToIndex(currentIndex);
-
+  
     arrowLeft.addEventListener('click', () => {
       moveSliderToIndex(currentIndex - 1);  
     });
-
+  
     arrowRight.addEventListener('click', () => {
       moveSliderToIndex(currentIndex + 1);
     });
   });
 </script>
 
-
 {% schema %}
-{
-"name": "slider",
-"settings": [],
-"blocks": [
-{
-"name": "slider",
-"type": "slider-item",
-"settings": [
-{
-"id": "slider_image",
-"type": "image_picker",
-"label": "Slider Image"
-}
-]
-}
-],
-"presets": [
-    {
-      "name": "Slider",
-      "category": "Custom"
-    }
-  ]
-}
+  {
+    "name": "slider",
+    "settings": [],
+    "blocks": [
+      {
+        "name": "slider",
+        "type": "slider-item",
+        "settings": [
+          {
+            "id": "slider_image",
+            "type": "image_picker",
+            "label": "Slider Image"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Slider",
+        "category": "Custom"
+      }
+    ]
+  }
 {% endschema %}
+
