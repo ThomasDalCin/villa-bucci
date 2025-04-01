@@ -1,4 +1,12 @@
-
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "hero": {
@@ -175,7 +183,7 @@
         "slider_item_payTrg"
       ],
       "custom_css": [
-        "@media screen and (min-width: 1024px) {.arrow-content {right: auto; left: 20vw; } .counter-content {right: auto; left: 20vw; }}"
+        "@media screen and (min-width: 1024px) {.arrow-content {padding-left: 20vw !important; } .container-counter {padding-left: 20vw !important }}"
       ],
       "settings": {}
     },
