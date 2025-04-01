@@ -104,14 +104,6 @@
     "box-text": {
       "type": "box-text",
       "blocks": {
-        "box_text_fBkXRb": {
-          "type": "box-text",
-          "settings": {
-            "section_main_title": "Nel cuore delle Marche",
-            "italic_style_text": "<span></span>",
-            "efault_style_text": "La coltura naturale delle viti è nel dna di Villa Bucci. Un gruppo di storici collaboratori della cantina si dedicano, ogni giorno, alla salvaguardia dei vigneti distesi sulle colline a Serra de’ Conti, Montecarotto e Ostra Vetere. Suoli calcarei e argillosi sono ideali per trasferire alla vite caratteristiche che si ritrovano nei vini di Villa Bucci: complessità, eleganza e mineralità.Le brezze marine mitigano le giornate soleggiate mentre al crepuscolo le temperature si stemperano garantendo notti fresche."
-          }
-        },
         "box_text_rBgmG4": {
           "type": "box-text",
           "settings": {
@@ -122,7 +114,6 @@
         }
       },
       "block_order": [
-        "box_text_fBkXRb",
         "box_text_rBgmG4"
       ],
       "settings": {}
@@ -209,11 +200,11 @@
         "canteen_info_69PwDQ": {
           "type": "canteen_info",
           "settings": {
-            "section_main_small_title": "il libro",
+            "section_main_small_title": "Il Libro",
             "section_main_small_title_visibility": true,
-            "section_main_title": "Un’eredità  di famiglia.",
+            "section_main_title": "La storia di Villa Bucci: passato, presente e futuro.",
             "italic_style_text": "",
-            "default_style_text": "La storia di un passaggio di consegne che unisce due famiglie, con la promessa di continuare a far risplendere una delle eccellenze vinicole italiane.",
+            "default_style_text": "Ampelio Bucci voce narrante attraverso le parole scritte da Cinzia Benzi, arricchite dalle immagini storiche e affiancate a quelle inedite di Francesca Brambilla e Serena Serrani, traccia le tappe salienti della creazione di questo iconico vino marchigiano. Un libro che svela il presente e il futuro di Villa Bucci. Dal luglio 2024 è Federico Veronesi a guidare la cantina raccogliendo il testimone di Ampelio. Bere Villa Bucci è riconoscere uno stile di Verdicchio, una trama inconfondibile, proprio come vuole esprimere questo volume edito da Seipersei.",
             "show_subheading": true
           }
         }
