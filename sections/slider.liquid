@@ -7,7 +7,7 @@
       <div class="counter-content w-[46px] h-[53px] relative" id="counter-container-{{ section.id }}">
         <!-- container svg line -->
         <div class="w-auto h-auto absolute left-1/2 top-1/2 -translate-1/2 -translate-y-1/2" id="line-{{ section.id }}">
-          {% render 'line-svg' %}
+          {% render 'line' %}
         </div>
         <div class="w-full h-full flex flex-col items-start justify-between">
           <div class="w-full h-auto flex items-center justify-start">
@@ -20,6 +20,7 @@
       </div>
     </div>
 
+    <!-- slider-container -->
     <div class="slider-container overflow-x-hidden w-full h-auto" id="slider-{{ section.id }}">
       <div
         class="slides-container w-full overflow-x-hidden relative flex flex-row items-start gap-x-3 justify-start h-[170px] lg:h-[584px]"
@@ -42,6 +43,7 @@
         {% endfor %}
       </div>
     </div>
+    <!-- End of slider-container -->
 
     <!-- arrow-content -->
     <div class="w-full h-auto flex flex-row items-center justify-center mt-8 lg:mt-0 lg:justify-end">
