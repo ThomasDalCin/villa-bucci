@@ -62,9 +62,7 @@
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     // Get the unique section ID from the HTML element
-    const sectionId = "{{ section.id }}";
-
-    // Select the elements for this specific section
+      const sectionId = "{{ section.id }}";
     const sliderContainer = document.querySelector(`#slides-container-${sectionId}`);
     const sliderItems = document.querySelectorAll(`#slider-${sectionId} .slider-item`);
     const arrowLeft = document.querySelector(`#arrow-left-${sectionId}`);
