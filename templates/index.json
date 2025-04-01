@@ -183,7 +183,7 @@
         "slider_item_payTrg"
       ],
       "custom_css": [
-        "@media screen and (min-width: 1024px) {.arrow-content {padding-right: 0; padding-left: 20vw !important; justify-content: flex-start !important; } .counter-content {justify-content: flex-start !important; }}"
+        "@media screen and (min-width: 1024px) {.arrow-content {padding-right: 0; padding-left: 20vw !important; justify-content: flex-start !important; } .counter-content {padding-right: 0 !important; justify-content: flex-start !important; }}"
       ],
       "settings": {}
     },
