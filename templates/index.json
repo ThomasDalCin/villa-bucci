@@ -43,7 +43,7 @@
     "banner_image": {
       "type": "banner-image",
       "settings": {
-        "static_image": "shopify://shop_images/DSC5144.jpg"
+        "static_image": "shopify://shop_images/c3c9046e37bf6285b3ee24ebdb94f06d.jpg"
       }
     },
     "columns-layout": {
@@ -51,11 +51,11 @@
       "settings": {
         "main_title": "Le Origini",
         "italic_title": "",
-        "paragraph_text": "Le origini\nAmpelio Bucci, marchigiano di Montecarotto, ha saputo valorizzare il Verdicchio dei Castelli di Jesi, vitigno autoctono a bacca bianca, creando Villa Bucci.\nUn progetto enoico visionario per un vino iconico dallo stile inconfondibile riconosciuto nel mondo.<br>\nUna famiglia legata alla terra che ha saputo elevarsi con un progetto di vita intrecciato al fattore umano, motore insostituibile di questo capolavoro italiano. Una storia di agricoltura, di persone e di territorio: sintesi perfetta di quello che ancora oggi si trova nei calici  di Villa Bucci.",
-        "big_image": "shopify://shop_images/Rectangle_76.jpg",
+        "paragraph_text": "Ampelio Bucci, marchigiano di Montecarotto, ha saputo valorizzare il Verdicchio dei Castelli di Jesi, vitigno autoctono a bacca bianca, creando Villa Bucci. <br>\nUn progetto enoico visionario per un vino iconico dallo stile inconfondibile riconosciuto nel mondo. <br>\nUna famiglia legata alla terra che ha saputo elevarsi con un progetto di vita intrecciato al fattore umano, motore insostituibile di questo capolavoro italiano. Una storia di agricoltura, di persone e di territorio: sintesi perfetta di quello che ancora oggi si trova nei calici  di Villa Bucci.",
+        "big_image": "shopify://shop_images/DSC5144.jpg",
         "small_title": "Dal 1987",
         "paragraph_second_text": "La cantina Villa Bucci prende forma nel 1987, a Ostra Vetere, nell’ entroterra marchigiano a pochi chilometri dal Mar Adriatico, vicino a Senigallia. Terra di produzione di vini da vitigni autoctoni quali il Verdicchio dei Castelli di Jesi e il Rosso Piceno, autentica espressione del terroir delle Marche.",
-        "small_image": "shopify://shop_images/237787ff11d965cce37d3dab4311f343.jpg"
+        "small_image": "shopify://shop_images/DSC4927.jpg"
       }
     },
     "slider": {
@@ -64,31 +64,31 @@
         "slider_item_gbqxVw": {
           "type": "slider-item",
           "settings": {
-            "slider_image": "shopify://shop_images/c3c9046e37bf6285b3ee24ebdb94f06d.jpg"
+            "slider_image": "shopify://shop_images/1_DSC5000.jpg"
           }
         },
         "slider_item_Ty6iWj": {
           "type": "slider-item",
           "settings": {
-            "slider_image": "shopify://shop_images/84376a55513965a9a054e10d1872a22b.jpg"
+            "slider_image": "shopify://shop_images/2_DSC5036.jpg"
           }
         },
         "slider_item_MmAcEw": {
           "type": "slider-item",
           "settings": {
-            "slider_image": "shopify://shop_images/237787ff11d965cce37d3dab4311f343.jpg"
+            "slider_image": "shopify://shop_images/3_DSC5196.jpg"
           }
         },
         "slider_item_ViWCfB": {
           "type": "slider-item",
           "settings": {
-            "slider_image": "shopify://shop_images/f9d3a491f278e3184ee5b3ca78d53848.png"
+            "slider_image": "shopify://shop_images/4_DSC4963.jpg"
           }
         },
         "slider_item_6Ezq4b": {
           "type": "slider-item",
           "settings": {
-            "slider_image": "shopify://shop_images/237787ff11d965cce37d3dab4311f343.jpg"
+            "slider_image": "shopify://shop_images/5_DSC4826.jpg"
           }
         }
       },
@@ -107,9 +107,9 @@
         "box_text_rBgmG4": {
           "type": "box-text",
           "settings": {
-            "section_main_title": "",
-            "italic_style_text": "",
-            "efault_style_text": ""
+            "section_main_title": "<span></span>",
+            "italic_style_text": "Nel cuore delle Marche",
+            "efault_style_text": "La coltura naturale delle viti è nel dna di Villa Bucci. Ungruppo di storici collaboratori della cantina si dedicano, ogni giorno, allasalvaguardia dei vigneti distesi sulle colline a Serra de’ Conti, Montecarottoe Ostra Vetere. Suoli calcarei e argillosi sono ideali per trasferire alla vitecaratteristiche che si ritrovano nei vini di Villa Bucci: complessità, eleganzae mineralità.<br><br>Le brezze marine mitigano le giornate soleggiate mentre alcrepuscolo le temperature si stemperano garantendo notti fresche."
           }
         }
       },
