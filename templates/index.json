@@ -121,7 +121,7 @@
     "banner_image_mKwLDU": {
       "type": "banner-image",
       "settings": {
-        "static_image": "shopify://shop_images/c3c9046e37bf6285b3ee24ebdb94f06d.jpg"
+        "static_image": "shopify://shop_images/f9d3a491f278e3184ee5b3ca78d53848.png"
       }
     },
     "columns_layout_jJBVKC": {
@@ -132,13 +132,25 @@
         ".container-small-image {justify-content: flex-end;}"
       ],
       "settings": {
-        "main_title": "LE PERSONE CHE FANNO VILLA BUCCI",
-        "italic_title": "Nuovi orizzonti, stesse persone",
-        "paragraph_text": "Ampelio Bucci, storico proprietario, accompagna la sua creazione verso il futuro, affidandone la guida a Federico Veronesi. A sostenere questa transizione c’è il team di sempre, le persone che, con passione e dedizione, hanno affiancato Ampelio nella creazione di un vino diventato icona. Una nuova pagina che si apre nel segno della continuità, dell’eccellenza e della tradizione.",
+        "main_title": "La cantina",
+        "italic_title": "La magia delle botti eterne",
+        "paragraph_text": "I legni a Villa Bucci non sono semplici contenitori.\nGrandi recipienti di legno esausto di rovere di Slavonia ideali per garantire una micro-ossigenazione naturale attraverso i pori del legno stesso.\nCustodi di memoria enoica del vino che vi ha sostato e che accoglierà, millesimo dopo millesimo, i vini di Villa Bucci.",
         "big_image": "shopify://shop_images/921c1cda253ca29c3ec9fe981ed1d289.jpg",
-        "small_title": "L’importanza del team",
+        "small_title": "Appartenere a Villa Bucci",
         "paragraph_second_text": "È la passione di chi lavora ogni giorno in cantina a fare la differenza, trasformando un semplice grappolo d’uva in un’emozione da condividere.",
         "small_image": "shopify://shop_images/Rectangle_16.jpg"
+      }
+    },
+    "columns_layout_4fwkRx": {
+      "type": "columns-layout",
+      "settings": {
+        "main_title": "nel cuore delle marche",
+        "italic_title": "Castelli di Jesi",
+        "paragraph_text": "La storia di un passaggio di consegne che unisce due famiglie, con la promessa di continuare a far risplendere una delle eccellenze vinicole italiane.",
+        "big_image": "shopify://shop_images/237787ff11d965cce37d3dab4311f343.jpg",
+        "small_title": "Le nostre uve",
+        "paragraph_second_text": "Le nostre uve, molto versatili in vinificazione, rappresentano in modo completo la viticoltura regionale, essendo tipicamente ricche, austere, longeve e per questo con grande potenziale d’invecchiamento. Ogni vite viene coltivata con cura artigianale, rispettando l’equilibrio naturale dell’ecosistema.",
+        "small_image": "shopify://shop_images/237787ff11d965cce37d3dab4311f343.jpg"
       }
     },
     "slider_tRxt7j": {
@@ -229,6 +241,7 @@
     "box-text",
     "banner_image_mKwLDU",
     "columns_layout_jJBVKC",
+    "columns_layout_4fwkRx",
     "slider_tRxt7j",
     "product-showcase",
     "centering_text_info_RwEn9A"
