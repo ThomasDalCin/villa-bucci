@@ -36,12 +36,43 @@
     <div class="w-full h-auto flex flex-col items-start justify-center lg:overflow-hidden">
       <div class="slider-product-titles w-full h-auto flex flex-row items-center justify-start">
         {% for product in collections.all.products %}
+
           {% assign productReserve = product.metafields.custom.product_reserve.value %}
-          <div class="product-title-container w-full h-auto min-w-full flex flex-col items-center justify-center lg:gap-y-[30px] lg:items-start">
-            <h2 class="product-title text-[36px] leading-[40px] tracking-[-0.36px] text-center lg:text-[80px] lg:leading-[80px] lg:tracking-[-0.8px] lg:text-left">
-              {{ product.title | upcase }}</h2>
-            <p class="produdct-subtitle text-[14px] leading-[28px] tracking-[0.2px] uppercase">{{ productReserve | upcase
-}}</p>
+          {% assign productPdf = nil %}
+          {% if request.locale.iso_code == "it" %}
+            {% assign productPdf = product.metafields.custom.product_pdf.value %}
+            {% else %}
+            {% assign productPdf = product.metafields.custom.custom.product_pdf_en.value  %}
+          {% endif %}
+
+          <div class="product-title-container w-full h-auto min-w-full flex flex-col items-center justify-center gap-y-10 px-5 lg:items-start">
+
+            <div class="w-full h-auto flex flex-col items-start justify-center gap-y-8">
+              <h2 class="product-title text-[36px] leading-[40px] tracking-[-0.36px] text-center lg:text-[80px] lg:leading-[80px] lg:tracking-[-0.8px] lg:text-left">
+                {{ product.title | upcase }}</h2>
+              <p class="produdct-subtitle text-[14px] leading-[28px] tracking-[0.2px] uppercase">{{ productReserve | upcase }}</p>
+            </div>
+
+            <div class="w-full h-auto flex flex-col items-start justify-center">
+              <a href="{{ productPdf }}" target="_blank">
+                <div class="w-full h-auto flex flex-row items-center justify-start gap-x-2 cursor-pointer">
+
+                  <div class="w-auto h-auto">
+                   {% render 'cta-arrow' %}
+                  </div>
+
+                  <div class="w-auto h-auto flex items-center justify-center">
+                   <p class="text-[14px] leading-[28px] tracking-[0.2px] uppercase">{{ section.settings.cta_text | default: "Scopri il vino" | upcase }}</p>
+                  </div>
+
+                  <div class="w-auto h-auto">
+                   {% render 'cta-play' %}
+                  </div>
+
+               </div>
+              </a>
+            </div>
+
           </div>
         {% endfor %}
       </div>
@@ -152,6 +183,11 @@
         "type": "text",
         "id": "section_heading_text",
         "label": "Section subheading text title"
+      },
+      {
+        "type": "text",
+        "id": "cta_text",
+        "label": "Cta text"
       }
     ]
   }

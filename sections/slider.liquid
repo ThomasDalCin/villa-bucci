@@ -107,6 +107,43 @@
   });
 </script>
 
+{% comment %}
+  <script>
+  document.addEventListener('DOMContentLoaded', () => {
+
+    const sectionId = "{{ section.id }}";
+    const slides = document.querySelectorAll('.swiper-slide');
+    console.log(slides)
+    const counterCurrent = document.querySelector(`#counter-text-{{ section.id }}`);
+    const counterTotal = document.querySelector(`#counter-total-{{ section.id }}`);
+
+    var swiper = new Swiper(`#swiper-container-{{ section.id }}`, {
+    loop: true, 
+    centeredSlides: true, 
+    slidesPerView: 'auto',
+    spaceBetween: 30,
+    navigation: {
+      prevEl: `#arrow-left-${sectionId}`,
+      nextEl: `#arrow-right-${sectionId}`,
+    },
+    on: {
+        init: () => {
+          console.l
+          const slideCount = swiper.slides - 2;
+          const currentIndex = swiper.realIndex + 1;
+
+           counterCurrent.innerHTML = `${currentIndex}`;
+          counterTotal.innerHTML = `${slideCount}`;
+        }
+    }
+    });
+
+
+
+  })
+</script>
+{% endcomment %}
+
 {% schema %}
   {
     "name": "slider",
