@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "current": {
     "logo_width": 90,
@@ -172,7 +181,7 @@
       "navbar": {
         "type": "navbar",
         "settings": {
-          "logo_canteen": "shopify:\/\/shop_images\/villa_bucci_logo_1.svg"
+          "logo_canteen": "shopify://shop_images/villa_bucci_logo_1.svg"
         }
       },
       "footer": {
@@ -182,28 +191,28 @@
             "type": "block_footer_info",
             "settings": {
               "box_title": "Contatti",
-              "box_text": "Via Cona, 30-60010 \u2028Ostra Vetere (AN)\nbucciwines@villabucci.com"
+              "box_text": "Via Cona, 30-60010  Ostra Vetere (AN)\nbucciwines@villabucci.com"
             }
           },
           "block_footer_info_RNT4dm": {
             "type": "block_footer_info",
             "settings": {
               "box_title": "Dati societari",
-              "box_text": "Azienda Agricola F.lli Bucci\u2028P.IVA 00920070422\u2028C.F. 00170290423"
+              "box_text": "Azienda Agricola F.lli Bucci P.IVA 00920070422 C.F. 00170290423"
             }
           },
           "block_footer_info_Qxh93J": {
             "type": "block_footer_info",
             "settings": {
               "box_title": "Network",
-              "box_text": "Instagram\u2028Facebook\nLinkedin"
+              "box_text": "Instagram Facebook\nLinkedin"
             }
           },
           "block_footer_info_dX8AaG": {
             "type": "block_footer_info",
             "settings": {
               "box_title": "Legals",
-              "box_text": "Privacy Policy\u2028Cookies\u2028Credits"
+              "box_text": "Privacy Policy Cookies Credits"
             }
           },
           "block_footer_social_links_8hFwxV": {
@@ -217,20 +226,6 @@
             "type": "block_footer_legal_links",
             "settings": {
               "legal_link_text": "Privacy Policy",
-              "legal_links": ""
-            }
-          },
-          "block_footer_legal_links_tWGjyD": {
-            "type": "block_footer_legal_links",
-            "settings": {
-              "legal_link_text": "Credits",
-              "legal_links": ""
-            }
-          },
-          "block_footer_legal_links_KeLNzg": {
-            "type": "block_footer_legal_links",
-            "settings": {
-              "legal_link_text": "Cookie",
               "legal_links": ""
             }
           },
@@ -256,15 +251,13 @@
           "block_footer_info_dX8AaG",
           "block_footer_social_links_8hFwxV",
           "block_footer_legal_links_wCBFmh",
-          "block_footer_legal_links_tWGjyD",
-          "block_footer_legal_links_KeLNzg",
           "block_footer_social_links_ymGkqN",
           "block_footer_social_links_RXdTfp"
         ],
         "settings": {
           "main_title": "",
           "email_text": "",
-          "footer_logo": "shopify:\/\/shop_images\/villa_bucci_logo_1.svg"
+          "footer_logo": "shopify://shop_images/villa_bucci_logo_1.svg"
         }
       }
     },
