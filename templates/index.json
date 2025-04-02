@@ -1,18 +1,9 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
     "hero": {
       "type": "hero",
       "settings": {
-        "hero_banner_image": "shopify://shop_images/06_cellar.jpg",
+        "hero_banner_image": "shopify:\/\/shop_images\/06_cellar.jpg",
         "hero_text": "Villa Bucci",
         "hero_subheading_text": "Storiadi un capolavoro italiano",
         "hero_banner_video": "",
@@ -26,11 +17,11 @@
         "canteen_info_B4mRR6": {
           "type": "canteen_info",
           "settings": {
-            "section_main_small_title": "<span></span>",
+            "section_main_small_title": "<span><\/span>",
             "section_main_small_title_visibility": false,
-            "section_main_title": "<span></span>",
+            "section_main_title": "<span><\/span>",
             "italic_style_text": "Villa Bucci è una cantina che oltrepassa il tempo e lospazio. Il passato forgiato dalla pionieristica visione di Ampelio Bucci e ilpresente con l’approccio conservativo di Federico Veronesi prosegue l’evoluzionedi Villa Bucci senza cambiare l’armonia che lega vino e natura.",
-            "default_style_text": "<span></span>",
+            "default_style_text": "<span><\/span>",
             "show_subheading": true
           }
         }
@@ -43,7 +34,7 @@
     "banner_image": {
       "type": "banner-image",
       "settings": {
-        "static_image": "shopify://shop_images/c3c9046e37bf6285b3ee24ebdb94f06d.jpg"
+        "static_image": "shopify:\/\/shop_images\/c3c9046e37bf6285b3ee24ebdb94f06d.jpg"
       }
     },
     "columns-layout": {
@@ -52,10 +43,10 @@
         "main_title": "Le Origini",
         "italic_title": "",
         "paragraph_text": "Ampelio Bucci, marchigiano di Montecarotto, ha saputo valorizzare il Verdicchio dei Castelli di Jesi, vitigno autoctono a bacca bianca, creando Villa Bucci. <br>\nUn progetto enoico visionario per un vino iconico dallo stile inconfondibile riconosciuto nel mondo. <br>\nUna famiglia legata alla terra che ha saputo elevarsi con un progetto di vita intrecciato al fattore umano, motore insostituibile di questo capolavoro italiano. Una storia di agricoltura, di persone e di territorio: sintesi perfetta di quello che ancora oggi si trova nei calici  di Villa Bucci.",
-        "big_image": "shopify://shop_images/DSC5144.jpg",
+        "big_image": "shopify:\/\/shop_images\/DSC5144.jpg",
         "small_title": "Dal 1987",
         "paragraph_second_text": "La cantina Villa Bucci prende forma nel 1987, a Ostra Vetere, nell’ entroterra marchigiano a pochi chilometri dal Mar Adriatico, vicino a Senigallia. Terra di produzione di vini da vitigni autoctoni quali il Verdicchio dei Castelli di Jesi e il Rosso Piceno, autentica espressione del terroir delle Marche.",
-        "small_image": "shopify://shop_images/DSC4927.jpg"
+        "small_image": "shopify:\/\/shop_images\/DSC4927.jpg"
       }
     },
     "slider": {
@@ -64,31 +55,31 @@
         "slider_item_gbqxVw": {
           "type": "slider-item",
           "settings": {
-            "slider_image": "shopify://shop_images/1_DSC5000.jpg"
+            "slider_image": "shopify:\/\/shop_images\/1_DSC5000.jpg"
           }
         },
         "slider_item_Ty6iWj": {
           "type": "slider-item",
           "settings": {
-            "slider_image": "shopify://shop_images/2_DSC5036.jpg"
+            "slider_image": "shopify:\/\/shop_images\/2_DSC5036.jpg"
           }
         },
         "slider_item_MmAcEw": {
           "type": "slider-item",
           "settings": {
-            "slider_image": "shopify://shop_images/3_DSC5196.jpg"
+            "slider_image": "shopify:\/\/shop_images\/3_DSC5196.jpg"
           }
         },
         "slider_item_ViWCfB": {
           "type": "slider-item",
           "settings": {
-            "slider_image": "shopify://shop_images/4_DSC4963.jpg"
+            "slider_image": "shopify:\/\/shop_images\/4_DSC4963.jpg"
           }
         },
         "slider_item_6Ezq4b": {
           "type": "slider-item",
           "settings": {
-            "slider_image": "shopify://shop_images/5_DSC4826.jpg"
+            "slider_image": "shopify:\/\/shop_images\/5_DSC4826.jpg"
           }
         }
       },
@@ -107,7 +98,7 @@
         "box_text_rBgmG4": {
           "type": "box-text",
           "settings": {
-            "section_main_title": "<span></span>",
+            "section_main_title": "<span><\/span>",
             "italic_style_text": "Nel cuore delle Marche",
             "efault_style_text": "La coltura naturale delle viti è nel dna di Villa Bucci. Ungruppo di storici collaboratori della cantina si dedicano, ogni giorno, allasalvaguardia dei vigneti distesi sulle colline a Serra de’ Conti, Montecarottoe Ostra Vetere. Suoli calcarei e argillosi sono ideali per trasferire alla vitecaratteristiche che si ritrovano nei vini di Villa Bucci: complessità, eleganzae mineralità.<br><br>Le brezze marine mitigano le giornate soleggiate mentre alcrepuscolo le temperature si stemperano garantendo notti fresche."
           }
@@ -130,7 +121,7 @@
     "banner_image_mKwLDU": {
       "type": "banner-image",
       "settings": {
-        "static_image": "shopify://shop_images/f9d3a491f278e3184ee5b3ca78d53848.png"
+        "static_image": "shopify:\/\/shop_images\/f9d3a491f278e3184ee5b3ca78d53848.png"
       }
     },
     "columns_layout_jJBVKC": {
@@ -144,10 +135,10 @@
         "main_title": "La cantina",
         "italic_title": "La magia delle botti eterne",
         "paragraph_text": "I legni a Villa Bucci non sono semplici contenitori.\nGrandi recipienti di legno esausto di rovere di Slavonia ideali per garantire una micro-ossigenazione naturale attraverso i pori del legno stesso.\nCustodi di memoria enoica del vino che vi ha sostato e che accoglierà, millesimo dopo millesimo, i vini di Villa Bucci.",
-        "big_image": "shopify://shop_images/921c1cda253ca29c3ec9fe981ed1d289.jpg",
+        "big_image": "shopify:\/\/shop_images\/921c1cda253ca29c3ec9fe981ed1d289.jpg",
         "small_title": "Appartenere a Villa Bucci",
         "paragraph_second_text": "È la passione di chi lavora ogni giorno in cantina a fare la differenza, trasformando un semplice grappolo d’uva in un’emozione da condividere.",
-        "small_image": "shopify://shop_images/Rectangle_16.jpg"
+        "small_image": "shopify:\/\/shop_images\/Rectangle_16.jpg"
       }
     },
     "columns_layout_4fwkRx": {
@@ -156,10 +147,10 @@
         "main_title": "nel cuore delle marche",
         "italic_title": "Castelli di Jesi",
         "paragraph_text": "La storia di un passaggio di consegne che unisce due famiglie, con la promessa di continuare a far risplendere una delle eccellenze vinicole italiane.",
-        "big_image": "shopify://shop_images/237787ff11d965cce37d3dab4311f343.jpg",
+        "big_image": "shopify:\/\/shop_images\/237787ff11d965cce37d3dab4311f343.jpg",
         "small_title": "Le nostre uve",
         "paragraph_second_text": "Le nostre uve, molto versatili in vinificazione, rappresentano in modo completo la viticoltura regionale, essendo tipicamente ricche, austere, longeve e per questo con grande potenziale d’invecchiamento. Ogni vite viene coltivata con cura artigianale, rispettando l’equilibrio naturale dell’ecosistema.",
-        "small_image": "shopify://shop_images/237787ff11d965cce37d3dab4311f343.jpg"
+        "small_image": "shopify:\/\/shop_images\/237787ff11d965cce37d3dab4311f343.jpg"
       }
     },
     "slider_tRxt7j": {
@@ -168,25 +159,25 @@
         "slider_item_GfcDBV": {
           "type": "slider-item",
           "settings": {
-            "slider_image": "shopify://shop_images/1_DSC5022.jpg"
+            "slider_image": "shopify:\/\/shop_images\/1_DSC5022.jpg"
           }
         },
         "slider_item_BG6QwL": {
           "type": "slider-item",
           "settings": {
-            "slider_image": "shopify://shop_images/2_DSC4915.jpg"
+            "slider_image": "shopify:\/\/shop_images\/2_DSC4915.jpg"
           }
         },
         "slider_item_dX7PiM": {
           "type": "slider-item",
           "settings": {
-            "slider_image": "shopify://shop_images/3_DSC5047.jpg"
+            "slider_image": "shopify:\/\/shop_images\/3_DSC5047.jpg"
           }
         },
         "slider_item_WMpiNM": {
           "type": "slider-item",
           "settings": {
-            "slider_image": "shopify://shop_images/4_DSC5426.jpg"
+            "slider_image": "shopify:\/\/shop_images\/4_DSC5426.jpg"
           }
         }
       },
@@ -230,7 +221,7 @@
         "@media screen and (min-width: 1024px) {h2 {font-size: 5vw !important; line-height: 5vw !important; } h3 {display: none !important; } p {text-align: left; }}"
       ],
       "settings": {
-        "poster_img": "shopify://shop_images/9786cbf4654b2d0a30fa8abd393a988a.jpg"
+        "poster_img": "shopify:\/\/shop_images\/9786cbf4654b2d0a30fa8abd393a988a.jpg"
       }
     }
   },
