@@ -1,12 +1,20 @@
-
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "hero": {
       "type": "hero",
       "settings": {
-        "hero_banner_image": "shopify://shop_images/f9d3a491f278e3184ee5b3ca78d53848.png",
-        "hero_text": "",
-        "hero_subheading_text": "",
+        "hero_banner_image": "shopify://shop_images/06_cellar.jpg",
+        "hero_text": "Villa Bucci",
+        "hero_subheading_text": "Storiadi un capolavoro italiano",
         "hero_banner_video": "",
         "show_media_video": "hidden",
         "show_media_image": "block"
@@ -18,10 +26,10 @@
         "canteen_info_B4mRR6": {
           "type": "canteen_info",
           "settings": {
-            "section_main_small_title": "",
+            "section_main_small_title": "<span></span>",
             "section_main_small_title_visibility": false,
             "section_main_title": "<span></span>",
-            "italic_style_text": "Villa Bucci è una cantina che oltrepassa il tempo e lo spazio.  Il passato forgiato dalla pionieristica visione di Ampelio Bucci e il presente con l’approccio conservativo di Federico Veronesi prosegue l’evoluzione di Villa Bucci senza cambiare l’armonia che lega vino e natura. ",
+            "italic_style_text": "Villa Bucci è una cantina che oltrepassa il tempo e lospazio. Il passato forgiato dalla pionieristica visione di Ampelio Bucci e ilpresente con l’approccio conservativo di Federico Veronesi prosegue l’evoluzionedi Villa Bucci senza cambiare l’armonia che lega vino e natura.",
             "default_style_text": "<span></span>",
             "show_subheading": true
           }
