@@ -116,7 +116,7 @@
                           <!-- Aggiungi link legali al quarto blocco -->
                           {% for sub_block in section.blocks %}
                             {% if sub_block.type == "block_footer_legal_links" %}
-                              
+
                               {% assign privacyPdf = nil %}
                               {% if request.locale.iso_code == "it" %}
                                 {% assign privacyPdf = block.settings.legal_links %}
