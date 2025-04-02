@@ -116,7 +116,13 @@
                           <!-- Aggiungi link legali al quarto blocco -->
                           {% for sub_block in section.blocks %}
                             {% if sub_block.type == "block_footer_legal_links" %}
-                              <a href="{{ sub_block.settings.legal_links }}">
+                              {% assign privacyPdf = nil %}
+                              {% if request.locale.iso_code == "it" %}
+                                {% assign privacyPdf = block.settings.legal_links %}
+                                {% else %}
+                                {% assign privacyPdf = block.settings.legal_links_en %}
+                              {% endif %}
+                              <a href="{{ privacyPdf }}" target="_blank">
                                 <p class="text-[14px] leading-[20px] tracking-[0.12px]">
                                   {{ sub_block.settings.legal_link_text }}
                                 </p>
