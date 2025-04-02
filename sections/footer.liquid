@@ -42,7 +42,7 @@
         </div>
       </div>
 
-      <div class="w-full h-auto flex flex-col items-start justify-center px-16 pt-[140px] pb-[98px] gap-y-12 relative lg:px-[10vw] lg:pb-[80px] lg:pt-[180px] lg:flex-row lg:items-center lg:justify-start lg:gap-x-[10vw]">
+      <div class="w-full h-auto flex flex-col items-start justify-center px-16 pt-[140px] pb-[98px] gap-y-12 relative lg:px-[80px] lg:pb-[80px] lg:pt-[180px] lg:flex-row lg:items-center lg:justify-start lg:gap-x-[80px]">
 
         <!--container logo-->
         <div class="w-[91px] h-[60px] absolute left-1/2 -translate-x-1/2 top-7">
@@ -52,68 +52,88 @@
         {% assign block_count = 0 %}
 
         <div class="flex flex-col items-start justify-center h-full lg:flex-row lg:flex-1 lg:items-center lg:justify-center">
-          <div class="w-full h-auto flex flex-col items-start justify-center gap-y-12 lg:flex-row lg:items-start lg:justify-center lg:gap-x-[5vw] lg:min-h-[200px]">
-            {% for block in section.blocks %}
-              {% if block.type == 'block_footer_info' %}
-                {% assign block_count = block_count | plus: 1 %}
-                {% if block_count <= 2 %}
-                  <div class="w-auto h-auto flex flex-col items-start justify-start">
-                    <div class="w-auto h-auto flex flex-col items-start justify-center gap-y-4 lg:max-w-[200px]">
-                      <p class="text-[16px] leading-[24px] tracking-[0.12px] text-center" style="color: rgba(0, 0, 0, 0.40);">
-                        {{ block.settings.box_title }}
-                      </p>
-                      <p class="text-[16px] leading-[24px] tracking-[0.12px] lg:w-[10vw]">
-                        {{ block.settings.box_text }}
-                      </p>
-                    </div>
-                  </div>
-                {% endif %}
-              {% endif %}
-            {% endfor %}
-          </div>
-        </div>
-
-        <div class="flex flex-col items-start justify-center lg:flex-1 h-full lg:flex-row lg:items-center lg:justify-center">
-          <div class="w-full h-auto flex flex-col items-start justify-center gap-y-12 lg:flex-row lg:items-start lg:justify-center lg:gap-x-12 lg:min-h-[200px]">
-            {% assign block_count = 0 %}
-            {% for block in section.blocks %}
-              {% if block.type == 'block_footer_info' %}
-                {% assign block_count = block_count | plus: 1 %}
-
-                {% if block_count > 2 and block_count <= 4 %}
+          <div class="w-full h-auto flex flex-col items-start justify-center gap-y-12 lg:flex-row lg:items-start lg:justify-center lg:gap-x-[100px] lg:min-h-[200px]">
+        
+            <!-- Contenitore per il blocco 1 e 2 -->
+            <div class="w-full h-auto flex flex-col items-start justify-start gap-y-12 lg:flex-row lg:items-start lg:justify-center lg:gap-x-[50px] lg:min-h-[200px]">
+              {% assign block_count = 0 %}
+              {% for block in section.blocks %}
+                {% if block.type == 'block_footer_info' %}
+                  {% assign block_count = block_count | plus: 1 %}
+        
+                  {% if block_count == 1 or block_count == 2 %}
                     <div class="w-auto h-auto flex flex-col items-start justify-start">
-                        <div class="w-auto h-auto flex flex-col items-start justify-center gap-y-4 lg:max-w-[200px]">
-                          <p class="text-[16px] leading-[24px] tracking-[0.12px] text-center" style="color: rgba(0, 0, 0, 0.40);">
-                            {{ block.settings.box_title }}
-                          </p>
-                          <div class="w-auto h-auto flex flex-col items-start justify-center">
-                            {% for block in section.blocks %}
-                              {% if block_count >= 1 %}
-                                {% if block.type == "block_footer_links" %}
-                                  <a href="{{ block.settings.social_links }}">
-                                    <p class="text-[16px] leading-[24px] tracking-[0.12px] lg:w-[10vw]">
-                                      {{ block.settings.social_link_text }}
-                                    </p>
-                                  </a>
-                                {% endif %}
-                                {% else %}
-                                {% if block.type == "block_footer_legal_links" %}
-                                  <a href="{{ block.settings.legal_links }}">
-                                    <p class="text-[16px] leading-[24px] tracking-[0.12px] lg:w-[10vw]">
-                                      {{ block.settings.legal_link_text }}
-                                    </p>
-                                  </a>
-                                {% endif %}
-                              {% endif %}
-                            {% endfor %}
-                          </div>
+                      <div class="w-auto h-auto flex flex-col items-start justify-center gap-y-4 lg:max-w-[200px]">
+                        <p class="text-[14px] leading-[20px] tracking-[0.12px] text-center" style="color: rgba(0, 0, 0, 0.40);">
+                          {{ block.settings.box_title }}
+                        </p>
+                        <p class="text-[14px] leading-[20px] tracking-[0.12px]">
+                          {{ block.settings.box_text }}
+                        </p>
+                      </div>
+                    </div>
+                  {% endif %}
+                {% endif %}
+              {% endfor %}
+            </div>
+        
+            <!-- Contenitore per il blocco 3 e 4 -->
+            <div class="w-full h-auto flex flex-col items-start justify-start gap-y-12 lg:flex-row lg:items-start lg:justify-center lg:gap-x-[50px] lg:min-h-[200px]">
+              {% assign block_count = 0 %}
+              {% for block in section.blocks %}
+                {% if block.type == 'block_footer_info' %}
+                  {% assign block_count = block_count | plus: 1 %}
+        
+                  {% if block_count == 3 %}
+                    <div class="w-auto h-auto flex flex-col items-start justify-start">
+                      <div class="w-auto h-auto flex flex-col items-start justify-center gap-y-4 lg:max-w-[200px]">
+                        <p class="text-[14px] leading-[20px] tracking-[0.12px] text-center" style="color: rgba(0, 0, 0, 0.40);">
+                          {{ block.settings.box_title }}
+                        </p>
+                        <div class="w-auto h-auto flex flex-col items-start justify-center">
+                          <!-- Aggiungi link social al terzo blocco -->
+                          {% for sub_block in section.blocks %}
+                            {% if sub_block.type == "block_footer_social_links" %}
+                              <a href="{{ sub_block.settings.social_links }}">
+                                <p class="text-[14px] leading-[20px] tracking-[0.12px]">
+                                  {{ sub_block.settings.social_link_text }}
+                                </p>
+                              </a>
+                            {% endif %}
+                          {% endfor %}
                         </div>
                       </div>
+                    </div>
+                  {% endif %}
+        
+                  {% if block_count == 4 %}
+                    <div class="w-auto h-auto flex flex-col items-start justify-start">
+                      <div class="w-auto h-auto flex flex-col items-start justify-center gap-y-4 lg:max-w-[200px]">
+                        <p class="text-[14px] leading-[20px] tracking-[0.12px] text-center" style="color: rgba(0, 0, 0, 0.40);">
+                          {{ block.settings.box_title }}
+                        </p>
+                        <div class="w-auto h-auto flex flex-col items-start justify-center">
+                          <!-- Aggiungi link legali al quarto blocco -->
+                          {% for sub_block in section.blocks %}
+                            {% if sub_block.type == "block_footer_legal_links" %}
+                              <a href="{{ sub_block.settings.legal_links }}">
+                                <p class="text-[14px] leading-[20px] tracking-[0.12px]">
+                                  {{ sub_block.settings.legal_link_text }}
+                                </p>
+                              </a>
+                            {% endif %}
+                          {% endfor %}
+                        </div>
+                      </div>
+                    </div>
+                  {% endif %}
                 {% endif %}
-              {% endif %}
-            {% endfor %}
+              {% endfor %}
+            </div>
+        
           </div>
         </div>
+        
 
         <!-- line footer center svg -->
         <div class="w-auto h-auto hidden left-1/2 -translate-x-1/2 bottom-0 rotate-full lg:block lg:absolute">
@@ -124,6 +144,8 @@
     </div>
   </div>
 </div>
+
+
 
 {% style %}
   .text-decoration {
