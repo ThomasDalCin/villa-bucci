@@ -226,7 +226,8 @@
             "type": "block_footer_legal_links",
             "settings": {
               "legal_link_text": "Privacy Policy",
-              "legal_links": ""
+              "legal_links": "https://cdn.shopify.com/s/files/1/0930/9359/3353/files/Privacy_policy_Villa_Bucci_it_032025.pdf?v=1743608905",
+              "legal_links_en": "https://cdn.shopify.com/s/files/1/0930/9359/3353/files/Privacy_policy_Villa_Bucci_en_032025.pdf?v=1743608905"
             }
           },
           "block_footer_social_links_ymGkqN": {
