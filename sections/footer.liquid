@@ -3,12 +3,12 @@
 
   <div class="w-full h-auto flex flex-col items-start justify-start">
 
-    <div class="w-full flex flex-col items-center justify-center py-16 lg:py-[24vh]">
+    <div class="w-full flex flex-col items-center justify-center py-16 lg:py-[240px]">
 
       <div class="w-auto h-auto flex flex-col items-center justify-start gap-y-5 lg:gap-y-0">
-        <h2 class="text-[36px] leading-[40px] tracking-[-0.36px] lg:text-[8vw] lg:leading-[8vw] lg:tracking-[-0.8px] uppercase">{{ section.settings.main_title | default: "Contatti" }}</h2>
+        <h2 class="text-[36px] leading-[40px] tracking-[-0.36px] lg:text-[80px] lg:leading-[80px] lg:tracking-[-0.8px] uppercase">{{ section.settings.main_title | default: "Contatti" }}</h2>
         <a href="mailto:bucciwines@villabucci.com">
-          <h2 class="text-[24px] leading-[32px] tracking-[-0.24px] lg:text-[6vw] lg:leading-[8vw] lg:tracking-[-0.6px] italic text-[#FF4A4A] text-decoration">
+          <h2 class="text-[24px] leading-[32px] tracking-[-0.24px] lg:text-[60px] lg:leading-[80px] lg:tracking-[-0.6px] italic text-[#FF4A4A] text-decoration">
             {{ section.settings.email_text | default: "bucciwines@villabucci.com" }}</h2>
         </a>
       </div>
@@ -86,9 +86,27 @@
                           <p class="text-[16px] leading-[24px] tracking-[0.12px] text-center" style="color: rgba(0, 0, 0, 0.40);">
                             {{ block.settings.box_title }}
                           </p>
-                          <p class="text-[16px] leading-[24px] tracking-[0.12px] lg:w-[10vw]">
-                            {{ block.settings.box_text }}
-                          </p>
+                          <div class="w-auto h-auto flex flex-col items-start justify-center">
+                            {% for block in section.blocks %}
+                              {% if block_count >= 1 %}
+                                {% if block.type == "block_footer_links" %}
+                                  <a href="{{ block.settings.social_links }}">
+                                    <p class="text-[16px] leading-[24px] tracking-[0.12px] lg:w-[10vw]">
+                                      {{ block.settings.social_link_text }}
+                                    </p>
+                                  </a>
+                                {% endif %}
+                                {% else %}
+                                {% if block.type == "block_footer_legal_links" %}
+                                  <a href="{{ block.settings.legal_links }}">
+                                    <p class="text-[16px] leading-[24px] tracking-[0.12px] lg:w-[10vw]">
+                                      {{ block.settings.legal_link_text }}
+                                    </p>
+                                  </a>
+                                {% endif %}
+                              {% endif %}
+                            {% endfor %}
+                          </div>
                         </div>
                       </div>
                 {% endif %}
@@ -151,8 +169,39 @@
             "label": "Info block text"
           }
         ]
+      },
+      {
+        "name": "block_footer_social_links",
+        "type": "block_footer_social_links",
+        "settings": [
+          {
+            "type": "text",
+            "id": "social_link_text",
+            "label": "Social link text"
+          },
+          {
+            "type": "url",
+            "id": "social_links",
+            "label": "Social link url"
+          }
+        ]
+      },
+      {
+        "name": "block_footer_legal_links",
+        "type": "block_footer_legal_links",
+        "settings": [
+          {
+            "type": "text",
+            "id": "legal_link_text",
+            "label": "Social link text"
+          },
+          {
+            "type": "url",
+            "id": "legal_links",
+            "label": "Social link url"
+          }
+        ]
       }
-    ],
-    "max_blocks": 4
+    ]
   }
 {% endschema %}
