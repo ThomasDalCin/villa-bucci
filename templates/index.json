@@ -14,7 +14,7 @@
       "settings": {
         "hero_banner_image": "shopify://shop_images/06_cellar.jpg",
         "hero_text": "Villa Bucci",
-        "hero_subheading_text": "Storiadi un capolavoro italiano",
+        "hero_subheading_text": "Storia di un capolavoro italiano",
         "hero_banner_video": "",
         "show_media_video": "hidden",
         "show_media_image": "block"
@@ -26,11 +26,11 @@
         "canteen_info_B4mRR6": {
           "type": "canteen_info",
           "settings": {
-            "section_main_small_title": "<span></span>",
+            "section_main_small_title": "",
             "section_main_small_title_visibility": false,
-            "section_main_title": "<span></span>",
-            "italic_style_text": "Villa Bucci è una cantina che oltrepassa il tempo e lospazio. Il passato forgiato dalla pionieristica visione di Ampelio Bucci e ilpresente con l’approccio conservativo di Federico Veronesi prosegue l’evoluzionedi Villa Bucci senza cambiare l’armonia che lega vino e natura.",
-            "default_style_text": "<span></span>",
+            "section_main_title": "",
+            "italic_style_text": "Villa Bucci è una cantina che oltrepassa il tempo e lo spazio. Il passato forgiato dalla pionieristica visione di Ampelio Bucci e il presente con l’approccio conservativo di Federico Veronesi prosegue l’evoluzione di Villa Bucci senza cambiare l’armonia che lega vino e natura.",
+            "default_style_text": "",
             "show_subheading": true
           }
         }
@@ -55,7 +55,7 @@
         "big_image": "shopify://shop_images/DSC5144.jpg",
         "big_video_portrait": "https://cdn.shopify.com/videos/c/o/v/3c729e1f56a74c3d96b7eaeb8be2db39.mp4",
         "small_title": "Dal 1987",
-        "paragraph_second_text": "La cantina Villa Bucci prende forma nel 1987, a Ostra Vetere, nell’ entroterra marchigiano a pochi chilometri dal Mar Adriatico, vicino a Senigallia. Terra di produzione di vini da vitigni autoctoni quali il Verdicchio dei Castelli di Jesi e il Rosso Piceno, autentica espressione del <i>terroir</i> delle Marche.",
+        "paragraph_second_text": "La cantina Villa Bucci prende forma nel 1987, a Ostra Vetere, nell’entroterra marchigiano a pochi chilometri dal Mar Adriatico, vicino a Senigallia. Terra di produzione di vini da vitigni autoctoni quali il Verdicchio dei Castelli di Jesi e il Rosso Piceno, autentica espressione del <i>terroir</i> delle Marche.",
         "small_image": "shopify://shop_images/DSC4927.jpg",
         "small_video_portrait": "",
         "active_video_portarait": true,
@@ -113,7 +113,7 @@
           "settings": {
             "section_main_title": "",
             "italic_style_text": "Nel cuore delle Marche",
-            "default_style_text": "La coltura naturale delle viti è nel dna di Villa Bucci. Un gruppo di storici collaboratori della cantina si dedicano, ogni giorno, alla salvaguardia dei vigneti distesi sulle colline a Serra de’ Conti, Montecarotto e Ostra Vetere. Suoli calcarei e argillosi sono ideali per trasferire alla vite caratteristiche che si ritrovano nei vini di Villa Bucci: complessità, eleganza e mineralità.<br><br>Le brezze marine mitigano le giornate soleggiate mentre al crepuscolo le temperature si stemperano garantendo notti fresche."
+            "default_style_text": "La coltura naturale delle viti è nel dna di Villa Bucci. Un gruppo di storici collaboratori della cantina si dedicano, ogni giorno, alla salvaguardia dei vigneti distesi sulle colline a Serra de’ Conti, Montecarotto e Ostra Vetere. Suoli calcarei e argillosi sono ideali per trasferire alla vite caratteristiche che si ritrovano nei vini di Villa Bucci: complessità, eleganza e mineralità.Le brezze marine mitigano le giornate soleggiate mentre al crepuscolo le temperature si stemperano garantendo notti fresche."
           }
         },
         "box_text_ryaEA6": {
@@ -121,7 +121,7 @@
           "settings": {
             "section_main_title": "",
             "italic_style_text": "Le nostre uve ",
-            "default_style_text": "Il Verdicchio è il vitigno autoctono a bacca bianca più nota e diffusa nelle Marche. Un nome legato al colore degli acini caratterizzati da una sfumatura verdolina anche in piena maturazione, pur mantenendo dei riflessi dorati.<br><br>A Villa Bucci una piccola porzione della superficie vitata è composta da Montepulciano e Sangiovese, uve a bacca rossa, originale interpretazione del territorio."
+            "default_style_text": "Il Verdicchio è il vitigno autoctono a bacca bianca più nota e diffusa nelle Marche. Un nome legato al colore degli acini caratterizzati da una sfumatura verdolina anche in piena maturazione, pur mantenendo dei riflessi dorati.A Villa Bucci una piccola porzione della superficie vitata è composta da Montepulciano e Sangiovese, uve a bacca rossa, originale interpretazione del territorio."
           }
         }
       },
@@ -151,23 +151,8 @@
         "big_image": "shopify://shop_images/921c1cda253ca29c3ec9fe981ed1d289.jpg",
         "big_video_portrait": "",
         "small_title": "Appartenere a Villa Bucci",
-        "paragraph_second_text": "Nuovi orizzonti, stesse persone \n<br><br> \nAmpelio Bucci, storico proprietario, accompagna la sua creazione verso il futuro affidando la guida a Federico Veronesi. Un progetto che prosegue con una squadra di persone che, con passione e dedizione, hanno affiancato Ampelio e proseguono con Federico per continuare a produrre vini iconici.<br><br>\nAppartenere a Villa Bucci è sinonimo di far parte di una grande famiglia. <br><br>\nLa meraviglia di potersi imbattere in diverse generazioni che prestano il proprio talento per Villa Bucci costituisce un elemento singolare molto affine alla famiglia Veronesi.",
+        "paragraph_second_text": "<i>Nuovi orizzonti, stesse persone </i>\n<br>\nAmpelio Bucci, storico proprietario, accompagna la sua creazione verso il futuro affidando la guida a Federico Veronesi. Un progetto che prosegue con una squadra di persone che, con passione e dedizione, hanno affiancato Ampelio e proseguono con Federico per continuare a produrre vini iconici.<br><br>\nAppartenere a Villa Bucci è sinonimo di far parte di una grande famiglia. <br><br>\nLa meraviglia di potersi imbattere in diverse generazioni che prestano il proprio talento per Villa Bucci costituisce un elemento singolare molto affine alla famiglia Veronesi.\n<br><br><br>\n<i>L’importante del fare “squadra”</i>\n<br>\nÈ la passione di chi lavora a Villa Bucci a fare la differenza: trasformare un semplice grappolo d’ uva in emozione da condividere, ogni giorno, con l’entusiasmo di chi si sente parte di un progetto.",
         "small_image": "shopify://shop_images/Rectangle_16.jpg",
-        "small_video_portrait": "",
-        "active_video_portarait": false,
-        "active_small_video_portarait": false
-      }
-    },
-    "columns_layout_4fwkRx": {
-      "type": "columns-layout",
-      "settings": {
-        "main_title": "<span></span>",
-        "italic_title": "L’importante del fare “squadra”",
-        "paragraph_text": "È la passione di chi lavora a Villa Bucci a fare la differenza: trasformare un semplice grappolo d’ uva in emozione da condividere, ogni giorno, con l’entusiasmo di chi si sente parte di un progetto.",
-        "big_image": "shopify://shop_images/237787ff11d965cce37d3dab4311f343.jpg",
-        "big_video_portrait": "",
-        "small_title": "<span></span>",
-        "paragraph_second_text": "Federico Veronesi prosegue nel segno della continuità.",
         "small_video_portrait": "",
         "active_video_portarait": false,
         "active_small_video_portarait": false
@@ -255,7 +240,6 @@
     "box-text",
     "banner_image_mKwLDU",
     "columns_layout_jJBVKC",
-    "columns_layout_4fwkRx",
     "slider_tRxt7j",
     "product-showcase",
     "centering_text_info_RwEn9A"
