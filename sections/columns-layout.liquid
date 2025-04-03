@@ -1,3 +1,8 @@
+{% assign isVideoMuted = false %}
+{% if section.settings.video_muted %}
+  {% assign isVideoMuted = section.settings.video_muted %}
+{% endif %}
+
 <div class="w-full h-auto px-8 py-[100px] lg:px-[100px]">
   <div class="w-full h-auto flex flex-col items-start justify-center gap-y-[50px] lg:gap-y-[300px]">
 
@@ -5,48 +10,96 @@
 
       <div class="w-full h-auto flex flex-col items-center justify-start gap-y-5">
         <div class="w-full h-auto flex items-start justify-center">
-          <h2 class="text-[36px] leading-[40px] tracking-[-0.36px] uppercase lg:text-[80px] lg:leading-[80px] lg:tracking-[-0.8px]">{{ section.settings.main_title |  upcase |  default: "nel cuore delle marche" }}</h2>
+          <h2 class="text-[36px] leading-[40px] tracking-[-0.36px] uppercase lg:text-[80px] lg:leading-[80px] lg:tracking-[-0.8px]">{{ section.settings.main_title | upcase | default: "nel cuore delle marche" }}</h2>
         </div>
         <div class="w-auto h-auto flex flex-col items-start justify-center gap-y-5">
-          <h2 class="text-[24px] leading-[32px] tracking-[-0.24px] italic lg:text-[32px] lg:leading-[40px] lg:tracking-[0.32x]">{{ section.settings.italic_title |  default: "I Castelli di Jesi" }}</h2>
-          <p class="text-[16px] leading-[28px] tracking-[0.16px]">{{ section.settings.paragraph_text |  default: "La storia di un passaggio di consegne che unisce due famiglie, con la promessa di continuare a far risplendere una delle eccellenze vinicole italiane." }}</p>
+          <h2 class="text-[24px] leading-[32px] tracking-[-0.24px] italic lg:text-[32px] lg:leading-[40px] lg:tracking-[0.32x]">{{ section.settings.italic_title | default: "I Castelli di Jesi" }}</h2>
+          <p class="text-[16px] leading-[28px] tracking-[0.16px]">{{ section.settings.paragraph_text | default: "La storia di un passaggio di consegne che unisce due famiglie, con la promessa di continuare a far risplendere una delle eccellenze vinicole italiane." }}</p>
         </div>
       </div>
 
-      <!--container image-->
+      <!-- container image -->
       <div class="w-full h-auto ">
         <div class="w-full h-[494px] lg:w-[523px] lg:h-[825px]">
-          <img class="w-full h-full object-center object-cover"
-            src="{{ section.settings.big_image | img_url: 'master' }}" alt="{{ section.settings.big_image.alt }}">
+          {% if section.settings.active_video_portarait and section.settings.big_video_portrait %}
+            <div class="w-full h-full">
+              <video
+                class="w-full h-full object-cover object-center"
+                src="{{ section.settings.big_video_portrait }}"
+                autoplay
+                playisinline
+                loop
+                data-audio="{{ isVideoMuted }}"
+                muted
+                id="video-{{ section.id }}"></video>
+            </div>
+          {% else %}
+            <img
+              class="w-full h-full object-center object-cover"
+              src="{{ section.settings.big_image | img_url: 'master' }}"
+              alt="{{ section.settings.big_image.alt }}">
+          {% endif %}
         </div>
       </div>
     </div>
 
     <div class="second-column w-full h-auto flex flex-col items-start justify-center gap-y-[100px] lg:flex-row lg:gap-x-[10vw]">
-      <!--container image-->
+      <!-- container image -->
       <div class="container-small-image w-full h-auto flex items-center justify-center">
         <div class="w-[260px] h-[325px]">
-          <div class="w-full h-full">
-            <img class="w-full h-full object-center object-cover"
-              src="{{ section.settings.small_image | img_url: 'master' }}" alt="{{ section.settings.small_image.alt }}">
-          </div>
+          {% if section.settings.active_small_video_portarait and section.settings.small_video_portrait %}
+            <div class="w-full h-full">
+              <video
+                class="w-full h-full object-cover object-center"
+                src="{{ section.settings.small_video_portrait }}"
+                autoplay
+                playisinline
+                loop
+                data-audio="{{ isVideoMuted }}"
+                muted
+                id="video-{{ section.id }}"></video>
+            </div>
+          {% else %}
+            <img
+              class="w-full h-full object-center object-cover"
+              src="{{ section.settings.small_image | img_url: 'master' }}"
+              alt="{{ section.settings.small_image.alt }}">
+          {% endif %}
         </div>
       </div>
       <div class="w-full h-auto flex flex-col items-start justify-center gap-y-5">
         <div class="w-full h-auto flex items-center justify-start">
-          <h2 class="text-[24px] leading-[32px] tracking-[-0.24px] italic lg:text-[32px] lg:leading-[40px] lg:tracking-[0.32x]">{{ section.settings.small_title |  default: "Le nostre uve" }}</h2>
+          <h2 class="text-[24px] leading-[32px] tracking-[-0.24px] italic lg:text-[32px] lg:leading-[40px] lg:tracking-[0.32x]">{{ section.settings.small_title | default: "Le nostre uve" }}</h2>
         </div>
         <div class="w-auto h-auto flex flex-col items-start justify-center gap-y-5">
-          <p class="text-[16px] leading-[28px] tracking-[0.16px]">{{ section.settings.paragraph_second_text |  default: "Le nostre uve, molto versatili in vinificazione, rappresentano in modo completo la viticoltura regionale, essendo tipicamente ricche, austere, longeve e per questo con grande potenziale d’invecchiamento. Ogni vite viene coltivata con cura artigianale, rispettando l’equilibrio naturale dell’ecosistema." }}</p>
+          <p class="text-[16px] leading-[28px] tracking-[0.16px]">{{ section.settings.paragraph_second_text | default: "Le nostre uve, molto versatili in vinificazione, rappresentano in modo completo la viticoltura regionale, essendo tipicamente ricche, austere, longeve e per questo con grande potenziale d’invecchiamento. Ogni vite viene coltivata con cura artigianale, rispettando l’equilibrio naturale dell’ecosistema." }}</p>
         </div>
       </div>
     </div>
   </div>
 </div>
 
-{% style %}
+<script>
+  document.addEventListener('DOMContentLoaded', () =>{
+    const seciontId = '{{ section.id }}';
+    const videos = document.querySelectorAll(`#video-${seciontId}`);
   
-{% endstyle %}
+    const turnOnAudio = (video) => {
+       const videoAttribute = video.getAttribute('data-audio');
+       console.log(videoAttribute);
+       if (videoAttribute === "false") {
+        video.muted = false;
+      } else  {
+        video.muted = true;
+      }
+    }
+  
+    videos.forEach((video) => {
+      turnOnAudio(video)
+    })
+  
+  })
+</script>
 
 
 {% schema %}
@@ -72,38 +125,57 @@
         "type": "image_picker",
         "label": "Big Image",
         "id": "big_image"
-      },
-      {
+      }, {
+        "type": "url",
+        "id": "big_video_portrait",
+        "label": "Video big portrait source"
+      }, {
         "type": "text",
         "label": "Small Title",
         "id": "small_title"
-      },
-      {
+      }, {
         "type": "textarea",
         "label": "Second Paragraph Text",
         "id": "paragraph_second_text"
-      },
-      {
+      }, {
         "type": "image_picker",
         "label": "Small Image",
         "id": "small_image"
+      }, {
+        "type": "url",
+        "id": "small_video_portrait",
+        "label": "Video small portrait source"
+      }, {
+        "type": "checkbox",
+        "id": "active_video_portarait",
+        "default": false,
+        "label": "Show video big portrait"
+      }, {
+        "type": "checkbox",
+        "id": "active_small_video_portarait",
+        "default": false,
+        "label": "Show video small portrait"
+      }, {
+        "type": "checkbox",
+        "id": "video_muted",
+        "default": true,
+        "label": "Muted video"
       }
     ],
     "presets": [
-    {
-      "name": "Default Layout",
-      "category": "Custom",
-      "settings": {
-        "main_title": "nel cuore delle marche",
-        "italic_title": "Castelli di Jesi",
-        "paragraph_text": "La storia di un passaggio di consegne che unisce due famiglie, con la promessa di continuare a far risplendere una delle eccellenze vinicole italiane.",
-        "big_image": "shopify://shop_images/237787ff11d965cce37d3dab4311f343.jpg",
-        "small_title": "Le nostre uve",
-        "paragraph_second_text": "Le nostre uve, molto versatili in vinificazione, rappresentano in modo completo la viticoltura regionale, essendo tipicamente ricche, austere, longeve e per questo con grande potenziale d’invecchiamento. Ogni vite viene coltivata con cura artigianale, rispettando l’equilibrio naturale dell’ecosistema.",
-        "small_image": "shopify://shop_images/237787ff11d965cce37d3dab4311f343.jpg"
+      {
+        "name": "Default Layout",
+        "category": "Custom",
+        "settings": {
+          "main_title": "nel cuore delle marche",
+          "italic_title": "Castelli di Jesi",
+          "paragraph_text": "La storia di un passaggio di consegne che unisce due famiglie, con la promessa di continuare a far risplendere una delle eccellenze vinicole italiane.",
+          "big_image": "shopify://shop_images/237787ff11d965cce37d3dab4311f343.jpg",
+          "small_title": "Le nostre uve",
+          "paragraph_second_text": "Le nostre uve, molto versatili in vinificazione, rappresentano in modo completo la viticoltura regionale, essendo tipicamente ricche, austere, longeve e per questo con grande potenziale d’invecchiamento. Ogni vite viene coltivata con cura artigianale, rispettando l’equilibrio naturale dell’ecosistema.",
+          "small_image": "shopify://shop_images/237787ff11d965cce37d3dab4311f343.jpg"
+        }
       }
-    }
-  ]
+    ]
   }
-  {% endschema %}
-  
+{% endschema %}
