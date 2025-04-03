@@ -193,6 +193,9 @@
   }
 }
 @layer utilities {
+  .visible {
+    visibility: visible;
+  }
   .absolute {
     position: absolute;
   }
@@ -277,6 +280,9 @@
   .table {
     display: table;
   }
+  .h-\[29px\] {
+    height: 29px;
+  }
   .h-\[40px\] {
     height: 40px;
   }
@@ -331,8 +337,14 @@
   .w-\[46px\] {
     width: 46px;
   }
+  .w-\[70px\] {
+    width: 70px;
+  }
   .w-\[91px\] {
     width: 91px;
+  }
+  .w-\[100px\] {
+    width: 100px;
   }
   .w-\[104px\] {
     width: 104px;
@@ -477,12 +489,21 @@
   .overflow-x-hidden {
     overflow-x: hidden;
   }
+  .rounded-\[18px\] {
+    border-radius: 18px;
+  }
   .border {
     border-style: var(--tw-border-style);
     border-width: 1px;
   }
+  .border-\[\#00000066\] {
+    border-color: #00000066;
+  }
   .bg-\[\#FFF3D8\] {
     background-color: #FFF3D8;
+  }
+  .bg-\[\#FFFBF2\] {
+    background-color: #FFFBF2;
   }
   .bg-white {
     background-color: var(--color-white);
@@ -495,6 +516,12 @@
   }
   .object-center {
     object-position: center;
+  }
+  .px-2 {
+    padding-inline: calc(var(--spacing) * 2);
+  }
+  .px-3 {
+    padding-inline: calc(var(--spacing) * 3);
   }
   .px-5 {
     padding-inline: calc(var(--spacing) * 5);
@@ -511,6 +538,9 @@
   .py-2\.5 {
     padding-block: calc(var(--spacing) * 2.5);
   }
+  .py-3 {
+    padding-block: calc(var(--spacing) * 3);
+  }
   .py-16 {
     padding-block: calc(var(--spacing) * 16);
   }
@@ -520,6 +550,9 @@
   .pt-\[140px\] {
     padding-top: 140px;
   }
+  .pr-7 {
+    padding-right: calc(var(--spacing) * 7);
+  }
   .pb-5 {
     padding-bottom: calc(var(--spacing) * 5);
   }
@@ -528,6 +561,9 @@
   }
   .pb-\[100px\] {
     padding-bottom: 100px;
+  }
+  .pl-3 {
+    padding-left: calc(var(--spacing) * 3);
   }
   .pl-5 {
     padding-left: calc(var(--spacing) * 5);

@@ -44,23 +44,27 @@
 
       <div class="w-full h-auto flex flex-col items-start justify-center px-16 pt-[140px] pb-[98px] gap-y-12 relative lg:px-[80px] lg:pb-[80px] lg:pt-[180px] lg:flex-row lg:items-center lg:justify-start lg:gap-x-[80px]">
 
-        <!--container logo-->
+        <!-- container logo -->
         <div class="w-[91px] h-[60px] absolute left-1/2 -translate-x-1/2 top-7">
-          <img class="w-full h-full object-center object-contain" src="{{ section.settings.footer_logo |  img_url: 'master' }}" alt="{{ section.settings.footer_logo.alt }}">
+          <img
+            class="w-full h-full object-center object-contain"
+            src="{{ section.settings.footer_logo |  img_url: 'master' }}"
+            alt="{{ section.settings.footer_logo.alt }}">
         </div>
 
         {% assign block_count = 0 %}
 
-        <div class="flex flex-col items-start justify-center h-full lg:flex-row lg:flex-1 lg:items-center lg:justify-center">
+          <div class="flex flex-col items-start justify-center h-full gap-y-12 lg:flex-row lg:flex-1 lg:items-center lg:justify-center">
+
           <div class="w-full h-auto flex flex-col items-start justify-center gap-y-12 lg:flex-row lg:items-start lg:justify-center lg:gap-x-[100px] lg:min-h-[200px]">
-        
+
             <!-- Contenitore per il blocco 1 e 2 -->
             <div class="w-full h-auto flex flex-col items-start justify-start gap-y-12 lg:flex-row lg:items-start lg:justify-center lg:gap-x-[50px] lg:min-h-[200px]">
               {% assign block_count = 0 %}
               {% for block in section.blocks %}
                 {% if block.type == 'block_footer_info' %}
                   {% assign block_count = block_count | plus: 1 %}
-        
+
                   {% if block_count == 1 or block_count == 2 %}
                     <div class="w-auto h-auto flex flex-col items-start justify-start">
                       <div class="w-auto h-auto flex flex-col items-start justify-center gap-y-4 lg:max-w-[200px]">
@@ -76,14 +80,14 @@
                 {% endif %}
               {% endfor %}
             </div>
-        
+
             <!-- Contenitore per il blocco 3 e 4 -->
             <div class="w-full h-auto flex flex-col items-start justify-start gap-y-12 lg:flex-row lg:items-start lg:justify-center lg:gap-x-[50px] lg:min-h-[200px]">
               {% assign block_count = 0 %}
               {% for block in section.blocks %}
                 {% if block.type == 'block_footer_info' %}
                   {% assign block_count = block_count | plus: 1 %}
-        
+
                   {% if block_count == 3 %}
                     <div class="w-auto h-auto flex flex-col items-start justify-start">
                       <div class="w-auto h-auto flex flex-col items-start justify-center gap-y-4 lg:max-w-[200px]">
@@ -105,7 +109,7 @@
                       </div>
                     </div>
                   {% endif %}
-        
+
                   {% if block_count == 4 %}
                     <div class="w-auto h-auto flex flex-col items-start justify-start">
                       <div class="w-auto h-auto flex flex-col items-start justify-center gap-y-4 lg:max-w-[200px]">
@@ -120,7 +124,7 @@
                               {% assign privacyPdf = nil %}
                               {% if request.locale.iso_code == "it" %}
                                 {% assign privacyPdf = block.settings.legal_links %}
-                                {% else %}
+                              {% else %}
                                 {% assign privacyPdf = block.settings.legal_links_en %}
                               {% endif %}
 
@@ -138,10 +142,51 @@
                 {% endif %}
               {% endfor %}
             </div>
-        
+
           </div>
+
+          <!-- Localization form -->
+          <div class="w-full h-auto flex flex-col items-start justify-center">
+            {% form 'localization'
+              , id: 'localization_form_tag'
+              , class: "" %}
+              <div>
+                <select id="localeSelect" name="locale_code" class="w-[100px] h-auto bg-[#FFFBF2] rounded-[18px] pl-3 pr-7 py-2 border border-[#00000066]">
+                  {% for locale in shop.published_locales %}
+                    <option
+                      value="{{ locale.iso_code }}"
+                      {% if locale.iso_code == request.locale.iso_code %}
+                        selected
+                      {% endif %}
+                    >
+                      {% case locale.endonym_name %}
+                        {% when 'Italiano' -%}
+                          IT
+                        {% when 'English' -%}
+                          EN
+                        {% else -%}
+                          {{- locale.endonym_name }}
+                      {% endcase %}
+                    </option>
+                  {% endfor %}
+                </select>
+              </div>
+
+              <input
+                type="hidden"
+                name="locale_code"
+                value="{{ request.locale.iso_code }}"
+                id="localeCode">
+
+              <input
+                type="submit"
+                value="Submit"
+                class="hidden">
+            {% endform %}
+          </div>
+
         </div>
-        
+
 
         <!-- line footer center svg -->
         <div class="w-auto h-auto hidden left-1/2 -translate-x-1/2 bottom-0 rotate-full lg:block lg:absolute">
@@ -154,7 +199,6 @@
 </div>
 
 
-
 {% style %}
   .text-decoration {
     text-decoration-line: underline;
@@ -164,6 +208,23 @@
     text-underline-offset: 6px;
   }
 {% endstyle %}
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+      const form = document.getElementById('localization_form_tag');
+      const selectElement = document.getElementById('localeSelect');
+      const localeCodeInput = document.getElementById('localeCode');
+  
+      if (form && selectElement && localeCodeInput) {
+          selectElement.addEventListener('change', function () {
+              const selectedOption = selectElement.options[selectElement.selectedIndex];
+              localeCodeInput.value = selectedOption.value;
+              form.submit();
+          });
+      }
+  });
+</script>
 
 {% schema %}
   {
@@ -177,8 +238,7 @@
         "type": "text",
         "id": "email_text",
         "label": "Email"
-      },
-      {
+      }, {
         "type": "image_picker",
         "id": "footer_logo",
         "label": "Canteen Logo"
@@ -199,8 +259,7 @@
             "label": "Info block text"
           }
         ]
-      },
-      {
+      }, {
         "name": "block_footer_social_links",
         "type": "block_footer_social_links",
         "settings": [
@@ -208,15 +267,13 @@
             "type": "text",
             "id": "social_link_text",
             "label": "Social link text"
-          },
-          {
+          }, {
             "type": "url",
             "id": "social_links",
             "label": "Social link url"
           }
         ]
-      },
-      {
+      }, {
         "name": "block_footer_legal_links",
         "type": "block_footer_legal_links",
         "settings": [
@@ -224,13 +281,11 @@
             "type": "text",
             "id": "legal_link_text",
             "label": "Legal link text"
-          },
-          {
+          }, {
             "type": "url",
             "id": "legal_links",
             "label": "Legal link url"
-          },
-          {
+          }, {
             "type": "url",
             "id": "legal_links_en",
             "label": "Legal link url en"
