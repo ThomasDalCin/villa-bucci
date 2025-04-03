@@ -72,19 +72,20 @@
   </div>
 </div>
 
-{% comment %} <script>
+<script>
   document.addEventListener('DOMContentLoaded', () =>{
     const seciontId = '{{ section.id }}';
+    const activeVideo = '{{ section.settings.active_video_audio }}';
     const videos = document.querySelectorAll(`#video-${seciontId}`);
   
     const turnOnAudio = (video) => {
-       const videoAttribute = video.getAttribute('data-audio');
-       console.log(videoAttribute);
-       if (videoAttribute === "false") {
-        video.muted = false;
-      } else  {
-        video.muted = true;
-      }
+      videos.forEach((video) => {
+        console.log(video);
+        if(activeVideo == "true"){
+          video.muted = false;
+          video.removeAttribute('muted');
+        }
+      })
     }
   
     videos.forEach((video) => {
@@ -92,7 +93,7 @@
     })
   
   })
-</script> {% endcomment %}
+</script>
 
 
 {% schema %}
@@ -148,6 +149,12 @@
         "id": "active_small_video_portarait",
         "default": false,
         "label": "Show video small portrait"
+      },
+      {
+        "type": "checkbox",
+        "id": "active_video_audio",
+        "default": false,
+        "label": "Active video audio"
       }
     ],
     "presets": [
