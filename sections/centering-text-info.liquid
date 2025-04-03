@@ -2,7 +2,7 @@
 <div class="w-full h-auto">
   <div class="w-full flex flex-col items-center justify-center px-8 py-[100px] h-auto min-h-[679px] gap-y-16 lg:px-[5vw] lg:py-[5vw] {% for block in section.blocks %}
   {% if block.type == "canteen_info" %}
-    {% if block.settings.section_main_title == "" and block.settings.section_main_small_title == "" and block.settings.default_style_text == "" %}
+    {% if block.settings.section_main_title == blank and block.settings.section_main_small_title == blank and block.settings.default_style_text == blank %}
       lg:h-[600px]
       lg:min-h-0
     {% else %}
