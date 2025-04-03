@@ -7,7 +7,7 @@
         <div class="w-full h-auto flex flex-col items-start justify-center gap-y-5 lg:gap-y-10 lg:w-auto">
 
           <div class="w-auto h-auto flex flex-col items-start justify-center">
-            {% if block.settings.section_main_title %}
+            {% if block.settings.section_main_title != "" %}
               <h2 class="text-[36px] leading-[40px] tracking-[-0.36px] uppercase lg:text-[80px] lg:leading-[80px] lg:tracking-[-0.8px]">
                 {{ block.settings.section_main_title }}
               </h2>
@@ -15,11 +15,11 @@
           </div>
 
           <div class="w-full h-auto flex flex-col items-start justify-center gap-y-5 lg:gap-y-3 lg:w-auto">
-            {% if block.settings.italic_style_text %}
+            {% if block.settings.italic_style_text != "" %}
               <h3 class="text-[24px] leading-[32px] tracking-[0.24px] lg:text-[32px] lg:leading-[40px] lg:tracking-[0.32px] italic">{{ block.settings.italic_style_text }}</h3>
             {% endif %}
 
-            {% if block.settings.default_style_text %}
+            {% if block.settings.default_style_text != "" %}
               <p class="text-[16px] leading-[28px] tracking-[0.16px] lg:text-[20px] lg:w-[40vw]">{{ block.settings.default_style_text }}</p>
             {% endif %}
           </div>
