@@ -147,11 +147,11 @@
       "settings": {
         "main_title": "La cantina",
         "italic_title": "La magia delle botti eterne",
-        "paragraph_text": "I legni a Villa Bucci non sono semplici contenitori.\nGrandi recipienti di legno esausto di rovere di Slavonia ideali per garantire una micro-ossigenazione naturale attraverso i pori del legno stesso.\nCustodi di memoria enoica del vino che vi ha sostato e che accoglierà, millesimo dopo millesimo, i vini di Villa Bucci.",
+        "paragraph_text": "I legni a Villa Bucci non sono semplici contenitori.<br>\nGrandi recipienti di legno esausto di rovere di Slavonia ideali per garantire una micro-ossigenazione naturale attraverso i pori del legno stesso.<br>\nCustodi di memoria enoica del vino che vi ha sostato e che accoglierà, millesimo dopo millesimo, i vini di Villa Bucci.",
         "big_image": "shopify://shop_images/921c1cda253ca29c3ec9fe981ed1d289.jpg",
         "big_video_portrait": "",
         "small_title": "Appartenere a Villa Bucci",
-        "paragraph_second_text": "È la passione di chi lavora ogni giorno in cantina a fare la differenza, trasformando un semplice grappolo d’uva in un’emozione da condividere.",
+        "paragraph_second_text": "Nuovi orizzonti, stesse persone \n<br><br> \nAmpelio Bucci, storico proprietario, accompagna la sua creazione verso il futuro affidando la guida a Federico Veronesi. Un progetto che prosegue con una squadra di persone che, con passione e dedizione, hanno affiancato Ampelio e proseguono con Federico per continuare a produrre vini iconici.<br><br>\nAppartenere a Villa Bucci è sinonimo di far parte di una grande famiglia. <br><br>\nLa meraviglia di potersi imbattere in diverse generazioni che prestano il proprio talento per Villa Bucci costituisce un elemento singolare molto affine alla famiglia Veronesi.",
         "small_image": "shopify://shop_images/Rectangle_16.jpg",
         "small_video_portrait": "",
         "active_video_portarait": false,
@@ -161,14 +161,13 @@
     "columns_layout_4fwkRx": {
       "type": "columns-layout",
       "settings": {
-        "main_title": "nel cuore delle marche",
-        "italic_title": "Castelli di Jesi",
-        "paragraph_text": "La storia di un passaggio di consegne che unisce due famiglie, con la promessa di continuare a far risplendere una delle eccellenze vinicole italiane.",
+        "main_title": "<span></span>",
+        "italic_title": "L’importante del fare “squadra”",
+        "paragraph_text": "È la passione di chi lavora a Villa Bucci a fare la differenza: trasformare un semplice grappolo d’ uva in emozione da condividere, ogni giorno, con l’entusiasmo di chi si sente parte di un progetto.",
         "big_image": "shopify://shop_images/237787ff11d965cce37d3dab4311f343.jpg",
         "big_video_portrait": "",
-        "small_title": "Le nostre uve",
-        "paragraph_second_text": "Le nostre uve, molto versatili in vinificazione, rappresentano in modo completo la viticoltura regionale, essendo tipicamente ricche, austere, longeve e per questo con grande potenziale d’invecchiamento. Ogni vite viene coltivata con cura artigianale, rispettando l’equilibrio naturale dell’ecosistema.",
-        "small_image": "shopify://shop_images/237787ff11d965cce37d3dab4311f343.jpg",
+        "small_title": "<span></span>",
+        "paragraph_second_text": "Federico Veronesi prosegue nel segno della continuità.",
         "small_video_portrait": "",
         "active_video_portarait": false,
         "active_small_video_portarait": false
