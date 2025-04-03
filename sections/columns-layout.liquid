@@ -1,8 +1,3 @@
-{% assign isVideoMuted = false %}
-{% if section.settings.video_muted %}
-  {% assign isVideoMuted = section.settings.video_muted %}
-{% endif %}
-
 <div class="w-full h-auto px-8 py-[100px] lg:px-[100px]">
   <div class="w-full h-auto flex flex-col items-start justify-center gap-y-[50px] lg:gap-y-[300px]">
 
@@ -29,7 +24,6 @@
                 autoplay
                 playisinline
                 loop
-                data-audio="{{ isVideoMuted }}"
                 muted
                 id="video-{{ section.id }}"></video>
             </div>
@@ -55,7 +49,6 @@
                 autoplay
                 playisinline
                 loop
-                data-audio="{{ isVideoMuted }}"
                 muted
                 id="video-{{ section.id }}"></video>
             </div>
@@ -79,7 +72,7 @@
   </div>
 </div>
 
-<script>
+{% comment %} <script>
   document.addEventListener('DOMContentLoaded', () =>{
     const seciontId = '{{ section.id }}';
     const videos = document.querySelectorAll(`#video-${seciontId}`);
@@ -99,7 +92,7 @@
     })
   
   })
-</script>
+</script> {% endcomment %}
 
 
 {% schema %}
@@ -155,11 +148,6 @@
         "id": "active_small_video_portarait",
         "default": false,
         "label": "Show video small portrait"
-      }, {
-        "type": "checkbox",
-        "id": "video_muted",
-        "default": true,
-        "label": "Muted video"
       }
     ],
     "presets": [
