@@ -72,7 +72,7 @@
   </div>
 </div>
 
-<script>
+{% comment %} <script>
   document.addEventListener('DOMContentLoaded', () =>{
     const seciontId = '{{ section.id }}';
     const activeVideo = '{{ section.settings.active_video_audio }}';
@@ -93,7 +93,7 @@
     })
   
   })
-</script>
+</script> {% endcomment %}
 
 
 {% schema %}
@@ -149,13 +149,13 @@
         "id": "active_small_video_portarait",
         "default": false,
         "label": "Show video small portrait"
-      },
-      {
-        "type": "checkbox",
-        "id": "active_video_audio",
-        "default": false,
-        "label": "Active video audio"
       }
+      // {
+      //   "type": "checkbox",
+      //   "id": "active_video_audio",
+      //   "default": false,
+      //   "label": "Active video audio"
+      // }
     ],
     "presets": [
       {
