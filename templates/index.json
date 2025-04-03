@@ -60,7 +60,7 @@
         "small_video_portrait": "",
         "active_video_portarait": true,
         "active_small_video_portarait": false,
-        "video_muted": false
+        "active_video_audio": true
       }
     },
     "slider": {
@@ -157,7 +157,7 @@
         "small_video_portrait": "",
         "active_video_portarait": false,
         "active_small_video_portarait": false,
-        "video_muted": true
+        "active_video_audio": false
       }
     },
     "columns_layout_4fwkRx": {
@@ -174,7 +174,7 @@
         "small_video_portrait": "",
         "active_video_portarait": false,
         "active_small_video_portarait": false,
-        "video_muted": true
+        "active_video_audio": false
       }
     },
     "slider_tRxt7j": {
