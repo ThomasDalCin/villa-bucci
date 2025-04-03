@@ -234,7 +234,7 @@
             "type": "block_footer_social_links",
             "settings": {
               "social_link_text": "Facebook",
-              "social_links": ""
+              "social_links": "https://www.facebook.com/VillaBucci/"
             }
           },
           "block_footer_social_links_RXdTfp": {
