@@ -219,7 +219,7 @@
             "type": "block_footer_social_links",
             "settings": {
               "social_link_text": "Instagram",
-              "social_links": ""
+              "social_links": "https://www.instagram.com/villabucci/?hl=it"
             }
           },
           "block_footer_legal_links_wCBFmh": {
