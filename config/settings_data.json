@@ -239,6 +239,7 @@
           },
           "block_footer_social_links_RXdTfp": {
             "type": "block_footer_social_links",
+            "disabled": true,
             "settings": {
               "social_link_text": "Linkedin",
               "social_links": ""
