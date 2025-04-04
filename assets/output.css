@@ -40,8 +40,11 @@
       "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
+    --color-amber-50: oklch(98.7% 0.022 95.277);
+    --color-blue-50: oklch(97% 0.014 254.604);
     --color-white: #fff;
     --spacing: 0.25rem;
+    --leading-normal: 1.5;
     --ease-in: cubic-bezier(0.4, 0, 1, 1);
     --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
     --default-transition-duration: 150ms;
@@ -193,9 +196,6 @@
   }
 }
 @layer utilities {
-  .visible {
-    visibility: visible;
-  }
   .absolute {
     position: absolute;
   }
@@ -280,6 +280,9 @@
   .table {
     display: table;
   }
+  .h-\[20px\] {
+    height: 20px;
+  }
   .h-\[29px\] {
     height: 29px;
   }
@@ -325,9 +328,6 @@
   .h-svh {
     height: 100svh;
   }
-  .min-h-\[600px\] {
-    min-height: 600px;
-  }
   .min-h-\[679px\] {
     min-height: 679px;
   }
@@ -337,8 +337,8 @@
   .w-\[46px\] {
     width: 46px;
   }
-  .w-\[70px\] {
-    width: 70px;
+  .w-\[80px\] {
+    width: 80px;
   }
   .w-\[91px\] {
     width: 91px;
@@ -505,6 +505,9 @@
   .bg-\[\#FFFBF2\] {
     background-color: #FFFBF2;
   }
+  .bg-amber-50 {
+    background-color: var(--color-amber-50);
+  }
   .bg-white {
     background-color: var(--color-white);
   }
@@ -516,12 +519,6 @@
   }
   .object-center {
     object-position: center;
-  }
-  .px-2 {
-    padding-inline: calc(var(--spacing) * 2);
-  }
-  .px-3 {
-    padding-inline: calc(var(--spacing) * 3);
   }
   .px-5 {
     padding-inline: calc(var(--spacing) * 5);
@@ -537,9 +534,6 @@
   }
   .py-2\.5 {
     padding-block: calc(var(--spacing) * 2.5);
-  }
-  .py-3 {
-    padding-block: calc(var(--spacing) * 3);
   }
   .py-16 {
     padding-block: calc(var(--spacing) * 16);
@@ -615,6 +609,10 @@
   .leading-\[60px\] {
     --tw-leading: 60px;
     line-height: 60px;
+  }
+  .leading-normal {
+    --tw-leading: var(--leading-normal);
+    line-height: var(--leading-normal);
   }
   .tracking-\[-0\.6px\] {
     --tw-tracking: -0.6px;
@@ -692,6 +690,32 @@
   .ease-in-out {
     --tw-ease: var(--ease-in-out);
     transition-timing-function: var(--ease-in-out);
+  }
+  .checked\:bg-amber-50 {
+    &:checked {
+      background-color: var(--color-amber-50);
+    }
+  }
+  .focus\:bg-\[\#FFFBF2\] {
+    &:focus {
+      background-color: #FFFBF2;
+    }
+  }
+  .focus\:outline-0 {
+    &:focus {
+      outline-style: var(--tw-outline-style);
+      outline-width: 0px;
+    }
+  }
+  .active\:bg-\[\#00000066\] {
+    &:active {
+      background-color: #00000066;
+    }
+  }
+  .active\:bg-blue-50 {
+    &:active {
+      background-color: var(--color-blue-50);
+    }
   }
   .lg\:absolute {
     @media (width >= 64rem) {
@@ -778,11 +802,6 @@
       height: 825px;
     }
   }
-  .lg\:h-\[870px\] {
-    @media (width >= 64rem) {
-      height: 870px;
-    }
-  }
   .lg\:h-\[900px\] {
     @media (width >= 64rem) {
       height: 900px;
@@ -796,21 +815,6 @@
   .lg\:h-full {
     @media (width >= 64rem) {
       height: 100%;
-    }
-  }
-  .lg\:max-h-0 {
-    @media (width >= 64rem) {
-      max-height: calc(var(--spacing) * 0);
-    }
-  }
-  .lg\:max-h-\[600px\] {
-    @media (width >= 64rem) {
-      max-height: 600px;
-    }
-  }
-  .lg\:max-h-\[650px\] {
-    @media (width >= 64rem) {
-      max-height: 650px;
     }
   }
   .lg\:max-h-none {
@@ -833,24 +837,9 @@
       min-height: 200px;
     }
   }
-  .lg\:min-h-\[600px\] {
-    @media (width >= 64rem) {
-      min-height: 600px;
-    }
-  }
-  .lg\:min-h-\[816px\] {
-    @media (width >= 64rem) {
-      min-height: 816px;
-    }
-  }
   .lg\:min-h-\[825px\] {
     @media (width >= 64rem) {
       min-height: 825px;
-    }
-  }
-  .lg\:min-h-\[870px\] {
-    @media (width >= 64rem) {
-      min-height: 870px;
     }
   }
   .lg\:w-\[10vw\] {
@@ -866,11 +855,6 @@
   .lg\:w-\[40vw\] {
     @media (width >= 64rem) {
       width: 40vw;
-    }
-  }
-  .lg\:w-\[60vw\] {
-    @media (width >= 64rem) {
-      width: 60vw;
     }
   }
   .lg\:w-\[523px\] {
@@ -1136,11 +1120,6 @@
       text-align: left;
     }
   }
-  .lg\:text-\[8vw\] {
-    @media (width >= 64rem) {
-      font-size: 8vw;
-    }
-  }
   .lg\:text-\[20px\] {
     @media (width >= 64rem) {
       font-size: 20px;
@@ -1169,12 +1148,6 @@
   .lg\:text-\[120px\] {
     @media (width >= 64rem) {
       font-size: 120px;
-    }
-  }
-  .lg\:leading-\[10vw\] {
-    @media (width >= 64rem) {
-      --tw-leading: 10vw;
-      line-height: 10vw;
     }
   }
   .lg\:leading-\[28px\] {

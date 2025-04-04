@@ -150,10 +150,10 @@
             {% form 'localization'
               , id: 'localization_form_tag'
               , class: "" %}
-              <div>
-                <select id="localeSelect" name="locale_code" class="w-[100px] h-auto bg-[#FFFBF2] rounded-[18px] pl-3 pr-7 py-2 border border-[#00000066]">
+              <div class="w-auto h-auto relative">
+                <select id="localeSelect" name="locale_code" class="w-[80px] h-[29px] bg-[#FFFBF2] rounded-[18px] pl-3 pr-7 border border-[#00000066] text-[12px] leading-normal flex items-center justify-center custom-select focus:bg-[#FFFBF2] focus:outline-0">
                   {% for locale in shop.published_locales %}
-                    <option
+                    <option class="text-[12px] leading-normal active:bg-[#00000066]"
                       value="{{ locale.iso_code }}"
                       {% if locale.iso_code == request.locale.iso_code %}
                         selected
@@ -170,6 +170,10 @@
                     </option>
                   {% endfor %}
                 </select>
+                <!--content svg -->
+                <div class="w-auto h-auto absolute right-0 top-0">
+                  {% render 'select-svg' %}
+                </div>
               </div>
 
               <input
@@ -206,6 +210,11 @@
     text-decoration-skip-ink: none;
     text-decoration-thickness: 1px;
     text-underline-offset: 6px;
+  }
+  .custom-select{
+    -webkit-appearance: none;
+    -moz-appearance: none;  
+    appearance: none;
   }
 {% endstyle %}
 
