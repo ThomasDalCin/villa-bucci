@@ -722,6 +722,11 @@
       position: absolute;
     }
   }
+  .lg\:relative {
+    @media (width >= 64rem) {
+      position: relative;
+    }
+  }
   .lg\:static {
     @media (width >= 64rem) {
       position: static;
@@ -737,6 +742,16 @@
       top: 85vh;
     }
   }
+  .lg\:right-0 {
+    @media (width >= 64rem) {
+      right: calc(var(--spacing) * 0);
+    }
+  }
+  .lg\:right-16 {
+    @media (width >= 64rem) {
+      right: calc(var(--spacing) * 16);
+    }
+  }
   .lg\:right-\[20vw\] {
     @media (width >= 64rem) {
       right: 20vw;
@@ -745,6 +760,21 @@
   .lg\:bottom-0 {
     @media (width >= 64rem) {
       bottom: calc(var(--spacing) * 0);
+    }
+  }
+  .lg\:bottom-7 {
+    @media (width >= 64rem) {
+      bottom: calc(var(--spacing) * 7);
+    }
+  }
+  .lg\:bottom-10 {
+    @media (width >= 64rem) {
+      bottom: calc(var(--spacing) * 10);
+    }
+  }
+  .lg\:bottom-16 {
+    @media (width >= 64rem) {
+      bottom: calc(var(--spacing) * 16);
     }
   }
   .lg\:left-0 {
