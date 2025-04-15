@@ -121,14 +121,14 @@
                           {% for sub_block in section.blocks %}
                             {% if sub_block.type == "block_footer_legal_links" %}
 
-                              {% assign privacyPdf = nil %}
+                              {% assign privacpdf = nil %}
                               {% if request.locale.iso_code == "it" %}
-                                {% assign privacyPdf = block.settings.legal_links %}
-                              {% else %}
-                                {% assign privacyPdf = block.settings.legal_links_en %}
+                                 {% assign privacpdf = sub_block.settings.legal_links %}
+                                {% else %}
+                                {% assign privacpdf = sub_block.settings.legal_links_en %}
                               {% endif %}
 
-                              <a href="{{ privacyPdf }}" target="_blank">
+                              <a href="{{ privacpdf }}" target="_blank">
                                 <p class="text-[14px] leading-[20px] tracking-[0.12px]">
                                   {{ sub_block.settings.legal_link_text }}
                                 </p>
